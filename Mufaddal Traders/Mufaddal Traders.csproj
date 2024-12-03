@@ -231,5 +231,11 @@
   <ItemGroup>
     <None Include="Resources\orange-circle-png-3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cropped-Logo-2048x1100 %281%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
