@@ -33,10 +33,28 @@ namespace Mufaddal_Traders
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
-            pnlLoginInterface1.BackColor = Color.FromArgb(100, 0, 0, 0);
+            //pnlLoginInterface1.BackColor = Color.FromArgb(100, 0, 0, 0);
             this.pnlCreateAcc.Visible = false;
             pnlNewPassword.Visible = false;
             pnlForgotPassword.Visible = false;
+            pnlForgotPassword.BackColor = Color.FromArgb(150, 192, 192, 192);
+            pnlCreateAcc.BackColor = Color.FromArgb(150, 192, 192, 192);
+            pnlLoginInterface1.BackColor = Color.FromArgb(150, 192, 192, 192);
+            pnlNewPassword.BackColor = Color.FromArgb(150, 192, 192, 192);
+            
+
+
+
+
+
+            /*// Set the label's background to transparent
+            label4.BackColor = Color.Transparent;
+
+            // Assign the parent (the form itself or a panel with the background)
+            label4.Parent = this; // 'this' refers to the current form
+
+            // Force a redraw to ensure transparency is applied
+            label4.Invalidate();*/
         }
 
         private void lblCreateAccount_Click(object sender, EventArgs e)

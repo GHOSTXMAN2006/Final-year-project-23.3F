@@ -385,6 +385,26 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wallpaperflare_com_wallpaper__5__removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperflare.com_wallpaper__5_-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wallpaperflare1 {
+            get {
+                object obj = ResourceManager.GetObject("wallpaperflare1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhatsApp_Image_2022_06_03_at_12_59_38_PM_1 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp-Image-2022-06-03-at-12.59.38-PM 1", resourceCulture);

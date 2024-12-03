@@ -249,5 +249,11 @@
   <ItemGroup>
     <None Include="Resources\wallpaperflare.com_wallpaper %285%29.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper__5_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wallpaperflare.com_wallpaper__5_-removebg-preview1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
