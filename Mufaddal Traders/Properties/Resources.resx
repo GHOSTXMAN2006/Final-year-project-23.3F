@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cropped-Logo-2048x1100 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cropped-Logo-2048x1100 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,11 +133,8 @@
   <data name="png-transparent-black-computer-data-analysis-chart-computer-icons-analytics-seo-analysis-icon-miscellaneous-text-logo-thumbnail-removebg-preview-" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-black-computer-data-analysis-chart-computer-icons-analytics-seo-analysis-icon-miscellaneous-text-logo-thumbnail-removebg-preview-.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3114815" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3114815.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="style1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\style1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,11 +145,11 @@
   <data name="57606951" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\57606951.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="orange-circle-png-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orange-circle-png-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="style11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\style11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="31148151" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\31148151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,26 +166,29 @@
   <data name="png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WhatsApp-Image-2022-06-03-at-12.59.38-PM 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp-Image-2022-06-03-at-12.59.38-PM 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="orange-circle-png-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orange-circle-png-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="image20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="5760695" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5760695.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="3114815" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3114815.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngtree-customer-icon-customer-employee-png-image_10853541" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-customer-icon-customer-employee-png-image_10853541.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="style1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\style1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,7 +196,7 @@
   <data name="icon6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Login-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
