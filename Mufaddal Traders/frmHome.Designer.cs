@@ -75,7 +75,7 @@ namespace Mufaddal_Traders
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.guna2Button7);
@@ -87,14 +87,14 @@ namespace Mufaddal_Traders
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogin.BorderColor = System.Drawing.Color.SpringGreen;
             this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogin.FillColor = System.Drawing.Color.White;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.GrayText;
             this.btnLogin.HoverState.BorderColor = System.Drawing.Color.MediumSpringGreen;
             this.btnLogin.HoverState.FillColor = System.Drawing.Color.LightGreen;
@@ -109,14 +109,14 @@ namespace Mufaddal_Traders
             // 
             // guna2Button7
             // 
-            this.guna2Button7.BackColor = System.Drawing.Color.White;
+            this.guna2Button7.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button7.BorderColor = System.Drawing.Color.SpringGreen;
             this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.FillColor = System.Drawing.Color.White;
-            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button7.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold);
             this.guna2Button7.ForeColor = System.Drawing.SystemColors.GrayText;
             this.guna2Button7.HoverState.BorderColor = System.Drawing.Color.MediumSpringGreen;
             this.guna2Button7.HoverState.FillColor = System.Drawing.Color.LightGreen;
