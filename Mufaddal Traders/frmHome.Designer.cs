@@ -264,7 +264,7 @@ namespace Mufaddal_Traders
             this.picHeader.Controls.Add(this.picMinimize);
             this.picHeader.Controls.Add(this.picClose);
             this.picHeader.Location = new System.Drawing.Point(7, 6);
-            this.picHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHeader.Margin = new System.Windows.Forms.Padding(4);
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(2372, 47);
             this.picHeader.TabIndex = 7;
@@ -274,7 +274,7 @@ namespace Mufaddal_Traders
             // 
             this.picMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
             this.picMinimize.Location = new System.Drawing.Point(55, 10);
-            this.picMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picMinimize.Margin = new System.Windows.Forms.Padding(4);
             this.picMinimize.Name = "picMinimize";
             this.picMinimize.Size = new System.Drawing.Size(31, 28);
             this.picMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -286,7 +286,7 @@ namespace Mufaddal_Traders
             // 
             this.picClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_emoji_512x512_8xv6a7vo;
             this.picClose.Location = new System.Drawing.Point(16, 10);
-            this.picClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picClose.Margin = new System.Windows.Forms.Padding(4);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(31, 28);
             this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -297,11 +297,11 @@ namespace Mufaddal_Traders
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(125, 335);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(881, 110);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(143, 20);
             this.guna2HtmlLabel1.TabIndex = 5;
             this.guna2HtmlLabel1.Text = "Welcome to MTSMS";
             // 
@@ -330,7 +330,7 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHome";
