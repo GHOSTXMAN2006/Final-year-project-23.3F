@@ -64,12 +64,6 @@
     <Compile Include="frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHomeInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHomeInterface.Designer.cs">
-      <DependentUpon>frmHomeInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmLoginInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,9 +107,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHomeInterface.resx">
-      <DependentUpon>frmHomeInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoginInterface.resx">
       <DependentUpon>frmLoginInterface.cs</DependentUpon>
