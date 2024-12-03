@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DEBC7E4-30C6-4A64-8827-15D4D1A1E798}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Mufaddal_Traders</RootNamespace>
+    <AssemblyName>Mufaddal Traders</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmDashBoardItAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashBoardItAdmin.Designer.cs">
+      <DependentUpon>frmDashBoardItAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHomeInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHomeInterface.Designer.cs">
+      <DependentUpon>frmHomeInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginInterface.Designer.cs">
+      <DependentUpon>frmLoginInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManagePurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManagePurchaseOrder.Designer.cs">
+      <DependentUpon>frmManagePurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStoreKeeperAddItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStoreKeeperAddItems.Designer.cs">
+      <DependentUpon>frmStoreKeeperAddItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStoreKeeperMenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStoreKeeperMenue.Designer.cs">
+      <DependentUpon>frmStoreKeeperMenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserProfileInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserProfileInterface.Designer.cs">
+      <DependentUpon>frmUserProfileInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewStoreKeeperAddItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewStoreKeeperAddItems.Designer.cs">
+      <DependentUpon>frmViewStoreKeeperAddItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDashBoardItAdmin.resx">
+      <DependentUpon>frmDashBoardItAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHomeInterface.resx">
+      <DependentUpon>frmHomeInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginInterface.resx">
+      <DependentUpon>frmLoginInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManagePurchaseOrder.resx">
+      <DependentUpon>frmManagePurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStoreKeeperAddItems.resx">
+      <DependentUpon>frmStoreKeeperAddItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStoreKeeperMenue.resx">
+      <DependentUpon>frmStoreKeeperMenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserProfileInterface.resx">
+      <DependentUpon>frmUserProfileInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewStoreKeeperAddItems.resx">
+      <DependentUpon>frmViewStoreKeeperAddItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\style1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\style11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3114815.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-black-computer-data-analysis-chart-computer-icons-analytics-seo-analysis-icon-miscellaneous-text-logo-thumbnail-removebg-preview-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image201.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5760695.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57606951.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-customer-icon-customer-employee-png-image_10853541.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31148151.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cropped-Logo-2048x1100 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp-Image-2022-06-03-at-12.59.38-PM 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update cutomer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-circle-emoji-512x512-8xv6a7vo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orange-circle-png-3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
