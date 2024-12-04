@@ -72,5 +72,22 @@ namespace Mufaddal_Traders
         {
 
         }
+
+        private void btnProfilePic_Click(object sender, EventArgs e)
+        {
+            // Create and configure OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select a Profile Picture",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            };
+
+            // Show the dialog and check if the user selects a file
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Load the selected image into the PictureBox
+                btnProfilePic.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
     }
 }

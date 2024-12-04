@@ -69,14 +69,13 @@ namespace Mufaddal_Traders
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.btnProfilePic = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
@@ -85,15 +84,14 @@ namespace Mufaddal_Traders
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // picHeader
@@ -127,10 +125,11 @@ namespace Mufaddal_Traders
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.guna2Panel1.Controls.Add(this.guna2Button1);
+            this.guna2Panel1.Controls.Add(this.btnProfilePic);
             this.guna2Panel1.Controls.Add(this.guna2Button4);
             this.guna2Panel1.Controls.Add(this.guna2TextBox6);
             this.guna2Panel1.Controls.Add(this.label7);
-            this.guna2Panel1.Controls.Add(this.pictureBox13);
             this.guna2Panel1.Controls.Add(this.btnDelete);
             this.guna2Panel1.Controls.Add(this.btnEdit);
             this.guna2Panel1.Controls.Add(this.pictureBox11);
@@ -143,7 +142,6 @@ namespace Mufaddal_Traders
             this.guna2Panel1.Controls.Add(this.guna2TextBox5);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.pictureBox2);
             this.guna2Panel1.Location = new System.Drawing.Point(99, 154);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -383,18 +381,25 @@ namespace Mufaddal_Traders
             this.label3.Text = "Welcome,";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox13
+            // btnProfilePic
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox13.Image = global::Mufaddal_Traders.Properties.Resources.Info;
-            this.pictureBox13.Location = new System.Drawing.Point(523, 187);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 155;
-            this.pictureBox13.TabStop = false;
+            this.btnProfilePic.Animated = true;
+            this.btnProfilePic.AutoRoundedCorners = true;
+            this.btnProfilePic.BorderRadius = 58;
+            this.btnProfilePic.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnProfilePic.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnProfilePic.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnProfilePic.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnProfilePic.FillColor = System.Drawing.Color.Transparent;
+            this.btnProfilePic.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnProfilePic.ForeColor = System.Drawing.Color.White;
+            this.btnProfilePic.Image = global::Mufaddal_Traders.Properties.Resources._69159871;
+            this.btnProfilePic.ImageSize = new System.Drawing.Size(118, 118);
+            this.btnProfilePic.Location = new System.Drawing.Point(41, 42);
+            this.btnProfilePic.Name = "btnProfilePic";
+            this.btnProfilePic.Size = new System.Drawing.Size(118, 118);
+            this.btnProfilePic.TabIndex = 24;
+            this.btnProfilePic.Click += new System.EventHandler(this.btnProfilePic_Click);
             // 
             // btnDelete
             // 
@@ -443,7 +448,7 @@ namespace Mufaddal_Traders
             // 
             // pictureBox11
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.White;
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox11.Image = global::Mufaddal_Traders.Properties.Resources.Phone;
             this.pictureBox11.Location = new System.Drawing.Point(455, 337);
@@ -456,7 +461,7 @@ namespace Mufaddal_Traders
             // 
             // pictureBox12
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox12.Image = global::Mufaddal_Traders.Properties.Resources.mail;
             this.pictureBox12.Location = new System.Drawing.Point(455, 263);
@@ -469,7 +474,7 @@ namespace Mufaddal_Traders
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Image = global::Mufaddal_Traders.Properties.Resources.Lock;
             this.pictureBox4.Location = new System.Drawing.Point(51, 337);
@@ -482,7 +487,7 @@ namespace Mufaddal_Traders
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Image = global::Mufaddal_Traders.Properties.Resources.account_circle;
             this.pictureBox3.Location = new System.Drawing.Point(51, 263);
@@ -492,18 +497,6 @@ namespace Mufaddal_Traders
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources._6915987;
-            this.pictureBox2.Location = new System.Drawing.Point(26, 40);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(115, 118);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
             // 
             // btnMinimize
             // 
@@ -653,6 +646,25 @@ namespace Mufaddal_Traders
             this.btnAccount.Size = new System.Drawing.Size(60, 56);
             this.btnAccount.TabIndex = 18;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BorderRadius = 13;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Image = global::Mufaddal_Traders.Properties.Resources.Info;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(28, 28);
+            this.guna2Button1.Location = new System.Drawing.Point(523, 186);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(28, 28);
+            this.guna2Button1.TabIndex = 41;
+            // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,12 +686,10 @@ namespace Mufaddal_Traders
             this.panel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -713,10 +723,10 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private PictureBox pictureBox13;
+        private Guna.UI2.WinForms.Guna2Button btnProfilePic;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
