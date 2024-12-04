@@ -53,8 +53,8 @@ namespace Mufaddal_Traders
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pnlForgotPassword = new Guna.UI2.WinForms.Guna2Panel();
-            this.picBackToLogin = new System.Windows.Forms.PictureBox();
             this.pnlNewPassword = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -65,7 +65,7 @@ namespace Mufaddal_Traders
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnForgotPasswordSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCRTel = new Guna.UI2.WinForms.Guna2TextBox();
@@ -92,56 +92,45 @@ namespace Mufaddal_Traders
             this.btnCreateAccountinterfaceLoginButton = new Guna.UI2.WinForms.Guna2Button();
             this.txtCAUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picMinimize = new System.Windows.Forms.PictureBox();
             this.picClose = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.picBackToLogin = new System.Windows.Forms.PictureBox();
             this.pnlForgotPassword.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).BeginInit();
             this.pnlNewPassword.SuspendLayout();
             this.pnlLoginInterface1.SuspendLayout();
             this.pnlCreateAcc.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.picHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlForgotPassword
             // 
-            this.pnlForgotPassword.BackColor = System.Drawing.Color.RosyBrown;
+            this.pnlForgotPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pnlForgotPassword.Controls.Add(this.picBackToLogin);
             this.pnlForgotPassword.Controls.Add(this.pnlNewPassword);
             this.pnlForgotPassword.Controls.Add(this.label13);
             this.pnlForgotPassword.Controls.Add(this.guna2TextBox2);
             this.pnlForgotPassword.Controls.Add(this.label15);
             this.pnlForgotPassword.Controls.Add(this.label18);
-            this.pnlForgotPassword.Controls.Add(this.guna2Button1);
+            this.pnlForgotPassword.Controls.Add(this.btnForgotPasswordSave);
             this.pnlForgotPassword.Controls.Add(this.guna2TextBox5);
             this.pnlForgotPassword.Location = new System.Drawing.Point(29, 174);
             this.pnlForgotPassword.Margin = new System.Windows.Forms.Padding(2);
             this.pnlForgotPassword.Name = "pnlForgotPassword";
             this.pnlForgotPassword.Size = new System.Drawing.Size(492, 657);
             this.pnlForgotPassword.TabIndex = 27;
-            // 
-            // picBackToLogin
-            // 
-            this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
-            this.picBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBackToLogin.Location = new System.Drawing.Point(454, 10);
-            this.picBackToLogin.Margin = new System.Windows.Forms.Padding(2);
-            this.picBackToLogin.Name = "picBackToLogin";
-            this.picBackToLogin.Size = new System.Drawing.Size(28, 27);
-            this.picBackToLogin.TabIndex = 20;
-            this.picBackToLogin.TabStop = false;
-            this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
             // 
             // pnlNewPassword
             // 
@@ -271,7 +260,7 @@ namespace Mufaddal_Traders
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Aquamarine;
+            this.label15.ForeColor = System.Drawing.Color.SeaGreen;
             this.label15.Location = new System.Drawing.Point(146, 50);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
@@ -291,26 +280,26 @@ namespace Mufaddal_Traders
             this.label18.TabIndex = 11;
             this.label18.Text = "Username";
             // 
-            // guna2Button1
+            // btnForgotPasswordSave
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.Aquamarine;
-            this.guna2Button1.BorderRadius = 18;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Turquoise;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(325, 538);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(108, 38);
-            this.guna2Button1.TabIndex = 7;
-            this.guna2Button1.Text = "Save";
+            this.btnForgotPasswordSave.Animated = true;
+            this.btnForgotPasswordSave.AutoRoundedCorners = true;
+            this.btnForgotPasswordSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnForgotPasswordSave.BorderColor = System.Drawing.Color.SeaGreen;
+            this.btnForgotPasswordSave.BorderRadius = 18;
+            this.btnForgotPasswordSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnForgotPasswordSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnForgotPasswordSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnForgotPasswordSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnForgotPasswordSave.FillColor = System.Drawing.Color.SeaGreen;
+            this.btnForgotPasswordSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnForgotPasswordSave.ForeColor = System.Drawing.Color.White;
+            this.btnForgotPasswordSave.Location = new System.Drawing.Point(325, 538);
+            this.btnForgotPasswordSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnForgotPasswordSave.Name = "btnForgotPasswordSave";
+            this.btnForgotPasswordSave.Size = new System.Drawing.Size(108, 38);
+            this.btnForgotPasswordSave.TabIndex = 7;
+            this.btnForgotPasswordSave.Text = "Save";
             // 
             // guna2TextBox5
             // 
@@ -433,7 +422,7 @@ namespace Mufaddal_Traders
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Aquamarine;
+            this.label7.ForeColor = System.Drawing.Color.SeaGreen;
             this.label7.Location = new System.Drawing.Point(240, 50);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
@@ -456,7 +445,7 @@ namespace Mufaddal_Traders
             // 
             // pnlLoginInterface1
             // 
-            this.pnlLoginInterface1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pnlLoginInterface1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pnlLoginInterface1.Controls.Add(this.lblForgotpassword);
             this.pnlLoginInterface1.Controls.Add(this.lblCreateAccount);
             this.pnlLoginInterface1.Controls.Add(this.label3);
@@ -476,7 +465,7 @@ namespace Mufaddal_Traders
             this.lblForgotpassword.AutoSize = true;
             this.lblForgotpassword.BackColor = System.Drawing.Color.Transparent;
             this.lblForgotpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblForgotpassword.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.lblForgotpassword.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblForgotpassword.Location = new System.Drawing.Point(44, 322);
             this.lblForgotpassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblForgotpassword.Name = "lblForgotpassword";
@@ -503,7 +492,7 @@ namespace Mufaddal_Traders
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Aquamarine;
+            this.label3.ForeColor = System.Drawing.Color.SeaGreen;
             this.label3.Location = new System.Drawing.Point(94, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
@@ -560,16 +549,16 @@ namespace Mufaddal_Traders
             this.btnLoginInterfaceLoginButton.Animated = true;
             this.btnLoginInterfaceLoginButton.AutoRoundedCorners = true;
             this.btnLoginInterfaceLoginButton.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoginInterfaceLoginButton.BorderColor = System.Drawing.Color.Aquamarine;
+            this.btnLoginInterfaceLoginButton.BorderColor = System.Drawing.Color.SeaGreen;
             this.btnLoginInterfaceLoginButton.BorderRadius = 18;
             this.btnLoginInterfaceLoginButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLoginInterfaceLoginButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLoginInterfaceLoginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLoginInterfaceLoginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLoginInterfaceLoginButton.FillColor = System.Drawing.Color.Turquoise;
+            this.btnLoginInterfaceLoginButton.FillColor = System.Drawing.Color.SeaGreen;
             this.btnLoginInterfaceLoginButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnLoginInterfaceLoginButton.ForeColor = System.Drawing.Color.White;
-            this.btnLoginInterfaceLoginButton.Location = new System.Drawing.Point(174, 394);
+            this.btnLoginInterfaceLoginButton.Location = new System.Drawing.Point(325, 394);
             this.btnLoginInterfaceLoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoginInterfaceLoginButton.Name = "btnLoginInterfaceLoginButton";
             this.btnLoginInterfaceLoginButton.Size = new System.Drawing.Size(108, 38);
@@ -667,16 +656,16 @@ namespace Mufaddal_Traders
             this.btnCreateAccountinterfaceLoginButton.Animated = true;
             this.btnCreateAccountinterfaceLoginButton.AutoRoundedCorners = true;
             this.btnCreateAccountinterfaceLoginButton.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateAccountinterfaceLoginButton.BorderColor = System.Drawing.Color.Aquamarine;
+            this.btnCreateAccountinterfaceLoginButton.BorderColor = System.Drawing.Color.SeaGreen;
             this.btnCreateAccountinterfaceLoginButton.BorderRadius = 18;
             this.btnCreateAccountinterfaceLoginButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnCreateAccountinterfaceLoginButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCreateAccountinterfaceLoginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCreateAccountinterfaceLoginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCreateAccountinterfaceLoginButton.FillColor = System.Drawing.Color.Turquoise;
+            this.btnCreateAccountinterfaceLoginButton.FillColor = System.Drawing.Color.SeaGreen;
             this.btnCreateAccountinterfaceLoginButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnCreateAccountinterfaceLoginButton.ForeColor = System.Drawing.Color.White;
-            this.btnCreateAccountinterfaceLoginButton.Location = new System.Drawing.Point(183, 584);
+            this.btnCreateAccountinterfaceLoginButton.Location = new System.Drawing.Point(325, 584);
             this.btnCreateAccountinterfaceLoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreateAccountinterfaceLoginButton.Name = "btnCreateAccountinterfaceLoginButton";
             this.btnCreateAccountinterfaceLoginButton.Size = new System.Drawing.Size(108, 38);
@@ -716,16 +705,6 @@ namespace Mufaddal_Traders
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1413, 89);
             this.panel1.TabIndex = 28;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Mufaddal_Traders.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
@@ -781,6 +760,49 @@ namespace Mufaddal_Traders
             this.picHeader.TabIndex = 29;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(630, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(351, 47);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Welcome to MTSMS,";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(633, 184);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(648, 150);
+            this.label8.TabIndex = 32;
+            this.label8.Text = resources.GetString("label8.Text");
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources.conifers_18365821;
+            this.pictureBox2.Location = new System.Drawing.Point(551, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(866, 882);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Mufaddal_Traders.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // picMinimize
             // 
             this.picMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
@@ -803,37 +825,17 @@ namespace Mufaddal_Traders
             this.picClose.TabStop = false;
             this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
-            // label4
+            // picBackToLogin
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(814, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(343, 47);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Welcome to MTSMS";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources.conifers_1836582;
-            this.pictureBox2.Location = new System.Drawing.Point(551, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(866, 882);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 30;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(584, 146);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(825, 25);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "Redefining stock management with precision and efficiency for your business growt" +
-    "h.";
+            this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
+            this.picBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBackToLogin.Location = new System.Drawing.Point(454, 10);
+            this.picBackToLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.picBackToLogin.Name = "picBackToLogin";
+            this.picBackToLogin.Size = new System.Drawing.Size(28, 27);
+            this.picBackToLogin.TabIndex = 20;
+            this.picBackToLogin.TabStop = false;
+            this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
             // 
             // frmLogin
             // 
@@ -856,7 +858,6 @@ namespace Mufaddal_Traders
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlForgotPassword.ResumeLayout(false);
             this.pnlForgotPassword.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).EndInit();
             this.pnlNewPassword.ResumeLayout(false);
             this.pnlNewPassword.PerformLayout();
             this.pnlLoginInterface1.ResumeLayout(false);
@@ -864,11 +865,12 @@ namespace Mufaddal_Traders
             this.pnlCreateAcc.ResumeLayout(false);
             this.pnlCreateAcc.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.picHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -888,7 +890,7 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnForgotPasswordSave;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txtCRTel;

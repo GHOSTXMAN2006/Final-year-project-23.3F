@@ -38,25 +38,24 @@ namespace Mufaddal_Traders
             pnlNewPassword.Visible = false;
             pnlForgotPassword.Visible = false;
 
-            /*
-            pnlForgotPassword.BackColor = Color.FromArgb(150, 192, 192, 192);
-            pnlCreateAcc.BackColor = Color.FromArgb(150, 192, 192, 192);
-            pnlLoginInterface1.BackColor = Color.FromArgb(150, 192, 192, 192);
-            pnlNewPassword.BackColor = Color.FromArgb(150, 192, 192, 192); */
-            
+            // Configure label4 (Heading: Welcome to MTSMS)
+            label4.Parent = pictureBox2; // Align with the background PictureBox
+            label4.Text = "Welcome to MTSMS,";
+            label4.Font = new Font("Microsoft Sans Serif", 40, FontStyle.Bold); // Adjust the font size
+            label4.ForeColor = Color.Black; // Set the text color
+            label4.BackColor = Color.Transparent; // Make the background transparent
+            label4.AutoSize = true; // Adjust the size to fit the text
+            label4.Location = new Point(30, 100); // Set the position
 
+            // Configure label8 (Subtext: Description of MTSMS)
+            label8.Parent = pictureBox2; // Align with the background PictureBox
+            label8.Text = "your ultimate solution for seamless stock management. \r\nOptimize your inventory with precision and efficiency, empowering \r\nyour business to thrive. \r\n\r\nExperience the simplicity of innovation in managing your stock \r\nlike never before.";
+            label8.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Regular); // Adjust the font size
+            label8.ForeColor = Color.Black; // Set the text color
+            label8.BackColor = Color.Transparent; // Make the background transparent
+            label8.AutoSize = true; // Adjust the size to fit the text
+            label8.Location = new Point(35, 185); // Set the position below label4
 
-
-
-
-            /*// Set the label's background to transparent
-            label4.BackColor = Color.Transparent;
-
-            // Assign the parent (the form itself or a panel with the background)
-            label4.Parent = this; // 'this' refers to the current form
-
-            // Force a redraw to ensure transparency is applied
-            label4.Invalidate();*/
         }
 
         private void lblCreateAccount_Click(object sender, EventArgs e)
@@ -114,5 +113,9 @@ namespace Mufaddal_Traders
 
         }
 
+        private void transparentLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

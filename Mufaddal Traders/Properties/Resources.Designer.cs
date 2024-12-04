@@ -113,9 +113,49 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conifers_18365821 {
+            get {
+                object obj = ResourceManager.GetObject("conifers-18365821", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap conifers_18365822 {
+            get {
+                object obj = ResourceManager.GetObject("conifers-18365822", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap conifers_18365823 {
+            get {
+                object obj = ResourceManager.GetObject("conifers-18365823", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cropped_Logo_2048x1100__1___1_ {
             get {
                 object obj = ResourceManager.GetObject("cropped-Logo-2048x1100 (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cropped_Logo_2048x1100__1___1_1 {
+            get {
+                object obj = ResourceManager.GetObject("cropped-Logo-2048x1100 (1) (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

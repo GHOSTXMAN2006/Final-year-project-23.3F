@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmDashBoardItAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +260,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\conifers-1836582.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conifers-18365821.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conifers-18365822.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conifers-18365823.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cropped-Logo-2048x1100 %281%29 %281%291.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
