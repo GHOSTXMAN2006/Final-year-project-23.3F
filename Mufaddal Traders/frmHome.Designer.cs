@@ -60,9 +60,9 @@ namespace Mufaddal_Traders
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,6 +131,8 @@ namespace Mufaddal_Traders
             this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picHeader.BackColor = System.Drawing.SystemColors.Control;
+            this.picHeader.BorderColor = System.Drawing.Color.Black;
+            this.picHeader.BorderThickness = 2;
             this.picHeader.Controls.Add(this.btnMinimize);
             this.picHeader.Controls.Add(this.btnClose);
             this.picHeader.Location = new System.Drawing.Point(5, 5);
@@ -160,20 +162,6 @@ namespace Mufaddal_Traders
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.BackgroundImage = global::Mufaddal_Traders.Properties.Resources.style11;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources.WhatsApp_Image_2022_06_03_at_12_59_38_PM_1;
-            this.pictureBox2.Location = new System.Drawing.Point(1172, 212);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(561, 548);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
             // 
             // btnMinimize
             // 
@@ -214,6 +202,20 @@ namespace Mufaddal_Traders
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 43;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BackgroundImage = global::Mufaddal_Traders.Properties.Resources.style11;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources.WhatsApp_Image_2022_06_03_at_12_59_38_PM_1;
+            this.pictureBox2.Location = new System.Drawing.Point(1172, 212);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(561, 548);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
             // 
             // frmHome
             // 

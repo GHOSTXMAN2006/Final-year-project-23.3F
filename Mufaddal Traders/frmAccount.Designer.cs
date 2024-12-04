@@ -98,11 +98,13 @@ namespace Mufaddal_Traders
             // 
             this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHeader.BorderColor = System.Drawing.Color.Black;
+            this.picHeader.BorderThickness = 2;
             this.picHeader.Controls.Add(this.btnMinimize);
             this.picHeader.Controls.Add(this.btnClose);
             this.picHeader.Location = new System.Drawing.Point(5, 4);
             this.picHeader.Name = "picHeader";
-            this.picHeader.Size = new System.Drawing.Size(1395, 38);
+            this.picHeader.Size = new System.Drawing.Size(1396, 38);
             this.picHeader.TabIndex = 40;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 

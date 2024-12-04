@@ -102,6 +102,7 @@ namespace Mufaddal_Traders
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.picBackToLogin = new System.Windows.Forms.PictureBox();
+            this.picHeader2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlForgotPassword.SuspendLayout();
             this.pnlNewPassword.SuspendLayout();
             this.pnlLoginInterface1.SuspendLayout();
@@ -751,11 +752,13 @@ namespace Mufaddal_Traders
             // 
             this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHeader.BorderColor = System.Drawing.Color.Black;
+            this.picHeader.BorderThickness = 2;
             this.picHeader.Controls.Add(this.btnMinimize);
             this.picHeader.Controls.Add(this.btnClose);
             this.picHeader.Location = new System.Drawing.Point(4, 3);
             this.picHeader.Name = "picHeader";
-            this.picHeader.Size = new System.Drawing.Size(1413, 38);
+            this.picHeader.Size = new System.Drawing.Size(547, 38);
             this.picHeader.TabIndex = 29;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
@@ -854,12 +857,25 @@ namespace Mufaddal_Traders
             this.picBackToLogin.TabStop = false;
             this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
             // 
+            // picHeader2
+            // 
+            this.picHeader2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHeader2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(202)))), ((int)(((byte)(212)))));
+            this.picHeader2.BorderColor = System.Drawing.Color.Transparent;
+            this.picHeader2.Location = new System.Drawing.Point(551, 3);
+            this.picHeader2.Name = "picHeader2";
+            this.picHeader2.Size = new System.Drawing.Size(866, 38);
+            this.picHeader2.TabIndex = 43;
+            this.picHeader2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader2_MouseDown);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 890);
             this.ControlBox = false;
+            this.Controls.Add(this.picHeader2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox2);
@@ -941,5 +957,6 @@ namespace Mufaddal_Traders
         private Label label8;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnClose;
+        private Guna.UI2.WinForms.Guna2Panel picHeader2;
     }
 }

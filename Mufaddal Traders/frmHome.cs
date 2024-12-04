@@ -38,17 +38,6 @@ namespace Mufaddal_Traders
             }
         }
 
-        // Custom close button logic
-        private void picClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        // Custom minimize button logic
-        private void picMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
@@ -69,12 +58,12 @@ namespace Mufaddal_Traders
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

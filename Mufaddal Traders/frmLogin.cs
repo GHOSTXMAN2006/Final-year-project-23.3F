@@ -90,6 +90,17 @@ namespace Mufaddal_Traders
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+        
+        private void picHeader2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        
+        
 
         private void btnClose_Click(object sender, EventArgs e)
         {

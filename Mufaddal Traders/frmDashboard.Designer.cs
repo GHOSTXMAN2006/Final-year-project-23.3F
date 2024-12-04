@@ -56,7 +56,6 @@ namespace Mufaddal_Traders
         private void InitializeComponent()
         {
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.pnlMainDashboard = new System.Windows.Forms.Panel();
             this.lblDateDisplay = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,35 +63,35 @@ namespace Mufaddal_Traders
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlChat = new RoundedPanel();
-            this.txtChat = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cmbChooseUser = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.pnlAlerts = new RoundedPanel();
-            this.pnlNotifications = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.pnlSecurityAlerts = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSend = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlChat = new RoundedPanel();
+            this.btnSend = new Guna.UI2.WinForms.Guna2Button();
+            this.txtChat = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cmbChooseUser = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pnlAlerts = new RoundedPanel();
+            this.pnlNotifications = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pnlSecurityAlerts = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.picHeader.SuspendLayout();
             this.pnlMainDashboard.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlChat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.pnlAlerts.SuspendLayout();
             this.pnlNotifications.SuspendLayout();
             this.pnlSecurityAlerts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,29 +99,14 @@ namespace Mufaddal_Traders
             // 
             this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHeader.BorderColor = System.Drawing.Color.Black;
+            this.picHeader.BorderThickness = 2;
             this.picHeader.Controls.Add(this.btnMinimize);
             this.picHeader.Controls.Add(this.btnClose);
-            this.picHeader.Controls.Add(this.label5);
             this.picHeader.Location = new System.Drawing.Point(5, 5);
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1395, 38);
             this.picHeader.TabIndex = 38;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(67, 8);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1342, 31);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "_________________________________________________________________________________" +
-    "__";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
             // pnlMainDashboard
             // 
@@ -215,155 +199,6 @@ namespace Mufaddal_Traders
             this.panel1.Size = new System.Drawing.Size(74, 805);
             this.panel1.TabIndex = 31;
             // 
-            // pnlChat
-            // 
-            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.pnlChat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.pnlChat.BorderRadius = 10;
-            this.pnlChat.Controls.Add(this.btnSend);
-            this.pnlChat.Controls.Add(this.txtChat);
-            this.pnlChat.Controls.Add(this.label17);
-            this.pnlChat.Controls.Add(this.cmbChooseUser);
-            this.pnlChat.Controls.Add(this.pictureBox8);
-            this.pnlChat.Location = new System.Drawing.Point(23, 393);
-            this.pnlChat.Name = "pnlChat";
-            this.pnlChat.Size = new System.Drawing.Size(516, 245);
-            this.pnlChat.TabIndex = 17;
-            // 
-            // txtChat
-            // 
-            this.txtChat.BorderColor = System.Drawing.Color.LightGray;
-            this.txtChat.BorderRadius = 8;
-            this.txtChat.BorderThickness = 3;
-            this.txtChat.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtChat.DefaultText = "";
-            this.txtChat.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtChat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtChat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtChat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(224)))), ((int)(((byte)(221)))));
-            this.txtChat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtChat.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.txtChat.ForeColor = System.Drawing.Color.Black;
-            this.txtChat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtChat.Location = new System.Drawing.Point(12, 74);
-            this.txtChat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtChat.Multiline = true;
-            this.txtChat.Name = "txtChat";
-            this.txtChat.PasswordChar = '\0';
-            this.txtChat.PlaceholderText = "";
-            this.txtChat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtChat.SelectedText = "";
-            this.txtChat.Size = new System.Drawing.Size(484, 123);
-            this.txtChat.TabIndex = 20;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label17.Location = new System.Drawing.Point(7, 11);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 32);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Chat";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbChooseUser
-            // 
-            this.cmbChooseUser.BackColor = System.Drawing.Color.Transparent;
-            this.cmbChooseUser.BorderColor = System.Drawing.Color.DarkGreen;
-            this.cmbChooseUser.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbChooseUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChooseUser.FillColor = System.Drawing.Color.Honeydew;
-            this.cmbChooseUser.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbChooseUser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbChooseUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbChooseUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbChooseUser.ItemHeight = 30;
-            this.cmbChooseUser.Items.AddRange(new object[] {
-            "Select User"});
-            this.cmbChooseUser.Location = new System.Drawing.Point(332, 23);
-            this.cmbChooseUser.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbChooseUser.Name = "cmbChooseUser";
-            this.cmbChooseUser.Size = new System.Drawing.Size(164, 36);
-            this.cmbChooseUser.TabIndex = 18;
-            // 
-            // pnlAlerts
-            // 
-            this.pnlAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.pnlAlerts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.pnlAlerts.BorderRadius = 10;
-            this.pnlAlerts.Controls.Add(this.pnlNotifications);
-            this.pnlAlerts.Controls.Add(this.pnlSecurityAlerts);
-            this.pnlAlerts.Controls.Add(this.label7);
-            this.pnlAlerts.Controls.Add(this.pictureBox7);
-            this.pnlAlerts.Location = new System.Drawing.Point(23, 17);
-            this.pnlAlerts.Name = "pnlAlerts";
-            this.pnlAlerts.Size = new System.Drawing.Size(587, 358);
-            this.pnlAlerts.TabIndex = 16;
-            // 
-            // pnlNotifications
-            // 
-            this.pnlNotifications.AutoScroll = true;
-            this.pnlNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(228)))), ((int)(((byte)(224)))));
-            this.pnlNotifications.Controls.Add(this.label13);
-            this.pnlNotifications.Location = new System.Drawing.Point(11, 208);
-            this.pnlNotifications.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlNotifications.Name = "pnlNotifications";
-            this.pnlNotifications.Size = new System.Drawing.Size(565, 138);
-            this.pnlNotifications.TabIndex = 14;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label13.Location = new System.Drawing.Point(4, 7);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(152, 32);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Notifications";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pnlSecurityAlerts
-            // 
-            this.pnlSecurityAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(228)))), ((int)(((byte)(224)))));
-            this.pnlSecurityAlerts.Controls.Add(this.label11);
-            this.pnlSecurityAlerts.Location = new System.Drawing.Point(11, 56);
-            this.pnlSecurityAlerts.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlSecurityAlerts.Name = "pnlSecurityAlerts";
-            this.pnlSecurityAlerts.Size = new System.Drawing.Size(565, 138);
-            this.pnlSecurityAlerts.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label11.Location = new System.Drawing.Point(4, 7);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(172, 32);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Security Alerts";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(4, 12);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 32);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Alerts";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // btnMinimize
             // 
             this.btnMinimize.Animated = true;
@@ -403,49 +238,6 @@ namespace Mufaddal_Traders
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnSend
-            // 
-            this.btnSend.Animated = true;
-            this.btnSend.AutoRoundedCorners = true;
-            this.btnSend.BorderRadius = 14;
-            this.btnSend.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSend.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSend.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSend.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSend.FillColor = System.Drawing.Color.Transparent;
-            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Image = global::Mufaddal_Traders.Properties.Resources.content_send_icon_1320087227200139227_1;
-            this.btnSend.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSend.Location = new System.Drawing.Point(466, 205);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(30, 30);
-            this.btnSend.TabIndex = 41;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox8.Image = global::Mufaddal_Traders.Properties.Resources.chat_bubble;
-            this.pictureBox8.Location = new System.Drawing.Point(73, 11);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(33, 32);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 15;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Image = global::Mufaddal_Traders.Properties.Resources.notifications1;
-            this.pictureBox7.Location = new System.Drawing.Point(82, 12);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(33, 32);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 7;
-            this.pictureBox7.TabStop = false;
             // 
             // btnSettings
             // 
@@ -556,6 +348,198 @@ namespace Mufaddal_Traders
             this.btnAccount.TabIndex = 18;
             this.btnAccount.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // pnlChat
+            // 
+            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.pnlChat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.pnlChat.BorderRadius = 10;
+            this.pnlChat.Controls.Add(this.btnSend);
+            this.pnlChat.Controls.Add(this.txtChat);
+            this.pnlChat.Controls.Add(this.label17);
+            this.pnlChat.Controls.Add(this.cmbChooseUser);
+            this.pnlChat.Controls.Add(this.pictureBox8);
+            this.pnlChat.Location = new System.Drawing.Point(23, 393);
+            this.pnlChat.Name = "pnlChat";
+            this.pnlChat.Size = new System.Drawing.Size(516, 245);
+            this.pnlChat.TabIndex = 17;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Animated = true;
+            this.btnSend.AutoRoundedCorners = true;
+            this.btnSend.BorderRadius = 14;
+            this.btnSend.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSend.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSend.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSend.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSend.FillColor = System.Drawing.Color.Transparent;
+            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSend.ForeColor = System.Drawing.Color.White;
+            this.btnSend.Image = global::Mufaddal_Traders.Properties.Resources.content_send_icon_1320087227200139227_1;
+            this.btnSend.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSend.Location = new System.Drawing.Point(466, 205);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(30, 30);
+            this.btnSend.TabIndex = 41;
+            // 
+            // txtChat
+            // 
+            this.txtChat.BorderColor = System.Drawing.Color.LightGray;
+            this.txtChat.BorderRadius = 8;
+            this.txtChat.BorderThickness = 3;
+            this.txtChat.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtChat.DefaultText = "";
+            this.txtChat.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtChat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtChat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtChat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtChat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(224)))), ((int)(((byte)(221)))));
+            this.txtChat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtChat.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.txtChat.ForeColor = System.Drawing.Color.Black;
+            this.txtChat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtChat.Location = new System.Drawing.Point(12, 74);
+            this.txtChat.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtChat.Multiline = true;
+            this.txtChat.Name = "txtChat";
+            this.txtChat.PasswordChar = '\0';
+            this.txtChat.PlaceholderText = "";
+            this.txtChat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtChat.SelectedText = "";
+            this.txtChat.Size = new System.Drawing.Size(484, 123);
+            this.txtChat.TabIndex = 20;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label17.Location = new System.Drawing.Point(7, 11);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 32);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "Chat";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbChooseUser
+            // 
+            this.cmbChooseUser.BackColor = System.Drawing.Color.Transparent;
+            this.cmbChooseUser.BorderColor = System.Drawing.Color.DarkGreen;
+            this.cmbChooseUser.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbChooseUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChooseUser.FillColor = System.Drawing.Color.Honeydew;
+            this.cmbChooseUser.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbChooseUser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbChooseUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbChooseUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbChooseUser.ItemHeight = 30;
+            this.cmbChooseUser.Items.AddRange(new object[] {
+            "Select User"});
+            this.cmbChooseUser.Location = new System.Drawing.Point(332, 23);
+            this.cmbChooseUser.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbChooseUser.Name = "cmbChooseUser";
+            this.cmbChooseUser.Size = new System.Drawing.Size(164, 36);
+            this.cmbChooseUser.TabIndex = 18;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox8.Image = global::Mufaddal_Traders.Properties.Resources.chat_bubble;
+            this.pictureBox8.Location = new System.Drawing.Point(73, 11);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(33, 32);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 15;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pnlAlerts
+            // 
+            this.pnlAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.pnlAlerts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.pnlAlerts.BorderRadius = 10;
+            this.pnlAlerts.Controls.Add(this.pnlNotifications);
+            this.pnlAlerts.Controls.Add(this.pnlSecurityAlerts);
+            this.pnlAlerts.Controls.Add(this.label7);
+            this.pnlAlerts.Controls.Add(this.pictureBox7);
+            this.pnlAlerts.Location = new System.Drawing.Point(23, 17);
+            this.pnlAlerts.Name = "pnlAlerts";
+            this.pnlAlerts.Size = new System.Drawing.Size(587, 358);
+            this.pnlAlerts.TabIndex = 16;
+            // 
+            // pnlNotifications
+            // 
+            this.pnlNotifications.AutoScroll = true;
+            this.pnlNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(228)))), ((int)(((byte)(224)))));
+            this.pnlNotifications.Controls.Add(this.label13);
+            this.pnlNotifications.Location = new System.Drawing.Point(11, 208);
+            this.pnlNotifications.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlNotifications.Name = "pnlNotifications";
+            this.pnlNotifications.Size = new System.Drawing.Size(565, 138);
+            this.pnlNotifications.TabIndex = 14;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label13.Location = new System.Drawing.Point(4, 7);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(152, 32);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Notifications";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pnlSecurityAlerts
+            // 
+            this.pnlSecurityAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(228)))), ((int)(((byte)(224)))));
+            this.pnlSecurityAlerts.Controls.Add(this.label11);
+            this.pnlSecurityAlerts.Location = new System.Drawing.Point(11, 56);
+            this.pnlSecurityAlerts.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSecurityAlerts.Name = "pnlSecurityAlerts";
+            this.pnlSecurityAlerts.Size = new System.Drawing.Size(565, 138);
+            this.pnlSecurityAlerts.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label11.Location = new System.Drawing.Point(4, 7);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(172, 32);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Security Alerts";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(4, 12);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 32);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Alerts";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox7.Image = global::Mufaddal_Traders.Properties.Resources.notifications1;
+            this.pictureBox7.Location = new System.Drawing.Point(82, 12);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(33, 32);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 7;
+            this.pictureBox7.TabStop = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,18 +560,17 @@ namespace Mufaddal_Traders
             this.Text = "frmDashboard";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.picHeader.ResumeLayout(false);
-            this.picHeader.PerformLayout();
             this.pnlMainDashboard.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.pnlChat.ResumeLayout(false);
             this.pnlChat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.pnlAlerts.ResumeLayout(false);
             this.pnlAlerts.PerformLayout();
             this.pnlNotifications.ResumeLayout(false);
             this.pnlNotifications.PerformLayout();
             this.pnlSecurityAlerts.ResumeLayout(false);
             this.pnlSecurityAlerts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -616,7 +599,6 @@ namespace Mufaddal_Traders
         private Label label1;
         private Label label2;
         private Panel panel1;
-        private Label label5;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Button btnMenu;
