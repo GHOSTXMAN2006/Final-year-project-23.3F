@@ -37,10 +37,12 @@ namespace Mufaddal_Traders
             this.pnlCreateAcc.Visible = false;
             pnlNewPassword.Visible = false;
             pnlForgotPassword.Visible = false;
+
+            /*
             pnlForgotPassword.BackColor = Color.FromArgb(150, 192, 192, 192);
             pnlCreateAcc.BackColor = Color.FromArgb(150, 192, 192, 192);
             pnlLoginInterface1.BackColor = Color.FromArgb(150, 192, 192, 192);
-            pnlNewPassword.BackColor = Color.FromArgb(150, 192, 192, 192);
+            pnlNewPassword.BackColor = Color.FromArgb(150, 192, 192, 192); */
             
 
 

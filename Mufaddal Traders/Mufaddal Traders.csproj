@@ -255,5 +255,8 @@
   <ItemGroup>
     <None Include="Resources\wallpaperflare.com_wallpaper__5_-removebg-preview1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conifers-1836582.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

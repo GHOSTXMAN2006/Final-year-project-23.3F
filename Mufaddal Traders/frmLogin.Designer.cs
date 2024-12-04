@@ -54,6 +54,7 @@ namespace Mufaddal_Traders
         private void InitializeComponent()
         {
             this.pnlForgotPassword = new Guna.UI2.WinForms.Guna2Panel();
+            this.picBackToLogin = new System.Windows.Forms.PictureBox();
             this.pnlNewPassword = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -91,27 +92,26 @@ namespace Mufaddal_Traders
             this.btnCreateAccountinterfaceLoginButton = new Guna.UI2.WinForms.Guna2Button();
             this.txtCAUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picMinimize = new System.Windows.Forms.PictureBox();
             this.picClose = new System.Windows.Forms.PictureBox();
-            this.picBackToLogin = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlForgotPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).BeginInit();
             this.pnlNewPassword.SuspendLayout();
             this.pnlLoginInterface1.SuspendLayout();
             this.pnlCreateAcc.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.picHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlForgotPassword
@@ -130,6 +130,18 @@ namespace Mufaddal_Traders
             this.pnlForgotPassword.Name = "pnlForgotPassword";
             this.pnlForgotPassword.Size = new System.Drawing.Size(492, 657);
             this.pnlForgotPassword.TabIndex = 27;
+            // 
+            // picBackToLogin
+            // 
+            this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
+            this.picBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBackToLogin.Location = new System.Drawing.Point(454, 10);
+            this.picBackToLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.picBackToLogin.Name = "picBackToLogin";
+            this.picBackToLogin.Size = new System.Drawing.Size(28, 27);
+            this.picBackToLogin.TabIndex = 20;
+            this.picBackToLogin.TabStop = false;
+            this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
             // 
             // pnlNewPassword
             // 
@@ -705,6 +717,16 @@ namespace Mufaddal_Traders
             this.panel1.Size = new System.Drawing.Size(1413, 89);
             this.panel1.TabIndex = 28;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Mufaddal_Traders.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.Control;
@@ -759,37 +781,6 @@ namespace Mufaddal_Traders
             this.picHeader.TabIndex = 29;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(814, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(343, 47);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Welcome to MTSMS";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources.wallpaperflare1;
-            this.pictureBox2.Location = new System.Drawing.Point(551, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(866, 882);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 30;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Mufaddal_Traders.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // picMinimize
             // 
             this.picMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
@@ -812,17 +803,26 @@ namespace Mufaddal_Traders
             this.picClose.TabStop = false;
             this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
-            // picBackToLogin
+            // label4
             // 
-            this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
-            this.picBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBackToLogin.Location = new System.Drawing.Point(454, 10);
-            this.picBackToLogin.Margin = new System.Windows.Forms.Padding(2);
-            this.picBackToLogin.Name = "picBackToLogin";
-            this.picBackToLogin.Size = new System.Drawing.Size(28, 27);
-            this.picBackToLogin.TabIndex = 20;
-            this.picBackToLogin.TabStop = false;
-            this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(814, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(343, 47);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Welcome to MTSMS";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Mufaddal_Traders.Properties.Resources.conifers_1836582;
+            this.pictureBox2.Location = new System.Drawing.Point(551, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(866, 882);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabStop = false;
             // 
             // label8
             // 
@@ -856,6 +856,7 @@ namespace Mufaddal_Traders
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlForgotPassword.ResumeLayout(false);
             this.pnlForgotPassword.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).EndInit();
             this.pnlNewPassword.ResumeLayout(false);
             this.pnlNewPassword.PerformLayout();
             this.pnlLoginInterface1.ResumeLayout(false);
@@ -863,12 +864,11 @@ namespace Mufaddal_Traders
             this.pnlCreateAcc.ResumeLayout(false);
             this.pnlCreateAcc.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.picHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.picHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

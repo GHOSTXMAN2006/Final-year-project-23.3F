@@ -103,6 +103,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conifers_1836582 {
+            get {
+                object obj = ResourceManager.GetObject("conifers-1836582", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cropped_Logo_2048x1100__1___1_ {
             get {
                 object obj = ResourceManager.GetObject("cropped-Logo-2048x1100 (1) (1)", resourceCulture);
