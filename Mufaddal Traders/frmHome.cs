@@ -57,7 +57,14 @@ namespace Mufaddal_Traders
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // Create an instance of frmLogin
+            frmLogin loginForm = new frmLogin();
 
+            // Show the frmLogin
+            loginForm.Show();
+
+            // Close the current form (frmHome)
+            this.Close();
         }
     }
 }

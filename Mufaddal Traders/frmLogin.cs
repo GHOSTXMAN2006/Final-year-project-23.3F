@@ -49,7 +49,7 @@ namespace Mufaddal_Traders
 
             // Configure label8 (Subtext: Description of MTSMS)
             label8.Parent = pictureBox2; // Align with the background PictureBox
-            label8.Text = "your ultimate solution for seamless stock management. \r\nOptimize your inventory with precision and efficiency, empowering \r\nyour business to thrive. \r\n\r\nExperience the simplicity of innovation in managing your stock \r\nlike never before.";
+            label8.Text = "Your ultimate solution for seamless stock management. \r\nOptimize your inventory with precision and efficiency, empowering \r\nyour business to thrive. \r\n\r\nExperience the simplicity of innovation in managing your stock \r\nlike never before.";
             label8.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Regular); // Adjust the font size
             label8.ForeColor = Color.Black; // Set the text color
             label8.BackColor = Color.Transparent; // Make the background transparent
@@ -116,6 +116,18 @@ namespace Mufaddal_Traders
         private void transparentLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            // Create an instance of frmLogin
+            frmHome homeForm = new frmHome();
+
+            // Show the frmLogin
+            homeForm.Show();
+
+            // Close the current form (frmHome)
+            this.Close();
         }
     }
 }

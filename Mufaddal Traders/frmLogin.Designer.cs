@@ -747,6 +747,7 @@ namespace Mufaddal_Traders
             this.btnHome.Size = new System.Drawing.Size(90, 89);
             this.btnHome.TabIndex = 8;
             this.btnHome.Text = "Home";
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // picHeader
             // 
