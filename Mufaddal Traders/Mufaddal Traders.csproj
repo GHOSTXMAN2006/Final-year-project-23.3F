@@ -55,6 +55,12 @@
     <Compile Include="customLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +97,6 @@
     <Compile Include="frmStoreKeeperMenue.Designer.cs">
       <DependentUpon>frmStoreKeeperMenue.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserProfileInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUserProfileInterface.Designer.cs">
-      <DependentUpon>frmUserProfileInterface.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmViewStoreKeeperAddItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +108,9 @@
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStoreKeeperMenue.resx">
       <DependentUpon>frmStoreKeeperMenue.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUserProfileInterface.resx">
-      <DependentUpon>frmUserProfileInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewStoreKeeperAddItems.resx">
       <DependentUpon>frmViewStoreKeeperAddItems.cs</DependentUpon>
@@ -308,6 +308,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red-circle-round-3d-button-3 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\219988 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6915987.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

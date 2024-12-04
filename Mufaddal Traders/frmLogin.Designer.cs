@@ -99,9 +99,9 @@ namespace Mufaddal_Traders
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picBackToLogin = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.picBackToLogin = new System.Windows.Forms.PictureBox();
             this.pnlForgotPassword.SuspendLayout();
             this.pnlNewPassword.SuspendLayout();
             this.pnlLoginInterface1.SuspendLayout();
@@ -753,7 +753,7 @@ namespace Mufaddal_Traders
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picHeader.Controls.Add(this.btnMinimize);
             this.picHeader.Controls.Add(this.btnClose);
-            this.picHeader.Location = new System.Drawing.Point(4, 4);
+            this.picHeader.Location = new System.Drawing.Point(4, 3);
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1413, 38);
             this.picHeader.TabIndex = 29;
@@ -802,18 +802,6 @@ namespace Mufaddal_Traders
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // picBackToLogin
-            // 
-            this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
-            this.picBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBackToLogin.Location = new System.Drawing.Point(454, 10);
-            this.picBackToLogin.Margin = new System.Windows.Forms.Padding(2);
-            this.picBackToLogin.Name = "picBackToLogin";
-            this.picBackToLogin.Size = new System.Drawing.Size(28, 27);
-            this.picBackToLogin.TabIndex = 20;
-            this.picBackToLogin.TabStop = false;
-            this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
-            // 
             // btnMinimize
             // 
             this.btnMinimize.Animated = true;
@@ -828,7 +816,7 @@ namespace Mufaddal_Traders
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
             this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnMinimize.Location = new System.Drawing.Point(46, 6);
+            this.btnMinimize.Location = new System.Drawing.Point(46, 5);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(26, 26);
             this.btnMinimize.TabIndex = 42;
@@ -848,11 +836,23 @@ namespace Mufaddal_Traders
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
             this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnClose.Location = new System.Drawing.Point(14, 6);
+            this.btnClose.Location = new System.Drawing.Point(14, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 41;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // picBackToLogin
+            // 
+            this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
+            this.picBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBackToLogin.Location = new System.Drawing.Point(454, 10);
+            this.picBackToLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.picBackToLogin.Name = "picBackToLogin";
+            this.picBackToLogin.Size = new System.Drawing.Size(28, 27);
+            this.picBackToLogin.TabIndex = 20;
+            this.picBackToLogin.TabStop = false;
+            this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
             // 
             // frmLogin
             // 
