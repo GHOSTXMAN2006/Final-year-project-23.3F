@@ -127,7 +127,7 @@ namespace Mufaddal_Traders
             homeForm.Show();
 
             // Close the current form (frmHome)
-            this.Close();
+            this.Hide();
         }
     }
 }

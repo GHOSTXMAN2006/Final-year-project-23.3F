@@ -64,7 +64,7 @@ namespace Mufaddal_Traders
             loginForm.Show();
 
             // Close the current form (frmHome)
-            this.Close();
+            this.Hide();
         }
     }
 }
