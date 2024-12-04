@@ -208,6 +208,7 @@ namespace Mufaddal_Traders
             this.label5.TabIndex = 39;
             this.label5.Text = "_________________________________________________________________________________" +
     "__";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
             // label7
@@ -301,10 +302,10 @@ namespace Mufaddal_Traders
             this.pnlMainDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.pnlMainDashboard.Controls.Add(this.pnlChat);
             this.pnlMainDashboard.Controls.Add(this.pnlAlerts);
-            this.pnlMainDashboard.Location = new System.Drawing.Point(123, 164);
+            this.pnlMainDashboard.Location = new System.Drawing.Point(123, 191);
             this.pnlMainDashboard.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMainDashboard.Name = "pnlMainDashboard";
-            this.pnlMainDashboard.Size = new System.Drawing.Size(1234, 666);
+            this.pnlMainDashboard.Size = new System.Drawing.Size(1234, 654);
             this.pnlMainDashboard.TabIndex = 37;
             // 
             // btnClose
@@ -332,7 +333,7 @@ namespace Mufaddal_Traders
             this.lblDateDisplay.AutoSize = true;
             this.lblDateDisplay.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateDisplay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDateDisplay.Location = new System.Drawing.Point(124, 128);
+            this.lblDateDisplay.Location = new System.Drawing.Point(124, 147);
             this.lblDateDisplay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDateDisplay.Name = "lblDateDisplay";
             this.lblDateDisplay.Size = new System.Drawing.Size(95, 20);
@@ -345,7 +346,7 @@ namespace Mufaddal_Traders
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label4.Location = new System.Drawing.Point(247, 91);
+            this.label4.Location = new System.Drawing.Point(247, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 32);
@@ -358,7 +359,7 @@ namespace Mufaddal_Traders
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(119, 91);
+            this.label3.Location = new System.Drawing.Point(119, 110);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 32);
@@ -371,7 +372,7 @@ namespace Mufaddal_Traders
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label1.Location = new System.Drawing.Point(118, 46);
+            this.label1.Location = new System.Drawing.Point(118, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 32);
@@ -384,7 +385,7 @@ namespace Mufaddal_Traders
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(118, 55);
+            this.label2.Location = new System.Drawing.Point(118, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1246, 31);
@@ -571,6 +572,7 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDashboard";
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.pnlChat.ResumeLayout(false);
