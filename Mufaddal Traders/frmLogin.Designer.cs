@@ -99,9 +99,9 @@ namespace Mufaddal_Traders
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picMinimize = new System.Windows.Forms.PictureBox();
-            this.picClose = new System.Windows.Forms.PictureBox();
             this.picBackToLogin = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pnlForgotPassword.SuspendLayout();
             this.pnlNewPassword.SuspendLayout();
             this.pnlLoginInterface1.SuspendLayout();
@@ -110,8 +110,6 @@ namespace Mufaddal_Traders
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -753,8 +751,8 @@ namespace Mufaddal_Traders
             // 
             this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.picHeader.Controls.Add(this.picMinimize);
-            this.picHeader.Controls.Add(this.picClose);
+            this.picHeader.Controls.Add(this.btnMinimize);
+            this.picHeader.Controls.Add(this.btnClose);
             this.picHeader.Location = new System.Drawing.Point(4, 4);
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1413, 38);
@@ -804,28 +802,6 @@ namespace Mufaddal_Traders
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // picMinimize
-            // 
-            this.picMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
-            this.picMinimize.Location = new System.Drawing.Point(41, 8);
-            this.picMinimize.Name = "picMinimize";
-            this.picMinimize.Size = new System.Drawing.Size(23, 23);
-            this.picMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMinimize.TabIndex = 5;
-            this.picMinimize.TabStop = false;
-            this.picMinimize.Click += new System.EventHandler(this.picMinimize_Click);
-            // 
-            // picClose
-            // 
-            this.picClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_emoji_512x512_8xv6a7vo;
-            this.picClose.Location = new System.Drawing.Point(12, 8);
-            this.picClose.Name = "picClose";
-            this.picClose.Size = new System.Drawing.Size(23, 23);
-            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picClose.TabIndex = 4;
-            this.picClose.TabStop = false;
-            this.picClose.Click += new System.EventHandler(this.picClose_Click);
-            // 
             // picBackToLogin
             // 
             this.picBackToLogin.BackgroundImage = global::Mufaddal_Traders.Properties.Resources._3114815;
@@ -837,6 +813,46 @@ namespace Mufaddal_Traders
             this.picBackToLogin.TabIndex = 20;
             this.picBackToLogin.TabStop = false;
             this.picBackToLogin.Click += new System.EventHandler(this.picBackToLogin_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Animated = true;
+            this.btnMinimize.AutoRoundedCorners = true;
+            this.btnMinimize.BorderRadius = 12;
+            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
+            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnMinimize.Location = new System.Drawing.Point(46, 6);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
+            this.btnMinimize.TabIndex = 42;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Animated = true;
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BorderRadius = 12;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
+            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnClose.Location = new System.Drawing.Point(14, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 26);
+            this.btnClose.TabIndex = 41;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmLogin
             // 
@@ -869,8 +885,6 @@ namespace Mufaddal_Traders
             this.picHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -922,10 +936,10 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
-        private System.Windows.Forms.PictureBox picMinimize;
-        private System.Windows.Forms.PictureBox picClose;
         private PictureBox pictureBox2;
         private Label label4;
         private Label label8;
+        private Guna.UI2.WinForms.Guna2Button btnMinimize;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
     }
 }

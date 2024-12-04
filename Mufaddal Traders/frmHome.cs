@@ -66,5 +66,15 @@ namespace Mufaddal_Traders
             // Close the current form (frmHome)
             this.Hide();
         }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
