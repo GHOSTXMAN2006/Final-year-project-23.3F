@@ -623,6 +623,17 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inventory_control_system_concept_professional_manager_checking_goods_stock_supply_inventory_management_with_goods_demand_185038_803 {
+            get {
+                object obj = ResourceManager.GetObject("inventory-control-system-concept-professional-manager-checking-goods-stock-supply" +
+                        "-inventory-management-with-goods-demand_185038-803", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lock {
             get {
                 object obj = ResourceManager.GetObject("Lock", resourceCulture);
