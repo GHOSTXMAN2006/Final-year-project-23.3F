@@ -1,4 +1,8 @@
-﻿namespace Mufaddal_Traders
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
+namespace Mufaddal_Traders
 {
     partial class frmStorekeeperMenu
     {
@@ -20,6 +24,26 @@
             base.Dispose(disposing);
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            int borderThickness = 7;
+            Color borderColor = Color.MediumSeaGreen;
+
+            // Draw border
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            }
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            this.Invalidate(); // Forces the form to redraw the border on resize
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,18 +53,17 @@
         private void InitializeComponent()
         {
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlChat = new RoundedPanel();
-            this.btnItem = new Bunifu.Framework.UI.BunifuTileButton();
-            this.btnItems = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlChat = new RoundedPanel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlChat.SuspendLayout();
@@ -58,74 +81,6 @@
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1396, 38);
             this.picHeader.TabIndex = 42;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Controls.Add(this.btnSettings);
-            this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Controls.Add(this.btnMenu);
-            this.panel1.Controls.Add(this.btnHistory);
-            this.panel1.Controls.Add(this.btnDashboard);
-            this.panel1.Controls.Add(this.btnAccount);
-            this.panel1.Location = new System.Drawing.Point(4, 41);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(74, 805);
-            this.panel1.TabIndex = 41;
-            // 
-            // pnlChat
-            // 
-            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pnlChat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.pnlChat.BorderRadius = 10;
-            this.pnlChat.Controls.Add(this.btnItem);
-            this.pnlChat.Controls.Add(this.btnItems);
-            this.pnlChat.Location = new System.Drawing.Point(98, 114);
-            this.pnlChat.Name = "pnlChat";
-            this.pnlChat.Size = new System.Drawing.Size(1284, 716);
-            this.pnlChat.TabIndex = 43;
-            // 
-            // btnItem
-            // 
-            this.btnItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(247)))), ((int)(((byte)(240)))));
-            this.btnItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.btnItem.color = System.Drawing.Color.SeaGreen;
-            this.btnItem.colorActive = System.Drawing.Color.MediumSeaGreen;
-            this.btnItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnItem.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItem.ForeColor = System.Drawing.Color.DimGray;
-            this.btnItem.Image = global::Mufaddal_Traders.Properties.Resources.avez1anz5_11;
-            this.btnItem.ImagePosition = 21;
-            this.btnItem.ImageZoom = 50;
-            this.btnItem.LabelPosition = 43;
-            this.btnItem.LabelText = "Items";
-            this.btnItem.Location = new System.Drawing.Point(34, 34);
-            this.btnItem.Margin = new System.Windows.Forms.Padding(6);
-            this.btnItem.Name = "btnItem";
-            this.btnItem.Size = new System.Drawing.Size(128, 129);
-            this.btnItem.TabIndex = 25;
-            // 
-            // btnItems
-            // 
-            this.btnItems.Animated = true;
-            this.btnItems.BorderRadius = 3;
-            this.btnItems.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnItems.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnItems.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnItems.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnItems.FillColor = System.Drawing.Color.Transparent;
-            this.btnItems.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItems.ForeColor = System.Drawing.Color.DimGray;
-            this.btnItems.Image = global::Mufaddal_Traders.Properties.Resources.avez1anz5_1;
-            this.btnItems.ImageSize = new System.Drawing.Size(80, 80);
-            this.btnItems.Location = new System.Drawing.Point(471, 386);
-            this.btnItems.Name = "btnItems";
-            this.btnItems.Size = new System.Drawing.Size(150, 211);
-            this.btnItems.TabIndex = 24;
-            this.btnItems.Text = "Items";
-            this.btnItems.TextOffset = new System.Drawing.Point(0, 90);
             // 
             // btnMinimize
             // 
@@ -164,6 +119,22 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 24;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Controls.Add(this.btnMenu);
+            this.panel1.Controls.Add(this.btnHistory);
+            this.panel1.Controls.Add(this.btnDashboard);
+            this.panel1.Controls.Add(this.btnAccount);
+            this.panel1.Location = new System.Drawing.Point(4, 41);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(74, 805);
+            this.panel1.TabIndex = 41;
             // 
             // btnSettings
             // 
@@ -273,6 +244,38 @@
             this.btnAccount.Size = new System.Drawing.Size(60, 56);
             this.btnAccount.TabIndex = 18;
             // 
+            // pnlChat
+            // 
+            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pnlChat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.pnlChat.BorderRadius = 10;
+            this.pnlChat.Controls.Add(this.guna2Button1);
+            this.pnlChat.Location = new System.Drawing.Point(98, 114);
+            this.pnlChat.Name = "pnlChat";
+            this.pnlChat.Size = new System.Drawing.Size(1284, 716);
+            this.pnlChat.TabIndex = 43;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.guna2Button1.BorderRadius = 5;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.Gray;
+            this.guna2Button1.Image = global::Mufaddal_Traders.Properties.Resources.avez1anz5_12;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(44, 44);
+            this.guna2Button1.Location = new System.Drawing.Point(21, 22);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(118, 109);
+            this.guna2Button1.TabIndex = 24;
+            this.guna2Button1.Text = "Items";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // frmStorekeeperMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,7 +308,6 @@
         private Guna.UI2.WinForms.Guna2Button btnDashboard;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private RoundedPanel pnlChat;
-        private Guna.UI2.WinForms.Guna2Button btnItems;
-        private Bunifu.Framework.UI.BunifuTileButton btnItem;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
