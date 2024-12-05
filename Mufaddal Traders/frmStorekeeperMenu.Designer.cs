@@ -344,6 +344,7 @@ namespace Mufaddal_Traders
             this.tileWarehouse.Size = new System.Drawing.Size(165, 149);
             this.tileWarehouse.TabIndex = 36;
             this.tileWarehouse.Text = "Warehouse";
+            this.tileWarehouse.Click += new System.EventHandler(this.tileWarehouse_Click);
             // 
             // tileDiscardedGoods
             // 

@@ -147,5 +147,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tileWarehouse_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperWarehouse storekeeperWarehouse = new frmStorekeeperWarehouse();
+
+            storekeeperWarehouse.Show();
+
+            this.Hide();
+        }
     }
 }

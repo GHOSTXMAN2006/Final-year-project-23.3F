@@ -209,6 +209,12 @@
     <Compile Include="frmAddUpdateStock.Designer.cs">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateWarehouse.Designer.cs">
+      <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,12 @@
     <Compile Include="frmStorekeeperStock.Designer.cs">
       <DependentUpon>frmStorekeeperStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperWarehouse.Designer.cs">
+      <DependentUpon>frmStorekeeperWarehouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoundedPanel.cs">
@@ -264,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateStock.resx">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateWarehouse.resx">
+      <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
@@ -285,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperStock.resx">
       <DependentUpon>frmStorekeeperStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperWarehouse.resx">
+      <DependentUpon>frmStorekeeperWarehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

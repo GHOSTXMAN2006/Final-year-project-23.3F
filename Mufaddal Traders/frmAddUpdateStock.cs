@@ -53,6 +53,7 @@ namespace Mufaddal_Traders
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
         private void picHeader_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
