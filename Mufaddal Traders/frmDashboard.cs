@@ -39,9 +39,16 @@ namespace Mufaddal_Traders
             }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnAccount_Click(object sender, EventArgs e)
         {
+            // Create an instance of frmAccount
+            frmAccount accountForm = new frmAccount();
 
+            // Show the frmAccount
+            accountForm.Show();
+
+            // Close the current form (frmDashboard)
+            this.Hide();
         }
 
         private void frmDashboard_Load(object sender, EventArgs e)
@@ -57,6 +64,35 @@ namespace Mufaddal_Traders
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            // Create an instance of frmStorekeeperMenu
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+
+            // Show the frmStorekeeperMenu
+            menuForm.Show();
+
+            // Close the current form (frmDashboard)
+            this.Hide();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            // Create an instance of frmHome
+            frmHome homeForm = new frmHome();
+
+            // Show the frmHome
+            homeForm.Show();
+
+            // Close the current form (frmDashboard)
+            this.Hide();
         }
     }
 }

@@ -233,12 +233,6 @@
     <Compile Include="frmStorekeeperMenu.Designer.cs">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStoreKeeperMenue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmStoreKeeperMenue.Designer.cs">
-      <DependentUpon>frmStoreKeeperMenue.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmViewStoreKeeperAddItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,9 +264,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperMenu.resx">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmStoreKeeperMenue.resx">
-      <DependentUpon>frmStoreKeeperMenue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewStoreKeeperAddItems.resx">
       <DependentUpon>frmViewStoreKeeperAddItems.cs</DependentUpon>
@@ -531,6 +522,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2795283.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deliver_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deliver_check1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Goods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warehouse-transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360-3605240_stocks-transparent-background-transparent-stock-icon-png %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6179914.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6528651.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2024-12-05 at 13.53.17_7db47e1d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3486568.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9402144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico-warehouse-management-please-collect-and-issue-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return-icon-logo-illustration-order-delivery-and-reverse-logistics-symbol-template-for-graphic-and-web-design-collection-free-vector-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\return-icon-logo-illustration-order-delivery-and-reverse-logistics-symbol-template-for-graphic-and-web-design-collection-free-vector-modified%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money_order-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

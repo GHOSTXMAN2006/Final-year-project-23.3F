@@ -30,7 +30,7 @@ namespace Mufaddal_Traders
             base.OnPaint(e);
 
             int borderThickness = 7;
-            Color borderColor = Color.MediumSeaGreen;
+            Color borderColor = Color.DarkGray;
 
             // Draw border
             using (Pen pen = new Pen(borderColor, borderThickness))

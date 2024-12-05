@@ -129,13 +129,13 @@ namespace Mufaddal_Traders
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            // Create an instance of frmLogin
+            // Create an instance of frmHome
             frmHome homeForm = new frmHome();
 
-            // Show the frmLogin
+            // Show the frmHome
             homeForm.Show();
 
-            // Close the current form (frmHome)
+            // Close the current form (frmLogin)
             this.Hide();
         }
     }

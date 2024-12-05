@@ -89,5 +89,41 @@ namespace Mufaddal_Traders
                 btnProfilePic.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            // Create an instance of frmDashboard
+            frmDashboard dashboardForm = new frmDashboard();
+
+            // Show the frmDashboard
+            dashboardForm.Show();
+
+            // Close the current form (frmAccount)
+            this.Hide();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {// Create an instance of frmStorekeeperMenu
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+
+            // Show the frmStorekeeperMenu
+            menuForm.Show();
+
+            // Close the current form (frmAccount)
+            this.Hide();
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            // Create an instance of frmHome
+            frmHome homeForm = new frmHome();
+
+            // Show the frmHome
+            homeForm.Show();
+
+            // Close the current form (frmAccount)
+            this.Hide();
+        }
     }
 }

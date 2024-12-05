@@ -30,7 +30,7 @@ namespace Mufaddal_Traders
             base.OnPaint(e);
 
             int borderThickness = 7;
-            Color borderColor = Color.MediumSeaGreen;
+            Color borderColor = Color.DarkGray;
 
             // Draw border
             using (Pen pen = new Pen(borderColor, borderThickness))
@@ -466,6 +466,7 @@ namespace Mufaddal_Traders
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(60, 56);
             this.btnHome.TabIndex = 22;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnMenu
             // 
@@ -484,6 +485,7 @@ namespace Mufaddal_Traders
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(60, 56);
             this.btnMenu.TabIndex = 21;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnHistory
             // 
@@ -520,6 +522,7 @@ namespace Mufaddal_Traders
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(60, 56);
             this.btnDashboard.TabIndex = 19;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnAccount
             // 
@@ -538,7 +541,7 @@ namespace Mufaddal_Traders
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(60, 56);
             this.btnAccount.TabIndex = 18;
-            this.btnAccount.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // frmDashboard
             // 
