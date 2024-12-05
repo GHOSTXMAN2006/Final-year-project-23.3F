@@ -93,6 +93,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y {
+            get {
+                object obj = ResourceManager.GetObject("360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _5760695 {
             get {
                 object obj = ResourceManager.GetObject("5760695", resourceCulture);
@@ -133,6 +143,26 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _819438 {
+            get {
+                object obj = ResourceManager.GetObject("819438", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _902397_200 {
+            get {
+                object obj = ResourceManager.GetObject("902397-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap account_circle {
             get {
                 object obj = ResourceManager.GetObject("account_circle", resourceCulture);
@@ -166,6 +196,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap avez1anz5_12 {
             get {
                 object obj = ResourceManager.GetObject("avez1anz5 12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap avez1anz5_13 {
+            get {
+                object obj = ResourceManager.GetObject("avez1anz5 13", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +316,36 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_truck_icon_1058_thumb {
+            get {
+                object obj = ResourceManager.GetObject("free-truck-icon-1058-thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GIN_1 {
+            get {
+                object obj = ResourceManager.GetObject("GIN 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GRN_1 {
+            get {
+                object obj = ResourceManager.GetObject("GRN 1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +473,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images_1 {
+            get {
+                object obj = ResourceManager.GetObject("images 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Info {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
@@ -493,6 +573,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pc_2 {
+            get {
+                object obj = ResourceManager.GetObject("pc 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Phone {
             get {
                 object obj = ResourceManager.GetObject("Phone", resourceCulture);
@@ -535,6 +625,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap po_2 {
+            get {
+                object obj = ResourceManager.GetObject("po 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recent_3 {
             get {
                 object obj = ResourceManager.GetObject("recent 3", resourceCulture);
@@ -568,6 +668,36 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap Settings {
             get {
                 object obj = ResourceManager.GetObject("Settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shopping_Cart_Icon_PNG_Clipart {
+            get {
+                object obj = ResourceManager.GetObject("Shopping_Cart_Icon_PNG_Clipart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_png_image_shopping_cart_icon_sv_11562865326ta92uix1ak {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_png_image_shopping_cart_icon_sv_11562865326ta92uix1ak__1_ {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -493,5 +493,44 @@
   <ItemGroup>
     <None Include="Resources\avez1anz5 12.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avez1anz5 13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shopping_Cart_Icon_PNG_Clipart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-truck-icon-1058-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\819438.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\po 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pc 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GIN 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GRN 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\902397-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

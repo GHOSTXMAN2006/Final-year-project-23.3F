@@ -118,196 +118,235 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="image201" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image201.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="orange-circle-png-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orange-circle-png-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pc 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pc 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="style11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\style11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cropped-Logo-2048x1100 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cropped-Logo-2048x1100 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cropped-Logo-2048x1100 (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cropped-Logo-2048x1100 (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="57606951" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\57606951.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red-circle-emoji-512x512-8xv6a7vo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red-circle-emoji-512x512-8xv6a7vo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper (4).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images (1) 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (1) 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="conifers-18365823" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\conifers-18365823.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="3114815" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3114815.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="avez1anz5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\avez1anz5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="content+send+icon-1320087227200139227 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\content+send+icon-1320087227200139227 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="conifers-18365822" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\conifers-18365822.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pngtree-customer-icon-customer-employee-png-image_10853541" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngtree-customer-icon-customer-employee-png-image_10853541.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="notifications1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notifications1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="notifications" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notifications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon61" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Login-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Login-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chat_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chat_bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper__5_-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper__5_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="recent 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recent 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="account_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\account_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cropped-Logo-2048x1100 (1) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cropped-Logo-2048x1100 (1) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wallpaperflare.com_wallpaper (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper (4).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red-circle-round-3d-button-3 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red-circle-round-3d-button-3 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="conifers-1836582" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\conifers-1836582.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="31148151" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\31148151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="69159871" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\69159871.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="style1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\style1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="6915987" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6915987.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="219988 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\219988 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="conifers-18365821" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\conifers-18365821.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper (5).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper__5_-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="5760695" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\5760695.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WhatsApp-Image-2022-06-03-at-12.59.38-PM 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WhatsApp-Image-2022-06-03-at-12.59.38-PM 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="update cutomer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update cutomer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wallpaperflare.com_wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="avez1anz5 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avez1anz5 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wallpaperflare.com_wallpaper (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpaperflare.com_wallpaper (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recent 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recent 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="902397-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\902397-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpaperflare1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper__5_-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="png-transparent-black-computer-data-analysis-chart-computer-icons-analytics-seo-analysis-icon-miscellaneous-text-logo-thumbnail-removebg-preview-" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-black-computer-data-analysis-chart-computer-icons-analytics-seo-analysis-icon-miscellaneous-text-logo-thumbnail-removebg-preview-.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="notifications" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notifications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Login-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images (1) 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (1) 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="style11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\style11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image201.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-customer-icon-customer-employee-png-image_10853541" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-customer-icon-customer-employee-png-image_10853541.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="avez1anz5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avez1anz5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="219988 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\219988 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3114815" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3114815.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chat_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chat_bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="69159871" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\69159871.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="31148151" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\31148151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conifers-18365822" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conifers-18365822.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conifers-1836582" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conifers-1836582.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="5760695" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5760695.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpaperflare.com_wallpaper__5_-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper__5_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cropped-Logo-2048x1100 (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cropped-Logo-2048x1100 (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GRN 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GRN 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhatsApp-Image-2022-06-03-at-12.59.38-PM 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhatsApp-Image-2022-06-03-at-12.59.38-PM 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="57606951" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\57606951.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping-cart-png-image-shopping-cart-icon-sv-11562865326ta92uix1ak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="avez1anz5 13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avez1anz5 13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="account_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\account_circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notifications1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notifications1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cropped-Logo-2048x1100 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cropped-Logo-2048x1100 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free-truck-icon-1058-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-truck-icon-1058-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cropped-Logo-2048x1100 (1) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cropped-Logo-2048x1100 (1) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="orange-circle-png-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orange-circle-png-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GIN 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GIN 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="style1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\style1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update cutomer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update cutomer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="819438" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\819438.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red-circle-emoji-512x512-8xv6a7vo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red-circle-emoji-512x512-8xv6a7vo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shopping_Cart_Icon_PNG_Clipart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shopping_Cart_Icon_PNG_Clipart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conifers-18365823" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conifers-18365823.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="po 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\po 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red-circle-round-3d-button-3 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red-circle-round-3d-button-3 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpaperflare.com_wallpaper (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper (5).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="6915987" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6915987.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="avez1anz5 12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avez1anz5 12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpaperflare.com_wallpaper (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper (3).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conifers-18365821" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conifers-18365821.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
