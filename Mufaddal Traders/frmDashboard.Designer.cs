@@ -56,21 +56,9 @@ namespace Mufaddal_Traders
         private void InitializeComponent()
         {
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlMainDashboard = new System.Windows.Forms.Panel();
-            this.lblDateDisplay = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlMainDashboard = new System.Windows.Forms.Panel();
             this.pnlChat = new RoundedPanel();
             this.btnSend = new Guna.UI2.WinForms.Guna2Button();
             this.txtChat = new Guna.UI2.WinForms.Guna2TextBox();
@@ -84,15 +72,27 @@ namespace Mufaddal_Traders
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.lblDateDisplay = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHome = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             this.pnlMainDashboard.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pnlChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.pnlAlerts.SuspendLayout();
             this.pnlNotifications.SuspendLayout();
             this.pnlSecurityAlerts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // picHeader
@@ -107,97 +107,6 @@ namespace Mufaddal_Traders
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1395, 38);
             this.picHeader.TabIndex = 38;
-            // 
-            // pnlMainDashboard
-            // 
-            this.pnlMainDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.pnlMainDashboard.Controls.Add(this.pnlChat);
-            this.pnlMainDashboard.Controls.Add(this.pnlAlerts);
-            this.pnlMainDashboard.Location = new System.Drawing.Point(123, 191);
-            this.pnlMainDashboard.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlMainDashboard.Name = "pnlMainDashboard";
-            this.pnlMainDashboard.Size = new System.Drawing.Size(1234, 654);
-            this.pnlMainDashboard.TabIndex = 37;
-            // 
-            // lblDateDisplay
-            // 
-            this.lblDateDisplay.AutoSize = true;
-            this.lblDateDisplay.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateDisplay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDateDisplay.Location = new System.Drawing.Point(124, 147);
-            this.lblDateDisplay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDateDisplay.Name = "lblDateDisplay";
-            this.lblDateDisplay.Size = new System.Drawing.Size(95, 20);
-            this.lblDateDisplay.TabIndex = 36;
-            this.lblDateDisplay.Text = "11/26/2024";
-            this.lblDateDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label4.Location = new System.Drawing.Point(235, 110);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 32);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "John!";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(119, 110);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 32);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Welcome,";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label1.Location = new System.Drawing.Point(118, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 32);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Dashboard";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(118, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1246, 31);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "_____________________________________________________________________________";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Controls.Add(this.btnSettings);
-            this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Controls.Add(this.btnMenu);
-            this.panel1.Controls.Add(this.btnHistory);
-            this.panel1.Controls.Add(this.btnDashboard);
-            this.panel1.Controls.Add(this.btnAccount);
-            this.panel1.Location = new System.Drawing.Point(5, 41);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(74, 805);
-            this.panel1.TabIndex = 31;
             // 
             // btnMinimize
             // 
@@ -239,114 +148,16 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnSettings
+            // pnlMainDashboard
             // 
-            this.btnSettings.Animated = true;
-            this.btnSettings.BorderRadius = 3;
-            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Image = global::Mufaddal_Traders.Properties.Resources.Settings;
-            this.btnSettings.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnSettings.Location = new System.Drawing.Point(7, 733);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(60, 56);
-            this.btnSettings.TabIndex = 23;
-            // 
-            // btnHome
-            // 
-            this.btnHome.Animated = true;
-            this.btnHome.BorderRadius = 3;
-            this.btnHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHome.FillColor = System.Drawing.Color.Transparent;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Image = global::Mufaddal_Traders.Properties.Resources.Home;
-            this.btnHome.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnHome.Location = new System.Drawing.Point(7, 658);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(60, 56);
-            this.btnHome.TabIndex = 22;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Animated = true;
-            this.btnMenu.BorderRadius = 3;
-            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Image = global::Mufaddal_Traders.Properties.Resources.images__1__5;
-            this.btnMenu.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnMenu.Location = new System.Drawing.Point(7, 237);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(60, 56);
-            this.btnMenu.TabIndex = 21;
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Animated = true;
-            this.btnHistory.BorderRadius = 3;
-            this.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHistory.FillColor = System.Drawing.Color.Transparent;
-            this.btnHistory.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHistory.ForeColor = System.Drawing.Color.White;
-            this.btnHistory.Image = global::Mufaddal_Traders.Properties.Resources.recent_3;
-            this.btnHistory.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnHistory.Location = new System.Drawing.Point(7, 155);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(60, 56);
-            this.btnHistory.TabIndex = 20;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Animated = true;
-            this.btnDashboard.BorderRadius = 3;
-            this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDashboard.FillColor = System.Drawing.Color.Transparent;
-            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Image = global::Mufaddal_Traders.Properties.Resources.Menu;
-            this.btnDashboard.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnDashboard.Location = new System.Drawing.Point(7, 87);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(60, 56);
-            this.btnDashboard.TabIndex = 19;
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.Animated = true;
-            this.btnAccount.BorderRadius = 3;
-            this.btnAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAccount.FillColor = System.Drawing.Color.Transparent;
-            this.btnAccount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAccount.ForeColor = System.Drawing.Color.White;
-            this.btnAccount.Image = global::Mufaddal_Traders.Properties.Resources.User;
-            this.btnAccount.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnAccount.Location = new System.Drawing.Point(7, 14);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(60, 56);
-            this.btnAccount.TabIndex = 18;
-            this.btnAccount.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.pnlMainDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.pnlMainDashboard.Controls.Add(this.pnlChat);
+            this.pnlMainDashboard.Controls.Add(this.pnlAlerts);
+            this.pnlMainDashboard.Location = new System.Drawing.Point(123, 177);
+            this.pnlMainDashboard.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlMainDashboard.Name = "pnlMainDashboard";
+            this.pnlMainDashboard.Size = new System.Drawing.Size(1234, 654);
+            this.pnlMainDashboard.TabIndex = 37;
             // 
             // pnlChat
             // 
@@ -540,6 +351,195 @@ namespace Mufaddal_Traders
             this.pictureBox7.TabIndex = 7;
             this.pictureBox7.TabStop = false;
             // 
+            // lblDateDisplay
+            // 
+            this.lblDateDisplay.AutoSize = true;
+            this.lblDateDisplay.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateDisplay.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblDateDisplay.Location = new System.Drawing.Point(124, 140);
+            this.lblDateDisplay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDateDisplay.Name = "lblDateDisplay";
+            this.lblDateDisplay.Size = new System.Drawing.Size(95, 20);
+            this.lblDateDisplay.TabIndex = 36;
+            this.lblDateDisplay.Text = "11/26/2024";
+            this.lblDateDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label4.Location = new System.Drawing.Point(235, 110);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 32);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "John!";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label3.Location = new System.Drawing.Point(119, 103);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 32);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Welcome,";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label1.Location = new System.Drawing.Point(118, 49);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 32);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Dashboard";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(118, 64);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1246, 31);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "_____________________________________________________________________________";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel1.BackColor = System.Drawing.Color.SeaGreen;
+            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Controls.Add(this.btnMenu);
+            this.panel1.Controls.Add(this.btnHistory);
+            this.panel1.Controls.Add(this.btnDashboard);
+            this.panel1.Controls.Add(this.btnAccount);
+            this.panel1.Location = new System.Drawing.Point(5, 41);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(74, 805);
+            this.panel1.TabIndex = 31;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Animated = true;
+            this.btnSettings.BorderRadius = 3;
+            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.Image = global::Mufaddal_Traders.Properties.Resources.Settings;
+            this.btnSettings.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnSettings.Location = new System.Drawing.Point(7, 733);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(60, 56);
+            this.btnSettings.TabIndex = 23;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Animated = true;
+            this.btnHome.BorderRadius = 3;
+            this.btnHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHome.FillColor = System.Drawing.Color.Transparent;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Image = global::Mufaddal_Traders.Properties.Resources.Home;
+            this.btnHome.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnHome.Location = new System.Drawing.Point(7, 658);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(60, 56);
+            this.btnHome.TabIndex = 22;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Animated = true;
+            this.btnMenu.BorderRadius = 3;
+            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Image = global::Mufaddal_Traders.Properties.Resources.images__1__5;
+            this.btnMenu.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnMenu.Location = new System.Drawing.Point(7, 237);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(60, 56);
+            this.btnMenu.TabIndex = 21;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.Animated = true;
+            this.btnHistory.BorderRadius = 3;
+            this.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHistory.FillColor = System.Drawing.Color.Transparent;
+            this.btnHistory.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Image = global::Mufaddal_Traders.Properties.Resources.recent_3;
+            this.btnHistory.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnHistory.Location = new System.Drawing.Point(7, 155);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(60, 56);
+            this.btnHistory.TabIndex = 20;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Animated = true;
+            this.btnDashboard.BorderRadius = 3;
+            this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDashboard.FillColor = System.Drawing.Color.Transparent;
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Image = global::Mufaddal_Traders.Properties.Resources.Menu;
+            this.btnDashboard.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnDashboard.Location = new System.Drawing.Point(7, 87);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(60, 56);
+            this.btnDashboard.TabIndex = 19;
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.Animated = true;
+            this.btnAccount.BorderRadius = 3;
+            this.btnAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAccount.FillColor = System.Drawing.Color.Transparent;
+            this.btnAccount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAccount.ForeColor = System.Drawing.Color.White;
+            this.btnAccount.Image = global::Mufaddal_Traders.Properties.Resources.User;
+            this.btnAccount.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnAccount.Location = new System.Drawing.Point(7, 14);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(60, 56);
+            this.btnAccount.TabIndex = 18;
+            this.btnAccount.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,7 +561,6 @@ namespace Mufaddal_Traders
             this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.picHeader.ResumeLayout(false);
             this.pnlMainDashboard.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.pnlChat.ResumeLayout(false);
             this.pnlChat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -572,6 +571,7 @@ namespace Mufaddal_Traders
             this.pnlSecurityAlerts.ResumeLayout(false);
             this.pnlSecurityAlerts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
