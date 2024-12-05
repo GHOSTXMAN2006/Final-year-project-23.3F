@@ -37,7 +37,11 @@ namespace Mufaddal_Traders
 
         private void tileItems_Click(object sender, EventArgs e)
         {
+            frmStorekeeperItems storekeeperItemForm = new frmStorekeeperItems();
 
+            storekeeperItemForm.Show();
+
+            this.Hide();
         }
 
         private void picHeader_Paint(object sender, PaintEventArgs e)

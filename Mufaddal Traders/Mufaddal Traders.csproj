@@ -197,6 +197,12 @@
     <Compile Include="frmAccount.Designer.cs">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateItems.Designer.cs">
+      <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,23 +227,17 @@
     <Compile Include="frmManagePurchaseOrder.Designer.cs">
       <DependentUpon>frmManagePurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStoreKeeperAddItems.cs">
+    <Compile Include="frmStorekeeperItems.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStoreKeeperAddItems.Designer.cs">
-      <DependentUpon>frmStoreKeeperAddItems.cs</DependentUpon>
+    <Compile Include="frmStorekeeperItems.Designer.cs">
+      <DependentUpon>frmStorekeeperItems.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmStorekeeperMenu.Designer.cs">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmViewStoreKeeperAddItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmViewStoreKeeperAddItems.Designer.cs">
-      <DependentUpon>frmViewStoreKeeperAddItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,6 +246,9 @@
     </Compile>
     <EmbeddedResource Include="frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateItems.resx">
+      <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
@@ -259,14 +262,11 @@
     <EmbeddedResource Include="frmManagePurchaseOrder.resx">
       <DependentUpon>frmManagePurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStoreKeeperAddItems.resx">
-      <DependentUpon>frmStoreKeeperAddItems.cs</DependentUpon>
+    <EmbeddedResource Include="frmStorekeeperItems.resx">
+      <DependentUpon>frmStorekeeperItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperMenu.resx">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmViewStoreKeeperAddItems.resx">
-      <DependentUpon>frmViewStoreKeeperAddItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -573,6 +573,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Money_order-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spreadsheets-bro 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save-icon-2048x2048-iovw4qr4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2661440.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-icon-design-back-miscellaneous-angle-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
