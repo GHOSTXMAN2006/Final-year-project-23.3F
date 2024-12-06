@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmAddUpdateWarehouse : Form
+    public partial class frmStorekeeperStockTransfer : Form
     {
 
         // DLL imports to allow dragging
@@ -25,9 +25,14 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmAddUpdateWarehouse()
+        public frmStorekeeperStockTransfer()
         {
             InitializeComponent();
+        }
+
+        private void frmStorekeeperStockTransfer_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -51,11 +56,58 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmStorekeeperWarehouse storekeeperWarehouse = new frmStorekeeperWarehouse();
+            frmStorekeeperStockTransfer storekeeperStockTransfer = new frmStorekeeperStockTransfer();
 
-            storekeeperWarehouse.Show();
+            storekeeperStockTransfer.Show();
 
             this.Hide();
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            frmAccount accountForm = new frmAccount();
+
+            accountForm.Show();
+
+            this.Hide();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            frmDashboard dashboardForm = new frmDashboard();
+
+            dashboardForm.Show();
+
+            this.Hide();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+
+            menuForm.Show();
+
+            this.Hide();
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            frmHome homeForm = new frmHome();
+
+            homeForm.Show();
+
+            this.Hide();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

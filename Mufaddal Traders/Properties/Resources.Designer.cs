@@ -968,6 +968,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Transfer_files_bro__1__1 {
+            get {
+                object obj = ResourceManager.GetObject("Transfer files-bro (1) 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap update_cutomer {
             get {
                 object obj = ResourceManager.GetObject("update cutomer", resourceCulture);

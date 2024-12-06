@@ -156,5 +156,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tileStockTransfer_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperStockTransfer storekeeperStockTransfer = new frmStorekeeperStockTransfer();
+
+            storekeeperStockTransfer.Show();
+
+            this.Hide();
+        }
     }
 }
