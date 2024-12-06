@@ -67,15 +67,14 @@ namespace Mufaddal_Traders
             this.txtChannellingType = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnUpload = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.picHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox4
@@ -225,6 +224,35 @@ namespace Mufaddal_Traders
             this.label1.TabIndex = 162;
             this.label1.Text = "Manage Items";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(54, 215);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(332, 32);
+            this.comboBox1.TabIndex = 180;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Animated = true;
+            this.btnUpload.BorderRadius = 20;
+            this.btnUpload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpload.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpload.FillColor = System.Drawing.Color.Transparent;
+            this.btnUpload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnUpload.ForeColor = System.Drawing.Color.White;
+            this.btnUpload.Image = global::Mufaddal_Traders.Properties.Resources.uploadsymbol_105008_ezgif_com_webp_to_png_converter;
+            this.btnUpload.ImageSize = new System.Drawing.Size(400, 400);
+            this.btnUpload.Location = new System.Drawing.Point(473, 130);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(515, 515);
+            this.btnUpload.TabIndex = 181;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // btnBack
             // 
             this.btnBack.Animated = true;
@@ -336,35 +364,13 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::Mufaddal_Traders.Properties.Resources.Spreadsheets_bro_1;
-            this.pictureBox1.Location = new System.Drawing.Point(445, 123);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(581, 547);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 167;
-            this.pictureBox1.TabStop = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(54, 215);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(332, 32);
-            this.comboBox1.TabIndex = 180;
-            // 
             // frmAddUpdateItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 741);
             this.ControlBox = false;
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
@@ -378,7 +384,6 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.picHeader);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtChannellingType);
             this.Controls.Add(this.label4);
@@ -388,7 +393,6 @@ namespace Mufaddal_Traders
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateItems";
             this.picHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,12 +413,12 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox txtChannellingType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private ComboBox comboBox1;
+        private Guna.UI2.WinForms.Guna2Button btnUpload;
     }
 }

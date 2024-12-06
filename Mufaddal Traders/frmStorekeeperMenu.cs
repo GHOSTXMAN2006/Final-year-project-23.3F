@@ -165,5 +165,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tileSuppliers_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperSuppliers storekeeperSuppliers = new frmStorekeeperSuppliers();
+
+            storekeeperSuppliers.Show();
+
+            this.Hide();
+        }
     }
 }

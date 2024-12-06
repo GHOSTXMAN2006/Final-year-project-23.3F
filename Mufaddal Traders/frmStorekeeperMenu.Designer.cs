@@ -394,6 +394,7 @@ namespace Mufaddal_Traders
             this.tileSuppliers.Size = new System.Drawing.Size(151, 149);
             this.tileSuppliers.TabIndex = 26;
             this.tileSuppliers.Text = "Suppliers";
+            this.tileSuppliers.Click += new System.EventHandler(this.tileSuppliers_Click);
             // 
             // tileItems
             // 

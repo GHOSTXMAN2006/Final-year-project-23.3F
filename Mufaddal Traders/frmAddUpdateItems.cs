@@ -57,5 +57,22 @@ namespace Mufaddal_Traders
         {
             this.Close();
         }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            // Create and configure OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select an Item Image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            };
+
+            // Show the dialog and check if the user selects a file
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Load the selected image into the PictureBox
+                btnUpload.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
     }
 }

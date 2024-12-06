@@ -269,6 +269,12 @@
     <Compile Include="frmStorekeeperStockTransfer.Designer.cs">
       <DependentUpon>frmStorekeeperStockTransfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperSuppliers.Designer.cs">
+      <DependentUpon>frmStorekeeperSuppliers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperStockTransfer.resx">
       <DependentUpon>frmStorekeeperStockTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperSuppliers.resx">
+      <DependentUpon>frmStorekeeperSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperWarehouse.resx">
       <DependentUpon>frmStorekeeperWarehouse.cs</DependentUpon>
@@ -660,6 +669,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Transfer files-bro %281%29 11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uploadsymbol_105008-ezgif.com-webp-to-png-converter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
