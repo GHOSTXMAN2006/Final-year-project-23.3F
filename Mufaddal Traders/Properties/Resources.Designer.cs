@@ -243,6 +243,26 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Agreement_bro_1 {
+            get {
+                object obj = ResourceManager.GetObject("Agreement-bro 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Agreement_bro_11 {
+            get {
+                object obj = ResourceManager.GetObject("Agreement-bro 11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Arrow_Left_512_ezgif_com_webp_to_png_converter {
             get {
                 object obj = ResourceManager.GetObject("Arrow_Left-512-ezgif.com-webp-to-png-converter", resourceCulture);
@@ -829,6 +849,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap po_2 {
             get {
                 object obj = ResourceManager.GetObject("po 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Receipt_pana_1 {
+            get {
+                object obj = ResourceManager.GetObject("Receipt-pana 1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

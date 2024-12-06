@@ -203,11 +203,23 @@
     <Compile Include="frmAddStockTransfer.Designer.cs">
       <DependentUpon>frmAddStockTransfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateGIN.Designer.cs">
+      <DependentUpon>frmAddUpdateGIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateItems.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddUpdateItems.Designer.cs">
       <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUpdatePurchaseContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdatePurchaseContract.Designer.cs">
+      <DependentUpon>frmAddUpdatePurchaseContract.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUpdatePurchaseOrders.cs">
       <SubType>Form</SubType>
@@ -251,6 +263,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperGIN.Designer.cs">
+      <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +280,12 @@
     </Compile>
     <Compile Include="frmStorekeeperMenu.Designer.cs">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStorekeeperPurchaseContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperPurchaseContract.Designer.cs">
+      <DependentUpon>frmStorekeeperPurchaseContract.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperPurchaseOrder.cs">
       <SubType>Form</SubType>
@@ -304,8 +328,14 @@
     <EmbeddedResource Include="frmAddStockTransfer.resx">
       <DependentUpon>frmAddStockTransfer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateGIN.resx">
+      <DependentUpon>frmAddUpdateGIN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateItems.resx">
       <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdatePurchaseContract.resx">
+      <DependentUpon>frmAddUpdatePurchaseContract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdatePurchaseOrders.resx">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
@@ -328,11 +358,17 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperGIN.resx">
+      <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperItems.resx">
       <DependentUpon>frmStorekeeperItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperMenu.resx">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperPurchaseContract.resx">
+      <DependentUpon>frmStorekeeperPurchaseContract.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperPurchaseOrder.resx">
       <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
@@ -696,6 +732,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Order ahead-rafiki 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agreement-bro 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agreement-bro 11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Receipt-pana 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

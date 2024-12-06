@@ -487,6 +487,7 @@ namespace Mufaddal_Traders
             this.tileGIN.Size = new System.Drawing.Size(151, 149);
             this.tileGIN.TabIndex = 29;
             this.tileGIN.Text = "GIN";
+            this.tileGIN.Click += new System.EventHandler(this.tileGIN_Click);
             // 
             // tilePC
             // 

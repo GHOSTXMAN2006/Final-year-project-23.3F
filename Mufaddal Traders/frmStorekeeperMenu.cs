@@ -112,7 +112,11 @@ namespace Mufaddal_Traders
 
         private void tilePC_Click(object sender, EventArgs e)
         {
+            frmStorekeeperPurchaseContract storekeeperPurchaseContract = new frmStorekeeperPurchaseContract();
 
+            storekeeperPurchaseContract.Show();
+
+            this.Hide();
         }
 
         private void picHeader_MouseDown(object sender, MouseEventArgs e)
@@ -180,6 +184,15 @@ namespace Mufaddal_Traders
             frmStorekeeperPurchaseOrder storekeeperPurchaseOrder = new frmStorekeeperPurchaseOrder();
 
             storekeeperPurchaseOrder.Show();
+
+            this.Hide();
+        }
+
+        private void tileGIN_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperGIN storekeeperGIN = new frmStorekeeperGIN();
+
+            storekeeperGIN.Show();
 
             this.Hide();
         }
