@@ -205,5 +205,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tileSRN_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperSRN storekeeperSRN = new frmStorekeeperSRN();
+
+            storekeeperSRN.Show();
+
+            this.Hide();
+        }
     }
 }

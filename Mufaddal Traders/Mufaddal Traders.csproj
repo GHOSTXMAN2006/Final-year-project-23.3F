@@ -233,6 +233,12 @@
     <Compile Include="frmAddUpdatePurchaseOrders.Designer.cs">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateSRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateSRN.Designer.cs">
+      <DependentUpon>frmAddUpdateSRN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,12 @@
     <Compile Include="frmStorekeeperPurchaseOrder.Designer.cs">
       <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperSRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperSRN.Designer.cs">
+      <DependentUpon>frmStorekeeperSRN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +367,9 @@
     <EmbeddedResource Include="frmAddUpdatePurchaseOrders.resx">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateSRN.resx">
+      <DependentUpon>frmAddUpdateSRN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateStock.resx">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperPurchaseOrder.resx">
       <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperSRN.resx">
+      <DependentUpon>frmStorekeeperSRN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperStock.resx">
       <DependentUpon>frmStorekeeperStock.cs</DependentUpon>
@@ -762,6 +780,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Receipt-bro 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checking boxes-cuate 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

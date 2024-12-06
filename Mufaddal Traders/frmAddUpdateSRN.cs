@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmAddUpdateGIN : Form
+    public partial class frmAddUpdateSRN : Form
     {
 
         // DLL imports to allow dragging
@@ -25,7 +25,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmAddUpdateGIN()
+        public frmAddUpdateSRN()
         {
             InitializeComponent();
         }
@@ -38,6 +38,15 @@ namespace Mufaddal_Traders
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void picHeader_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

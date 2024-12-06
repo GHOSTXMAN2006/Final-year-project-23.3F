@@ -447,6 +447,7 @@ namespace Mufaddal_Traders
             this.tileSRN.Size = new System.Drawing.Size(151, 149);
             this.tileSRN.TabIndex = 31;
             this.tileSRN.Text = "SRN";
+            this.tileSRN.Click += new System.EventHandler(this.tileSRN_Click);
             // 
             // tileGRN
             // 

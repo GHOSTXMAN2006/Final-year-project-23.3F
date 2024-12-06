@@ -187,7 +187,7 @@ namespace Mufaddal_Traders
             this.textBox3.Location = new System.Drawing.Point(54, 212);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(332, 28);
+            this.textBox3.Size = new System.Drawing.Size(145, 28);
             this.textBox3.TabIndex = 216;
             // 
             // comboBox1

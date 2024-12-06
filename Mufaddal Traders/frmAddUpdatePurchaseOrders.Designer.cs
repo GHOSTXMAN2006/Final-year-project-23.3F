@@ -67,7 +67,6 @@ namespace Mufaddal_Traders
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -87,6 +86,7 @@ namespace Mufaddal_Traders
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.pnlAlerts.SuspendLayout();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -227,16 +227,6 @@ namespace Mufaddal_Traders
             this.textBox5.Size = new System.Drawing.Size(104, 33);
             this.textBox5.TabIndex = 88;
             // 
-            // comboBox4
-            // 
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(27, 50);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(79, 33);
-            this.comboBox4.TabIndex = 99;
-            // 
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -329,6 +319,7 @@ namespace Mufaddal_Traders
             this.pnlAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlAlerts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
             this.pnlAlerts.BorderRadius = 10;
+            this.pnlAlerts.Controls.Add(this.textBox3);
             this.pnlAlerts.Controls.Add(this.label4);
             this.pnlAlerts.Controls.Add(this.textBox10);
             this.pnlAlerts.Controls.Add(this.comboBox3);
@@ -344,7 +335,6 @@ namespace Mufaddal_Traders
             this.pnlAlerts.Controls.Add(this.label3);
             this.pnlAlerts.Controls.Add(this.textBox7);
             this.pnlAlerts.Controls.Add(this.textBox12);
-            this.pnlAlerts.Controls.Add(this.comboBox4);
             this.pnlAlerts.Controls.Add(this.label5);
             this.pnlAlerts.Controls.Add(this.textBox5);
             this.pnlAlerts.Controls.Add(this.comboBox5);
@@ -514,6 +504,15 @@ namespace Mufaddal_Traders
             this.guna2TextBox2.Size = new System.Drawing.Size(218, 38);
             this.guna2TextBox2.TabIndex = 199;
             // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(17, 49);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(108, 28);
+            this.textBox3.TabIndex = 217;
+            // 
             // frmAddUpdatePurchaseOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,7 +559,6 @@ namespace Mufaddal_Traders
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -580,5 +578,6 @@ namespace Mufaddal_Traders
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private TextBox textBox3;
     }
 }
