@@ -658,5 +658,8 @@
   <ItemGroup>
     <None Include="Resources\Transfer files-bro %281%29 1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transfer files-bro %281%29 11.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
