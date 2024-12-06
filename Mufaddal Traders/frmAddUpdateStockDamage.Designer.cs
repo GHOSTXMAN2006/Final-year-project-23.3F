@@ -60,7 +60,6 @@ namespace Mufaddal_Traders
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,6 +75,7 @@ namespace Mufaddal_Traders
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -144,22 +144,13 @@ namespace Mufaddal_Traders
             this.comboBox1.Size = new System.Drawing.Size(125, 33);
             this.comboBox1.TabIndex = 242;
             // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(55, 263);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 28);
-            this.textBox3.TabIndex = 241;
-            // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(54, 395);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(332, 28);
+            this.textBox4.Size = new System.Drawing.Size(126, 28);
             this.textBox4.TabIndex = 236;
             // 
             // label5
@@ -378,12 +369,23 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(54, 261);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(125, 33);
+            this.comboBox2.TabIndex = 248;
+            // 
             // frmAddUpdateStockDamage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(958, 572);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
@@ -394,7 +396,6 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -429,7 +430,6 @@ namespace Mufaddal_Traders
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnClose;
-        private TextBox textBox3;
         private TextBox textBox4;
         private Label label5;
         private Label label2;
@@ -439,5 +439,6 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Panel picHeader;
         private Label label4;
         private Label label1;
+        private ComboBox comboBox2;
     }
 }

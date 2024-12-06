@@ -365,6 +365,7 @@ namespace Mufaddal_Traders
             this.tileDiscardedGoods.Size = new System.Drawing.Size(156, 149);
             this.tileDiscardedGoods.TabIndex = 35;
             this.tileDiscardedGoods.Text = "Discarded Goods";
+            this.tileDiscardedGoods.Click += new System.EventHandler(this.tileDiscardedGoods_Click);
             // 
             // tileStockDamage
             // 

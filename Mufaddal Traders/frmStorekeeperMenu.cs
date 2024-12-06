@@ -223,5 +223,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tileDiscardedGoods_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperDiscardedGoods storekeeperDiscardedGoods = new frmStorekeeperDiscardedGoods();
+
+            storekeeperDiscardedGoods.Show();
+
+            this.Hide();
+        }
     }
 }

@@ -197,6 +197,12 @@
     <Compile Include="frmAccount.Designer.cs">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddDiscardedGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDiscardedGoods.Designer.cs">
+      <DependentUpon>frmAddDiscardedGoods.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddStockTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperDiscardedGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperDiscardedGoods.Designer.cs">
+      <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +373,9 @@
     <EmbeddedResource Include="frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddDiscardedGoods.resx">
+      <DependentUpon>frmAddDiscardedGoods.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddStockTransfer.resx">
       <DependentUpon>frmAddStockTransfer.cs</DependentUpon>
     </EmbeddedResource>
@@ -402,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperDiscardedGoods.resx">
+      <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperGIN.resx">
       <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
@@ -804,6 +822,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shopping-rafiki 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Discarded idea-amico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
