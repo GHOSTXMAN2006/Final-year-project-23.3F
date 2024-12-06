@@ -245,6 +245,12 @@
     <Compile Include="frmAddUpdateStock.Designer.cs">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateStockDamage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateStockDamage.Designer.cs">
+      <DependentUpon>frmAddUpdateStockDamage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,12 @@
     <Compile Include="frmStorekeeperStock.Designer.cs">
       <DependentUpon>frmStorekeeperStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperStockDamage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperStockDamage.Designer.cs">
+      <DependentUpon>frmStorekeeperStockDamage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperStockTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +385,9 @@
     <EmbeddedResource Include="frmAddUpdateStock.resx">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateStockDamage.resx">
+      <DependentUpon>frmAddUpdateStockDamage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateSuppliers.resx">
       <DependentUpon>frmAddUpdateSuppliers.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperStock.resx">
       <DependentUpon>frmStorekeeperStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperStockDamage.resx">
+      <DependentUpon>frmStorekeeperStockDamage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperStockTransfer.resx">
       <DependentUpon>frmStorekeeperStockTransfer.cs</DependentUpon>
@@ -783,6 +801,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Checking boxes-cuate 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shopping-rafiki 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

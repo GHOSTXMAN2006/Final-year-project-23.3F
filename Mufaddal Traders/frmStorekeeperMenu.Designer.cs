@@ -385,6 +385,7 @@ namespace Mufaddal_Traders
             this.tileStockDamage.Size = new System.Drawing.Size(151, 149);
             this.tileStockDamage.TabIndex = 34;
             this.tileStockDamage.Text = "Stock Damage";
+            this.tileStockDamage.Click += new System.EventHandler(this.tileStockDamage_Click);
             // 
             // tileStock
             // 

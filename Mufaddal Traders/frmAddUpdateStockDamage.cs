@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmAddUpdateSRN : Form
+    public partial class frmAddUpdateStockDamage : Form
     {
 
         // DLL imports to allow dragging
@@ -25,7 +25,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmAddUpdateSRN()
+        public frmAddUpdateStockDamage()
         {
             InitializeComponent();
         }
