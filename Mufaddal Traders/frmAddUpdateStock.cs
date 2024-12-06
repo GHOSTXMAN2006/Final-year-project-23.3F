@@ -37,11 +37,7 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmStorekeeperStock storekeeperStock = new frmStorekeeperStock();
-
-            storekeeperStock.Show();
-
-            this.Hide();
+            this.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -56,11 +56,7 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmStorekeeperStockTransfer storekeeperStockTransfer = new frmStorekeeperStockTransfer();
-
-            storekeeperStockTransfer.Show();
-
-            this.Hide();
+            this.Close();
         }
     }
 }

@@ -215,6 +215,12 @@
     <Compile Include="frmAddUpdateStock.Designer.cs">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateSuppliers.Designer.cs">
+      <DependentUpon>frmAddUpdateSuppliers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateStock.resx">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateSuppliers.resx">
+      <DependentUpon>frmAddUpdateSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateWarehouse.resx">
       <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
@@ -672,6 +681,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\uploadsymbol_105008-ezgif.com-webp-to-png-converter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\In no time-bro 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
