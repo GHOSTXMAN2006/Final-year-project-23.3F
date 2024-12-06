@@ -177,7 +177,11 @@ namespace Mufaddal_Traders
 
         private void tilePO_Click(object sender, EventArgs e)
         {
+            frmStorekeeperPurchaseOrder storekeeperPurchaseOrder = new frmStorekeeperPurchaseOrder();
 
+            storekeeperPurchaseOrder.Show();
+
+            this.Hide();
         }
     }
 }
