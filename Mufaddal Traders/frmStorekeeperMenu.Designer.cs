@@ -324,6 +324,7 @@ namespace Mufaddal_Traders
             this.tilePaymentVouchers.Size = new System.Drawing.Size(151, 149);
             this.tilePaymentVouchers.TabIndex = 37;
             this.tilePaymentVouchers.Text = "Payment Vouchers";
+            this.tilePaymentVouchers.Click += new System.EventHandler(this.tilePaymentVouchers_Click);
             // 
             // tileWarehouse
             // 

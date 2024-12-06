@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmAddUpdateGRN : Form
+    public partial class frmAddUpdatePaymentVoucher : Form
     {
 
         // DLL imports to allow dragging
@@ -25,11 +25,12 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmAddUpdateGRN()
+        public frmAddUpdatePaymentVoucher()
         {
             InitializeComponent();
         }
 
+        //For addUpdateForms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,11 +53,6 @@ namespace Mufaddal_Traders
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

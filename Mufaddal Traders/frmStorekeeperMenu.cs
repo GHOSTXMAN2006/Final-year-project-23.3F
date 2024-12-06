@@ -232,5 +232,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tilePaymentVouchers_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperPaymentVouchers storekeeperPaymentVouchers = new frmStorekeeperPaymentVouchers();
+
+            storekeeperPaymentVouchers.Show();
+
+            this.Hide();
+        }
     }
 }

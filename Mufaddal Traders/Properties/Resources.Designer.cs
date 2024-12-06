@@ -323,6 +323,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cash_Payment_bro__1__1 {
+            get {
+                object obj = ResourceManager.GetObject("Cash Payment-bro (1) 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chat_bubble {
             get {
                 object obj = ResourceManager.GetObject("chat_bubble", resourceCulture);

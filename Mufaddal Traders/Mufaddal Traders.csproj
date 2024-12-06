@@ -227,6 +227,12 @@
     <Compile Include="frmAddUpdateItems.Designer.cs">
       <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdatePaymentVoucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdatePaymentVoucher.Designer.cs">
+      <DependentUpon>frmAddUpdatePaymentVoucher.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdatePurchaseContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,12 @@
     <Compile Include="frmStorekeeperMenu.Designer.cs">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStorekeeperPaymentVouchers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperPaymentVouchers.Designer.cs">
+      <DependentUpon>frmStorekeeperPaymentVouchers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperPurchaseContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +400,9 @@
     <EmbeddedResource Include="frmAddUpdateItems.resx">
       <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdatePaymentVoucher.resx">
+      <DependentUpon>frmAddUpdatePaymentVoucher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdatePurchaseContract.resx">
       <DependentUpon>frmAddUpdatePurchaseContract.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,6 +447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperMenu.resx">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperPaymentVouchers.resx">
+      <DependentUpon>frmStorekeeperPaymentVouchers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperPurchaseContract.resx">
       <DependentUpon>frmStorekeeperPurchaseContract.cs</DependentUpon>
@@ -825,6 +843,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Discarded idea-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cash Payment-bro %281%29 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
