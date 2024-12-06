@@ -313,6 +313,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Checking_boxes_bro__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Checking boxes-bro (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap conifers_1836582 {
             get {
                 object obj = ResourceManager.GetObject("conifers-1836582", resourceCulture);

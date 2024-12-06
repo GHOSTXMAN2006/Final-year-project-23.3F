@@ -634,5 +634,8 @@
   <ItemGroup>
     <None Include="Resources\inventory-control-system-concept-professional-manager-checking-goods-stock-supply-inventory-management-with-goods-demand_185038-803.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checking boxes-bro %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
