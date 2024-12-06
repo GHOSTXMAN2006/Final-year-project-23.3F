@@ -196,5 +196,14 @@ namespace Mufaddal_Traders
 
             this.Hide();
         }
+
+        private void tileGRN_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperGRN storekeeperGRN = new frmStorekeeperGRN();
+
+            storekeeperGRN.Show();
+
+            this.Hide();
+        }
     }
 }

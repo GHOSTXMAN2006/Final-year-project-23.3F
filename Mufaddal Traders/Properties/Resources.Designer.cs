@@ -856,6 +856,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Receipt_bro_1 {
+            get {
+                object obj = ResourceManager.GetObject("Receipt-bro 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Receipt_pana_1 {
             get {
                 object obj = ResourceManager.GetObject("Receipt-pana 1", resourceCulture);

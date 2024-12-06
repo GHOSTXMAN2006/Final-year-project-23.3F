@@ -467,6 +467,7 @@ namespace Mufaddal_Traders
             this.tileGRN.Size = new System.Drawing.Size(151, 149);
             this.tileGRN.TabIndex = 30;
             this.tileGRN.Text = "GRN";
+            this.tileGRN.Click += new System.EventHandler(this.tileGRN_Click);
             // 
             // tileGIN
             // 

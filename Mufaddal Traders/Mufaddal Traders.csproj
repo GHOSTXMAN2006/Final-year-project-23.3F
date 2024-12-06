@@ -209,6 +209,12 @@
     <Compile Include="frmAddUpdateGIN.Designer.cs">
       <DependentUpon>frmAddUpdateGIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateGRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateGRN.Designer.cs">
+      <DependentUpon>frmAddUpdateGRN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,12 @@
     </Compile>
     <Compile Include="frmStorekeeperGIN.Designer.cs">
       <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStorekeeperGRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStorekeeperGRN.Designer.cs">
+      <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperItems.cs">
       <SubType>Form</SubType>
@@ -331,6 +343,9 @@
     <EmbeddedResource Include="frmAddUpdateGIN.resx">
       <DependentUpon>frmAddUpdateGIN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateGRN.resx">
+      <DependentUpon>frmAddUpdateGRN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateItems.resx">
       <DependentUpon>frmAddUpdateItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperGIN.resx">
       <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStorekeeperGRN.resx">
+      <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperItems.resx">
       <DependentUpon>frmStorekeeperItems.cs</DependentUpon>
@@ -741,6 +759,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Receipt-pana 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Receipt-bro 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
