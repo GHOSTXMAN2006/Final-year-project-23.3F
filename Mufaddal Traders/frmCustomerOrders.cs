@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmStorekeeperSRN : Form
+    public partial class frmCustomerOrders : Form
     {
 
         // DLL imports to allow dragging
@@ -25,11 +25,17 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmStorekeeperSRN()
+        public frmCustomerOrders()
         {
             InitializeComponent();
         }
 
+        private void frmCustomerOrders_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //ForMainForm
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -51,9 +57,9 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
 
-            menuForm.Show();
+            shippingManagerMenu.Show();
 
             this.Hide();
         }
@@ -83,11 +89,6 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
-
-            menuForm.Show();
-
-            this.Hide();
 
         }
 
@@ -112,16 +113,16 @@ namespace Mufaddal_Traders
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            frmAddUpdateSRN addUpdateSRN = new frmAddUpdateSRN();
+            frmAddUpdateCustomerOrder addUpdateCustomerOrder = new frmAddUpdateCustomerOrder();
 
-            addUpdateSRN.Show();
+            addUpdateCustomerOrder.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddUpdateSRN addUpdateSRN = new frmAddUpdateSRN();
+            frmAddUpdateCustomerOrder addUpdateCustomerOrder = new frmAddUpdateCustomerOrder();
 
-            addUpdateSRN.Show();
+            addUpdateCustomerOrder.Show();
         }
     }
 }

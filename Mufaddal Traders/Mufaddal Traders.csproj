@@ -209,6 +209,18 @@
     <Compile Include="frmAddStockTransfer.Designer.cs">
       <DependentUpon>frmAddStockTransfer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateCustomerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateCustomerOrder.Designer.cs">
+      <DependentUpon>frmAddUpdateCustomerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUpdateDeliveryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateDeliveryOrder.Designer.cs">
+      <DependentUpon>frmAddUpdateDeliveryOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateGIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,11 +287,23 @@
     <Compile Include="frmAddUpdateWarehouse.Designer.cs">
       <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCustomerOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerOrders.Designer.cs">
+      <DependentUpon>frmCustomerOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeliveryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeliveryOrder.Designer.cs">
+      <DependentUpon>frmDeliveryOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
@@ -293,23 +317,11 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmShippingManagerGIN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmShippingManagerGIN.Designer.cs">
-      <DependentUpon>frmShippingManagerGIN.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmShippingManagerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmShippingManagerMenu.Designer.cs">
       <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmShippingManagerSRN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmShippingManagerSRN.Designer.cs">
-      <DependentUpon>frmShippingManagerSRN.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperDiscardedGoods.cs">
       <SubType>Form</SubType>
@@ -317,11 +329,11 @@
     <Compile Include="frmStorekeeperDiscardedGoods.Designer.cs">
       <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperGIN.cs">
+    <Compile Include="frmGIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperGIN.Designer.cs">
-      <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
+    <Compile Include="frmGIN.Designer.cs">
+      <DependentUpon>frmGIN.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperGRN.cs">
       <SubType>Form</SubType>
@@ -359,11 +371,11 @@
     <Compile Include="frmStorekeeperPurchaseOrder.Designer.cs">
       <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperSRN.cs">
+    <Compile Include="frmSRN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperSRN.Designer.cs">
-      <DependentUpon>frmStorekeeperSRN.cs</DependentUpon>
+    <Compile Include="frmSRN.Designer.cs">
+      <DependentUpon>frmSRN.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperStock.cs">
       <SubType>Form</SubType>
@@ -409,6 +421,12 @@
     <EmbeddedResource Include="frmAddStockTransfer.resx">
       <DependentUpon>frmAddStockTransfer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateCustomerOrder.resx">
+      <DependentUpon>frmAddUpdateCustomerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateDeliveryOrder.resx">
+      <DependentUpon>frmAddUpdateDeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateGIN.resx">
       <DependentUpon>frmAddUpdateGIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -442,8 +460,14 @@
     <EmbeddedResource Include="frmAddUpdateWarehouse.resx">
       <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomerOrders.resx">
+      <DependentUpon>frmCustomerOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeliveryOrder.resx">
+      <DependentUpon>frmDeliveryOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
@@ -451,20 +475,14 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmShippingManagerGIN.resx">
-      <DependentUpon>frmShippingManagerGIN.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmShippingManagerMenu.resx">
       <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmShippingManagerSRN.resx">
-      <DependentUpon>frmShippingManagerSRN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperDiscardedGoods.resx">
       <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperGIN.resx">
-      <DependentUpon>frmStorekeeperGIN.cs</DependentUpon>
+    <EmbeddedResource Include="frmGIN.resx">
+      <DependentUpon>frmGIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperGRN.resx">
       <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
@@ -484,8 +502,8 @@
     <EmbeddedResource Include="frmStorekeeperPurchaseOrder.resx">
       <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperSRN.resx">
-      <DependentUpon>frmStorekeeperSRN.cs</DependentUpon>
+    <EmbeddedResource Include="frmSRN.resx">
+      <DependentUpon>frmSRN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperStock.resx">
       <DependentUpon>frmStorekeeperStock.cs</DependentUpon>

@@ -1,6 +1,10 @@
-﻿namespace Mufaddal_Traders
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
+namespace Mufaddal_Traders
 {
-    partial class frmShippingManagerSRN
+    partial class frmAddUpdateDeliveryOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -20,6 +24,28 @@
             base.Dispose(disposing);
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            int borderThickness = 7;
+            Color borderColor = Color.DarkGray;
+
+            // Draw border
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            }
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            this.Invalidate(); // Forces the form to redraw the border on resize
+        }
+
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -30,16 +56,16 @@
         {
             this.SuspendLayout();
             // 
-            // frmShippingManagerSRN
+            // frmAddUpdateDeliveryOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1405, 851);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmShippingManagerSRN";
+            this.Name = "frmAddUpdateDeliveryOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmShippingManagerSRN";
+            this.Text = "frmAddUpdateDeliveryOrder";
             this.ResumeLayout(false);
 
         }

@@ -190,9 +190,9 @@ namespace Mufaddal_Traders
 
         private void tileGIN_Click(object sender, EventArgs e)
         {
-            frmStorekeeperGIN storekeeperGIN = new frmStorekeeperGIN();
+            frmGIN ginForm = new frmGIN();
 
-            storekeeperGIN.Show();
+            ginForm.Show();
 
             this.Hide();
         }
@@ -208,9 +208,9 @@ namespace Mufaddal_Traders
 
         private void tileSRN_Click(object sender, EventArgs e)
         {
-            frmStorekeeperSRN storekeeperSRN = new frmStorekeeperSRN();
+            frmSRN srnForm = new frmSRN();
 
-            storekeeperSRN.Show();
+            srnForm.Show();
 
             this.Hide();
         }

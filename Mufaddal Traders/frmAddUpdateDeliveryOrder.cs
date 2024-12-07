@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmShippingManagerSRN : Form
+    public partial class frmAddUpdateDeliveryOrder : Form
     {
-        public frmShippingManagerSRN()
+        public frmAddUpdateDeliveryOrder()
         {
             InitializeComponent();
         }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmShippingManagerGIN : Form
+    public partial class frmSRN : Form
     {
 
         // DLL imports to allow dragging
@@ -25,12 +25,11 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmShippingManagerGIN()
+        public frmSRN()
         {
             InitializeComponent();
         }
 
-        //ForMainForm
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -52,9 +51,9 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
 
-            shippingManagerMenu.Show();
+            menuForm.Show();
 
             this.Hide();
         }
@@ -84,9 +83,9 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
 
-            shippingManagerMenu.Show();
+            menuForm.Show();
 
             this.Hide();
 
@@ -104,6 +103,25 @@ namespace Mufaddal_Traders
         private void btnSettings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateSRN addUpdateSRN = new frmAddUpdateSRN();
+
+            addUpdateSRN.Show();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateSRN addUpdateSRN = new frmAddUpdateSRN();
+
+            addUpdateSRN.Show();
         }
     }
 }

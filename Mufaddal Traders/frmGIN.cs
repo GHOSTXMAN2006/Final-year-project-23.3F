@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmStorekeeperGIN : Form
+    public partial class frmGIN : Form
     {
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -24,7 +24,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmStorekeeperGIN()
+        public frmGIN()
         {
             InitializeComponent();
         }
@@ -121,6 +121,11 @@ namespace Mufaddal_Traders
             frmAddUpdateGIN addUpdateGIN = new frmAddUpdateGIN();
 
             addUpdateGIN.Show();
+        }
+
+        private void frmGIN_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

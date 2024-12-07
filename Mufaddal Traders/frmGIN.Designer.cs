@@ -1,6 +1,10 @@
-﻿namespace Mufaddal_Traders
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
+namespace Mufaddal_Traders
 {
-    partial class frmStorekeeperSuppliers
+    partial class frmGIN
     {
         /// <summary>
         /// Required designer variable.
@@ -20,6 +24,28 @@
             base.Dispose(disposing);
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            int borderThickness = 7;
+            Color borderColor = Color.DarkGray;
+
+            // Draw border
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            }
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            this.Invalidate(); // Forces the form to redraw the border on resize
+        }
+
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,7 +54,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStorekeeperSuppliers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGIN));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,8 +71,8 @@
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
@@ -61,7 +87,7 @@
             this.label2.Location = new System.Drawing.Point(96, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1303, 13);
-            this.label2.TabIndex = 187;
+            this.label2.TabIndex = 217;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // guna2DataGridView1
@@ -93,7 +119,7 @@
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.Size = new System.Drawing.Size(1280, 660);
-            this.guna2DataGridView1.TabIndex = 190;
+            this.guna2DataGridView1.TabIndex = 220;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -125,9 +151,9 @@
             this.label1.Location = new System.Drawing.Point(92, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
-            this.label1.TabIndex = 184;
-            this.label1.Text = "Suppliers";
+            this.label1.Size = new System.Drawing.Size(205, 32);
+            this.label1.TabIndex = 214;
+            this.label1.Text = "Goods Issue Note";
             // 
             // picHeader
             // 
@@ -140,7 +166,7 @@
             this.picHeader.Location = new System.Drawing.Point(4, 4);
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1396, 38);
-            this.picHeader.TabIndex = 183;
+            this.picHeader.TabIndex = 213;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
             // btnMinimize
@@ -197,7 +223,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(74, 805);
-            this.panel1.TabIndex = 182;
+            this.panel1.TabIndex = 212;
             // 
             // btnSettings
             // 
@@ -313,25 +339,6 @@
             this.btnAccount.TabIndex = 18;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
-            // btnBack
-            // 
-            this.btnBack.Animated = true;
-            this.btnBack.BorderRadius = 7;
-            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Image = global::Mufaddal_Traders.Properties.Resources.Arrow_Left_512_ezgif_com_webp_to_png_converter;
-            this.btnBack.ImageSize = new System.Drawing.Size(40, 32);
-            this.btnBack.Location = new System.Drawing.Point(99, 110);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(45, 45);
-            this.btnBack.TabIndex = 181;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // btnAdd
             // 
             this.btnAdd.Animated = true;
@@ -351,9 +358,28 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 38);
-            this.btnAdd.TabIndex = 189;
+            this.btnAdd.TabIndex = 219;
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Animated = true;
+            this.btnBack.BorderRadius = 7;
+            this.btnBack.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBack.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBack.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Image = global::Mufaddal_Traders.Properties.Resources.Arrow_Left_512_ezgif_com_webp_to_png_converter;
+            this.btnBack.ImageSize = new System.Drawing.Size(40, 32);
+            this.btnBack.Location = new System.Drawing.Point(99, 110);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(45, 45);
+            this.btnBack.TabIndex = 211;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // guna2TextBox2
             // 
@@ -381,7 +407,7 @@
             this.guna2TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.Size = new System.Drawing.Size(258, 38);
-            this.guna2TextBox2.TabIndex = 188;
+            this.guna2TextBox2.TabIndex = 218;
             // 
             // btnUpdate
             // 
@@ -402,7 +428,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 38);
-            this.btnUpdate.TabIndex = 186;
+            this.btnUpdate.TabIndex = 216;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -426,11 +452,11 @@
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 38);
-            this.btnDelete.TabIndex = 185;
+            this.btnDelete.TabIndex = 215;
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // frmStorekeeperSuppliers
+            // frmGIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,8 +464,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label1);
@@ -447,9 +473,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmStorekeeperSuppliers";
+            this.Name = "frmGIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmStorekeeperSuppliers";
+            this.Text = "frmGIN";
+            this.Load += new System.EventHandler(this.frmGIN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.picHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -460,23 +487,23 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button btnAccount;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button btnSettings;
-        private Guna.UI2.WinForms.Guna2Button btnHome;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2Button btnMenu;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
-        private Guna.UI2.WinForms.Guna2Button btnMinimize;
-        private Guna.UI2.WinForms.Guna2Button btnClose;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private Guna.UI2.WinForms.Guna2Button btnBack;
+        private Guna.UI2.WinForms.Guna2Button btnDashboard;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2Button btnSettings;
+        private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
+        private Guna.UI2.WinForms.Guna2Button btnMinimize;
+        private Guna.UI2.WinForms.Guna2Button btnAccount;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2Button btnDashboard;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
     }
 }
