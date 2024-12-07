@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmShippingManagerMenu : Form
+    public partial class frmShipments : Form
     {
 
         // DLL imports to allow dragging
@@ -25,9 +25,14 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmShippingManagerMenu()
+        public frmShipments()
         {
             InitializeComponent();
+        }
+
+        private void frmCustomerOrders_Load(object sender, EventArgs e)
+        {
+
         }
 
         //ForMainForm
@@ -48,6 +53,15 @@ namespace Mufaddal_Traders
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
+
+            shippingManagerMenu.Show();
+
+            this.Hide();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
@@ -75,11 +89,6 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
-
-            shippingManagerMenu.Show();
-
-            this.Hide();
 
         }
 
@@ -97,49 +106,23 @@ namespace Mufaddal_Traders
 
         }
 
-        private void tileGIN_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            frmGIN ginForm = new frmGIN();
 
-            ginForm.Show();
-
-            this.Hide();
         }
 
-        private void tileSRN_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            frmSRN srnForm = new frmSRN();
+            frmAddUpdateShipments addUpdateShipments = new frmAddUpdateShipments();
 
-            srnForm.Show();
-
-            this.Hide();
+            addUpdateShipments.Show();
         }
 
-        private void tileCusOrder_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmCustomerOrders customerOrdersForm = new frmCustomerOrders();
+            frmAddUpdateShipments addUpdateShipments = new frmAddUpdateShipments();
 
-            customerOrdersForm.Show();
-
-            this.Hide();
-        }
-
-        private void tileDelOrder_Click(object sender, EventArgs e)
-        {
-            frmDeliveryOrder deliveryOrdersForm = new frmDeliveryOrder();
-
-            deliveryOrdersForm.Show();
-
-            this.Hide();
-        }
-
-        private void tileShipment_Click(object sender, EventArgs e)
-        {
-            frmShipments shipmentsForm = new frmShipments();
-
-            shipmentsForm.Show();
-
-            this.Hide();
+            addUpdateShipments.Show();
         }
     }
 }

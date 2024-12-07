@@ -197,6 +197,12 @@
     <Compile Include="frmAccount.Designer.cs">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAccountantsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccountantsDashboard.Designer.cs">
+      <DependentUpon>frmAccountantsDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddDiscardedGoods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,12 @@
     <Compile Include="frmAddUpdatePurchaseOrders.Designer.cs">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddUpdateShipments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateShipments.Designer.cs">
+      <DependentUpon>frmAddUpdateShipments.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddUpdateSRN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +328,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShipments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShipments.Designer.cs">
+      <DependentUpon>frmShipments.cs</DependentUpon>
     </Compile>
     <Compile Include="frmShippingManagerMenu.cs">
       <SubType>Form</SubType>
@@ -415,6 +433,9 @@
     <EmbeddedResource Include="frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAccountantsDashboard.resx">
+      <DependentUpon>frmAccountantsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddDiscardedGoods.resx">
       <DependentUpon>frmAddDiscardedGoods.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +466,9 @@
     <EmbeddedResource Include="frmAddUpdatePurchaseOrders.resx">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateShipments.resx">
+      <DependentUpon>frmAddUpdateShipments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateSRN.resx">
       <DependentUpon>frmAddUpdateSRN.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShipments.resx">
+      <DependentUpon>frmShipments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShippingManagerMenu.resx">
       <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
@@ -900,6 +927,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\870056.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delivery address-bro %281%29 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4827568.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\303640-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-budget-line-icon-png-image_6620500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock_balance-512-ezgif.com-webp-to-png-converter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -93,6 +93,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _303640_200 {
+            get {
+                object obj = ResourceManager.GetObject("303640-200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3114815 {
             get {
                 object obj = ResourceManager.GetObject("3114815", resourceCulture);
@@ -136,6 +146,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap _360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y {
             get {
                 object obj = ResourceManager.GetObject("360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4827568 {
+            get {
+                object obj = ResourceManager.GetObject("4827568", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -494,6 +514,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delivery_address_bro__1__1 {
+            get {
+                object obj = ResourceManager.GetObject("Delivery address-bro (1) 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delivery_order_symbol_logo_icon_vector {
             get {
                 object obj = ResourceManager.GetObject("delivery-order-symbol-logo-icon-vector", resourceCulture);
@@ -517,6 +547,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f {
+            get {
+                object obj = ResourceManager.GetObject("f", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -897,6 +937,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pngtree_budget_line_icon_png_image_6620500 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-budget-line-icon-png-image_6620500", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngtree_customer_icon_customer_employee_png_image_10853541 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-customer-icon-customer-employee-png-image_10853541", resourceCulture);
@@ -1072,6 +1122,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap stock_1 {
             get {
                 object obj = ResourceManager.GetObject("stock 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stock_balance_512_ezgif_com_webp_to_png_converter {
+            get {
+                object obj = ResourceManager.GetObject("stock_balance-512-ezgif.com-webp-to-png-converter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
