@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmAccountantsDashboard : Form
+    public partial class frmItems : Form
     {
 
         // DLL imports to allow dragging
@@ -25,30 +25,11 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmAccountantsDashboard()
+        public frmItems()
         {
             InitializeComponent();
         }
 
-        private void tilePO_Click(object sender, EventArgs e)
-        {
-            frmPurchaseOrder purchaseOrderFrm = new frmPurchaseOrder();
-
-            purchaseOrderFrm.Show();
-
-            this.Hide();
-        }
-
-        private void tilePC_Click(object sender, EventArgs e)
-        {
-            frmPurchaseContract purchaseContractFrm = new frmPurchaseContract();
-
-            purchaseContractFrm.Show();
-
-            this.Hide();
-        }
-
-        //ForMainForm
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -93,9 +74,9 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
 
-            shippingManagerMenu.Show();
+            menuForm.Show();
 
             this.Hide();
 
@@ -113,6 +94,44 @@ namespace Mufaddal_Traders
         private void btnSettings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
+
+            addUpdateItems.Show();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
+
+            addUpdateItems.Show();
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmStorekeeperItems_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+
+            menuForm.Show();
+
+            this.Hide();
         }
     }
 }

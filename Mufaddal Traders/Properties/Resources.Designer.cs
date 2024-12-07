@@ -143,6 +143,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_1029707451_klk9b30i48evDB1xEw7sHi3H6aIfc6Il {
+            get {
+                object obj = ResourceManager.GetObject("360_F_1029707451_klk9b30i48evDB1xEw7sHi3H6aIfc6Il", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y {
             get {
                 object obj = ResourceManager.GetObject("360_F_518808439_DGau2vuxm3JtjMIl3siIH4PUYFZ1XZ6y", resourceCulture);

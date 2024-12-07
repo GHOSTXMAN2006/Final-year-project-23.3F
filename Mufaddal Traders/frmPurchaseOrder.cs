@@ -11,8 +11,9 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmStorekeeperPurchaseContract : Form
+    public partial class frmPurchaseOrder : Form
     {
+
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -24,7 +25,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmStorekeeperPurchaseContract()
+        public frmPurchaseOrder()
         {
             InitializeComponent();
         }
@@ -111,16 +112,16 @@ namespace Mufaddal_Traders
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
+            frmAddUpdatePurchaseOrders addUpdatePurchaseOrders = new frmAddUpdatePurchaseOrders();
 
-            addUpdatePurchaseContract.Show();
+            addUpdatePurchaseOrders.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
+            frmAddUpdatePurchaseOrders addUpdatePurchaseOrders = new frmAddUpdatePurchaseOrders();
 
-            addUpdatePurchaseContract.Show();
+            addUpdatePurchaseOrders.Show();
         }
     }
 }

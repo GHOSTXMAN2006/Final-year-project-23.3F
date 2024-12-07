@@ -37,9 +37,9 @@ namespace Mufaddal_Traders
 
         private void tileItems_Click(object sender, EventArgs e)
         {
-            frmStorekeeperItems storekeeperItemForm = new frmStorekeeperItems();
+            frmItems itemsFrm = new frmItems();
 
-            storekeeperItemForm.Show();
+            itemsFrm.Show();
 
             this.Hide();
         }
@@ -112,9 +112,9 @@ namespace Mufaddal_Traders
 
         private void tilePC_Click(object sender, EventArgs e)
         {
-            frmStorekeeperPurchaseContract storekeeperPurchaseContract = new frmStorekeeperPurchaseContract();
+            frmPurchaseContract purchaseContractFrm = new frmPurchaseContract();
 
-            storekeeperPurchaseContract.Show();
+            purchaseContractFrm.Show();
 
             this.Hide();
         }
@@ -181,9 +181,9 @@ namespace Mufaddal_Traders
 
         private void tilePO_Click(object sender, EventArgs e)
         {
-            frmStorekeeperPurchaseOrder storekeeperPurchaseOrder = new frmStorekeeperPurchaseOrder();
+            frmPurchaseOrder purchaseOrderFrm = new frmPurchaseOrder();
 
-            storekeeperPurchaseOrder.Show();
+            purchaseOrderFrm.Show();
 
             this.Hide();
         }

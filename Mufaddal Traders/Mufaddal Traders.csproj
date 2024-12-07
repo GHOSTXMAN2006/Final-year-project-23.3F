@@ -329,6 +329,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMSD_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMSD_Dashboard.Designer.cs">
+      <DependentUpon>frmMSD_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmShipments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,11 +365,11 @@
     <Compile Include="frmStorekeeperGRN.Designer.cs">
       <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperItems.cs">
+    <Compile Include="frmItems.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperItems.Designer.cs">
-      <DependentUpon>frmStorekeeperItems.cs</DependentUpon>
+    <Compile Include="frmItems.Designer.cs">
+      <DependentUpon>frmItems.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperMenu.cs">
       <SubType>Form</SubType>
@@ -377,17 +383,17 @@
     <Compile Include="frmStorekeeperPaymentVouchers.Designer.cs">
       <DependentUpon>frmStorekeeperPaymentVouchers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperPurchaseContract.cs">
+    <Compile Include="frmPurchaseContract.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperPurchaseContract.Designer.cs">
-      <DependentUpon>frmStorekeeperPurchaseContract.cs</DependentUpon>
+    <Compile Include="frmPurchaseContract.Designer.cs">
+      <DependentUpon>frmPurchaseContract.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperPurchaseOrder.cs">
+    <Compile Include="frmPurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperPurchaseOrder.Designer.cs">
-      <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
+    <Compile Include="frmPurchaseOrder.Designer.cs">
+      <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSRN.cs">
       <SubType>Form</SubType>
@@ -499,6 +505,9 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMSD_Dashboard.resx">
+      <DependentUpon>frmMSD_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmShipments.resx">
       <DependentUpon>frmShipments.cs</DependentUpon>
     </EmbeddedResource>
@@ -514,8 +523,8 @@
     <EmbeddedResource Include="frmStorekeeperGRN.resx">
       <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperItems.resx">
-      <DependentUpon>frmStorekeeperItems.cs</DependentUpon>
+    <EmbeddedResource Include="frmItems.resx">
+      <DependentUpon>frmItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperMenu.resx">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
@@ -523,11 +532,11 @@
     <EmbeddedResource Include="frmStorekeeperPaymentVouchers.resx">
       <DependentUpon>frmStorekeeperPaymentVouchers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperPurchaseContract.resx">
-      <DependentUpon>frmStorekeeperPurchaseContract.cs</DependentUpon>
+    <EmbeddedResource Include="frmPurchaseContract.resx">
+      <DependentUpon>frmPurchaseContract.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperPurchaseOrder.resx">
-      <DependentUpon>frmStorekeeperPurchaseOrder.cs</DependentUpon>
+    <EmbeddedResource Include="frmPurchaseOrder.resx">
+      <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSRN.resx">
       <DependentUpon>frmSRN.cs</DependentUpon>
@@ -945,6 +954,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stock_balance-512-ezgif.com-webp-to-png-converter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_1029707451_klk9b30i48evDB1xEw7sHi3H6aIfc6Il.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmStorekeeperPurchaseOrder : Form
+    public partial class frmMSD_Dashboard : Form
     {
 
         // DLL imports to allow dragging
@@ -25,11 +25,12 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmStorekeeperPurchaseOrder()
+        public frmMSD_Dashboard()
         {
             InitializeComponent();
         }
 
+        //ForMainForm
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -47,15 +48,6 @@ namespace Mufaddal_Traders
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
-
-            menuForm.Show();
-
-            this.Hide();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
@@ -83,9 +75,9 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
 
-            menuForm.Show();
+            shippingManagerMenu.Show();
 
             this.Hide();
 
@@ -105,23 +97,13 @@ namespace Mufaddal_Traders
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void tileItems_Click(object sender, EventArgs e)
         {
+            frmItems itemsFrm = new frmItems();
 
-        }
+            itemsFrm.Show();
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            frmAddUpdatePurchaseOrders addUpdatePurchaseOrders = new frmAddUpdatePurchaseOrders();
-
-            addUpdatePurchaseOrders.Show();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddUpdatePurchaseOrders addUpdatePurchaseOrders = new frmAddUpdatePurchaseOrders();
-
-            addUpdatePurchaseOrders.Show();
+            this.Hide();
         }
     }
 }

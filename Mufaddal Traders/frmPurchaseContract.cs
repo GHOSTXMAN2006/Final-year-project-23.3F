@@ -11,9 +11,8 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmStorekeeperItems : Form
+    public partial class frmPurchaseContract : Form
     {
-
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -25,7 +24,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmStorekeeperItems()
+        public frmPurchaseContract()
         {
             InitializeComponent();
         }
@@ -47,6 +46,15 @@ namespace Mufaddal_Traders
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+
+            menuForm.Show();
+
+            this.Hide();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
@@ -103,35 +111,16 @@ namespace Mufaddal_Traders
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
+            frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
 
-            addUpdateItems.Show();
+            addUpdatePurchaseContract.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
+            frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
 
-            addUpdateItems.Show();
-        }
-
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmStorekeeperItems_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
-
-            menuForm.Show();
-
-            this.Hide();
+            addUpdatePurchaseContract.Show();
         }
     }
 }
