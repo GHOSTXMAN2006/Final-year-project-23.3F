@@ -213,6 +213,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _870056 {
+            get {
+                object obj = ResourceManager.GetObject("870056", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _902397_200 {
             get {
                 object obj = ResourceManager.GetObject("902397-200", resourceCulture);
@@ -363,6 +373,17 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clicking_cart_order_shopping_or_payment_mobile_banking_line_style_icon_free_vector {
+            get {
+                object obj = ResourceManager.GetObject("clicking-cart-order-shopping-or-payment-mobile-banking-line-style-icon-free-vecto" +
+                        "r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap conifers_1836582 {
             get {
                 object obj = ResourceManager.GetObject("conifers-1836582", resourceCulture);
@@ -466,6 +487,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap deliver_check1 {
             get {
                 object obj = ResourceManager.GetObject("deliver_check1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delivery_order_symbol_logo_icon_vector {
+            get {
+                object obj = ResourceManager.GetObject("delivery-order-symbol-logo-icon-vector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

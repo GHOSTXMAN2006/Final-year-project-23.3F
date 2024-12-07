@@ -293,6 +293,24 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShippingManagerGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShippingManagerGIN.Designer.cs">
+      <DependentUpon>frmShippingManagerGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShippingManagerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShippingManagerMenu.Designer.cs">
+      <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShippingManagerSRN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShippingManagerSRN.Designer.cs">
+      <DependentUpon>frmShippingManagerSRN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStorekeeperDiscardedGoods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,6 +450,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShippingManagerGIN.resx">
+      <DependentUpon>frmShippingManagerGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShippingManagerMenu.resx">
+      <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShippingManagerSRN.resx">
+      <DependentUpon>frmShippingManagerSRN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperDiscardedGoods.resx">
       <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
@@ -846,6 +873,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cash Payment-bro %281%29 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clicking-cart-order-shopping-or-payment-mobile-banking-line-style-icon-free-vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delivery-order-symbol-logo-icon-vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\870056.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
