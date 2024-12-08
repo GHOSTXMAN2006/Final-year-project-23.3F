@@ -958,5 +958,8 @@
   <ItemGroup>
     <None Include="Resources\360_F_1029707451_klk9b30i48evDB1xEw7sHi3H6aIfc6Il.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compare-12.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -414,6 +414,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap compare_12 {
+            get {
+                object obj = ResourceManager.GetObject("compare-12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap conifers_1836582 {
             get {
                 object obj = ResourceManager.GetObject("conifers-1836582", resourceCulture);

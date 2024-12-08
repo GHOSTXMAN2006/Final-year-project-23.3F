@@ -294,5 +294,149 @@ namespace Mufaddal_Traders
             var teleRegex = new Regex(@"^\d{10}$");
             return teleRegex.IsMatch(tele);
         }
+
+        private void txtFPSave_Click(object sender, EventArgs e)
+        {
+            string username = txtFPUsername.Text;
+            string newPassword = txtFPPassword.Text;
+            string confirmPassword = txtFPConfirmPassword.Text;
+
+            // Validate password fields
+            if (string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
+            {
+                MessageBox.Show("Please fill in both password fields.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                MessageBox.Show("Passwords do not match.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate password strength (optional)
+            if (!IsValidPassword(newPassword))
+            {
+                MessageBox.Show("Password must be at least 6 characters long.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if the new password is the same as the old password
+            string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Fetch the current password from the database
+                    string sql = "SELECT Password FROM Users WHERE UserName = @username";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    string currentPassword = cmd.ExecuteScalar()?.ToString();
+
+                    if (currentPassword == null)
+                    {
+                        MessageBox.Show("Username not found.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Compare the current password with the new password
+                    if (currentPassword == HashPassword(newPassword))
+                    {
+                        MessageBox.Show("The new password cannot be the same as the old password.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Hash the new password
+                    string hashedPassword = HashPassword(newPassword);
+
+                    // Update the password in the database
+                    string updateSql = "UPDATE Users SET Password = @password WHERE UserName = @username";
+                    SqlCommand updateCmd = new SqlCommand(updateSql, conn);
+                    updateCmd.Parameters.AddWithValue("@password", hashedPassword);
+                    updateCmd.Parameters.AddWithValue("@username", username);
+
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Password successfully changed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Clear the fields after successful password change
+                        txtFPUsername.Clear();
+                        txtFPEmail.Clear();
+                        txtFPPassword.Clear();
+                        txtFPConfirmPassword.Clear();
+
+                        // Optionally, hide the reset panel and show login panel again
+                        pnlNewPassword.Visible = false;
+                        pnlForgotPassword.Visible = false;
+                        pnlLoginInterface1.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to change the password.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+        private void picCompare_Click(object sender, EventArgs e)
+        {
+            string username = txtFPUsername.Text;
+            string email = txtFPEmail.Text;
+
+            // Validate that both fields are not empty
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Please fill both Username and Email fields.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if the username and email match in the database
+            string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND UserEmail = @email";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@email", email);
+
+                    int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (userCount > 0)
+                    {
+                        // If user exists, hide picCompare and show pnlNewPassword
+                        picCompare.Visible = false;
+                        pnlNewPassword.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username and Email do not match.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            // Password should be at least 6 characters long
+            return password.Length >= 6;
+        }
+
+
     }
 }
