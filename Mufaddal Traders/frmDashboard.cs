@@ -73,15 +73,31 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            // Create an instance of frmStorekeeperMenu
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+            // Check the userType to open the corresponding menu form
+            switch (frmLogin.userType)  // Accessing userType from frmLogin
+            {
+                case "Storekeeper":
+                    new frmStorekeeperMenu().Show();
+                    break;
+                case "ShippingManager":
+                    new frmShippingManagerMenu().Show();
+                    break;
+                case "Accountant":
+                    new frmAccountantsMenu().Show();
+                    break;
+                case "Marketing and Sales Department":
+                    new frmMSD_Menu().Show();
+                    break;
+                default:
+                    MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
 
-            // Show the frmStorekeeperMenu
-            menuForm.Show();
-
-            // Close the current form (frmDashboard)
+            // Hide the current dashboard form (optional, to switch to the menu form)
             this.Hide();
         }
+
+
 
         private void btnHome_Click(object sender, EventArgs e)
         {

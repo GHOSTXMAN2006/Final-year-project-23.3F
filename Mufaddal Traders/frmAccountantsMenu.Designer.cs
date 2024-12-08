@@ -4,7 +4,7 @@ using System;
 
 namespace Mufaddal_Traders
 {
-    partial class frmAccountantsDashboard
+    partial class frmAccountantsMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -56,14 +56,13 @@ namespace Mufaddal_Traders
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlChat = new RoundedPanel();
-            this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlChat = new RoundedPanel();
             this.tileWarehouse = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileStock = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileStockTransfer = new Guna.UI2.WinForms.Guna2TileButton();
@@ -71,6 +70,7 @@ namespace Mufaddal_Traders
             this.tilePC = new Guna.UI2.WinForms.Guna2TileButton();
             this.tilePO = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileItems = new Guna.UI2.WinForms.Guna2TileButton();
+            this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
@@ -106,37 +106,6 @@ namespace Mufaddal_Traders
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(74, 805);
             this.panel1.TabIndex = 45;
-            // 
-            // pnlChat
-            // 
-            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnlChat.BorderColor = System.Drawing.Color.Empty;
-            this.pnlChat.BorderRadius = 10;
-            this.pnlChat.Controls.Add(this.tileWarehouse);
-            this.pnlChat.Controls.Add(this.tileStock);
-            this.pnlChat.Controls.Add(this.tileStockTransfer);
-            this.pnlChat.Controls.Add(this.tileGIN);
-            this.pnlChat.Controls.Add(this.tilePC);
-            this.pnlChat.Controls.Add(this.tilePO);
-            this.pnlChat.Controls.Add(this.tileItems);
-            this.pnlChat.Location = new System.Drawing.Point(98, 114);
-            this.pnlChat.Name = "pnlChat";
-            this.pnlChat.Size = new System.Drawing.Size(1257, 716);
-            this.pnlChat.TabIndex = 47;
-            // 
-            // picHeader
-            // 
-            this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picHeader.BorderColor = System.Drawing.Color.Black;
-            this.picHeader.BorderThickness = 2;
-            this.picHeader.Controls.Add(this.btnMinimize);
-            this.picHeader.Controls.Add(this.btnClose);
-            this.picHeader.Location = new System.Drawing.Point(4, 4);
-            this.picHeader.Name = "picHeader";
-            this.picHeader.Size = new System.Drawing.Size(1396, 38);
-            this.picHeader.TabIndex = 46;
-            this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
             // btnSettings
             // 
@@ -251,6 +220,24 @@ namespace Mufaddal_Traders
             this.btnAccount.Size = new System.Drawing.Size(60, 56);
             this.btnAccount.TabIndex = 18;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
+            // 
+            // pnlChat
+            // 
+            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pnlChat.BorderColor = System.Drawing.Color.Empty;
+            this.pnlChat.BorderRadius = 10;
+            this.pnlChat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChat.Controls.Add(this.tileWarehouse);
+            this.pnlChat.Controls.Add(this.tileStock);
+            this.pnlChat.Controls.Add(this.tileStockTransfer);
+            this.pnlChat.Controls.Add(this.tileGIN);
+            this.pnlChat.Controls.Add(this.tilePC);
+            this.pnlChat.Controls.Add(this.tilePO);
+            this.pnlChat.Controls.Add(this.tileItems);
+            this.pnlChat.Location = new System.Drawing.Point(98, 114);
+            this.pnlChat.Name = "pnlChat";
+            this.pnlChat.Size = new System.Drawing.Size(1257, 716);
+            this.pnlChat.TabIndex = 47;
             // 
             // tileWarehouse
             // 
@@ -394,6 +381,20 @@ namespace Mufaddal_Traders
             this.tileItems.TabIndex = 25;
             this.tileItems.Text = "Finance";
             // 
+            // picHeader
+            // 
+            this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHeader.BorderColor = System.Drawing.Color.Black;
+            this.picHeader.BorderThickness = 2;
+            this.picHeader.Controls.Add(this.btnMinimize);
+            this.picHeader.Controls.Add(this.btnClose);
+            this.picHeader.Location = new System.Drawing.Point(4, 4);
+            this.picHeader.Name = "picHeader";
+            this.picHeader.Size = new System.Drawing.Size(1396, 38);
+            this.picHeader.TabIndex = 46;
+            this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
+            // 
             // btnMinimize
             // 
             this.btnMinimize.Animated = true;
@@ -434,7 +435,7 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // frmAccountantsDashboard
+            // frmAccountantsMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -445,9 +446,9 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.pnlChat);
             this.Controls.Add(this.picHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmAccountantsDashboard";
+            this.Name = "frmAccountantsMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAccountantsDashboard";
+            this.Text = "frmAccountantsMenu";
             this.panel1.ResumeLayout(false);
             this.pnlChat.ResumeLayout(false);
             this.picHeader.ResumeLayout(false);

@@ -197,11 +197,11 @@
     <Compile Include="frmAccount.Designer.cs">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAccountantsDashboard.cs">
+    <Compile Include="frmAccountantsMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAccountantsDashboard.Designer.cs">
-      <DependentUpon>frmAccountantsDashboard.cs</DependentUpon>
+    <Compile Include="frmAccountantsMenu.Designer.cs">
+      <DependentUpon>frmAccountantsMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddDiscardedGoods.cs">
       <SubType>Form</SubType>
@@ -439,8 +439,8 @@
     <EmbeddedResource Include="frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAccountantsDashboard.resx">
-      <DependentUpon>frmAccountantsDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="frmAccountantsMenu.resx">
+      <DependentUpon>frmAccountantsMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddDiscardedGoods.resx">
       <DependentUpon>frmAddDiscardedGoods.cs</DependentUpon>
