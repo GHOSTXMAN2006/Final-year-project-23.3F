@@ -88,6 +88,8 @@ namespace Mufaddal_Traders
             this.txtLoginUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlCreateAcc = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbCRUserType = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCRPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCreateAccountinterfaceLoginButton = new Guna.UI2.WinForms.Guna2Button();
@@ -103,8 +105,6 @@ namespace Mufaddal_Traders
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picHeader2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.cbCRUserType = new System.Windows.Forms.ComboBox();
             this.pnlForgotPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBackToLogin)).BeginInit();
             this.pnlNewPassword.SuspendLayout();
@@ -132,7 +132,6 @@ namespace Mufaddal_Traders
             this.pnlForgotPassword.Name = "pnlForgotPassword";
             this.pnlForgotPassword.Size = new System.Drawing.Size(492, 657);
             this.pnlForgotPassword.TabIndex = 27;
-            this.pnlForgotPassword.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlForgotPassword_Paint);
             // 
             // picBackToLogin
             // 
@@ -158,7 +157,6 @@ namespace Mufaddal_Traders
             this.pnlNewPassword.Name = "pnlNewPassword";
             this.pnlNewPassword.Size = new System.Drawing.Size(383, 192);
             this.pnlNewPassword.TabIndex = 19;
-            this.pnlNewPassword.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNewPassword_Paint);
             // 
             // label5
             // 
@@ -171,7 +169,6 @@ namespace Mufaddal_Traders
             this.label5.Size = new System.Drawing.Size(234, 20);
             this.label5.TabIndex = 18;
             this.label5.Text = "Please provide a new password!";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // guna2TextBox3
             // 
@@ -314,7 +311,6 @@ namespace Mufaddal_Traders
             this.btnForgotPasswordSave.Size = new System.Drawing.Size(108, 38);
             this.btnForgotPasswordSave.TabIndex = 7;
             this.btnForgotPasswordSave.Text = "Save";
-            this.btnForgotPasswordSave.Click += new System.EventHandler(this.btnForgotPasswordSave_Click);
             // 
             // guna2TextBox5
             // 
@@ -579,7 +575,7 @@ namespace Mufaddal_Traders
             this.btnLoginInterfaceLoginButton.Size = new System.Drawing.Size(108, 38);
             this.btnLoginInterfaceLoginButton.TabIndex = 7;
             this.btnLoginInterfaceLoginButton.Text = "Login";
-            this.btnLoginInterfaceLoginButton.Click += new System.EventHandler(this.btnLoginInterfaceLoginButton_Click_1);
+            this.btnLoginInterfaceLoginButton.Click += new System.EventHandler(this.btnLoginInterfaceLoginButton_Click);
             // 
             // txtLoginUsername
             // 
@@ -636,6 +632,32 @@ namespace Mufaddal_Traders
             this.pnlCreateAcc.Name = "pnlCreateAcc";
             this.pnlCreateAcc.Size = new System.Drawing.Size(492, 657);
             this.pnlCreateAcc.TabIndex = 26;
+            // 
+            // cbCRUserType
+            // 
+            this.cbCRUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCRUserType.FormattingEnabled = true;
+            this.cbCRUserType.Items.AddRange(new object[] {
+            "Storekeeper",
+            "Shipping Manager",
+            "Accountants",
+            "Marketing and Sales Department"});
+            this.cbCRUserType.Location = new System.Drawing.Point(44, 562);
+            this.cbCRUserType.Name = "cbCRUserType";
+            this.cbCRUserType.Size = new System.Drawing.Size(250, 33);
+            this.cbCRUserType.TabIndex = 22;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(44, 539);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 20);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "User Type";
             // 
             // label9
             // 
@@ -876,32 +898,6 @@ namespace Mufaddal_Traders
             this.picHeader2.Size = new System.Drawing.Size(866, 38);
             this.picHeader2.TabIndex = 43;
             this.picHeader2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader2_MouseDown);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(44, 539);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 20);
-            this.label16.TabIndex = 21;
-            this.label16.Text = "Telephone";
-            // 
-            // cbCRUserType
-            // 
-            this.cbCRUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCRUserType.FormattingEnabled = true;
-            this.cbCRUserType.Items.AddRange(new object[] {
-            "Stokeeper",
-            "Shipping Manager",
-            "Accounatnts",
-            "Marketing and Sales Department"});
-            this.cbCRUserType.Location = new System.Drawing.Point(44, 562);
-            this.cbCRUserType.Name = "cbCRUserType";
-            this.cbCRUserType.Size = new System.Drawing.Size(250, 33);
-            this.cbCRUserType.TabIndex = 22;
             // 
             // frmLogin
             // 
