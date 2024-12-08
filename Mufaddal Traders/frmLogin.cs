@@ -208,6 +208,7 @@ namespace Mufaddal_Traders
             string username = txtLoginUsername.Text;
             string password = txtLoginPassword.Text;
 
+            // Validate that both fields are not empty
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please Enter Username and Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -233,25 +234,9 @@ namespace Mufaddal_Traders
                         userType = result.ToString(); // Set the global variable for userType
                         MessageBox.Show("Successfully Logged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Start the "session" (simulated here by setting the userType)
-                        switch (userType)
-                        {
-                            case "Storekeeper":
-                                new frmStorekeeperMenu().Show();
-                                break;
-                            case "ShippingManager":
-                                new frmShippingManagerMenu().Show();
-                                break;
-                            case "Accountant":
-                                new frmAccountantsDashboard().Show();
-                                break;
-                            case "Marketing and Sales Department":
-                                new frmMSD_Dashboard().Show();
-                                break;
-                            default:
-                                MessageBox.Show("Invalid User Type", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                break;
-                        }
+                        // Open the common dashboard for all user types
+                        frmDashboard dashboardForm = new frmDashboard();  // Assuming frmDashboard is your common dashboard
+                        dashboardForm.Show();
 
                         this.Hide(); // Hide the login form
                     }
@@ -266,6 +251,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
         private string HashPassword(string password)
         {

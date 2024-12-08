@@ -329,11 +329,11 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMSD_Dashboard.cs">
+    <Compile Include="frmMSD_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMSD_Dashboard.Designer.cs">
-      <DependentUpon>frmMSD_Dashboard.cs</DependentUpon>
+    <Compile Include="frmMSD_Menu.Designer.cs">
+      <DependentUpon>frmMSD_Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmShipments.cs">
       <SubType>Form</SubType>
@@ -505,8 +505,8 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMSD_Dashboard.resx">
-      <DependentUpon>frmMSD_Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="frmMSD_Menu.resx">
+      <DependentUpon>frmMSD_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShipments.resx">
       <DependentUpon>frmShipments.cs</DependentUpon>

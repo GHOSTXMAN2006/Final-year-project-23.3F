@@ -170,7 +170,8 @@ namespace Mufaddal_Traders
             this.txtFPConfirmPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPConfirmPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFPConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFPConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFPConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.txtFPConfirmPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFPConfirmPassword.Location = new System.Drawing.Point(4, 154);
             this.txtFPConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -190,7 +191,8 @@ namespace Mufaddal_Traders
             this.txtFPPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFPPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFPPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFPPassword.ForeColor = System.Drawing.Color.Black;
             this.txtFPPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFPPassword.Location = new System.Drawing.Point(4, 76);
             this.txtFPPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -246,7 +248,8 @@ namespace Mufaddal_Traders
             this.txtFPEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFPEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFPEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFPEmail.ForeColor = System.Drawing.Color.Black;
             this.txtFPEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFPEmail.Location = new System.Drawing.Point(54, 246);
             this.txtFPEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -313,7 +316,8 @@ namespace Mufaddal_Traders
             this.txtFPUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtFPUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFPUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtFPUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFPUsername.ForeColor = System.Drawing.Color.Black;
             this.txtFPUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFPUsername.Location = new System.Drawing.Point(54, 173);
             this.txtFPUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -345,7 +349,8 @@ namespace Mufaddal_Traders
             this.txtCRTel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCRTel.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCRTel.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCRTel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCRTel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCRTel.ForeColor = System.Drawing.Color.Black;
             this.txtCRTel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCRTel.Location = new System.Drawing.Point(44, 485);
             this.txtCRTel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -389,7 +394,8 @@ namespace Mufaddal_Traders
             this.txtCREmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCREmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCREmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCREmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCREmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCREmail.ForeColor = System.Drawing.Color.Black;
             this.txtCREmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCREmail.Location = new System.Drawing.Point(44, 409);
             this.txtCREmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -409,7 +415,8 @@ namespace Mufaddal_Traders
             this.txtCRConfirmPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCRConfirmPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCRConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCRConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCRConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCRConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.txtCRConfirmPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCRConfirmPassword.Location = new System.Drawing.Point(44, 330);
             this.txtCRConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -536,7 +543,8 @@ namespace Mufaddal_Traders
             this.txtLoginPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLoginPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLoginPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLoginPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtLoginPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoginPassword.ForeColor = System.Drawing.Color.Black;
             this.txtLoginPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLoginPassword.Location = new System.Drawing.Point(44, 276);
             this.txtLoginPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -579,7 +587,8 @@ namespace Mufaddal_Traders
             this.txtLoginUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLoginUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLoginUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLoginUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtLoginUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoginUsername.ForeColor = System.Drawing.Color.Black;
             this.txtLoginUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLoginUsername.Location = new System.Drawing.Point(44, 197);
             this.txtLoginUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -628,7 +637,7 @@ namespace Mufaddal_Traders
             // 
             // cbCRUserType
             // 
-            this.cbCRUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCRUserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCRUserType.FormattingEnabled = true;
             this.cbCRUserType.Items.AddRange(new object[] {
             "Storekeeper",
@@ -637,7 +646,7 @@ namespace Mufaddal_Traders
             "Marketing and Sales Department"});
             this.cbCRUserType.Location = new System.Drawing.Point(44, 562);
             this.cbCRUserType.Name = "cbCRUserType";
-            this.cbCRUserType.Size = new System.Drawing.Size(250, 33);
+            this.cbCRUserType.Size = new System.Drawing.Size(250, 26);
             this.cbCRUserType.TabIndex = 22;
             // 
             // label16
@@ -673,7 +682,8 @@ namespace Mufaddal_Traders
             this.txtCRPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCRPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCRPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCRPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCRPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCRPassword.ForeColor = System.Drawing.Color.Black;
             this.txtCRPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCRPassword.Location = new System.Drawing.Point(44, 252);
             this.txtCRPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -715,7 +725,8 @@ namespace Mufaddal_Traders
             this.txtCAUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCAUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCAUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCAUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtCAUsername.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCAUsername.ForeColor = System.Drawing.Color.Black;
             this.txtCAUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCAUsername.Location = new System.Drawing.Point(44, 173);
             this.txtCAUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

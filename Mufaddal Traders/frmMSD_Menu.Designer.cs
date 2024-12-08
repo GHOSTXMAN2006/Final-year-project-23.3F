@@ -4,7 +4,7 @@ using System;
 
 namespace Mufaddal_Traders
 {
-    partial class frmMSD_Dashboard
+    partial class frmMSD_Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -367,7 +367,7 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // frmMSD_Dashboard
+            // frmMSD_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -378,9 +378,9 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.pnlChat);
             this.Controls.Add(this.picHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmMSD_Dashboard";
+            this.Name = "frmMSD_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMSD_Dashboard";
+            this.Text = "frmMSD_Menu";
             this.panel1.ResumeLayout(false);
             this.pnlChat.ResumeLayout(false);
             this.picHeader.ResumeLayout(false);
