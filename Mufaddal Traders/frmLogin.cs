@@ -164,7 +164,7 @@ namespace Mufaddal_Traders
                 {
                     conn.Open();
 
-                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND Password = @password";
+                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND Password = @password AND UserType = @type";
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
                     cmd.Parameters.AddWithValue("@username", username);
@@ -174,6 +174,26 @@ namespace Mufaddal_Traders
                     if (usercount > 0)
                     {
                         MessageBox.Show("Successfully Loged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        switch ("@type")
+                        {
+                            case "Storekeeper":
+                                frmStorekeeperMenu sm = new frmStorekeeperMenu();  
+                                sm.Show(); // Opens the Storekeeper dashboard
+                                break;
+                            case "ShippingManager":
+                                frmShippingManagerMenu shim = new frmShippingManagerMenu();
+                                shim.Show(); // Opens the Shipping Manager dashboard
+                                break;
+                            case "Accountant":
+                                frmAccountantsDashboard acc = new frmAccountantsDashboard();
+                                acc.Show(); // Opens the Accountant dashboard
+                                break;
+                            case "Marketing and Sales Department":
+                                frmMSD_Dashboard msd = new frmMSD_Dashboard();
+                                msd.Show(); // Opens the MSD dashboard
+                                break;
+                        }
                     }
                     else
                     {
