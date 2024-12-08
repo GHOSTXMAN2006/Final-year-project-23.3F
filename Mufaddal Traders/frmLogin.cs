@@ -178,6 +178,15 @@ namespace Mufaddal_Traders
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Account created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Clear the fields after successful creation
+                        txtCAUsername.Clear();
+                        txtCRPassword.Clear();
+                        txtCRConfirmPassword.Clear();
+                        txtCREmail.Clear();
+                        txtCRTel.Clear();
+                        cbCRUserType.SelectedIndex = -1; // Deselect any selected user type
+
                         pnlLoginInterface1.Visible = true;
                         pnlCreateAcc.Visible = false;
                     }
@@ -192,6 +201,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
         private void btnLoginInterfaceLoginButton_Click(object sender, EventArgs e)
         {
