@@ -15,6 +15,9 @@ namespace Mufaddal_Traders
 {
     public partial class frmLogin : Form
     {
+        // Declare userType as a global variable
+        public static string userType;
+
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -200,9 +203,10 @@ namespace Mufaddal_Traders
                     object result = cmd.ExecuteScalar();
                     if (result != null)
                     {
-                        string userType = result.ToString();
+                        userType = result.ToString(); // Set the global variable for userType
                         MessageBox.Show("Successfully Logged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        // Start the "session" (simulated here by setting the userType)
                         switch (userType)
                         {
                             case "Storekeeper":
@@ -222,7 +226,7 @@ namespace Mufaddal_Traders
                                 break;
                         }
 
-                        this.Hide();
+                        this.Hide(); // Hide the login form
                     }
                     else
                     {

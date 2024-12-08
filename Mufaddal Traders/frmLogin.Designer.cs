@@ -549,11 +549,12 @@ namespace Mufaddal_Traders
             this.txtLoginPassword.Location = new System.Drawing.Point(44, 276);
             this.txtLoginPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtLoginPassword.Name = "txtLoginPassword";
-            this.txtLoginPassword.PasswordChar = '\0';
+            this.txtLoginPassword.PasswordChar = '●';
             this.txtLoginPassword.PlaceholderText = "";
             this.txtLoginPassword.SelectedText = "";
             this.txtLoginPassword.Size = new System.Drawing.Size(379, 35);
             this.txtLoginPassword.TabIndex = 10;
+            this.txtLoginPassword.UseSystemPasswordChar = true;
             // 
             // btnLoginInterfaceLoginButton
             // 
@@ -735,7 +736,7 @@ namespace Mufaddal_Traders
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -802,7 +803,7 @@ namespace Mufaddal_Traders
             // 
             // picHeader
             // 
-            this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picHeader.BorderColor = System.Drawing.Color.Black;
             this.picHeader.BorderThickness = 2;
@@ -889,7 +890,7 @@ namespace Mufaddal_Traders
             // 
             // picHeader2
             // 
-            this.picHeader2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.picHeader2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picHeader2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(202)))), ((int)(((byte)(212)))));
             this.picHeader2.BorderColor = System.Drawing.Color.Transparent;
