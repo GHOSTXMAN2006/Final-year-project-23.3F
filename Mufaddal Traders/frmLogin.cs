@@ -16,8 +16,15 @@ namespace Mufaddal_Traders
 {
     public partial class frmLogin : Form
     {
-        // Declare userType as a global variable
+        // Declare global variable of the Logging users
         public static string userType;
+        public static string userName;
+        public static string userEmail;
+        public static string userTelephone;
+        public static string userAddress;
+        public static string userDescription;
+        public static byte[] profilePicture;
+
 
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -223,15 +230,35 @@ namespace Mufaddal_Traders
                 try
                 {
                     conn.Open();
-                    string sql = "SELECT UserType FROM Users WHERE UserName = @username AND Password = @password";
+                    string sql = "SELECT UserType, UserName, UserEmail, UserTelephone, UserAddress, Description, ProfilePicture FROM Users WHERE UserName = @username AND Password = @password";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
 
-                    object result = cmd.ExecuteScalar();
-                    if (result != null)
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        userType = result.ToString(); // Set the global variable for userType
+                        while (reader.Read())
+                        {
+                            // Store user information in global variables
+                            userType = reader["UserType"].ToString();
+                            userName = reader["UserName"].ToString();
+                            userEmail = reader["UserEmail"].ToString();
+                            userTelephone = reader["UserTelephone"].ToString();
+                            userAddress = reader["UserAddress"].ToString();
+                            userDescription = reader["Description"].ToString();
+
+                            // Store profile picture as byte array
+                            if (reader["ProfilePicture"] != DBNull.Value)
+                            {
+                                profilePicture = (byte[])reader["ProfilePicture"]; // Store the binary image data
+                            }
+                            else
+                            {
+                                profilePicture = null;  // In case the user has no profile picture
+                            }
+                        }
+
                         MessageBox.Show("Successfully Logged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Open the common dashboard for all user types
@@ -251,6 +278,8 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
+
 
 
         private string HashPassword(string password)

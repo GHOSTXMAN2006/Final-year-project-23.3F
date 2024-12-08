@@ -193,6 +193,12 @@
   <data name="2795283" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2795283.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="address-81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\address-81.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="f" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -201,9 +207,6 @@
   </data>
   <data name="style11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\style11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2661440" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2661440.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon61" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,8 +217,8 @@
   <data name="conifers-18365822" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conifers-18365822.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="avez1anz5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\avez1anz5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="compare-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compare-12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Checking boxes-bro (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checking boxes-bro (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -231,6 +234,9 @@
   </data>
   <data name="chat_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chat_bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="po 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\po 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="69159871" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\69159871.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,6 +301,9 @@
   <data name="return-icon-logo-illustration-order-delivery-and-reverse-logistics-symbol-template-for-graphic-and-web-design-collection-free-vector-modified(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\return-icon-logo-illustration-order-delivery-and-reverse-logistics-symbol-template-for-graphic-and-web-design-collection-free-vector-modified(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="free-truck-icon-1058-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-truck-icon-1058-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Delivery address-bro (1) 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delivery address-bro (1) 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -346,9 +355,6 @@
   <data name="Spreadsheets-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spreadsheets-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="content+send+icon-1320087227200139227 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\content+send+icon-1320087227200139227 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="WhatsApp-Image-2022-06-03-at-12.59.38-PM 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp-Image-2022-06-03-at-12.59.38-PM 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -358,14 +364,14 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="conifers-18365823" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\conifers-18365823.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="content+send+icon-1320087227200139227 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\content+send+icon-1320087227200139227 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="free-truck-icon-1058-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\free-truck-icon-1058-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="avez1anz5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avez1anz5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cropped-Logo-2048x1100 (1) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cropped-Logo-2048x1100 (1) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -451,8 +457,8 @@
   <data name="Agreement-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agreement-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="po 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\po 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="conifers-18365823" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conifers-18365823.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -460,8 +466,8 @@
   <data name="red-circle-round-3d-button-3 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red-circle-round-3d-button-3 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2661440" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2661440.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -496,7 +502,7 @@
   <data name="mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="compare-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\compare-12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="png-transparent-reset-icon-reset-button-icon-design-menu-bar-hamburger-button-computer-black-and-white-text (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-reset-icon-reset-button-icon-design-menu-bar-hamburger-button-computer-black-and-white-text (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

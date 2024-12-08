@@ -961,5 +961,11 @@
   <ItemGroup>
     <None Include="Resources\compare-12.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address-81.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-reset-icon-reset-button-icon-design-menu-bar-hamburger-button-computer-black-and-white-text %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

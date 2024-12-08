@@ -283,6 +283,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap address_81 {
+            get {
+                object obj = ResourceManager.GetObject("address-81", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Agreement_bro_1 {
             get {
                 object obj = ResourceManager.GetObject("Agreement-bro 1", resourceCulture);
@@ -940,6 +950,17 @@ namespace Mufaddal_Traders.Properties {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-tr" +
                         "ademark-logo-business-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_reset_icon_reset_button_icon_design_menu_bar_hamburger_button_computer_black_and_white_text__1_ {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-reset-icon-reset-button-icon-design-menu-bar-hamburger-button-com" +
+                        "puter-black-and-white-text (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
