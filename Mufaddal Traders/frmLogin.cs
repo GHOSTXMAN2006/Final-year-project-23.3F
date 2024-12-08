@@ -222,58 +222,60 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            string cs = @"Data source=MSI ;   Initial Catalog =Mufaddal_Traders_db ;     Integrated Security=True";
+                string cs = @"Data source=MSI ;   Initial Catalog =Mufaddal_Traders_db ;     Integrated Security=True";
 
-            using (SqlConnection conn = new SqlConnection(cs))
-            {
-                try
+                using (SqlConnection conn = new SqlConnection(cs))
                 {
-                    conn.Open();
-
-                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND Password = @password AND UserType = @type";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    int usercount = Convert.ToInt32(cmd.ExecuteScalar());
-                    if (usercount > 0)
+                    try
                     {
-                        MessageBox.Show("Successfully Loged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        conn.Open();
 
-                        switch ("@type")
+                        string sql = "SELECT * FROM Users WHERE UserName = @username AND Password = @password";
+                        SqlCommand cmd = new SqlCommand(sql, conn);
+
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password);
+
+                        SqlDataReader dr = cmd.ExecuteReader();
+
+                        if (dr.Read() == true)
                         {
-                            case "Storekeeper":
-                                frmStorekeeperMenu sm = new frmStorekeeperMenu();
-                                sm.Show(); // Opens the Storekeeper dashboard
-                                break;
-                            case "ShippingManager":
-                                frmShippingManagerMenu shim = new frmShippingManagerMenu();
-                                shim.Show(); // Opens the Shipping Manager dashboard
-                                break;
-                            case "Accountant":
-                                frmAccountantsDashboard acc = new frmAccountantsDashboard();
-                                acc.Show(); // Opens the Accountant dashboard
-                                break;
-                            case "Marketing and Sales Department":
-                                frmMSD_Dashboard msd = new frmMSD_Dashboard();
-                                msd.Show(); // Opens the MSD dashboard
-                                break;
+                            string userType = dr["UserType"].ToString();
+
+                            MessageBox.Show("Successfully Login", "Success" , MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            switch (userType)
+                            {
+                                case "Stokeeper":
+                                    frmStorekeeperMenu sm = new frmStorekeeperMenu();
+                                    sm.Show(); // Opens the Storekeeper dashboard
+                                    break;
+                                case "Shipping Manager":
+                                    frmShippingManagerMenu ship = new frmShippingManagerMenu();
+                                    ship.Show(); // Opens the Shipping Manager dashboard
+                                    break;
+                                case "Accounatnts":
+                                    frmAccountantsDashboard acc = new frmAccountantsDashboard();
+                                    acc.Show(); // Opens the Accountant dashboard
+                                    break;
+                                case "Marketing and Sales Department":
+                                    frmMSD_Dashboard msd = new frmMSD_Dashboard();
+                                    msd.Show(); // Opens the MSD dashboard
+                                    break;
+                            }
                         }
-                        this.Close();
+                        else
+                        {
+                            MessageBox.Show("Invalid Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                            this.Close();
+
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Invalid Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("ERROR !!" + ex.Message);
                     }
-
-
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("ERROR !!" + ex.Message);
-                }
-            }
         }
 
         private void btnForgotPasswordSave_Click(object sender, EventArgs e)

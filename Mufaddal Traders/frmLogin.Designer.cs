@@ -127,7 +127,7 @@ namespace Mufaddal_Traders
             this.pnlForgotPassword.Controls.Add(this.label18);
             this.pnlForgotPassword.Controls.Add(this.btnForgotPasswordSave);
             this.pnlForgotPassword.Controls.Add(this.guna2TextBox5);
-            this.pnlForgotPassword.Location = new System.Drawing.Point(28, 174);
+            this.pnlForgotPassword.Location = new System.Drawing.Point(31, 172);
             this.pnlForgotPassword.Margin = new System.Windows.Forms.Padding(2);
             this.pnlForgotPassword.Name = "pnlForgotPassword";
             this.pnlForgotPassword.Size = new System.Drawing.Size(492, 657);
@@ -885,9 +885,9 @@ namespace Mufaddal_Traders
             this.label16.Location = new System.Drawing.Point(44, 539);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 20);
+            this.label16.Size = new System.Drawing.Size(81, 20);
             this.label16.TabIndex = 21;
-            this.label16.Text = "Telephone";
+            this.label16.Text = "User Type";
             // 
             // cbCRUserType
             // 
