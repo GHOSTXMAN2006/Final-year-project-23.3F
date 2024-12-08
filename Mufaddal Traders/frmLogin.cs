@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -127,6 +128,7 @@ namespace Mufaddal_Traders
             string tele = txtCRTel.Text;
             string usertype = cbCRUserType.SelectedItem?.ToString();
 
+            // Basic validation for empty fields
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confpassword) ||
                 string.IsNullOrEmpty(email) || string.IsNullOrEmpty(tele) || string.IsNullOrEmpty(usertype))
             {
@@ -134,9 +136,24 @@ namespace Mufaddal_Traders
                 return;
             }
 
+            // Check if passwords match
             if (password != confpassword)
             {
                 MessageBox.Show("Passwords do not match.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate email format
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Invalid email format.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate telephone number (must be 10 digits)
+            if (!IsValidTelephone(tele))
+            {
+                MessageBox.Show("Invalid telephone number. It must be 10 digits.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -252,6 +269,20 @@ namespace Mufaddal_Traders
                 }
                 return builder.ToString();
             }
+        }
+
+        // Validate email format using a regular expression
+        private bool IsValidEmail(string email)
+        {
+            var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return emailRegex.IsMatch(email);
+        }
+
+        // Validate telephone number (must be 10 digits)
+        private bool IsValidTelephone(string tele)
+        {
+            var teleRegex = new Regex(@"^\d{10}$");
+            return teleRegex.IsMatch(tele);
         }
     }
 }
