@@ -145,70 +145,6 @@ namespace Mufaddal_Traders
 
         }
 
-        private void btnLoginInterfaceLoginButton_Click(object sender, EventArgs e)
-        {
-            string username = txtLoginUsername.Text;
-            string password = txtLoginPassword.Text;
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please Enter Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string cs = @"Data source=MSI ;   Initial Catalog =Mufaddal_Traders_db ;     Integrated Security=True";
-
-            using (SqlConnection conn = new SqlConnection(cs))
-            {
-                try
-                {
-                    conn.Open();
-
-                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND Password = @password AND UserType = @type";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    int usercount = Convert.ToInt32(cmd.ExecuteScalar());
-                    if (usercount > 0)
-                    {
-                        MessageBox.Show("Successfully Loged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        switch ("@type")
-                        {
-                            case "Storekeeper":
-                                frmStorekeeperMenu sm = new frmStorekeeperMenu();  
-                                sm.Show(); // Opens the Storekeeper dashboard
-                                break;
-                            case "ShippingManager":
-                                frmShippingManagerMenu shim = new frmShippingManagerMenu();
-                                shim.Show(); // Opens the Shipping Manager dashboard
-                                break;
-                            case "Accountant":
-                                frmAccountantsDashboard acc = new frmAccountantsDashboard();
-                                acc.Show(); // Opens the Accountant dashboard
-                                break;
-                            case "Marketing and Sales Department":
-                                frmMSD_Dashboard msd = new frmMSD_Dashboard();
-                                msd.Show(); // Opens the MSD dashboard
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("ERROR !!" + ex.Message);
-                }
-            }
-        }
-
         private void btnCreateAccountinterfaceLoginButton_Click(object sender, EventArgs e)
         {
             string username = txtCAUsername.Text;
@@ -273,9 +209,75 @@ namespace Mufaddal_Traders
                 }
             }
 
+        }
+
+        private void btnLoginInterfaceLoginButton_Click_1(object sender, EventArgs e)
+        {
+            string username = txtLoginUsername.Text;
+            string password = txtLoginPassword.Text;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please Enter Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string cs = @"Data source=MSI ;   Initial Catalog =Mufaddal_Traders_db ;     Integrated Security=True";
+
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND Password = @password AND UserType = @type";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    int usercount = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (usercount > 0)
+                    {
+                        MessageBox.Show("Successfully Loged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        switch ("@type")
+                        {
+                            case "Storekeeper":
+                                frmStorekeeperMenu sm = new frmStorekeeperMenu();
+                                sm.Show(); // Opens the Storekeeper dashboard
+                                break;
+                            case "ShippingManager":
+                                frmShippingManagerMenu shim = new frmShippingManagerMenu();
+                                shim.Show(); // Opens the Shipping Manager dashboard
+                                break;
+                            case "Accountant":
+                                frmAccountantsDashboard acc = new frmAccountantsDashboard();
+                                acc.Show(); // Opens the Accountant dashboard
+                                break;
+                            case "Marketing and Sales Department":
+                                frmMSD_Dashboard msd = new frmMSD_Dashboard();
+                                msd.Show(); // Opens the MSD dashboard
+                                break;
+                        }
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR !!" + ex.Message);
+                }
+            }
+        }
 
+        private void btnForgotPasswordSave_Click(object sender, EventArgs e)
+        {
 
         }
     }

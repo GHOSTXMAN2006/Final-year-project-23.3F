@@ -127,7 +127,7 @@ namespace Mufaddal_Traders
             this.pnlForgotPassword.Controls.Add(this.label18);
             this.pnlForgotPassword.Controls.Add(this.btnForgotPasswordSave);
             this.pnlForgotPassword.Controls.Add(this.guna2TextBox5);
-            this.pnlForgotPassword.Location = new System.Drawing.Point(31, 172);
+            this.pnlForgotPassword.Location = new System.Drawing.Point(28, 174);
             this.pnlForgotPassword.Margin = new System.Windows.Forms.Padding(2);
             this.pnlForgotPassword.Name = "pnlForgotPassword";
             this.pnlForgotPassword.Size = new System.Drawing.Size(492, 657);
@@ -314,6 +314,7 @@ namespace Mufaddal_Traders
             this.btnForgotPasswordSave.Size = new System.Drawing.Size(108, 38);
             this.btnForgotPasswordSave.TabIndex = 7;
             this.btnForgotPasswordSave.Text = "Save";
+            this.btnForgotPasswordSave.Click += new System.EventHandler(this.btnForgotPasswordSave_Click);
             // 
             // guna2TextBox5
             // 
@@ -468,7 +469,7 @@ namespace Mufaddal_Traders
             this.pnlLoginInterface1.Controls.Add(this.txtLoginPassword);
             this.pnlLoginInterface1.Controls.Add(this.btnLoginInterfaceLoginButton);
             this.pnlLoginInterface1.Controls.Add(this.txtLoginUsername);
-            this.pnlLoginInterface1.Location = new System.Drawing.Point(0, 107);
+            this.pnlLoginInterface1.Location = new System.Drawing.Point(27, 281);
             this.pnlLoginInterface1.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLoginInterface1.Name = "pnlLoginInterface1";
             this.pnlLoginInterface1.Size = new System.Drawing.Size(492, 488);
@@ -578,6 +579,7 @@ namespace Mufaddal_Traders
             this.btnLoginInterfaceLoginButton.Size = new System.Drawing.Size(108, 38);
             this.btnLoginInterfaceLoginButton.TabIndex = 7;
             this.btnLoginInterfaceLoginButton.Text = "Login";
+            this.btnLoginInterfaceLoginButton.Click += new System.EventHandler(this.btnLoginInterfaceLoginButton_Click_1);
             // 
             // txtLoginUsername
             // 
@@ -620,7 +622,6 @@ namespace Mufaddal_Traders
             this.pnlCreateAcc.Controls.Add(this.txtCRTel);
             this.pnlCreateAcc.Controls.Add(this.label6);
             this.pnlCreateAcc.Controls.Add(this.label11);
-            this.pnlCreateAcc.Controls.Add(this.pnlLoginInterface1);
             this.pnlCreateAcc.Controls.Add(this.txtCREmail);
             this.pnlCreateAcc.Controls.Add(this.txtCRConfirmPassword);
             this.pnlCreateAcc.Controls.Add(this.label7);
@@ -914,6 +915,7 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.pnlForgotPassword);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlLoginInterface1);
             this.Controls.Add(this.picHeader);
             this.Controls.Add(this.pnlCreateAcc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
