@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -90,7 +91,7 @@ namespace Mufaddal_Traders
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        
+
         private void picHeader2_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -99,8 +100,8 @@ namespace Mufaddal_Traders
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        
-        
+
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -137,6 +138,125 @@ namespace Mufaddal_Traders
 
             // Close the current form (frmLogin)
             this.Hide();
+        }
+
+        private void pnlForgotPassword_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLoginInterfaceLoginButton_Click(object sender, EventArgs e)
+        {
+            string username = txtLoginUsername.Text;
+            string password = txtLoginPassword.Text;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please Enter Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string cs = @"Data source=MSI ;   Initial Catalog =Mufaddal_Traders_db ;     Integrated Security=True";
+
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string sql = "SELECT COUNT(1) FROM Users WHERE UserName = @username AND Password = @password";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    int usercount = Convert.ToInt32(cmd.ExecuteScalar());
+                    if (usercount > 0)
+                    {
+                        MessageBox.Show("Successfully Loged In.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username or Password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR !!" + ex.Message);
+                }
+            }
+        }
+
+        private void btnCreateAccountinterfaceLoginButton_Click(object sender, EventArgs e)
+        {
+            string username = txtCAUsername.Text;
+            string password = txtCRPassword.Text;
+            string confpassword = txtCRConfirmPassword.Text;
+            string email = txtCREmail.Text;
+            string tele = txtCRTel.Text;
+            string usertype = cbCRUserType.SelectedItem?.ToString();
+
+            //basic validation
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confpassword)
+                || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(tele) || string.IsNullOrEmpty(usertype))
+            {
+                MessageBox.Show("Prodct Enter data", "Failes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (password != confpassword)
+            {
+                MessageBox.Show("Please enter the same password in both fields.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string cs = @"Data source=MSI ;   Initial Catalog =Mufaddal_Traders_db ;     Integrated Security=True";
+
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                //Exception Handeling
+                try
+                {
+                    conn.Open();
+
+                    //sql statement
+                    string sql = "INSERT INTO Users (UserName, Password, UserEmail, UserTelephone, UserType) VALUES (@username, @password, @email," +
+                                 " @tele, @usertype)";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue(" @password", password);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@tele", tele);
+                    cmd.Parameters.AddWithValue("@usertype", usertype);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Successfully Created an Account.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        pnlLoginInterface1.Visible = true;
+                        pnlCreateAcc.Visible = false;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error in Creating an Account", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR !!" + ex.Message);
+                }
+            }
+
+
+
+
+
         }
     }
 }
