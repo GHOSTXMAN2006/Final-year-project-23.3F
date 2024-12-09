@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Mufaddal_Traders
@@ -25,9 +21,133 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmAddUpdateItems()
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private int itemId;
+
+        public frmAddUpdateItems(int id = -1)
         {
             InitializeComponent();
+            itemId = id; // Store the item ID passed to the form
+        }
+
+        private void frmAddUpdateItems_Load(object sender, EventArgs e)
+        {
+            if (itemId != -1)
+            {
+                LoadItemDetails(itemId);
+            }
+        }
+
+        private void LoadItemDetails(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Items WHERE ItemID = @ItemID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ItemID", id);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        txtID.Text = reader["ItemID"].ToString();
+                        txtName.Text = reader["Item_Name"].ToString();
+                        txtPrice.Text = reader["Item_Price"].ToString();
+                        txtDescription.Text = reader["Item_Description"].ToString();
+                        dtpMFDate.Value = Convert.ToDateTime(reader["Manufacture_Date"]);
+                        dtpEXPDate.Value = Convert.ToDateTime(reader["Expiry_Date"]);
+
+                        if (reader["Item_Image"] != DBNull.Value)
+                        {
+                            byte[] imageBytes = (byte[])reader["Item_Image"];
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                btnUpload.Image = Image.FromStream(ms);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item details could not be loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading item details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query;
+
+                if (itemId == -1) // Insert new item
+                {
+                    query = @"INSERT INTO Items (Item_Name, Item_Description, Item_Price, Manufacture_Date, Expiry_Date, Item_Image) 
+                              VALUES (@Name, @Description, @Price, @MFDate, @EXPDate, @Image)";
+                }
+                else // Update existing item
+                {
+                    query = @"UPDATE Items 
+                              SET Item_Name = @Name, Item_Description = @Description, Item_Price = @Price, 
+                                  Manufacture_Date = @MFDate, Expiry_Date = @EXPDate, Item_Image = @Image 
+                              WHERE ItemID = @ID";
+                }
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ID", txtID.Text);
+                cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
+                cmd.Parameters.AddWithValue("@Price", txtPrice.Text);
+                cmd.Parameters.AddWithValue("@MFDate", dtpMFDate.Value);
+                cmd.Parameters.AddWithValue("@EXPDate", dtpEXPDate.Value);
+
+                if (btnUpload.Image != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        btnUpload.Image.Save(ms, btnUpload.Image.RawFormat);
+                        cmd.Parameters.AddWithValue("@Image", ms.ToArray());
+                    }
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Image", DBNull.Value);
+                }
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Item saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving item: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select an Item Image",
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                btnUpload.Image = Image.FromFile(openFileDialog.FileName);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -48,31 +168,11 @@ namespace Mufaddal_Traders
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnUpload_Click(object sender, EventArgs e)
-        {
-            // Create and configure OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Title = "Select an Item Image",
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
-            };
 
-            // Show the dialog and check if the user selects a file
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Load the selected image into the PictureBox
-                btnUpload.Image = Image.FromFile(openFileDialog.FileName);
-            }
-        }
     }
 }
