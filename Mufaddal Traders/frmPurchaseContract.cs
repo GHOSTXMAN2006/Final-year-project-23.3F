@@ -101,7 +101,7 @@ namespace Mufaddal_Traders
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -121,6 +121,28 @@ namespace Mufaddal_Traders
             frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
 
             addUpdatePurchaseContract.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Clear the session or global variables
+            frmLogin.userType = string.Empty;
+            frmLogin.userName = string.Empty;
+            frmLogin.userPassword = string.Empty;
+            frmLogin.userEmail = string.Empty;
+            frmLogin.userTelephone = string.Empty;
+            frmLogin.userAddress = string.Empty;
+            frmLogin.userDescription = string.Empty;
+            frmLogin.profilePicture = null; // Clear profile picture if any
+
+            // Optionally, you can also clear other session variables if needed
+
+            // Close the current form (Dashboard)
+            this.Close();
+
+            // Show the login form again
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
         }
     }
 }
