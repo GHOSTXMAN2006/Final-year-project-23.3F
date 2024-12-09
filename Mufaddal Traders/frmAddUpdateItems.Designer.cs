@@ -64,16 +64,16 @@ namespace Mufaddal_Traders
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpEXPDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpMFDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnUpload = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtpEXPDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dtpMFDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.picHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,12 +183,66 @@ namespace Mufaddal_Traders
             // 
             // txtID
             // 
+            this.txtID.BackColor = System.Drawing.Color.BurlyWood;
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(54, 216);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(126, 33);
             this.txtID.TabIndex = 217;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(50, 595);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 24);
+            this.label5.TabIndex = 233;
+            this.label5.Text = "Expiry Date";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(50, 523);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(157, 24);
+            this.label8.TabIndex = 231;
+            this.label8.Text = "Manufacture Date";
+            // 
+            // dtpEXPDate
+            // 
+            this.dtpEXPDate.Checked = true;
+            this.dtpEXPDate.FillColor = System.Drawing.SystemColors.Control;
+            this.dtpEXPDate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEXPDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpEXPDate.Location = new System.Drawing.Point(55, 627);
+            this.dtpEXPDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEXPDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEXPDate.Name = "dtpEXPDate";
+            this.dtpEXPDate.Size = new System.Drawing.Size(331, 36);
+            this.dtpEXPDate.TabIndex = 235;
+            this.dtpEXPDate.Value = new System.DateTime(2024, 12, 6, 17, 13, 38, 344);
+            // 
+            // dtpMFDate
+            // 
+            this.dtpMFDate.Checked = true;
+            this.dtpMFDate.FillColor = System.Drawing.SystemColors.Control;
+            this.dtpMFDate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpMFDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpMFDate.Location = new System.Drawing.Point(55, 556);
+            this.dtpMFDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpMFDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpMFDate.Name = "dtpMFDate";
+            this.dtpMFDate.Size = new System.Drawing.Size(331, 36);
+            this.dtpMFDate.TabIndex = 234;
+            this.dtpMFDate.Value = new System.DateTime(2024, 12, 6, 17, 13, 38, 344);
             // 
             // btnUpload
             // 
@@ -279,6 +333,7 @@ namespace Mufaddal_Traders
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(218, 38);
             this.txtSearch.TabIndex = 177;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnMinimize
             // 
@@ -319,58 +374,6 @@ namespace Mufaddal_Traders
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(50, 595);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 24);
-            this.label5.TabIndex = 233;
-            this.label5.Text = "Expiry Date";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(50, 523);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(157, 24);
-            this.label8.TabIndex = 231;
-            this.label8.Text = "Manufacture Date";
-            // 
-            // dtpEXPDate
-            // 
-            this.dtpEXPDate.Checked = true;
-            this.dtpEXPDate.FillColor = System.Drawing.SystemColors.Control;
-            this.dtpEXPDate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEXPDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpEXPDate.Location = new System.Drawing.Point(55, 627);
-            this.dtpEXPDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpEXPDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpEXPDate.Name = "dtpEXPDate";
-            this.dtpEXPDate.Size = new System.Drawing.Size(331, 36);
-            this.dtpEXPDate.TabIndex = 235;
-            this.dtpEXPDate.Value = new System.DateTime(2024, 12, 6, 17, 13, 38, 344);
-            // 
-            // dtpMFDate
-            // 
-            this.dtpMFDate.Checked = true;
-            this.dtpMFDate.FillColor = System.Drawing.SystemColors.Control;
-            this.dtpMFDate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpMFDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpMFDate.Location = new System.Drawing.Point(55, 556);
-            this.dtpMFDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpMFDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpMFDate.Name = "dtpMFDate";
-            this.dtpMFDate.Size = new System.Drawing.Size(331, 36);
-            this.dtpMFDate.TabIndex = 234;
-            this.dtpMFDate.Value = new System.DateTime(2024, 12, 6, 17, 13, 38, 344);
             // 
             // frmAddUpdateItems
             // 

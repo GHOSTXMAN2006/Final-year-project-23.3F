@@ -835,6 +835,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logout_icon_2048x1708_5s1s9mb0__1_ {
+            get {
+                object obj = ResourceManager.GetObject("logout-icon-2048x1708-5s1s9mb0 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mail {
             get {
                 object obj = ResourceManager.GetObject("mail", resourceCulture);
@@ -1051,6 +1061,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap red_circle_round_3d_button_3__1_ {
             get {
                 object obj = ResourceManager.GetObject("red-circle-round-3d-button-3 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reload_page_icon_vector {
+            get {
+                object obj = ResourceManager.GetObject("reload-page-icon-vector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

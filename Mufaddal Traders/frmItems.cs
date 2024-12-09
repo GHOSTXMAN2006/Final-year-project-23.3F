@@ -30,7 +30,6 @@ namespace Mufaddal_Traders
 
         private void frmItems_Load(object sender, EventArgs e)
         {
-            frmLogin.userType = "Storekeeper";
             // Check the userType and show/hide buttons accordingly
             if (frmLogin.userType != "Storekeeper")
             {
@@ -48,7 +47,7 @@ namespace Mufaddal_Traders
             LoadItems(); // Load the items when the form is loaded
         }
 
-        private void LoadItems()
+        public void LoadItems()
         {
             flowItems.Controls.Clear(); // Clear previous items
 
@@ -145,29 +144,48 @@ namespace Mufaddal_Traders
             }
         }
 
-        // Event handler for item click (single click)
+        private Timer clickTimer = new Timer { Interval = 300 }; // Adjust interval as needed
+        private bool isDoubleClick = false;
+
         private void Item_Click(object sender, EventArgs e)
         {
-            Panel clickedPanel = sender as Panel;
-            if (clickedPanel != null)
+            if (!isDoubleClick)
             {
-                selectedItemId = (int)clickedPanel.Tag;  // Set the selected ItemID
-                // Change the panel color or show selected status (if desired)
-                MessageBox.Show($"Item {selectedItemId} selected for update or delete.");
+                clickTimer.Tick += (s, args) =>
+                {
+                    clickTimer.Stop();
+                    Panel clickedPanel = sender as Panel ?? ((Control)sender).Parent as Panel;
+                    if (clickedPanel != null)
+                    {
+                        // Single-click logic
+                        foreach (Control control in flowItems.Controls)
+                        {
+                            if (control is Panel panel)
+                                panel.BackColor = Color.White; // Reset colors
+                        }
+                        clickedPanel.BackColor = Color.LightGray; // Highlight selected
+                        selectedItemId = (int)clickedPanel.Tag;
+                    }
+                };
+                clickTimer.Start();
             }
         }
 
-        // Event handler for item double-click (open item details)
         private void Item_DoubleClick(object sender, EventArgs e)
         {
-            Panel clickedPanel = sender as Panel;
+            isDoubleClick = true;
+            clickTimer.Stop();
+            Panel clickedPanel = sender as Panel ?? ((Control)sender).Parent as Panel;
             if (clickedPanel != null)
             {
-                int selectedItemId = (int)clickedPanel.Tag;  // Get the ItemID of the double-clicked item
-                frmItemDetails itemDetailsForm = new frmItemDetails(selectedItemId);  // Pass the selected ItemID
-                itemDetailsForm.Show();  // Open the frmItemDetails form
+                // Double-click logic
+                int selectedItemId = (int)clickedPanel.Tag;
+                frmItemDetails itemDetailsForm = new frmItemDetails(selectedItemId);
+                itemDetailsForm.Show();
             }
+            isDoubleClick = false;
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -212,17 +230,16 @@ namespace Mufaddal_Traders
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Check if an item is selected
             if (selectedItemId == -1)
             {
                 MessageBox.Show("Please select an item to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Open frmItemDetails form and pass selected item ID for update
-            frmItemDetails itemDetailsForm = new frmItemDetails(selectedItemId);  // Pass the selected item ID
-            itemDetailsForm.Show(); // Open the details form for the selected item
+            frmAddUpdateItems updateForm = new frmAddUpdateItems(this, selectedItemId);
+            updateForm.ShowDialog(); // Use ShowDialog to wait for the form to close
         }
+
 
 
         private void picHeader_MouseDown(object sender, MouseEventArgs e)
@@ -279,8 +296,27 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
-            menuForm.Show();
+            // Check the userType to open the corresponding menu form
+            switch (frmLogin.userType)  // Accessing userType from frmLogin
+            {
+                case "Storekeeper":
+                    new frmStorekeeperMenu().Show();
+                    break;
+                case "Shipping Manager":
+                    new frmShippingManagerMenu().Show();
+                    break;
+                case "Accountant":
+                    new frmAccountantsMenu().Show();
+                    break;
+                case "Marketing and Sales Department":
+                    new frmMSD_Menu().Show();
+                    break;
+                default:
+                    MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+
+            // Hide the current dashboard form (optional, to switch to the menu form)
             this.Hide();
         }
 
@@ -329,8 +365,122 @@ namespace Mufaddal_Traders
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
-            addUpdateItems.Show();
+            frmAddUpdateItems addUpdateForm = new frmAddUpdateItems(this);
+            addUpdateForm.ShowDialog(); // Use ShowDialog to wait for the form to close
         }
+
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadItems(); // Reload the items in the flow layout
+        }
+
+
+        private void SearchItems(string searchText)
+        {
+            flowItems.Controls.Clear(); // Clear existing items
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            SELECT ItemID, Item_Name, Item_Image 
+            FROM Items 
+            WHERE ItemID LIKE @SearchText OR Item_Name LIKE @SearchText";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int itemId = reader.GetInt32(0); // ItemID
+                        string itemName = reader.GetString(1); // Item_Name
+                        byte[] itemImageBytes = reader["Item_Image"] as byte[]; // Item_Image
+
+                        // Create the item panel (reuse your existing logic for LoadItems)
+                        Panel itemPanel = new Panel
+                        {
+                            Width = 180,
+                            Height = 250,
+                            Margin = new Padding(10),
+                            BackColor = Color.White,
+                            BorderStyle = BorderStyle.FixedSingle,
+                            Tag = itemId
+                        };
+
+                        PictureBox itemPictureBox = new PictureBox
+                        {
+                            Width = 160,
+                            Height = 180,
+                            Top = 10,
+                            Left = 10,
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            Tag = itemId
+                        };
+
+                        if (itemImageBytes != null && itemImageBytes.Length > 0)
+                        {
+                            itemPictureBox.Image = ByteArrayToImage(itemImageBytes);
+                        }
+                        else
+                        {
+                            itemPictureBox.Image = Properties.Resources._3486568; // Default image
+                        }
+
+                        Label itemLabel = new Label
+                        {
+                            AutoSize = false,
+                            Width = 160,
+                            Height = 40,
+                            Top = 200,
+                            Left = 10,
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Text = itemName,
+                            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                            Tag = itemId
+                        };
+
+                        // Add event handlers
+                        itemPictureBox.Click += Item_Click;
+                        itemLabel.Click += Item_Click;
+                        itemPanel.Click += Item_Click;
+
+                        itemPictureBox.DoubleClick += Item_DoubleClick;
+                        itemLabel.DoubleClick += Item_DoubleClick;
+                        itemPanel.DoubleClick += Item_DoubleClick;
+
+                        itemPanel.Controls.Add(itemPictureBox);
+                        itemPanel.Controls.Add(itemLabel);
+
+                        flowItems.Controls.Add(itemPanel);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error searching items: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Check if Enter key is pressed
+            {
+                string searchText = txtSearch.Text.Trim();
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    SearchItems(searchText); // Call the search method
+                }
+                else
+                {
+                    LoadItems(); // Reload all items if search text is empty
+                }
+            }
+        }
+
     }
 }

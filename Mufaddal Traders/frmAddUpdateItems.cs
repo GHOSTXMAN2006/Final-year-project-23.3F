@@ -24,17 +24,52 @@ namespace Mufaddal_Traders
         private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
         private int itemId;
 
-        public frmAddUpdateItems(int id = -1)
+        private frmItems parentForm;
+
+        public frmAddUpdateItems(frmItems parent, int id = -1)
         {
             InitializeComponent();
             itemId = id; // Store the item ID passed to the form
+            parentForm = parent; // Store reference to the parent form
         }
+
 
         private void frmAddUpdateItems_Load(object sender, EventArgs e)
         {
             if (itemId != -1)
             {
                 LoadItemDetails(itemId);
+            }
+            else
+            {
+                int nextId = GetNextItemId();
+                if (nextId != -1)
+                {
+                    txtID.Text = nextId.ToString(); // Set the next available ID
+                    txtID.ReadOnly = true;          // Make ID field read-only for new items
+                }
+            }
+        }
+
+
+
+        private int GetNextItemId()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ISNULL(MAX(ItemID), 0) + 1 FROM Items"; // Get next ID
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                try
+                {
+                    conn.Open();
+                    return (int)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error fetching next ItemID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return -1; // Return an invalid ID if there's an error
+                }
             }
         }
 
@@ -87,27 +122,30 @@ namespace Mufaddal_Traders
             {
                 string query;
 
+                // Check if itemId is -1 for a new item or a valid ID for an existing item
                 if (itemId == -1) // Insert new item
                 {
                     query = @"INSERT INTO Items (Item_Name, Item_Description, Item_Price, Manufacture_Date, Expiry_Date, Item_Image) 
-                              VALUES (@Name, @Description, @Price, @MFDate, @EXPDate, @Image)";
+                      VALUES (@Name, @Description, @Price, @MFDate, @EXPDate, @Image)";
                 }
                 else // Update existing item
                 {
                     query = @"UPDATE Items 
-                              SET Item_Name = @Name, Item_Description = @Description, Item_Price = @Price, 
-                                  Manufacture_Date = @MFDate, Expiry_Date = @EXPDate, Item_Image = @Image 
-                              WHERE ItemID = @ID";
+                      SET Item_Name = @Name, Item_Description = @Description, Item_Price = @Price, 
+                          Manufacture_Date = @MFDate, Expiry_Date = @EXPDate, Item_Image = @Image 
+                      WHERE ItemID = @ID";
                 }
 
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", txtID.Text);
+
+                // Add parameters for both Insert and Update
                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
                 cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
                 cmd.Parameters.AddWithValue("@Price", txtPrice.Text);
                 cmd.Parameters.AddWithValue("@MFDate", dtpMFDate.Value);
                 cmd.Parameters.AddWithValue("@EXPDate", dtpEXPDate.Value);
 
+                // If there is an uploaded image, convert it to a byte array
                 if (btnUpload.Image != null)
                 {
                     using (MemoryStream ms = new MemoryStream())
@@ -118,16 +156,26 @@ namespace Mufaddal_Traders
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@Image", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Image", DBNull.Value); // Handle null image
+                }
+
+                // Add the ItemID parameter if updating
+                if (itemId != -1)
+                {
+                    cmd.Parameters.AddWithValue("@ID", itemId); // Use the itemId to identify the item for updating
                 }
 
                 try
                 {
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery(); // Execute the query
 
-                    MessageBox.Show("Item saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    MessageBox.Show("Item saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Reload items in the parent form
+                    parentForm?.LoadItems(); // Assuming parent form has a LoadItems method to refresh the list
+
+                    this.Close(); // Close the current form after saving
                 }
                 catch (Exception ex)
                 {
@@ -135,6 +183,8 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
+
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -171,6 +221,70 @@ namespace Mufaddal_Traders
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Check if Enter key is pressed
+            {
+                string searchText = txtSearch.Text.Trim();
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    SearchAndLoadItem(searchText); // Call the search and load method
+                }
+            }
+        }
+
+
+
+        private void SearchAndLoadItem(string searchText)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Search by ItemID or Item_Name
+                string query = @"
+            SELECT TOP 1 * 
+            FROM Items 
+            WHERE ItemID = @SearchText OR Item_Name LIKE @SearchText";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@SearchText", searchText);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        // Populate fields with the item's details
+                        itemId = Convert.ToInt32(reader["ItemID"]); // Set itemId to the found ItemID
+                        txtID.Text = reader["ItemID"].ToString();
+                        txtName.Text = reader["Item_Name"].ToString();
+                        txtPrice.Text = reader["Item_Price"].ToString();
+                        txtDescription.Text = reader["Item_Description"].ToString();
+                        dtpMFDate.Value = Convert.ToDateTime(reader["Manufacture_Date"]);
+                        dtpEXPDate.Value = Convert.ToDateTime(reader["Expiry_Date"]);
+
+                        if (reader["Item_Image"] != DBNull.Value)
+                        {
+                            byte[] imageBytes = (byte[])reader["Item_Image"];
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                btnUpload.Image = Image.FromStream(ms);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No matching item found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading item details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
 

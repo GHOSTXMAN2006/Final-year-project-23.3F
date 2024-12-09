@@ -977,5 +977,11 @@
   <ItemGroup>
     <None Include="Resources\png-transparent-reset-icon-reset-button-icon-design-menu-bar-hamburger-button-computer-black-and-white-text %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload-page-icon-vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-icon-2048x1708-5s1s9mb0 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
