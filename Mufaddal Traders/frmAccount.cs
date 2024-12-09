@@ -88,7 +88,7 @@ namespace Mufaddal_Traders
 
             // Allow profile picture change when in edit mode
             btnProfilePic.Enabled = true; // Now profile picture can be changed
-            btnEdit.FillColor = Color.FromArgb(234, 221, 202);  // Darker color when in edit mode
+            btnEdit.FillColor = Color.FromArgb(253, 218, 13);  // Yellow color when in edit mode
         }
 
         // When Save button is clicked, save the changes
@@ -101,19 +101,17 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            // Check if the password is changed
-            if (!string.IsNullOrEmpty(txtPassword.Text))
+            // Check if the password is changed (only if txtPassword is not empty and different from the original)
+            if (!string.IsNullOrEmpty(txtPassword.Text) && txtPassword.Text != frmLogin.userPassword)
             {
-                // Prompt user for the old password
+                // Prompt user for the old password if password is changed
                 string oldPassword = Microsoft.VisualBasic.Interaction.InputBox("Please enter your old password", "Old Password", "");
 
-                if (ValidateOldPassword(oldPassword))
+                if (ValidateOldPassword(oldPassword))  // Validate the old password entered
                 {
-                    // If the old password is correct, hash the new password
+                    // If the old password is correct, hash the new password and save user details
                     string newHashedPassword = HashPassword(txtPassword.Text);
-
-                    // Proceed with saving the user details
-                    SaveUserDetails(newHashedPassword);
+                    SaveUserDetails(newHashedPassword);  // Save the new password along with other details
                 }
                 else
                 {
@@ -123,10 +121,11 @@ namespace Mufaddal_Traders
             }
             else
             {
-                // No password change, save other details
+                // If password hasn't been changed, save other details (pass null for the password)
                 SaveUserDetails(null);
             }
         }
+
 
         private void btnProfilePic_Click(object sender, EventArgs e)
         {
@@ -169,9 +168,10 @@ namespace Mufaddal_Traders
         private void SaveUserDetails(string newHashedPassword)
         {
             byte[] profilePictureBytes = null;
+
+            // Convert the profile picture to byte array if it's changed
             if (btnProfilePic.Image != global::Mufaddal_Traders.Properties.Resources._69159871)
             {
-                // Convert the profile picture to byte array
                 using (MemoryStream ms = new MemoryStream())
                 {
                     btnProfilePic.Image.Save(ms, btnProfilePic.Image.RawFormat);
@@ -190,13 +190,14 @@ namespace Mufaddal_Traders
                     // Only update password if it's changed
                     if (!string.IsNullOrEmpty(newHashedPassword))
                     {
-                        sql += ", Password = @password";
+                        sql += ", Password = @password";  // Add password update to the query if password is provided
                     }
 
-                    sql += " WHERE UserName = @username";
+                    sql += " WHERE UserName = @username";  // Update query for the specific user
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
+                    // Add parameters to the command
                     cmd.Parameters.AddWithValue("@userEmail", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@userTelephone", txtTelephone.Text);
                     cmd.Parameters.AddWithValue("@userAddress", txtAddress.Text);
@@ -247,10 +248,11 @@ namespace Mufaddal_Traders
             }
         }
 
+
         // Method to validate the old password
         private bool ValidateOldPassword(string oldPassword)
         {
-            string hashedOldPassword = HashPassword(oldPassword);
+            string hashedOldPassword = HashPassword(oldPassword);  // Hashing the entered old password
 
             string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
             using (SqlConnection conn = new SqlConnection(cs))
@@ -260,11 +262,11 @@ namespace Mufaddal_Traders
                     conn.Open();
                     string sql = "SELECT Password FROM Users WHERE UserName = @username";
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@username", frmLogin.userName);
+                    cmd.Parameters.AddWithValue("@username", frmLogin.userName); // Check old password for the logged-in user
 
-                    string currentPassword = cmd.ExecuteScalar()?.ToString();
+                    string currentPassword = cmd.ExecuteScalar()?.ToString(); // Fetch the current password from DB
 
-                    if (currentPassword == hashedOldPassword)
+                    if (currentPassword == hashedOldPassword) // Validate the entered old password with the stored hashed password
                     {
                         return true;  // Old password is correct
                     }
@@ -280,6 +282,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
         // This method hashes a password using SHA-256
         private string HashPassword(string password)
