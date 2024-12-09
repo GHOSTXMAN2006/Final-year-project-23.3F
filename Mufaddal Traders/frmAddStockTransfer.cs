@@ -20,7 +20,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         // Connection string to connect to the database
-        private string connectionString = @"Data Source=DESKTOP-O0Q3714\SQLEXPRESS;Initial Catalog=Mufaddal_Traders_db;Integrated Security=True";
+        private string connectionString = @"Data Source=YOUR_SERVER;Initial Catalog=Mufaddal_Traders_db;Integrated Security=True";
 
         public frmAddStockTransfer()
         {

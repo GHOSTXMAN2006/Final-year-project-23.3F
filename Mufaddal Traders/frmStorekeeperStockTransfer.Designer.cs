@@ -478,6 +478,6 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Panel picHeader;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private System.Windows.Forms.Panel panel1;
-        public Guna.UI2.WinForms.Guna2DataGridView dgvST;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvST;
     }
 }
