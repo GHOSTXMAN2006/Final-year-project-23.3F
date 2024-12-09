@@ -4,6 +4,8 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Mufaddal_Traders
 {
@@ -19,6 +21,8 @@ namespace Mufaddal_Traders
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+        private bool isEditMode = false;  // Flag to track if we are in Edit Mode
+
         public frmAccount()
         {
             InitializeComponent();
@@ -32,6 +36,7 @@ namespace Mufaddal_Traders
             txtTelephone.Text = frmLogin.userTelephone;
             txtAddress.Text = frmLogin.userAddress;
             txtBio.Text = frmLogin.userDescription;
+            txtPassword.Text = frmLogin.userPassword;
 
             // Set labels to reflect current username and email
             lblUsername.Text = frmLogin.userName;
@@ -79,6 +84,11 @@ namespace Mufaddal_Traders
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SetFieldsReadOnly(false);
+            isEditMode = true; // Set to edit mode
+
+            // Allow profile picture change when in edit mode
+            btnProfilePic.Enabled = true; // Now profile picture can be changed
+            btnEdit.FillColor = Color.FromArgb(200, 100, 30);  // Darker color when in edit mode
         }
 
         // When Save button is clicked, save the changes
@@ -91,14 +101,37 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            // Save changes to the database
-            SaveUserDetails();
+            // Check if the password is changed
+            if (!string.IsNullOrEmpty(txtPassword.Text))
+            {
+                // Prompt user for the old password
+                string oldPassword = Microsoft.VisualBasic.Interaction.InputBox("Please enter your old password", "Old Password", "");
+
+                if (ValidateOldPassword(oldPassword))
+                {
+                    // If the old password is correct, hash the new password
+                    string newHashedPassword = HashPassword(txtPassword.Text);
+
+                    // Proceed with saving the user details
+                    SaveUserDetails(newHashedPassword);
+                }
+                else
+                {
+                    MessageBox.Show("Old password is incorrect. Please try again.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else
+            {
+                // No password change, save other details
+                SaveUserDetails(null);
+            }
         }
 
         private void btnProfilePic_Click(object sender, EventArgs e)
         {
             // Only allow profile picture update when in edit mode
-            if (txtUsername.Enabled)
+            if (isEditMode)
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {
@@ -112,6 +145,10 @@ namespace Mufaddal_Traders
                     btnProfilePic.Image = Image.FromFile(openFileDialog.FileName);
                 }
             }
+            else
+            {
+                MessageBox.Show("You must click Edit to update your profile picture.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // Method to set the fields as read-only or editable
@@ -122,11 +159,14 @@ namespace Mufaddal_Traders
             txtTelephone.ReadOnly = readOnly;
             txtAddress.ReadOnly = readOnly;
             txtBio.ReadOnly = readOnly;
-            txtPassword.ReadOnly = readOnly;
+            txtPassword.ReadOnly = readOnly;  // This is where the password field is also controlled
+
+            /*// Disable profile picture upload if not in edit mode
+            btnProfilePic.Enabled = !readOnly;  // Keep button enabled visually, but block the action*/
         }
 
         // Method to save user details to the database
-        private void SaveUserDetails()
+        private void SaveUserDetails(string newHashedPassword)
         {
             byte[] profilePictureBytes = null;
             if (btnProfilePic.Image != global::Mufaddal_Traders.Properties.Resources._69159871)
@@ -145,7 +185,16 @@ namespace Mufaddal_Traders
                 try
                 {
                     conn.Open();
-                    string sql = "UPDATE Users SET UserEmail = @userEmail, UserTelephone = @userTelephone, UserAddress = @userAddress, Description = @description, ProfilePicture = @profilePicture WHERE UserName = @username";
+                    string sql = "UPDATE Users SET UserEmail = @userEmail, UserTelephone = @userTelephone, UserAddress = @userAddress, Description = @description, ProfilePicture = @profilePicture";
+
+                    // Only update password if it's changed
+                    if (!string.IsNullOrEmpty(newHashedPassword))
+                    {
+                        sql += ", Password = @password";
+                    }
+
+                    sql += " WHERE UserName = @username";
+
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
                     cmd.Parameters.AddWithValue("@userEmail", txtEmail.Text);
@@ -154,6 +203,12 @@ namespace Mufaddal_Traders
                     cmd.Parameters.AddWithValue("@description", txtBio.Text);
                     cmd.Parameters.AddWithValue("@profilePicture", (object)profilePictureBytes ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+
+                    // If password is updated, include it in the parameters
+                    if (!string.IsNullOrEmpty(newHashedPassword))
+                    {
+                        cmd.Parameters.AddWithValue("@password", newHashedPassword);
+                    }
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -175,6 +230,10 @@ namespace Mufaddal_Traders
                         lblWelcomeName.Text = txtUsername.Text;
 
                         SetFieldsReadOnly(true);
+
+                        // Reset the Edit button color back to default
+                        btnEdit.FillColor = Color.FromArgb(244, 124, 44);  // Original color when not editable
+                        isEditMode = false; // Exit edit mode
                     }
                     else
                     {
@@ -188,7 +247,56 @@ namespace Mufaddal_Traders
             }
         }
 
-        // Reset the fields to their initial state
+        // Method to validate the old password
+        private bool ValidateOldPassword(string oldPassword)
+        {
+            string hashedOldPassword = HashPassword(oldPassword);
+
+            string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(cs))
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT Password FROM Users WHERE UserName = @username";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", frmLogin.userName);
+
+                    string currentPassword = cmd.ExecuteScalar()?.ToString();
+
+                    if (currentPassword == hashedOldPassword)
+                    {
+                        return true;  // Old password is correct
+                    }
+                    else
+                    {
+                        return false;  // Incorrect old password
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+        // This method hashes a password using SHA-256
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString(); // Returns the hashed password
+            }
+        }
+
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             // Reset the fields to the original values
@@ -214,6 +322,10 @@ namespace Mufaddal_Traders
 
             // Set fields to read-only
             SetFieldsReadOnly(true);
+
+            // Reset the Edit button color back to default
+            btnEdit.FillColor = Color.FromArgb(244, 124, 44);  // Original color when not editable
+            isEditMode = false; // Exit edit mode
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -264,26 +376,6 @@ namespace Mufaddal_Traders
 
             // Close the current form (frmStorekeeperMenu)
             this.Hide();
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBio_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

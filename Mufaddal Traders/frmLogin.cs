@@ -19,6 +19,7 @@ namespace Mufaddal_Traders
         // Declare global variable of the Logging users
         public static string userType;
         public static string userName;
+        public static string userPassword;
         public static string userEmail;
         public static string userTelephone;
         public static string userAddress;
@@ -222,7 +223,7 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            string hashedPassword = HashPassword(password);
+            string hashedPassword = HashPassword(password); // Hash the entered password
             string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
             using (SqlConnection conn = new SqlConnection(cs))
@@ -230,10 +231,10 @@ namespace Mufaddal_Traders
                 try
                 {
                     conn.Open();
-                    string sql = "SELECT UserType, UserName, UserEmail, UserTelephone, UserAddress, Description, ProfilePicture FROM Users WHERE UserName = @username AND Password = @password";
+                    string sql = "SELECT UserType, UserName, UserEmail, UserTelephone, UserAddress, Description, ProfilePicture, Password FROM Users WHERE UserName = @username AND Password = @password";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
+                    cmd.Parameters.AddWithValue("@password", hashedPassword); // Hash the entered password before comparing
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.HasRows)
@@ -247,6 +248,7 @@ namespace Mufaddal_Traders
                             userTelephone = reader["UserTelephone"].ToString();
                             userAddress = reader["UserAddress"].ToString();
                             userDescription = reader["Description"].ToString();
+                            userPassword = reader["Password"].ToString(); // This will store the hashed password from the DB
 
                             // Store profile picture as byte array
                             if (reader["ProfilePicture"] != DBNull.Value)
@@ -278,6 +280,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
 
 
