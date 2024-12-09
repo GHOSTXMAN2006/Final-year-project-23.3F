@@ -13,7 +13,6 @@ namespace Mufaddal_Traders
 {
     public partial class frmItems : Form
     {
-
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -24,10 +23,26 @@ namespace Mufaddal_Traders
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-
         public frmItems()
         {
             InitializeComponent();
+        }
+
+        private void frmItems_Load(object sender, EventArgs e)
+        {
+            // Check the userType and show/hide buttons accordingly
+            if (frmLogin.userType != "Storekeeper")
+            {
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnAdd.Visible = true;
+                btnUpdate.Visible = true;
+                btnDelete.Visible = true;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -52,85 +67,81 @@ namespace Mufaddal_Traders
         private void btnAccount_Click(object sender, EventArgs e)
         {
             frmAccount accountForm = new frmAccount();
-
             accountForm.Show();
-
             this.Hide();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             frmDashboard dashboardForm = new frmDashboard();
-
             dashboardForm.Show();
-
             this.Hide();
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-
+            // Implement history button functionality if needed
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
             frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
-
             menuForm.Show();
-
             this.Hide();
-
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             frmHome homeForm = new frmHome();
-
             homeForm.Show();
-
             this.Hide();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
+            // Implement settings button functionality if needed
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            // Implement delete functionality if needed
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
-
             addUpdateItems.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAddUpdateItems addUpdateItems = new frmAddUpdateItems();
-
             addUpdateItems.Show();
-        }
-
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmStorekeeperItems_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+            // Check the userType to open the corresponding menu form
+            switch (frmLogin.userType)  // Accessing userType from frmLogin
+            {
+                case "Storekeeper":
+                    new frmStorekeeperMenu().Show();
+                    break;
+                case "Shipping Manager":
+                    new frmShippingManagerMenu().Show();
+                    break;
+                case "Accountant":
+                    new frmAccountantsMenu().Show();
+                    break;
+                case "Marketing and Sales Department":
+                    new frmMSD_Menu().Show();
+                    break;
+                default:
+                    MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
 
-            menuForm.Show();
-
+            // Hide the current dashboard form (optional, to switch to the menu form)
             this.Hide();
         }
     }

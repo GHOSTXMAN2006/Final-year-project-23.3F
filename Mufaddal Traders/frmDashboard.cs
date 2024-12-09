@@ -79,7 +79,7 @@ namespace Mufaddal_Traders
                 case "Storekeeper":
                     new frmStorekeeperMenu().Show();
                     break;
-                case "ShippingManager":
+                case "Shipping Manager":
                     new frmShippingManagerMenu().Show();
                     break;
                 case "Accountant":
