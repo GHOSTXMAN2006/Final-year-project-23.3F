@@ -88,7 +88,7 @@ namespace Mufaddal_Traders
 
             // Allow profile picture change when in edit mode
             btnProfilePic.Enabled = true; // Now profile picture can be changed
-            btnEdit.FillColor = Color.FromArgb(200, 100, 30);  // Darker color when in edit mode
+            btnEdit.FillColor = Color.FromArgb(234, 221, 202);  // Darker color when in edit mode
         }
 
         // When Save button is clicked, save the changes

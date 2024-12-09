@@ -173,14 +173,27 @@ namespace Mufaddal_Traders
                 try
                 {
                     conn.Open();
-                    string sql = "INSERT INTO Users (UserName, Password, UserEmail, UserTelephone, UserType) VALUES (@username, @password, @email, @tele, @usertype)";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // We need to check if the username is unique, not the UserType
+                    string checkUserSql = "SELECT COUNT(1) FROM Users WHERE UserName = @username";
+                    SqlCommand checkUserCmd = new SqlCommand(checkUserSql, conn);
+                    checkUserCmd.Parameters.AddWithValue("@username", username);
+
+                    int userCount = (int)checkUserCmd.ExecuteScalar();
+                    if (userCount > 0)
+                    {
+                        MessageBox.Show("Username already exists. Please choose a different username.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    string insertSql = "INSERT INTO Users (UserName, Password, UserEmail, UserTelephone, UserType) VALUES (@username, @password, @email, @tele, @usertype)";
+                    SqlCommand cmd = new SqlCommand(insertSql, conn);
 
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", hashedPassword);
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@tele", tele);
-                    cmd.Parameters.AddWithValue("@usertype", usertype);
+                    cmd.Parameters.AddWithValue("@usertype", usertype);  // No issue here creating the same type of user
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -209,6 +222,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
 
         private void btnLoginInterfaceLoginButton_Click(object sender, EventArgs e)
