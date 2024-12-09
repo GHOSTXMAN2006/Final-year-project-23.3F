@@ -469,6 +469,9 @@ namespace Mufaddal_Traders
             return password.Length >= 6;
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

@@ -228,6 +228,7 @@ namespace Mufaddal_Traders
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(258, 38);
             this.txtSearch.TabIndex = 159;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnDelete

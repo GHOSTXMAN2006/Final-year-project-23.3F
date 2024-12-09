@@ -287,6 +287,9 @@ namespace Mufaddal_Traders
             }
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -333,6 +333,7 @@ namespace Mufaddal_Traders
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(218, 38);
             this.txtSearch.TabIndex = 177;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnMinimize
