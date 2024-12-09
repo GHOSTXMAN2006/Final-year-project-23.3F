@@ -328,13 +328,13 @@ namespace Mufaddal_Traders
             this.btnSettings.FillColor = System.Drawing.Color.Transparent;
             this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Image = global::Mufaddal_Traders.Properties.Resources.Settings;
+            this.btnSettings.Image = global::Mufaddal_Traders.Properties.Resources.logout_icon_2048x1708_5s1s9mb0__1_;
             this.btnSettings.ImageSize = new System.Drawing.Size(44, 44);
             this.btnSettings.Location = new System.Drawing.Point(7, 733);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(60, 56);
             this.btnSettings.TabIndex = 23;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            this.btnSettings.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHome
             // 
