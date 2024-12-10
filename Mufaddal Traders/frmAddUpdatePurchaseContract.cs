@@ -53,5 +53,10 @@ namespace Mufaddal_Traders
         {
             this.Close();
         }
+
+        private void frmAddUpdatePurchaseContract_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
