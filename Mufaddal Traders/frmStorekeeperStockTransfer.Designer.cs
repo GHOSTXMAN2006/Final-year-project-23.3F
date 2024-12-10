@@ -75,6 +75,7 @@ namespace Mufaddal_Traders
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.btnReload = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvST)).BeginInit();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -432,12 +433,32 @@ namespace Mufaddal_Traders
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnReload
+            // 
+            this.btnReload.Animated = true;
+            this.btnReload.BorderRadius = 7;
+            this.btnReload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReload.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReload.FillColor = System.Drawing.Color.Transparent;
+            this.btnReload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnReload.ForeColor = System.Drawing.Color.White;
+            this.btnReload.Image = global::Mufaddal_Traders.Properties.Resources.reload_page_icon_vector;
+            this.btnReload.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnReload.Location = new System.Drawing.Point(1102, 113);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(38, 38);
+            this.btnReload.TabIndex = 191;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // frmStorekeeperStockTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
             this.ControlBox = false;
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvST);
             this.Controls.Add(this.btnBack);
@@ -479,5 +500,6 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvST;
+        private Guna.UI2.WinForms.Guna2Button btnReload;
     }
 }

@@ -88,10 +88,10 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDisplay.EnableHeadersVisualStyles = true;
             this.dgvDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDisplay.Location = new System.Drawing.Point(99, 170);
             this.dgvDisplay.Name = "dgvDisplay";
-            this.dgvDisplay.RowHeadersVisible = false;
             this.dgvDisplay.Size = new System.Drawing.Size(1280, 660);
             this.dgvDisplay.TabIndex = 200;
             this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;

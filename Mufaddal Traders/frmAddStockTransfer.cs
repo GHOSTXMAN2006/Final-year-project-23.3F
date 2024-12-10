@@ -10,7 +10,7 @@ namespace Mufaddal_Traders
         // Event to notify when stock is transferred
         public event EventHandler StockTransferred;
 
-        private string connectionString = @"Data Source=YOUR_SERVER;Initial Catalog=Mufaddal_Traders_db;Integrated Security=True";
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
         public frmAddStockTransfer()
         {
@@ -36,8 +36,33 @@ namespace Mufaddal_Traders
         {
             LoadItems();
             LoadWarehouses();
+            LoadTransferID();  // Call the method to load the next Transfer ID
         }
 
+        // Method to load the next available Stock Transfer ID
+        private void LoadTransferID()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // SQL query to get the next available ID (assuming ID starts from 1)
+                    string query = "SELECT ISNULL(MAX(ST_ID), 0) + 1 FROM Stock_Transfer";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    conn.Close();
+
+                    // Display the next available ST_ID in txtTransferID
+                    txtTransferID.Text = result.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading transfer ID: " + ex.Message);
+                }
+            }
+        }
         // Load Items into cmbItemID
         private void LoadItems()
         {
@@ -48,7 +73,7 @@ namespace Mufaddal_Traders
                     SqlDataAdapter da = new SqlDataAdapter("SELECT ItemID, Item_Name FROM Items", conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    cmbItemID.DisplayMember = "Item_Name";  // Display the Item Name
+                    cmbItemID.DisplayMember = "ItemID";  // Display the Item ID
                     cmbItemID.ValueMember = "ItemID";  // Store the ItemID
                     cmbItemID.DataSource = dt;
                 }
@@ -66,15 +91,15 @@ namespace Mufaddal_Traders
             {
                 try
                 {
-                    SqlDataAdapter da = new SqlDataAdapter("SELECT StoreID, Warehouse_Name FROM Warehouse", conn);
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT StoreID, Store_Name FROM Warehouse", conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    cmbStartingLocation.DisplayMember = "Warehouse_Name";
+                    cmbStartingLocation.DisplayMember = "Store_Name";
                     cmbStartingLocation.ValueMember = "StoreID";
                     cmbStartingLocation.DataSource = dt;
 
-                    cmbEndingLocation.DisplayMember = "Warehouse_Name";
+                    cmbEndingLocation.DisplayMember = "Store_Name";
                     cmbEndingLocation.ValueMember = "StoreID";
                     cmbEndingLocation.DataSource = dt;
                 }
@@ -96,16 +121,29 @@ namespace Mufaddal_Traders
                     string query = "SELECT Item_Name FROM Items WHERE ItemID = @ItemID";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@ItemID", itemId);
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
+
+                    try
                     {
-                        txtName.Text = reader["Item_Name"].ToString();
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            // Set the Item_Name from the database into the txtName textbox
+                            txtName.Text = reader["Item_Name"].ToString();
+                        }
                     }
-                    conn.Close();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading item name: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
                 }
             }
         }
+
 
         // Save the Stock Transfer and close the form
         private void btnSave_Click_1(object sender, EventArgs e)

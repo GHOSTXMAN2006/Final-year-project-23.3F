@@ -166,6 +166,7 @@ namespace Mufaddal_Traders
             this.cmbItemID1.Name = "cmbItemID1";
             this.cmbItemID1.Size = new System.Drawing.Size(79, 33);
             this.cmbItemID1.TabIndex = 84;
+            this.cmbItemID1.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -209,6 +210,7 @@ namespace Mufaddal_Traders
             this.cmbItemID5.Name = "cmbItemID5";
             this.cmbItemID5.Size = new System.Drawing.Size(79, 33);
             this.cmbItemID5.TabIndex = 101;
+            this.cmbItemID5.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
             // 
             // txtItemName5
             // 
@@ -258,6 +260,7 @@ namespace Mufaddal_Traders
             this.cmbItemID2.Name = "cmbItemID2";
             this.cmbItemID2.Size = new System.Drawing.Size(79, 33);
             this.cmbItemID2.TabIndex = 90;
+            this.cmbItemID2.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
             // 
             // txtQty4
             // 
@@ -286,6 +289,7 @@ namespace Mufaddal_Traders
             this.cmbItemID4.Name = "cmbItemID4";
             this.cmbItemID4.Size = new System.Drawing.Size(79, 33);
             this.cmbItemID4.TabIndex = 96;
+            this.cmbItemID4.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
             // 
             // txtItemName3
             // 
@@ -305,6 +309,7 @@ namespace Mufaddal_Traders
             this.cmbItemID3.Name = "cmbItemID3";
             this.cmbItemID3.Size = new System.Drawing.Size(79, 33);
             this.cmbItemID3.TabIndex = 93;
+            this.cmbItemID3.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
             // 
             // txtQty3
             // 

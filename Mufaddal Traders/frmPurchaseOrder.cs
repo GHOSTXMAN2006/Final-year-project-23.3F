@@ -28,6 +28,22 @@ namespace Mufaddal_Traders
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
+
+            // Check the userType and show/hide buttons accordingly
+            if (frmLogin.userType != "Storekeeper")
+            {
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnAdd.Visible = true;
+                btnUpdate.Visible = true;
+                btnDelete.Visible = true;
+            }
+
+
             LoadPurchaseOrders();
         }
 
@@ -36,14 +52,22 @@ namespace Mufaddal_Traders
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Purchase_Orders";
+                string query = "SELECT PurchaseOrderID, ItemID, ItemName, ItemQty, SupplierID FROM Purchase_Orders";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 dgvDisplay.DataSource = dt;
+
+                // Optionally, manually set column headers if needed
+                dgvDisplay.Columns["PurchaseOrderID"].HeaderText = "Purchase Order ID";
+                dgvDisplay.Columns["ItemID"].HeaderText = "Item ID";
+                dgvDisplay.Columns["ItemName"].HeaderText = "Item Name";
+                dgvDisplay.Columns["ItemQty"].HeaderText = "Item Quantity";
+                dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
             }
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
