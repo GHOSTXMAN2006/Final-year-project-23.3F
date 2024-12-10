@@ -55,38 +55,38 @@ namespace Mufaddal_Traders
         private void InitializeComponent()
         {
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmbSupplierID = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.txtChannellingID = new System.Windows.Forms.TextBox();
+            this.txtItemName4 = new System.Windows.Forms.TextBox();
+            this.txtItemName1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtChannellingType = new System.Windows.Forms.ComboBox();
+            this.cmbItemID1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtQty5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cmbItemID5 = new System.Windows.Forms.ComboBox();
+            this.txtItemName5 = new System.Windows.Forms.TextBox();
+            this.txtQty1 = new System.Windows.Forms.TextBox();
+            this.txtItemName2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.cmbItemID2 = new System.Windows.Forms.ComboBox();
+            this.txtQty4 = new System.Windows.Forms.TextBox();
+            this.txtQty2 = new System.Windows.Forms.TextBox();
+            this.cmbItemID4 = new System.Windows.Forms.ComboBox();
+            this.txtItemName3 = new System.Windows.Forms.TextBox();
+            this.cmbItemID3 = new System.Windows.Forms.ComboBox();
+            this.txtQty3 = new System.Windows.Forms.TextBox();
             this.pnlAlerts = new RoundedPanel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPO_ID = new System.Windows.Forms.TextBox();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlAlerts.SuspendLayout();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,15 +104,16 @@ namespace Mufaddal_Traders
             this.label10.TabIndex = 103;
             this.label10.Text = "Supplier ID";
             // 
-            // comboBox6
+            // cmbSupplierID
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(48, 505);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(97, 33);
-            this.comboBox6.TabIndex = 104;
+            this.cmbSupplierID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSupplierID.FormattingEnabled = true;
+            this.cmbSupplierID.Location = new System.Drawing.Point(48, 505);
+            this.cmbSupplierID.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSupplierID.Name = "cmbSupplierID";
+            this.cmbSupplierID.Size = new System.Drawing.Size(97, 33);
+            this.cmbSupplierID.TabIndex = 104;
+            this.cmbSupplierID.SelectedIndexChanged += new System.EventHandler(this.cmbSupplierID_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -126,23 +127,23 @@ namespace Mufaddal_Traders
             this.label2.TabIndex = 105;
             this.label2.Text = "Supplier Name";
             // 
-            // textBox9
+            // txtItemName4
             // 
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(233, 173);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(167, 33);
-            this.textBox9.TabIndex = 95;
+            this.txtItemName4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName4.Location = new System.Drawing.Point(233, 173);
+            this.txtItemName4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemName4.Name = "txtItemName4";
+            this.txtItemName4.Size = new System.Drawing.Size(167, 33);
+            this.txtItemName4.TabIndex = 95;
             // 
-            // txtChannellingID
+            // txtItemName1
             // 
-            this.txtChannellingID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChannellingID.Location = new System.Drawing.Point(233, 49);
-            this.txtChannellingID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtChannellingID.Name = "txtChannellingID";
-            this.txtChannellingID.Size = new System.Drawing.Size(167, 33);
-            this.txtChannellingID.TabIndex = 82;
+            this.txtItemName1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName1.Location = new System.Drawing.Point(233, 49);
+            this.txtItemName1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemName1.Name = "txtItemName1";
+            this.txtItemName1.Size = new System.Drawing.Size(167, 33);
+            this.txtItemName1.TabIndex = 82;
             // 
             // label4
             // 
@@ -156,15 +157,15 @@ namespace Mufaddal_Traders
             this.label4.TabIndex = 83;
             this.label4.Text = "Item ID";
             // 
-            // txtChannellingType
+            // cmbItemID1
             // 
-            this.txtChannellingType.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChannellingType.FormattingEnabled = true;
-            this.txtChannellingType.Location = new System.Drawing.Point(142, 49);
-            this.txtChannellingType.Margin = new System.Windows.Forms.Padding(2);
-            this.txtChannellingType.Name = "txtChannellingType";
-            this.txtChannellingType.Size = new System.Drawing.Size(79, 33);
-            this.txtChannellingType.TabIndex = 84;
+            this.cmbItemID1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemID1.FormattingEnabled = true;
+            this.cmbItemID1.Location = new System.Drawing.Point(142, 49);
+            this.cmbItemID1.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbItemID1.Name = "cmbItemID1";
+            this.cmbItemID1.Size = new System.Drawing.Size(79, 33);
+            this.cmbItemID1.TabIndex = 84;
             // 
             // label3
             // 
@@ -178,14 +179,14 @@ namespace Mufaddal_Traders
             this.label3.TabIndex = 85;
             this.label3.Text = "Item Name";
             // 
-            // textBox12
+            // txtQty5
             // 
-            this.textBox12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(413, 215);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(104, 33);
-            this.textBox12.TabIndex = 102;
+            this.txtQty5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty5.Location = new System.Drawing.Point(413, 215);
+            this.txtQty5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQty5.Name = "txtQty5";
+            this.txtQty5.Size = new System.Drawing.Size(104, 33);
+            this.txtQty5.TabIndex = 102;
             // 
             // label5
             // 
@@ -199,42 +200,42 @@ namespace Mufaddal_Traders
             this.label5.TabIndex = 86;
             this.label5.Text = "Item Qty";
             // 
-            // comboBox5
+            // cmbItemID5
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(142, 215);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(79, 33);
-            this.comboBox5.TabIndex = 101;
+            this.cmbItemID5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemID5.FormattingEnabled = true;
+            this.cmbItemID5.Location = new System.Drawing.Point(142, 215);
+            this.cmbItemID5.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbItemID5.Name = "cmbItemID5";
+            this.cmbItemID5.Size = new System.Drawing.Size(79, 33);
+            this.cmbItemID5.TabIndex = 101;
             // 
-            // textBox13
+            // txtItemName5
             // 
-            this.textBox13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(233, 215);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(167, 33);
-            this.textBox13.TabIndex = 100;
+            this.txtItemName5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName5.Location = new System.Drawing.Point(233, 215);
+            this.txtItemName5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemName5.Name = "txtItemName5";
+            this.txtItemName5.Size = new System.Drawing.Size(167, 33);
+            this.txtItemName5.TabIndex = 100;
             // 
-            // textBox5
+            // txtQty1
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(413, 49);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(104, 33);
-            this.textBox5.TabIndex = 88;
+            this.txtQty1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty1.Location = new System.Drawing.Point(413, 49);
+            this.txtQty1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQty1.Name = "txtQty1";
+            this.txtQty1.Size = new System.Drawing.Size(104, 33);
+            this.txtQty1.TabIndex = 88;
             // 
-            // textBox7
+            // txtItemName2
             // 
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(233, 89);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(167, 33);
-            this.textBox7.TabIndex = 89;
+            this.txtItemName2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName2.Location = new System.Drawing.Point(233, 89);
+            this.txtItemName2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemName2.Name = "txtItemName2";
+            this.txtItemName2.Size = new System.Drawing.Size(167, 33);
+            this.txtItemName2.TabIndex = 89;
             // 
             // label9
             // 
@@ -248,110 +249,110 @@ namespace Mufaddal_Traders
             this.label9.TabIndex = 98;
             this.label9.Text = "Purchase ID";
             // 
-            // comboBox1
+            // cmbItemID2
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 89);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 33);
-            this.comboBox1.TabIndex = 90;
+            this.cmbItemID2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemID2.FormattingEnabled = true;
+            this.cmbItemID2.Location = new System.Drawing.Point(142, 89);
+            this.cmbItemID2.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbItemID2.Name = "cmbItemID2";
+            this.cmbItemID2.Size = new System.Drawing.Size(79, 33);
+            this.cmbItemID2.TabIndex = 90;
             // 
-            // textBox8
+            // txtQty4
             // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(413, 173);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(104, 33);
-            this.textBox8.TabIndex = 97;
+            this.txtQty4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty4.Location = new System.Drawing.Point(413, 173);
+            this.txtQty4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQty4.Name = "txtQty4";
+            this.txtQty4.Size = new System.Drawing.Size(104, 33);
+            this.txtQty4.TabIndex = 97;
             // 
-            // textBox6
+            // txtQty2
             // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(413, 89);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(104, 33);
-            this.textBox6.TabIndex = 91;
+            this.txtQty2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty2.Location = new System.Drawing.Point(413, 89);
+            this.txtQty2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQty2.Name = "txtQty2";
+            this.txtQty2.Size = new System.Drawing.Size(104, 33);
+            this.txtQty2.TabIndex = 91;
             // 
-            // comboBox2
+            // cmbItemID4
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(142, 173);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(79, 33);
-            this.comboBox2.TabIndex = 96;
+            this.cmbItemID4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemID4.FormattingEnabled = true;
+            this.cmbItemID4.Location = new System.Drawing.Point(142, 173);
+            this.cmbItemID4.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbItemID4.Name = "cmbItemID4";
+            this.cmbItemID4.Size = new System.Drawing.Size(79, 33);
+            this.cmbItemID4.TabIndex = 96;
             // 
-            // textBox11
+            // txtItemName3
             // 
-            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(233, 132);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(167, 33);
-            this.textBox11.TabIndex = 92;
+            this.txtItemName3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName3.Location = new System.Drawing.Point(233, 132);
+            this.txtItemName3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemName3.Name = "txtItemName3";
+            this.txtItemName3.Size = new System.Drawing.Size(167, 33);
+            this.txtItemName3.TabIndex = 92;
             // 
-            // comboBox3
+            // cmbItemID3
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(142, 132);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(79, 33);
-            this.comboBox3.TabIndex = 93;
+            this.cmbItemID3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemID3.FormattingEnabled = true;
+            this.cmbItemID3.Location = new System.Drawing.Point(142, 132);
+            this.cmbItemID3.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbItemID3.Name = "cmbItemID3";
+            this.cmbItemID3.Size = new System.Drawing.Size(79, 33);
+            this.cmbItemID3.TabIndex = 93;
             // 
-            // textBox10
+            // txtQty3
             // 
-            this.textBox10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(413, 132);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(104, 33);
-            this.textBox10.TabIndex = 94;
+            this.txtQty3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQty3.Location = new System.Drawing.Point(413, 132);
+            this.txtQty3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQty3.Name = "txtQty3";
+            this.txtQty3.Size = new System.Drawing.Size(104, 33);
+            this.txtQty3.TabIndex = 94;
             // 
             // pnlAlerts
             // 
             this.pnlAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlAlerts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
             this.pnlAlerts.BorderRadius = 10;
-            this.pnlAlerts.Controls.Add(this.textBox3);
+            this.pnlAlerts.Controls.Add(this.txtPO_ID);
             this.pnlAlerts.Controls.Add(this.label4);
-            this.pnlAlerts.Controls.Add(this.textBox10);
-            this.pnlAlerts.Controls.Add(this.comboBox3);
-            this.pnlAlerts.Controls.Add(this.textBox11);
-            this.pnlAlerts.Controls.Add(this.comboBox2);
-            this.pnlAlerts.Controls.Add(this.textBox9);
-            this.pnlAlerts.Controls.Add(this.textBox6);
-            this.pnlAlerts.Controls.Add(this.txtChannellingID);
-            this.pnlAlerts.Controls.Add(this.textBox8);
-            this.pnlAlerts.Controls.Add(this.comboBox1);
-            this.pnlAlerts.Controls.Add(this.txtChannellingType);
+            this.pnlAlerts.Controls.Add(this.txtQty3);
+            this.pnlAlerts.Controls.Add(this.cmbItemID3);
+            this.pnlAlerts.Controls.Add(this.txtItemName3);
+            this.pnlAlerts.Controls.Add(this.cmbItemID4);
+            this.pnlAlerts.Controls.Add(this.txtItemName4);
+            this.pnlAlerts.Controls.Add(this.txtQty2);
+            this.pnlAlerts.Controls.Add(this.txtItemName1);
+            this.pnlAlerts.Controls.Add(this.txtQty4);
+            this.pnlAlerts.Controls.Add(this.cmbItemID2);
+            this.pnlAlerts.Controls.Add(this.cmbItemID1);
             this.pnlAlerts.Controls.Add(this.label9);
             this.pnlAlerts.Controls.Add(this.label3);
-            this.pnlAlerts.Controls.Add(this.textBox7);
-            this.pnlAlerts.Controls.Add(this.textBox12);
+            this.pnlAlerts.Controls.Add(this.txtItemName2);
+            this.pnlAlerts.Controls.Add(this.txtQty5);
             this.pnlAlerts.Controls.Add(this.label5);
-            this.pnlAlerts.Controls.Add(this.textBox5);
-            this.pnlAlerts.Controls.Add(this.comboBox5);
-            this.pnlAlerts.Controls.Add(this.textBox13);
+            this.pnlAlerts.Controls.Add(this.txtQty1);
+            this.pnlAlerts.Controls.Add(this.cmbItemID5);
+            this.pnlAlerts.Controls.Add(this.txtItemName5);
             this.pnlAlerts.Location = new System.Drawing.Point(23, 192);
             this.pnlAlerts.Name = "pnlAlerts";
             this.pnlAlerts.Size = new System.Drawing.Size(533, 261);
             this.pnlAlerts.TabIndex = 107;
             // 
-            // textBox3
+            // txtPO_ID
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(17, 49);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(108, 28);
-            this.textBox3.TabIndex = 217;
+            this.txtPO_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPO_ID.Location = new System.Drawing.Point(17, 49);
+            this.txtPO_ID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPO_ID.Name = "txtPO_ID";
+            this.txtPO_ID.Size = new System.Drawing.Size(108, 28);
+            this.txtPO_ID.TabIndex = 217;
             // 
             // picHeader
             // 
@@ -421,14 +422,14 @@ namespace Mufaddal_Traders
             this.label1.Text = "Manage Purchase Orders";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtSupplierName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(177, 505);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 33);
-            this.textBox1.TabIndex = 103;
+            this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierName.Location = new System.Drawing.Point(177, 505);
+            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.Size = new System.Drawing.Size(167, 33);
+            this.txtSupplierName.TabIndex = 103;
             // 
             // pictureBox1
             // 
@@ -484,34 +485,35 @@ namespace Mufaddal_Traders
             this.btnSave.Size = new System.Drawing.Size(113, 38);
             this.btnSave.TabIndex = 200;
             this.btnSave.Text = " Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // guna2TextBox2
+            // txtSearch
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.AutoRoundedCorners = true;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.MediumAquamarine;
-            this.guna2TextBox2.BorderRadius = 18;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
-            this.guna2TextBox2.Location = new System.Drawing.Point(177, 130);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.PlaceholderText = "     Search";
-            this.guna2TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(218, 38);
-            this.guna2TextBox2.TabIndex = 199;
+            this.txtSearch.Animated = true;
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.BorderColor = System.Drawing.Color.MediumAquamarine;
+            this.txtSearch.BorderRadius = 18;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FillColor = System.Drawing.Color.Gainsboro;
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
+            this.txtSearch.Location = new System.Drawing.Point(177, 130);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtSearch.PlaceholderText = "     Search";
+            this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(218, 38);
+            this.txtSearch.TabIndex = 199;
             // 
             // frmAddUpdatePurchaseOrders
             // 
@@ -520,16 +522,16 @@ namespace Mufaddal_Traders
             this.ClientSize = new System.Drawing.Size(1076, 615);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSupplierName);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picHeader);
             this.Controls.Add(this.pnlAlerts);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.cmbSupplierID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddUpdatePurchaseOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -547,37 +549,37 @@ namespace Mufaddal_Traders
         #endregion
 
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbSupplierID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox txtChannellingID;
+        private System.Windows.Forms.TextBox txtItemName4;
+        private System.Windows.Forms.TextBox txtItemName1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox txtChannellingType;
+        private System.Windows.Forms.ComboBox cmbItemID1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtQty5;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cmbItemID5;
+        private System.Windows.Forms.TextBox txtItemName5;
+        private System.Windows.Forms.TextBox txtQty1;
+        private System.Windows.Forms.TextBox txtItemName2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.ComboBox cmbItemID2;
+        private System.Windows.Forms.TextBox txtQty4;
+        private System.Windows.Forms.TextBox txtQty2;
+        private System.Windows.Forms.ComboBox cmbItemID4;
+        private System.Windows.Forms.TextBox txtItemName3;
+        private System.Windows.Forms.ComboBox cmbItemID3;
+        private System.Windows.Forms.TextBox txtQty3;
         private RoundedPanel pnlAlerts;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Button btnSave;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSupplierName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private TextBox textBox3;
+        private TextBox txtPO_ID;
     }
 }
