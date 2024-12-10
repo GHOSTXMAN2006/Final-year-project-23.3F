@@ -260,5 +260,9 @@ namespace Mufaddal_Traders
             txtID.Text = nextStoreID.ToString(); // Reset ID to the next value
         }
 
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
