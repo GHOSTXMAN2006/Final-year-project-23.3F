@@ -145,5 +145,10 @@ namespace Mufaddal_Traders
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
         }
+
+        private void frmStorekeeperSuppliers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -424,6 +424,7 @@
             this.Name = "frmStorekeeperSuppliers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStorekeeperSuppliers";
+            this.Load += new System.EventHandler(this.frmStorekeeperSuppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GrifView)).EndInit();
             this.picHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
