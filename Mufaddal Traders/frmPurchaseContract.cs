@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -22,6 +23,8 @@ namespace Mufaddal_Traders
 
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
 
         public frmPurchaseContract()
@@ -143,6 +146,66 @@ namespace Mufaddal_Traders
             // Show the login form again
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadPurchaseContracts();
+        }
+
+        private void LoadPurchaseContracts()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"SELECT PurchaseContractID, SupplierID, SupplierName, StartDate, EndDate, ItemID, Item_Name, Description 
+                                 FROM Purchase_Contract";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                DataTable table = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    adapter.Fill(table);
+                    dgvDisplay.DataSource = table;
+
+                    // Format the DataGridView columns
+                    dgvDisplay.Columns["PurchaseContractID"].HeaderText = "Contract ID";
+                    dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
+                    dgvDisplay.Columns["SupplierName"].HeaderText = "Supplier Name";
+                    dgvDisplay.Columns["StartDate"].HeaderText = "Start Date";
+                    dgvDisplay.Columns["EndDate"].HeaderText = "End Date";
+                    dgvDisplay.Columns["ItemID"].HeaderText = "Item ID";
+                    dgvDisplay.Columns["Item_Name"].HeaderText = "Item Name";
+                    dgvDisplay.Columns["Description"].HeaderText = "Description";
+
+                    dgvDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading purchase contracts: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void frmPurchaseContract_Load(object sender, EventArgs e)
+        {
+            // Check the userType and show/hide buttons accordingly
+            if (frmLogin.userType != "Storekeeper")
+            {
+                btnAdd.Visible = false;
+                btnUpdate.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnAdd.Visible = true;
+                btnUpdate.Visible = true;
+                btnDelete.Visible = true;
+            }
+
+
+            LoadPurchaseContracts();
         }
     }
 }

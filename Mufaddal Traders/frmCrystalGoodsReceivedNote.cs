@@ -19,7 +19,7 @@ namespace Mufaddal_Traders
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            crystalReportViewer1.ReportSource = @"C:\Users\Chaniru\Final-year-project-23.3F\Mufaddal Traders\CrystalReport1.rpt";
+            
         }
     }
 }
