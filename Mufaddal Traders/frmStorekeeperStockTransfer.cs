@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -13,6 +14,8 @@ namespace Mufaddal_Traders
 {
     public partial class frmStorekeeperStockTransfer : Form
     {
+
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -33,6 +36,20 @@ namespace Mufaddal_Traders
         private void frmStorekeeperStockTransfer_Load(object sender, EventArgs e)
         {
 
+            LoadDataIntoGridView(); // Call the method to load data into the grid
+
+
+            // Check the userType and show/hide buttons accordingly
+            if (frmLogin.userType != "Storekeeper")
+            {
+                btnAdd.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnAdd.Visible = true;
+                btnDelete.Visible = true;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -148,5 +165,52 @@ namespace Mufaddal_Traders
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
         }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadDataIntoGridView(); // Call the method to load data into the grid
+        }
+
+
+        private void LoadDataIntoGridView()
+        {
+            // Create a connection to the database
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // SQL query to get stock transfer data
+                    string query = @"
+                SELECT 
+                    ST.ST_ID, 
+                    ST.ST_Date, 
+                    ST.ST_Qty, 
+                    I.Item_Name, 
+                    W1.Store_Name AS StartingLocation, 
+                    W2.Store_Name AS EndingLocation
+                FROM 
+                    Stock_Transfer ST
+                JOIN 
+                    Items I ON ST.ItemID = I.ItemID
+                JOIN 
+                    Warehouse W1 ON ST.StoreID = W1.StoreID
+                JOIN 
+                    Warehouse W2 ON ST.StoreID = W2.StoreID";  // Adjust if needed for ending location
+
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Bind the DataTable to the DataGridView
+                    dgvST.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading stock transfer data: " + ex.Message);
+                }
+            }
+        }
+
+
     }
 }

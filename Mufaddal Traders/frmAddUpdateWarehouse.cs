@@ -20,7 +20,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         // Connection string for SQL Server
-        private string connectionString = @"Data Source=LAPTOP-S6UOBFRN\SQLEXPRESS;Initial Catalog=backup2;Integrated Security=True";
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
         public frmAddUpdateWarehouse()
         {

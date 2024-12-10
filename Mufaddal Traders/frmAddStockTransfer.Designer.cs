@@ -123,7 +123,6 @@ namespace Mufaddal_Traders
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(903, 38);
             this.picHeader.TabIndex = 208;
-            //this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
             // btnMinimize
             // 
@@ -199,6 +198,7 @@ namespace Mufaddal_Traders
             this.cmbItemID.Name = "cmbItemID";
             this.cmbItemID.Size = new System.Drawing.Size(144, 32);
             this.cmbItemID.TabIndex = 213;
+            this.cmbItemID.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
             // 
             // txtQty
             // 
@@ -223,10 +223,12 @@ namespace Mufaddal_Traders
             // 
             // txtTransferID
             // 
+            this.txtTransferID.BackColor = System.Drawing.Color.BurlyWood;
             this.txtTransferID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransferID.Location = new System.Drawing.Point(54, 212);
             this.txtTransferID.Margin = new System.Windows.Forms.Padding(2);
             this.txtTransferID.Name = "txtTransferID";
+            this.txtTransferID.ReadOnly = true;
             this.txtTransferID.Size = new System.Drawing.Size(145, 28);
             this.txtTransferID.TabIndex = 216;
             // 

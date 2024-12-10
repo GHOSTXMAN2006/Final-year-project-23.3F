@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -13,6 +14,8 @@ namespace Mufaddal_Traders
 {
     public partial class frmStorekeeperSuppliers : Form
     {
+
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -149,6 +152,54 @@ namespace Mufaddal_Traders
         private void frmStorekeeperSuppliers_Load(object sender, EventArgs e)
         {
 
+            LoadSupplierData();
+
+
+            // Check the userType and show/hide buttons accordingly
+            if (frmLogin.userType != "Storekeeper")
+            {
+                btnManage.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+
+                btnManage.Visible = true;
+                btnDelete.Visible = true;
+            }
+        }
+
+        private void LoadSupplierData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    // Define your query here to get the data (for example from the Suppliers table)
+                    string query = "SELECT SupplierID, SupplierName, SupplierAddress, SupplierContact FROM Suppliers";
+
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    // Set the DataSource of the DataGridView to the DataTable
+                    dgvDisplay.DataSource = dt;
+
+                    // Optionally, you can adjust the column headers if needed
+                    dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
+                    dgvDisplay.Columns["SupplierName"].HeaderText = "Supplier Name";
+                    dgvDisplay.Columns["SupplierAddress"].HeaderText = "Supplier Address";
+                    dgvDisplay.Columns["SupplierContact"].HeaderText = "Supplier Contact";
+
+                    // You can also modify the column widths and other styles
+                    dgvDisplay.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading suppliers: " + ex.Message);
+                }
+            }
         }
     }
 }
