@@ -54,40 +54,42 @@ namespace Mufaddal_Traders
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtItemQuantity = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtItemPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtItemName = new System.Windows.Forms.TextBox();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtWarehouseName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbWarehouseID = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.StockID = new System.Windows.Forms.TextBox();
+            this.cmbItemID = new System.Windows.Forms.ComboBox();
+            this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox4
+            // txtItemQuantity
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(54, 395);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(332, 28);
-            this.textBox4.TabIndex = 193;
+            this.txtItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemQuantity.Location = new System.Drawing.Point(54, 395);
+            this.txtItemQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemQuantity.Name = "txtItemQuantity";
+            this.txtItemQuantity.Size = new System.Drawing.Size(332, 34);
+            this.txtItemQuantity.TabIndex = 193;
             // 
             // label5
             // 
@@ -97,7 +99,7 @@ namespace Mufaddal_Traders
             this.label5.Location = new System.Drawing.Point(51, 370);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 24);
+            this.label5.Size = new System.Drawing.Size(152, 29);
             this.label5.TabIndex = 190;
             this.label5.Text = "Item Quantity";
             // 
@@ -109,18 +111,18 @@ namespace Mufaddal_Traders
             this.label2.Location = new System.Drawing.Point(51, 301);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 24);
+            this.label2.Size = new System.Drawing.Size(121, 29);
             this.label2.TabIndex = 189;
             this.label2.Text = "Item Price";
             // 
-            // textBox2
+            // txtItemPrice
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(54, 327);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(332, 28);
-            this.textBox2.TabIndex = 188;
+            this.txtItemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemPrice.Location = new System.Drawing.Point(54, 327);
+            this.txtItemPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemPrice.Name = "txtItemPrice";
+            this.txtItemPrice.Size = new System.Drawing.Size(332, 34);
+            this.txtItemPrice.TabIndex = 188;
             // 
             // label3
             // 
@@ -130,18 +132,18 @@ namespace Mufaddal_Traders
             this.label3.Location = new System.Drawing.Point(187, 237);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 24);
+            this.label3.Size = new System.Drawing.Size(130, 29);
             this.label3.TabIndex = 187;
             this.label3.Text = "Item Name";
             // 
-            // textBox1
+            // txtItemName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(191, 263);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 28);
-            this.textBox1.TabIndex = 186;
+            this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Location = new System.Drawing.Point(191, 263);
+            this.txtItemName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(195, 34);
+            this.txtItemName.TabIndex = 186;
             // 
             // picHeader
             // 
@@ -205,7 +207,7 @@ namespace Mufaddal_Traders
             this.label4.Location = new System.Drawing.Point(51, 237);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 24);
+            this.label4.Size = new System.Drawing.Size(88, 29);
             this.label4.TabIndex = 182;
             this.label4.Text = "Item ID";
             // 
@@ -218,18 +220,9 @@ namespace Mufaddal_Traders
             this.label1.Location = new System.Drawing.Point(424, 52);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 36);
+            this.label1.Size = new System.Drawing.Size(270, 42);
             this.label1.TabIndex = 180;
             this.label1.Text = "Manage Stock";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(55, 263);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 28);
-            this.textBox3.TabIndex = 217;
             // 
             // btnBack
             // 
@@ -266,7 +259,7 @@ namespace Mufaddal_Traders
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::Mufaddal_Traders.Properties.Resources.save_icon_2048x2048_iovw4qr4;
             this.btnSave.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnSave.Location = new System.Drawing.Point(324, 511);
+            this.btnSave.Location = new System.Drawing.Point(67, 523);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 38);
@@ -323,18 +316,18 @@ namespace Mufaddal_Traders
             this.label8.Location = new System.Drawing.Point(201, 437);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(164, 24);
+            this.label8.Size = new System.Drawing.Size(207, 29);
             this.label8.TabIndex = 225;
             this.label8.Text = "Warehouse Name";
             // 
-            // textBox5
+            // txtWarehouseName
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(205, 463);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(232, 33);
-            this.textBox5.TabIndex = 224;
+            this.txtWarehouseName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWarehouseName.Location = new System.Drawing.Point(205, 463);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWarehouseName.Name = "txtWarehouseName";
+            this.txtWarehouseName.Size = new System.Drawing.Size(232, 39);
+            this.txtWarehouseName.TabIndex = 224;
             // 
             // label6
             // 
@@ -344,19 +337,20 @@ namespace Mufaddal_Traders
             this.label6.Location = new System.Drawing.Point(50, 437);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 24);
+            this.label6.Size = new System.Drawing.Size(165, 29);
             this.label6.TabIndex = 223;
             this.label6.Text = "Warehouse ID";
             // 
-            // comboBox1
+            // cmbWarehouseID
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(55, 463);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 33);
-            this.comboBox1.TabIndex = 222;
+            this.cmbWarehouseID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbWarehouseID.FormattingEnabled = true;
+            this.cmbWarehouseID.Location = new System.Drawing.Point(55, 463);
+            this.cmbWarehouseID.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbWarehouseID.Name = "cmbWarehouseID";
+            this.cmbWarehouseID.Size = new System.Drawing.Size(125, 40);
+            this.cmbWarehouseID.TabIndex = 222;
+            this.cmbWarehouseID.SelectedIndexChanged += new System.EventHandler(this.cmbWarehouseID_SelectedIndexChanged_1);
             // 
             // label7
             // 
@@ -366,20 +360,75 @@ namespace Mufaddal_Traders
             this.label7.Location = new System.Drawing.Point(51, 175);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 24);
+            this.label7.Size = new System.Drawing.Size(102, 29);
             this.label7.TabIndex = 227;
             this.label7.Text = "Stock ID";
             // 
-            // textBox6
+            // StockID
             // 
-            this.textBox6.BackColor = System.Drawing.Color.BurlyWood;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(54, 201);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(332, 28);
-            this.textBox6.TabIndex = 226;
+            this.StockID.BackColor = System.Drawing.Color.BurlyWood;
+            this.StockID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockID.Location = new System.Drawing.Point(54, 201);
+            this.StockID.Margin = new System.Windows.Forms.Padding(2);
+            this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
+            this.StockID.Size = new System.Drawing.Size(332, 34);
+            this.StockID.TabIndex = 226;
+            // 
+            // cmbItemID
+            // 
+            this.cmbItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemID.FormattingEnabled = true;
+            this.cmbItemID.Location = new System.Drawing.Point(56, 261);
+            this.cmbItemID.Name = "cmbItemID";
+            this.cmbItemID.Size = new System.Drawing.Size(105, 33);
+            this.cmbItemID.TabIndex = 228;
+            this.cmbItemID.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Animated = true;
+            this.btnUpdate.AutoRoundedCorners = true;
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdate.BorderRadius = 18;
+            this.btnUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(124)))), ((int)(((byte)(44)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::Mufaddal_Traders.Properties.Resources.Edit;
+            this.btnUpdate.Location = new System.Drawing.Point(287, 523);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(99, 38);
+            this.btnUpdate.TabIndex = 229;
+            this.btnUpdate.Text = "Update";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Animated = true;
+            this.btnClear.AutoRoundedCorners = true;
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnClear.BorderRadius = 18;
+            this.btnClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClear.FillColor = System.Drawing.Color.Gray;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Image = global::Mufaddal_Traders.Properties.Resources.Edit;
+            this.btnClear.Location = new System.Drawing.Point(497, 523);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(99, 38);
+            this.btnClear.TabIndex = 230;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmAddUpdateStock
             // 
@@ -387,19 +436,21 @@ namespace Mufaddal_Traders
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 572);
             this.ControlBox = false;
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.cmbItemID);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.StockID);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtWarehouseName);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.cmbWarehouseID);
+            this.Controls.Add(this.txtItemQuantity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtItemPrice);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtItemName);
             this.Controls.Add(this.picHeader);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
@@ -411,6 +462,7 @@ namespace Mufaddal_Traders
             this.Name = "frmAddUpdateStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateStock";
+            this.Load += new System.EventHandler(this.frmAddUpdateStock_Load);
             this.picHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -420,12 +472,12 @@ namespace Mufaddal_Traders
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtItemQuantity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtItemPrice;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtItemName;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnClose;
@@ -435,12 +487,14 @@ namespace Mufaddal_Traders
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private TextBox textBox3;
         private Label label8;
-        private TextBox textBox5;
+        private TextBox txtWarehouseName;
         private Label label6;
-        private ComboBox comboBox1;
+        private ComboBox cmbWarehouseID;
         private Label label7;
-        private TextBox textBox6;
+        private TextBox StockID;
+        private ComboBox cmbItemID;
+        private Guna.UI2.WinForms.Guna2Button btnUpdate;
+        private Guna.UI2.WinForms.Guna2Button btnClear;
     }
 }
