@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
     public partial class frmAddStockTransfer : Form
     {
-        // DLL imports to allow dragging the form
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
+        // Event to notify when stock is transferred
+        public event EventHandler StockTransferred;
 
-        [DllImport("User32.dll")]
-        public static extern bool ReleaseCapture();
-
-        [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
-        // Connection string to connect to the database
         private string connectionString = @"Data Source=YOUR_SERVER;Initial Catalog=Mufaddal_Traders_db;Integrated Security=True";
 
         public frmAddStockTransfer()
@@ -35,15 +25,6 @@ namespace Mufaddal_Traders
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void picHeader_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -127,14 +108,20 @@ namespace Mufaddal_Traders
         }
 
         // Save the Stock Transfer and close the form
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             try
             {
                 int itemId = (int)cmbItemID.SelectedValue;
                 int startingLocation = (int)cmbStartingLocation.SelectedValue;
                 int endingLocation = (int)cmbEndingLocation.SelectedValue;
-                int transferQty = int.Parse(txtQty.Text);  // Assuming txtQty is where user enters quantity
+
+                // Validate quantity input
+                if (!int.TryParse(txtQty.Text, out int transferQty) || transferQty <= 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity.");
+                    return;
+                }
 
                 // Use today's date for the stock transfer
                 DateTime transferDate = DateTime.Today;
@@ -156,23 +143,13 @@ namespace Mufaddal_Traders
 
                 MessageBox.Show("Stock Transfer Saved Successfully!");
                 this.Close();  // Close the form after saving
-                ReloadDataGrid();  // Refresh DataGrid in frmStorekeeperStockTransfer
+
+                // Trigger the event to notify other form
+                StockTransferred?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving stock transfer: " + ex.Message);
-            }
-        }
-
-        // Reload the DataGrid in frmStorekeeperStockTransfer
-        private void ReloadDataGrid()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Stock_Transfer", conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                frmStorekeeperStockTransfer.dgvST.DataSource = dt;  // Refreshing the dgvST in frmStorekeeperStockTransfer
             }
         }
     }
