@@ -176,8 +176,9 @@ namespace Mufaddal_Traders
                 try
                 {
                     // Define your query here to get the data (for example from the Suppliers table)
-                    string query = "SELECT SupplierID, SupplierName, SupplierAddress, SupplierContact FROM Suppliers";
+                    string query = "SELECT SupplierID, Name AS SupplierName, Address AS SupplierAddress, Telephone AS SupplierContact FROM tblManageSuppliers";
 
+                    // Create a DataAdapter to fetch the data
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -191,15 +192,26 @@ namespace Mufaddal_Traders
                     dgvDisplay.Columns["SupplierAddress"].HeaderText = "Supplier Address";
                     dgvDisplay.Columns["SupplierContact"].HeaderText = "Supplier Contact";
 
-                    // You can also modify the column widths and other styles
+                    // Resize columns to fit the data and make the grid more readable
                     dgvDisplay.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error loading suppliers: " + ex.Message);
                 }
             }
+        }
+
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadSupplierData();
+        }
+
+        private void btnManage_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateSuppliers addUpdateSuppliers = new frmAddUpdateSuppliers();
+            addUpdateSuppliers.Show();
         }
     }
 }

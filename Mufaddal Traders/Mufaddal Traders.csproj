@@ -132,6 +132,10 @@
     <Reference Include="Bunifu.UI.WinForms.Deprecated, Version=5.0.9.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.5.0.9\lib\net40\Bunifu.UI.WinForms.Deprecated.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -178,6 +182,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -189,6 +194,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="customLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -299,6 +310,12 @@
     </Compile>
     <Compile Include="frmAddUpdateWarehouse.Designer.cs">
       <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCrystalGoodsReceivedNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCrystalGoodsReceivedNote.Designer.cs">
+      <DependentUpon>frmCrystalGoodsReceivedNote.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCustomerOrders.cs">
       <SubType>Form</SubType>
@@ -443,6 +460,10 @@
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateWarehouse.resx">
       <DependentUpon>frmAddUpdateWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCrystalGoodsReceivedNote.resx">
+      <DependentUpon>frmCrystalGoodsReceivedNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerOrders.resx">
       <DependentUpon>frmCustomerOrders.cs</DependentUpon>
@@ -982,6 +1006,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logout-icon-2048x1708-5s1s9mb0 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
