@@ -224,7 +224,6 @@ namespace Mufaddal_Traders
             // pnlChat
             // 
             this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnlChat.BorderColor = System.Drawing.Color.Empty;
             this.pnlChat.BorderRadius = 10;
             this.pnlChat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChat.Controls.Add(this.tileWarehouse);

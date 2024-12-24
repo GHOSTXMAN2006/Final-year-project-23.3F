@@ -156,6 +156,7 @@
     <Reference Include="System.CodeDom, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.CodeDom.8.0.0\lib\net462\System.CodeDom.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -194,6 +195,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlExtensions.cs" />
     <Compile Include="CrystalReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -203,6 +205,7 @@
     <Compile Include="customLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DatabaseConfig.cs" />
     <Compile Include="frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +350,12 @@
     <Compile Include="frmItemDetails.Designer.cs">
       <DependentUpon>frmItemDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmItems2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItems2.Designer.cs">
+      <DependentUpon>frmItems2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,12 +397,6 @@
     </Compile>
     <Compile Include="frmStorekeeperGRN.Designer.cs">
       <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmItems.Designer.cs">
-      <DependentUpon>frmItems.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStorekeeperMenu.cs">
       <SubType>Form</SubType>
@@ -455,8 +458,16 @@
     <Compile Include="frmStorekeeperWarehouse.Designer.cs">
       <DependentUpon>frmStorekeeperWarehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -536,6 +547,9 @@
     <EmbeddedResource Include="frmItemDetails.resx">
       <DependentUpon>frmItemDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmItems2.resx">
+      <DependentUpon>frmItems2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -556,9 +570,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperGRN.resx">
       <DependentUpon>frmStorekeeperGRN.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmItems.resx">
-      <DependentUpon>frmItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStorekeeperMenu.resx">
       <DependentUpon>frmStorekeeperMenu.cs</DependentUpon>
@@ -592,14 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1009,6 +1015,75 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload-page-icon-vector1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload-page-icon-vector2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload-page-icon-vector3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-image-icon-512x512-lfoanl0w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recent 31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29 51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-icon-2048x1708-5s1s9mb0 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-circle-round-3d-button-3 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-circle-round-3d-button-3 %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orange-circle-png-31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-circle-round-3d-button-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26614401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

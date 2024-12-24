@@ -37,7 +37,7 @@ namespace Mufaddal_Traders
 
         private void tileItems_Click(object sender, EventArgs e)
         {
-            frmItems itemsFrm = new frmItems();
+            frmItems2 itemsFrm = new frmItems2();
 
             itemsFrm.Show();
 

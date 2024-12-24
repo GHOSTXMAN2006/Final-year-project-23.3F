@@ -1,34 +1,50 @@
-﻿using System.Drawing.Drawing2D;
-using System.Drawing;
+﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-public class RoundedPanel : Panel
+namespace Mufaddal_Traders
 {
-    public int BorderRadius { get; set; } = 10; // Default radius of 10
-    public Color BorderColor { get; set; } = Color.Black;
-
-    protected override void OnPaint(PaintEventArgs e)
+    public class RoundedPanel : Panel
     {
-        base.OnPaint(e);
+        public int BorderRadius { get; set; } = 20; // Radius for rounded corners
+        public Color BorderColor { get; set; } = Color.DarkGray; // Color of the border
+        public int BorderThickness { get; set; } = 3; // Thickness of the border
 
-        // Create a rounded rectangle
-        using (GraphicsPath path = new GraphicsPath())
+        protected override void OnPaint(PaintEventArgs e)
         {
-            path.AddArc(0, 0, BorderRadius, BorderRadius, 180, 90);
-            path.AddArc(Width - BorderRadius, 0, BorderRadius, BorderRadius, 270, 90);
-            path.AddArc(Width - BorderRadius, Height - BorderRadius, BorderRadius, BorderRadius, 0, 90);
-            path.AddArc(0, Height - BorderRadius, BorderRadius, BorderRadius, 90, 90);
+            base.OnPaint(e);
+
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            // Rectangle for the border
+            Rectangle rect = new Rectangle(
+                BorderThickness / 2,
+                BorderThickness / 2,
+                this.Width - BorderThickness,
+                this.Height - BorderThickness
+            );
+
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(rect.X, rect.Y, BorderRadius, BorderRadius, 180, 90); // Top-left
+            path.AddArc(rect.Right - BorderRadius, rect.Y, BorderRadius, BorderRadius, 270, 90); // Top-right
+            path.AddArc(rect.Right - BorderRadius, rect.Bottom - BorderRadius, BorderRadius, BorderRadius, 0, 90); // Bottom-right
+            path.AddArc(rect.X, rect.Bottom - BorderRadius, BorderRadius, BorderRadius, 90, 90); // Bottom-left
             path.CloseFigure();
 
-            // Clip the panel to the rounded rectangle
-            this.Region = new Region(path);
+            // Fill the background
+            using (Brush backgroundBrush = new SolidBrush(this.BackColor))
+            {
+                e.Graphics.FillPath(backgroundBrush, path);
+            }
 
             // Draw the border
-            using (Pen pen = new Pen(BorderColor, 2)) // Adjust border width if needed
+            using (Pen borderPen = new Pen(BorderColor, BorderThickness))
             {
-                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                e.Graphics.DrawPath(pen, path);
+                e.Graphics.DrawPath(borderPen, path);
             }
+
+            // Set region for rounded corners
+            this.Region = new Region(path);
         }
     }
 }

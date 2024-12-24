@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
@@ -23,14 +24,18 @@ namespace Mufaddal_Traders
 
         private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
         private int itemId;
+        private Image placeholderImage;
 
-        private frmItems parentForm;
+        private frmItems2 parentForm;
 
-        public frmAddUpdateItems(frmItems parent, int id = -1)
+        public frmAddUpdateItems(frmItems2 parent, int id = -1)
         {
             InitializeComponent();
             itemId = id; // Store the item ID passed to the form
             parentForm = parent; // Store reference to the parent form
+
+            // Store the reference to the placeholder image
+            placeholderImage = btnUpload.Image;
         }
 
 
@@ -45,13 +50,14 @@ namespace Mufaddal_Traders
                 int nextId = GetNextItemId();
                 if (nextId != -1)
                 {
-                    txtID.Text = nextId.ToString(); // Set the next available ID
-                    txtID.ReadOnly = true;          // Make ID field read-only for new items
+                    txtID.Text = nextId.ToString();
+                    txtID.ReadOnly = true;
                 }
+
+                // Reset to placeholder image for new items
+                btnUpload.Image = placeholderImage;
             }
         }
-
-
 
         private int GetNextItemId()
         {
@@ -103,6 +109,10 @@ namespace Mufaddal_Traders
                                 btnUpload.Image = Image.FromStream(ms);
                             }
                         }
+                        else
+                        {
+                            btnUpload.Image = placeholderImage; // Use placeholder for null images
+                        }
                     }
                     else
                     {
@@ -116,13 +126,13 @@ namespace Mufaddal_Traders
             }
         }
 
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query;
 
-                // Check if itemId is -1 for a new item or a valid ID for an existing item
                 if (itemId == -1) // Insert new item
                 {
                     query = @"INSERT INTO Items (Item_Name, Item_Description, Item_Price, Manufacture_Date, Expiry_Date, Item_Image) 
@@ -138,44 +148,40 @@ namespace Mufaddal_Traders
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                // Add parameters for both Insert and Update
                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
                 cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
                 cmd.Parameters.AddWithValue("@Price", txtPrice.Text);
                 cmd.Parameters.AddWithValue("@MFDate", dtpMFDate.Value);
                 cmd.Parameters.AddWithValue("@EXPDate", dtpEXPDate.Value);
 
-                // If there is an uploaded image, convert it to a byte array
-                if (btnUpload.Image != null)
+                // Handle the image parameter
+                if (btnUpload.Image != null && btnUpload.Image != placeholderImage)
                 {
                     using (MemoryStream ms = new MemoryStream())
                     {
                         btnUpload.Image.Save(ms, btnUpload.Image.RawFormat);
-                        cmd.Parameters.AddWithValue("@Image", ms.ToArray());
+                        cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = ms.ToArray();
                     }
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@Image", DBNull.Value); // Handle null image
+                    cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = DBNull.Value; // Handle null images
                 }
 
-                // Add the ItemID parameter if updating
                 if (itemId != -1)
                 {
-                    cmd.Parameters.AddWithValue("@ID", itemId); // Use the itemId to identify the item for updating
+                    cmd.Parameters.AddWithValue("@ID", itemId);
                 }
 
                 try
                 {
                     conn.Open();
-                    cmd.ExecuteNonQuery(); // Execute the query
+                    cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Item saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Reload items in the parent form
-                    parentForm?.LoadItems(); // Assuming parent form has a LoadItems method to refresh the list
-
-                    this.Close(); // Close the current form after saving
+                    parentForm?.LoadItems();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -183,7 +189,6 @@ namespace Mufaddal_Traders
                 }
             }
         }
-
 
 
         private void btnUpload_Click(object sender, EventArgs e)

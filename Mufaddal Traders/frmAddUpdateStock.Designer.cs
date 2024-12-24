@@ -67,7 +67,7 @@ namespace Mufaddal_Traders
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtWarehouseName = new System.Windows.Forms.TextBox();
@@ -88,7 +88,7 @@ namespace Mufaddal_Traders
             this.txtItemQuantity.Location = new System.Drawing.Point(54, 395);
             this.txtItemQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemQuantity.Name = "txtItemQuantity";
-            this.txtItemQuantity.Size = new System.Drawing.Size(332, 34);
+            this.txtItemQuantity.Size = new System.Drawing.Size(332, 28);
             this.txtItemQuantity.TabIndex = 193;
             // 
             // label5
@@ -99,7 +99,7 @@ namespace Mufaddal_Traders
             this.label5.Location = new System.Drawing.Point(51, 370);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 29);
+            this.label5.Size = new System.Drawing.Size(118, 24);
             this.label5.TabIndex = 190;
             this.label5.Text = "Item Quantity";
             // 
@@ -111,7 +111,7 @@ namespace Mufaddal_Traders
             this.label2.Location = new System.Drawing.Point(51, 301);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 29);
+            this.label2.Size = new System.Drawing.Size(93, 24);
             this.label2.TabIndex = 189;
             this.label2.Text = "Item Price";
             // 
@@ -121,7 +121,7 @@ namespace Mufaddal_Traders
             this.txtItemPrice.Location = new System.Drawing.Point(54, 327);
             this.txtItemPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemPrice.Name = "txtItemPrice";
-            this.txtItemPrice.Size = new System.Drawing.Size(332, 34);
+            this.txtItemPrice.Size = new System.Drawing.Size(332, 28);
             this.txtItemPrice.TabIndex = 188;
             // 
             // label3
@@ -132,7 +132,7 @@ namespace Mufaddal_Traders
             this.label3.Location = new System.Drawing.Point(187, 237);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 29);
+            this.label3.Size = new System.Drawing.Size(101, 24);
             this.label3.TabIndex = 187;
             this.label3.Text = "Item Name";
             // 
@@ -142,12 +142,12 @@ namespace Mufaddal_Traders
             this.txtItemName.Location = new System.Drawing.Point(191, 263);
             this.txtItemName.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(195, 34);
+            this.txtItemName.Size = new System.Drawing.Size(195, 28);
             this.txtItemName.TabIndex = 186;
             // 
             // picHeader
             // 
-            this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.picHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picHeader.BorderColor = System.Drawing.Color.Black;
             this.picHeader.BorderThickness = 2;
@@ -191,7 +191,7 @@ namespace Mufaddal_Traders
             this.btnClose.FillColor = System.Drawing.Color.Transparent;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
+            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_emoji_512x512_8xv6a7vo;
             this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
             this.btnClose.Location = new System.Drawing.Point(9, 5);
             this.btnClose.Name = "btnClose";
@@ -207,7 +207,7 @@ namespace Mufaddal_Traders
             this.label4.Location = new System.Drawing.Point(51, 237);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 29);
+            this.label4.Size = new System.Drawing.Size(67, 24);
             this.label4.TabIndex = 182;
             this.label4.Text = "Item ID";
             // 
@@ -220,7 +220,7 @@ namespace Mufaddal_Traders
             this.label1.Location = new System.Drawing.Point(424, 52);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 42);
+            this.label1.Size = new System.Drawing.Size(217, 36);
             this.label1.TabIndex = 180;
             this.label1.Text = "Manage Stock";
             // 
@@ -267,33 +267,33 @@ namespace Mufaddal_Traders
             this.btnSave.Text = " Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // guna2TextBox2
+            // txtSearch
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.AutoRoundedCorners = true;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.MediumAquamarine;
-            this.guna2TextBox2.BorderRadius = 18;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
-            this.guna2TextBox2.Location = new System.Drawing.Point(168, 112);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.PlaceholderText = "     Search";
-            this.guna2TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(218, 38);
-            this.guna2TextBox2.TabIndex = 195;
+            this.txtSearch.Animated = true;
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.BorderColor = System.Drawing.Color.MediumAquamarine;
+            this.txtSearch.BorderRadius = 18;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FillColor = System.Drawing.Color.Gainsboro;
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
+            this.txtSearch.Location = new System.Drawing.Point(168, 112);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtSearch.PlaceholderText = "     Search";
+            this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(218, 38);
+            this.txtSearch.TabIndex = 195;
             // 
             // pictureBox1
             // 
@@ -316,7 +316,7 @@ namespace Mufaddal_Traders
             this.label8.Location = new System.Drawing.Point(201, 437);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 29);
+            this.label8.Size = new System.Drawing.Size(164, 24);
             this.label8.TabIndex = 225;
             this.label8.Text = "Warehouse Name";
             // 
@@ -326,7 +326,7 @@ namespace Mufaddal_Traders
             this.txtWarehouseName.Location = new System.Drawing.Point(205, 463);
             this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(2);
             this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.Size = new System.Drawing.Size(232, 39);
+            this.txtWarehouseName.Size = new System.Drawing.Size(232, 33);
             this.txtWarehouseName.TabIndex = 224;
             // 
             // label6
@@ -337,7 +337,7 @@ namespace Mufaddal_Traders
             this.label6.Location = new System.Drawing.Point(50, 437);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 29);
+            this.label6.Size = new System.Drawing.Size(130, 24);
             this.label6.TabIndex = 223;
             this.label6.Text = "Warehouse ID";
             // 
@@ -348,9 +348,8 @@ namespace Mufaddal_Traders
             this.cmbWarehouseID.Location = new System.Drawing.Point(55, 463);
             this.cmbWarehouseID.Margin = new System.Windows.Forms.Padding(2);
             this.cmbWarehouseID.Name = "cmbWarehouseID";
-            this.cmbWarehouseID.Size = new System.Drawing.Size(125, 40);
+            this.cmbWarehouseID.Size = new System.Drawing.Size(125, 33);
             this.cmbWarehouseID.TabIndex = 222;
-            this.cmbWarehouseID.SelectedIndexChanged += new System.EventHandler(this.cmbWarehouseID_SelectedIndexChanged_1);
             // 
             // label7
             // 
@@ -360,7 +359,7 @@ namespace Mufaddal_Traders
             this.label7.Location = new System.Drawing.Point(51, 175);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 29);
+            this.label7.Size = new System.Drawing.Size(78, 24);
             this.label7.TabIndex = 227;
             this.label7.Text = "Stock ID";
             // 
@@ -372,7 +371,7 @@ namespace Mufaddal_Traders
             this.StockID.Margin = new System.Windows.Forms.Padding(2);
             this.StockID.Name = "StockID";
             this.StockID.ReadOnly = true;
-            this.StockID.Size = new System.Drawing.Size(332, 34);
+            this.StockID.Size = new System.Drawing.Size(332, 28);
             this.StockID.TabIndex = 226;
             // 
             // cmbItemID
@@ -381,9 +380,9 @@ namespace Mufaddal_Traders
             this.cmbItemID.FormattingEnabled = true;
             this.cmbItemID.Location = new System.Drawing.Point(56, 261);
             this.cmbItemID.Name = "cmbItemID";
-            this.cmbItemID.Size = new System.Drawing.Size(105, 33);
+            this.cmbItemID.Size = new System.Drawing.Size(105, 28);
             this.cmbItemID.TabIndex = 228;
-            this.cmbItemID.SelectedIndexChanged += new System.EventHandler(this.cmbItemID_SelectedIndexChanged);
+            this.cmbItemID.SelectedIndexChanged += new System.EventHandler(this.cmbWarehouseID_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
@@ -406,6 +405,7 @@ namespace Mufaddal_Traders
             this.btnUpdate.Size = new System.Drawing.Size(99, 38);
             this.btnUpdate.TabIndex = 229;
             this.btnUpdate.Text = "Update";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 
@@ -454,7 +454,7 @@ namespace Mufaddal_Traders
             this.Controls.Add(this.picHeader);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -483,7 +483,7 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Button btnSave;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;

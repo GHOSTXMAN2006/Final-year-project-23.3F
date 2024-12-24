@@ -29,7 +29,7 @@ namespace Mufaddal_Traders
             base.OnPaint(e);
 
             int borderThickness = 7;
-            Color borderColor = Color.DarkGray;
+            Color borderColor = Color.SlateGray;
 
             // Draw border
             using (Pen pen = new Pen(borderColor, borderThickness))
@@ -98,7 +98,7 @@ namespace Mufaddal_Traders
             this.picItem.Location = new System.Drawing.Point(60, 75);
             this.picItem.Margin = new System.Windows.Forms.Padding(2);
             this.picItem.Name = "picItem";
-            this.picItem.Size = new System.Drawing.Size(244, 308);
+            this.picItem.Size = new System.Drawing.Size(310, 310);
             this.picItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picItem.TabIndex = 199;
             this.picItem.TabStop = false;
@@ -106,7 +106,7 @@ namespace Mufaddal_Traders
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(350, 42);
+            this.txtID.Location = new System.Drawing.Point(426, 42);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(145, 28);
@@ -115,7 +115,7 @@ namespace Mufaddal_Traders
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(350, 173);
+            this.txtDescription.Location = new System.Drawing.Point(426, 173);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(368, 28);
@@ -126,7 +126,7 @@ namespace Mufaddal_Traders
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(346, 216);
+            this.label2.Location = new System.Drawing.Point(422, 216);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 24);
@@ -136,7 +136,7 @@ namespace Mufaddal_Traders
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(350, 242);
+            this.txtPrice.Location = new System.Drawing.Point(426, 242);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(368, 28);
@@ -147,7 +147,7 @@ namespace Mufaddal_Traders
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(346, 80);
+            this.label3.Location = new System.Drawing.Point(422, 80);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 24);
@@ -157,7 +157,7 @@ namespace Mufaddal_Traders
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(349, 106);
+            this.txtName.Location = new System.Drawing.Point(425, 106);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(368, 28);
@@ -168,7 +168,7 @@ namespace Mufaddal_Traders
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(346, 147);
+            this.label6.Location = new System.Drawing.Point(422, 147);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 24);
@@ -180,7 +180,7 @@ namespace Mufaddal_Traders
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(346, 12);
+            this.label4.Location = new System.Drawing.Point(422, 12);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 24);
@@ -192,7 +192,7 @@ namespace Mufaddal_Traders
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(346, 293);
+            this.label1.Location = new System.Drawing.Point(422, 293);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 24);
@@ -202,7 +202,7 @@ namespace Mufaddal_Traders
             // txtMFDate
             // 
             this.txtMFDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMFDate.Location = new System.Drawing.Point(350, 319);
+            this.txtMFDate.Location = new System.Drawing.Point(426, 319);
             this.txtMFDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtMFDate.Name = "txtMFDate";
             this.txtMFDate.Size = new System.Drawing.Size(368, 28);
@@ -213,7 +213,7 @@ namespace Mufaddal_Traders
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(346, 365);
+            this.label5.Location = new System.Drawing.Point(422, 365);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 24);
@@ -223,7 +223,7 @@ namespace Mufaddal_Traders
             // txtEXPDate
             // 
             this.txtEXPDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEXPDate.Location = new System.Drawing.Point(350, 391);
+            this.txtEXPDate.Location = new System.Drawing.Point(426, 391);
             this.txtEXPDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtEXPDate.Name = "txtEXPDate";
             this.txtEXPDate.Size = new System.Drawing.Size(368, 28);
@@ -233,8 +233,8 @@ namespace Mufaddal_Traders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(792, 438);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(222)))), ((int)(((byte)(211)))));
+            this.ClientSize = new System.Drawing.Size(882, 438);
             this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtEXPDate);

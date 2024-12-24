@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Windows.Forms;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmItems : Form
+    public partial class frmItems2 : Form
     {
+
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -19,173 +26,242 @@ namespace Mufaddal_Traders
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private bool isEditMode = false;  // Flag to track if we are in Edit Mode
         private int selectedItemId = -1;  // Store selected ItemID
-        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private string connectionString = DatabaseConfig.ConnectionString;
 
-        public frmItems()
+
+        public frmItems2()
         {
             InitializeComponent();
         }
 
-        private void frmItems_Load(object sender, EventArgs e)
-        {
-            // Check the userType and show/hide buttons accordingly
-            if (frmLogin.userType != "Storekeeper")
-            {
-                btnAdd.Visible = false;
-                btnUpdate.Visible = false;
-                btnDelete.Visible = false;
-            }
-            else
-            {
-                btnAdd.Visible = true;
-                btnUpdate.Visible = true;
-                btnDelete.Visible = true;
-            }
 
-            LoadItems(); // Load the items when the form is loaded
+        private void frmItems2_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (flowItems == null)
+                {
+                    throw new NullReferenceException("flowItems control is not initialized.");
+                }
+
+                // Ensure proper padding for flowItems
+                flowItems.Padding = new Padding(20, 20, 20, 40);
+
+                frmLogin.userType = "Storekeeper";
+
+                // Toggle button visibility based on userType
+                btnAdd.Visible = frmLogin.userType == "Storekeeper";
+                btnUpdate.Visible = frmLogin.userType == "Storekeeper";
+                btnDelete.Visible = frmLogin.userType == "Storekeeper";
+
+                LoadItems();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error in frmItems2_Load: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
+
 
         public void LoadItems()
         {
-            flowItems.Controls.Clear(); // Clear previous items
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                string query = "SELECT ItemID, Item_Name, Item_Image FROM Items"; // Adjust query if needed
-                SqlCommand cmd = new SqlCommand(query, conn);
+                flowItems.Controls.Clear(); // Clear previous items
 
-                try
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+
+                    string query = "SELECT ItemID, Item_Name, Item_Image FROM Items";
+                    SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        int itemId = reader.GetInt32(0); // ItemID
-                        string itemName = reader.GetString(1); // Item_Name
-                        byte[] itemImageBytes = reader["Item_Image"] as byte[]; // Item_Image (binary data)
+                        int itemId = reader.GetInt32(0);
+                        string itemName = reader.GetString(1);
+                        byte[] itemImageBytes = reader["Item_Image"] as byte[];
 
-                        // Create the item panel
-                        Panel itemPanel = new Panel
+                        // Create item panel
+                        ItemPanel itemPanel = new ItemPanel
                         {
-                            Width = 180,
-                            Height = 250,
-                            Margin = new Padding(10),
+                            Width = 260,
+                            Height = 260,
+                            Margin = new Padding(16),
                             BackColor = Color.White,
-                            BorderStyle = BorderStyle.FixedSingle,
-                            Tag = itemId // Use ItemID as tag to identify the item
+                            BorderRadius = 20, // Rounded corners
+                            Tag = itemId // Store ItemID for later use
                         };
 
-                        // Create the PictureBox for item image
+                        // PictureBox for item image
                         PictureBox itemPictureBox = new PictureBox
                         {
-                            Width = 160,
+                            Width = 240,
                             Height = 180,
                             Top = 10,
                             Left = 10,
                             SizeMode = PictureBoxSizeMode.StretchImage,
-                            Tag = itemId
+                            Tag = itemId // Ensure the Tag is set for all controls
                         };
 
-                        // If image exists, set it, otherwise use default
                         if (itemImageBytes != null && itemImageBytes.Length > 0)
                         {
                             itemPictureBox.Image = ByteArrayToImage(itemImageBytes);
                         }
                         else
                         {
-                            // Fallback default image (make sure 3486568.png is in your Resources)
-                            itemPictureBox.Image = Properties.Resources._3486568;  // Use the correct image name here
+                            itemPictureBox.Image = Properties.Resources.noImageDefault; // Fallback image
                         }
 
-                        // Create the label for item name
+                        // Label for item name
                         Label itemLabel = new Label
                         {
                             AutoSize = false,
-                            Width = 160,
+                            Width = itemPanel.Width,
                             Height = 40,
                             Top = 200,
-                            Left = 10,
+                            Left = 0,
                             TextAlign = ContentAlignment.MiddleCenter,
                             Text = itemName,
                             Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                            Tag = itemId
+                            Tag = itemId // Ensure the Tag is set
                         };
 
-                        // Event handlers for click and double-click
-                        itemPictureBox.Click += Item_Click;
-                        itemLabel.Click += Item_Click;
+                        // Event handlers for Click and DoubleClick
                         itemPanel.Click += Item_Click;
-
-                        itemPictureBox.DoubleClick += Item_DoubleClick;
-                        itemLabel.DoubleClick += Item_DoubleClick;
                         itemPanel.DoubleClick += Item_DoubleClick;
+                        itemPictureBox.Click += Item_Click;
+                        itemPictureBox.DoubleClick += Item_DoubleClick;
+                        itemLabel.Click += Item_Click;
+                        itemLabel.DoubleClick += Item_DoubleClick;
 
                         itemPanel.Controls.Add(itemPictureBox);
                         itemPanel.Controls.Add(itemLabel);
 
-                        flowItems.Controls.Add(itemPanel);
+                        flowItems.Controls.Add(itemPanel); // Add to flow layout
                     }
+
+                    reader.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading items: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading items: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+
+
         private Image ByteArrayToImage(byte[] byteArray)
         {
-            using (MemoryStream ms = new MemoryStream(byteArray))
+            try
             {
-                return Image.FromStream(ms);
+                if (byteArray == null || byteArray.Length == 0)
+                {
+                    return Properties.Resources.noImageDefault; // Default image
+                }
+
+                using (MemoryStream ms = new MemoryStream(byteArray))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error converting byte array to image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return Properties.Resources.noImageDefault; // Fallback to default image
             }
         }
+
+
+
 
         private Timer clickTimer = new Timer { Interval = 300 }; // Adjust interval as needed
         private bool isDoubleClick = false;
 
         private void Item_Click(object sender, EventArgs e)
         {
-            if (!isDoubleClick)
+            try
             {
-                clickTimer.Tick += (s, args) =>
+                Control clickedControl = sender as Control;
+                ItemPanel clickedPanel = clickedControl?.Parent as ItemPanel ?? clickedControl as ItemPanel;
+
+                if (clickedPanel == null) return;
+
+                // Reset colors for all panels
+                foreach (Control control in flowItems.Controls)
                 {
-                    clickTimer.Stop();
-                    Panel clickedPanel = sender as Panel ?? ((Control)sender).Parent as Panel;
-                    if (clickedPanel != null)
+                    if (control is ItemPanel panel)
                     {
-                        // Single-click logic
-                        foreach (Control control in flowItems.Controls)
-                        {
-                            if (control is Panel panel)
-                                panel.BackColor = Color.White; // Reset colors
-                        }
-                        clickedPanel.BackColor = Color.LightGray; // Highlight selected
-                        selectedItemId = (int)clickedPanel.Tag;
+                        SetPanelAndChildrenBackColor(panel, Color.White); // Reset to default color
                     }
-                };
-                clickTimer.Start();
+                }
+
+                // Highlight the selected panel
+                SetPanelAndChildrenBackColor(clickedPanel, Color.LightSlateGray); // Highlight color
+
+                selectedItemId = (int)clickedPanel.Tag; // Store selected item ID
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error selecting item: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
+        private void SetPanelAndChildrenBackColor(ItemPanel panel, Color backColor)
+        {
+            if (panel == null) return;
+
+            panel.BackColor = backColor;
+
+            foreach (Control child in panel.Controls)
+            {
+                if (child != null)
+                {
+                    child.BackColor = backColor;
+                }
+            }
+        }
+
 
         private void Item_DoubleClick(object sender, EventArgs e)
         {
-            isDoubleClick = true;
-            clickTimer.Stop();
-            Panel clickedPanel = sender as Panel ?? ((Control)sender).Parent as Panel;
-            if (clickedPanel != null)
+            try
             {
-                // Double-click logic
-                int selectedItemId = (int)clickedPanel.Tag;
-                frmItemDetails itemDetailsForm = new frmItemDetails(selectedItemId);
-                itemDetailsForm.Show();
-            }
-            isDoubleClick = false;
-        }
+                // Identify the control that triggered the double-click
+                Control clickedControl = sender as Control;
+                ItemPanel clickedPanel = clickedControl?.Parent as ItemPanel ?? clickedControl as ItemPanel;
 
+                if (clickedPanel == null)
+                {
+                    MessageBox.Show("Unable to identify the clicked item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Retrieve the ItemID from the clicked panel's Tag property
+                if (clickedPanel.Tag is int selectedItemId)
+                {
+                    // Open the details form for the selected item
+                    frmItemDetails itemDetailsForm = new frmItemDetails(selectedItemId);
+                    itemDetailsForm.ShowDialog(); // Use ShowDialog to wait for the form to close
+                }
+                else
+                {
+                    MessageBox.Show("The selected item's details could not be loaded. Invalid ItemID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error processing double-click: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -313,10 +389,6 @@ namespace Mufaddal_Traders
             // Placeholder for future functionality
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            // Placeholder for future functionality
-        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -361,14 +433,37 @@ namespace Mufaddal_Traders
         {
             flowItems.Controls.Clear(); // Clear existing items
 
+            // Validate the input
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                MessageBox.Show("Please enter a valid search term.", "Invalid Search", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"
-            SELECT ItemID, Item_Name, Item_Image 
-            FROM Items 
-            WHERE ItemID LIKE @SearchText OR Item_Name LIKE @SearchText";
+                // Check if the search text is numeric for `ItemID`, otherwise search by `Item_Name`
+                string query;
+                if (int.TryParse(searchText, out int parsedId))
+                {
+                    // Exact match for ItemID
+                    query = @"
+                SELECT ItemID, Item_Name, Item_Image 
+                FROM Items 
+                WHERE ItemID = @SearchText";
+                }
+                else
+                {
+                    // Partial match for Item_Name
+                    query = @"
+                SELECT ItemID, Item_Name, Item_Image 
+                FROM Items 
+                WHERE Item_Name LIKE @SearchText";
+                    searchText = "%" + searchText + "%"; // Add wildcards for partial matching
+                }
+
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+                cmd.Parameters.AddWithValue("@SearchText", searchText);
 
                 try
                 {
@@ -381,20 +476,21 @@ namespace Mufaddal_Traders
                         string itemName = reader.GetString(1); // Item_Name
                         byte[] itemImageBytes = reader["Item_Image"] as byte[]; // Item_Image
 
-                        // Create the item panel (reuse your existing logic for LoadItems)
-                        Panel itemPanel = new Panel
+                        // Create the item panel
+                        ItemPanel itemPanel = new ItemPanel
                         {
-                            Width = 180,
-                            Height = 250,
-                            Margin = new Padding(10),
+                            Width = 260,
+                            Height = 260,
+                            Margin = new Padding(16),
                             BackColor = Color.White,
-                            BorderStyle = BorderStyle.FixedSingle,
-                            Tag = itemId
+                            BorderRadius = 20, // Corner radius for the panel
+                            Tag = itemId // Use ItemID as tag to identify the item
                         };
 
+                        // PictureBox for item image
                         PictureBox itemPictureBox = new PictureBox
                         {
-                            Width = 160,
+                            Width = 240,
                             Height = 180,
                             Top = 10,
                             Left = 10,
@@ -408,23 +504,24 @@ namespace Mufaddal_Traders
                         }
                         else
                         {
-                            itemPictureBox.Image = Properties.Resources._3486568; // Default image
+                            itemPictureBox.Image = Properties.Resources.noImageDefault; // Default image
                         }
 
+                        // Label for item name
                         Label itemLabel = new Label
                         {
                             AutoSize = false,
-                            Width = 160,
+                            Width = itemPanel.Width,
                             Height = 40,
                             Top = 200,
-                            Left = 10,
+                            Left = 0,
                             TextAlign = ContentAlignment.MiddleCenter,
                             Text = itemName,
                             Font = new Font("Segoe UI", 10, FontStyle.Bold),
                             Tag = itemId
                         };
 
-                        // Add event handlers
+                        // Event handlers
                         itemPictureBox.Click += Item_Click;
                         itemLabel.Click += Item_Click;
                         itemPanel.Click += Item_Click;
@@ -438,6 +535,11 @@ namespace Mufaddal_Traders
 
                         flowItems.Controls.Add(itemPanel);
                     }
+
+                    if (!reader.HasRows)
+                    {
+                        MessageBox.Show("No items found matching your search.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -445,6 +547,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -483,11 +586,6 @@ namespace Mufaddal_Traders
             // Show the login form again
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

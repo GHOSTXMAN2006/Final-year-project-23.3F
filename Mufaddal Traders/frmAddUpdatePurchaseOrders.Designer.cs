@@ -323,7 +323,6 @@ namespace Mufaddal_Traders
             // pnlAlerts
             // 
             this.pnlAlerts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnlAlerts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
             this.pnlAlerts.BorderRadius = 10;
             this.pnlAlerts.Controls.Add(this.txtPO_ID);
             this.pnlAlerts.Controls.Add(this.label4);

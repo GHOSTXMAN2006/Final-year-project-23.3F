@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Mufaddal_Traders
 {
     public partial class frmAddUpdateStock : Form
     {
-
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -26,112 +17,282 @@ namespace Mufaddal_Traders
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private string connectionString = @"Data source=MSI ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
-
-
-        public void LoadComboBoxes()
-        {
-
-            string sql = "SELECT WarehouseID FROM Warehouse";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
-                    {
-                        cmbWarehouseID.Items.Add((dr["WarehouseID"].ToString()));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error !!" + ex.Message);
-                }
-            }
-        }
-
-        private void PopulateItemIDs()
-        {
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT ItemID FROM Items", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    cmbItemID.Items.Add(reader["ItemID"].ToString());
-                }
-
-                reader.Close();
-            }
-        }
-
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
         public frmAddUpdateStock()
         {
             InitializeComponent();
         }
 
+
+        private void frmAddUpdateStock_Load(object sender, EventArgs e)
+        {
+            LoadComboBoxes();
+            PopulateItemIDs();
+            AutoGenerateID();
+
+            // Bind events
+            txtSearch.KeyDown += txtSearch_KeyDown;
+            cmbWarehouseID.SelectedIndexChanged += cmbWarehouseID_SelectedIndexChanged;
+            cmbItemID.SelectedIndexChanged += cmbItemID_SelectedIndexChanged; // Bind item selection event
+        }
+
+
+        private void LoadComboBoxes()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT StoreID FROM Warehouse", conn);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        cmbWarehouseID.Items.Add(dr["StoreID"].ToString());
+                    }
+                    dr.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading warehouses: " + ex.Message);
+                }
+            }
+        }
+
+        private void PopulateItemIDs()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT ItemID FROM Items", conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cmbItemID.Items.Add(reader["ItemID"].ToString());
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading items: " + ex.Message);
+                }
+            }
+        }
+
+        private void AutoGenerateID()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT ISNULL(MAX(StockID), 0) + 1 AS NextStockID FROM Stock";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    StockID.Text = cmd.ExecuteScalar()?.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error generating StockID: " + ex.Message);
+                }
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtItemName.Text) || string.IsNullOrWhiteSpace(txtItemPrice.Text) || string.IsNullOrEmpty(txtItemQuantity.Text))
+            if (string.IsNullOrWhiteSpace(txtItemName.Text) ||
+                string.IsNullOrWhiteSpace(txtItemPrice.Text) ||
+                string.IsNullOrWhiteSpace(txtItemQuantity.Text) ||
+                cmbItemID.SelectedItem == null ||
+                cmbWarehouseID.SelectedItem == null)
             {
-                MessageBox.Show("Please fill in all fields before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (cmbItemID == null || cmbWarehouseID == null)
-            {
-                MessageBox.Show("Please select a Item and warehouse.");
+                MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string sql = "INSERT INTO Stock (StockID, ItemID, Item_Name, Item_Qty, Item_Price, WarehouseID, Warehouse_Name)" +
-                         "VALUES (@stockID, @itemID, @itemName, @itemQty, @itemPrice, warehouseID, warehousename)";
                 try
                 {
-
-
+                    conn.Open();
+                    string sql = @"INSERT INTO Stock (ItemID, Stock_Date, Item_Qty, Item_Price)
+                                   VALUES (@itemID, @stockDate, @itemQty, @itemPrice)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
-                    cmd.Parameters.AddWithValue("@stockID", StockID.Text);
                     cmd.Parameters.AddWithValue("@itemID", cmbItemID.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@itemName", txtItemName.Text);
-                    cmd.Parameters.AddWithValue("@itemPrice", txtItemPrice.Text);
-                    cmd.Parameters.AddWithValue("@itemQty", txtItemQuantity.Text);
-                    cmd.Parameters.AddWithValue("@warehouseID", cmbWarehouseID.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@warehousename", txtItemQuantity.Text);
+                    cmd.Parameters.AddWithValue("@stockDate", DateTime.Now.Date);
+                    cmd.Parameters.AddWithValue("@itemQty", int.Parse(txtItemQuantity.Text));
+                    cmd.Parameters.AddWithValue("@itemPrice", decimal.Parse(txtItemPrice.Text));
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
+                    if (cmd.ExecuteNonQuery() > 0)
                     {
-                        MessageBox.Show("Product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        MessageBox.Show("Stock added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Failed to add product.", "Failes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Failed to add stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("ERROR !!" + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
-
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void cmbWarehouseID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Close();
+            if (cmbWarehouseID.SelectedItem == null) return;
+
+            string selectedID = cmbWarehouseID.SelectedItem.ToString();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT Store_Name FROM Warehouse WHERE StoreID = @id", conn);
+                    cmd.Parameters.AddWithValue("@id", selectedID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        txtWarehouseName.Text = reader["Store_Name"].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading warehouse details: " + ex.Message);
+                }
+            }
         }
+
+
+        private void cmbItemID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbItemID.SelectedItem == null) return;
+
+            string selectedID = cmbItemID.SelectedItem.ToString();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT Item_Name FROM Items WHERE ItemID = @id", conn);
+                    cmd.Parameters.AddWithValue("@id", selectedID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        txtItemName.Text = reader["Item_Name"].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading item details: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.cmbItemID.SelectedIndex = -1;
+            this.txtItemName.Clear();
+            this.txtItemPrice.Clear();
+            this.txtItemQuantity.Clear();
+            this.cmbWarehouseID.SelectedIndex = -1;
+            this.txtWarehouseName.Clear();
+        }
+
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtItemName.Text) ||
+                string.IsNullOrWhiteSpace(txtItemPrice.Text) ||
+                string.IsNullOrWhiteSpace(txtItemQuantity.Text) ||
+                cmbItemID.SelectedItem == null ||
+                cmbWarehouseID.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields before updating.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Corrected the SQL query to match the database schema
+                    string sql = @"UPDATE Stock
+                           SET ItemID = @ItemID, Item_Qty = @Item_Qty, Item_Price = @Item_Price
+                           WHERE StockID = @StockID";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Correctly map the parameters
+                    cmd.Parameters.AddWithValue("@StockID", StockID.Text);
+                    cmd.Parameters.AddWithValue("@ItemID", cmbItemID.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@Item_Qty", int.Parse(txtItemQuantity.Text));
+                    cmd.Parameters.AddWithValue("@Item_Price", decimal.Parse(txtItemPrice.Text));
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Stock successfully updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update stock. Please check the data and try again.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error while updating stock: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand("SELECT * FROM Stock WHERE StockID = @id", conn);
+                        cmd.Parameters.AddWithValue("@id", txtSearch.Text);
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            cmbItemID.SelectedItem = reader["ItemID"].ToString();
+                            txtItemQuantity.Text = reader["Item_Qty"].ToString();
+                            txtItemPrice.Text = reader["Item_Price"].ToString();
+                            cmbWarehouseID.SelectedItem = reader["WarehouseID"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No record found with the given StockID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error retrieving stock details: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -152,91 +313,9 @@ namespace Mufaddal_Traders
             }
         }
 
-        private void frmAddUpdateStock_Load(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            LoadComboBoxes();
-            PopulateItemIDs();
-            AutoGenerateID();       // Call the method to auto-generate StockID
-        }
-
-
-        private void AutoGenerateID()
-        {
-            string connectionString = "Server=MSI;Database=Mufaddal_Traders_db;Trusted_Connection=True;";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-
-                    // Query to fetch the maximum StockID
-                    string query = "SELECT ISNULL(MAX(CAST(StockID AS INT)), 0) + 1 AS NextStockID FROM Stock";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-
-                    // Execute the query and get the result
-                    object result = cmd.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        StockID.Text = result.ToString(); // Set the next StockID in the TextBox
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
-
-
-
-        private void cmbWarehouseID_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            string selectedID = cmbWarehouseID.SelectedItem.ToString();
-
-            string sql = "SELECT Warehouse_Name FROM Warehouse WHERE WarehouseID = @id";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@id", selectedID);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    txtWarehouseName.Text = reader["WarehouseName"].ToString();
-                }
-
-                reader.Close();
-            }
-        }
-
-        private void cmbItemID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedID = cmbItemID.SelectedItem.ToString();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Item_Name FROM Items WHERE ItemID = @id", conn);
-                cmd.Parameters.AddWithValue("@id", selectedID);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    // Correct the column name to match the database schema
-                    txtItemName.Text = reader["Item_Name"].ToString();
-                }
-
-                reader.Close();
-            }
-        }
-
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

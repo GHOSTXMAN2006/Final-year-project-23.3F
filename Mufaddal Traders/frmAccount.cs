@@ -179,7 +179,7 @@ namespace Mufaddal_Traders
                 }
             }
 
-            string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+            string cs = DatabaseConfig.ConnectionString;
             using (SqlConnection conn = new SqlConnection(cs))
             {
                 try
@@ -254,7 +254,7 @@ namespace Mufaddal_Traders
         {
             string hashedOldPassword = HashPassword(oldPassword);  // Hashing the entered old password
 
-            string cs = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+            string cs = DatabaseConfig.ConnectionString;
             using (SqlConnection conn = new SqlConnection(cs))
             {
                 try

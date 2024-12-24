@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -13,6 +14,8 @@ namespace Mufaddal_Traders
 {
     public partial class frmStorekeeperStock : Form
     {
+
+        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
 
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -166,6 +169,51 @@ namespace Mufaddal_Traders
             // Show the login form again
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
+        }
+
+        private void btnManage_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateStock addUpdateStock = new frmAddUpdateStock();
+            addUpdateStock.Show();
+        }
+
+        private void LoadStockData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"SELECT 
+                                Stock.StockID, 
+                                Stock.ItemID, 
+                                Items.Item_Name, 
+                                Stock.Item_Qty, 
+                                Stock.Item_Price, 
+                                Stock.Stock_Date, 
+                                Warehouse.StoreID, 
+                                Warehouse.Store_Name
+                             FROM Stock
+                             INNER JOIN Items ON Stock.ItemID = Items.ItemID
+                             INNER JOIN Warehouse ON Stock.WarehouseID = Warehouse.StoreID";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvDisplay.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading stock data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void frmStorekeeperStock_Load(object sender, EventArgs e)
+        {
+            LoadStockData();
         }
     }
 }
