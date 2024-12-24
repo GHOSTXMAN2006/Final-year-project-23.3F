@@ -22,7 +22,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private string connectionString = DatabaseConfig.ConnectionString;
         private int itemId;
         private Image placeholderImage;
 

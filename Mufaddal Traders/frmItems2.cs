@@ -263,6 +263,8 @@ namespace Mufaddal_Traders
             }
         }
 
+
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             // Check if an item is selected

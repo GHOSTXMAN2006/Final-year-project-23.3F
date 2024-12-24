@@ -11,7 +11,7 @@ namespace Mufaddal_Traders
         private int itemId;
 
         // Connection string to the database
-        private string connectionString = @"Data Source=DESKTOP-O0Q3714\SQLEXPRESS;Initial Catalog=Mufaddal_Traders_db;Integrated Security=True";
+        private string connectionString = DatabaseConfig.ConnectionString;
 
         public frmItemDetails(int itemId)
         {
