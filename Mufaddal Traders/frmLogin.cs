@@ -70,12 +70,24 @@ namespace Mufaddal_Traders
 
         private void lblCreateAccount_Click(object sender, EventArgs e)
         {
+            // Clear relevant fields
+            txtCAUsername.Clear();
+            txtCRPassword.Clear();
+            txtCRConfirmPassword.Clear();
+            txtCREmail.Clear();
+            txtCRTel.Clear();
+            cbCRUserType.SelectedIndex = -1; // Reset dropdown selection
+
             pnlCreateAcc.Visible = true;
             pnlLoginInterface1.Visible = false;
         }
 
         private void lblLogin_Click(object sender, EventArgs e)
         {
+            // Clear relevant fields
+            txtLoginUsername.Clear();
+            txtLoginPassword.Clear();
+
             pnlLoginInterface1.Visible = true;
             pnlCreateAcc.Visible = false;
         }
@@ -84,13 +96,25 @@ namespace Mufaddal_Traders
         {
             pnlForgotPassword.Visible = true;
             pnlLoginInterface1.Visible = false;
+
+            // Clear relevant fields
+            txtLoginUsername.Clear();
+            txtLoginPassword.Clear();
         }
+
 
         private void picBackToLogin_Click(object sender, EventArgs e)
         {
             pnlLoginInterface1.Visible = true;
             pnlForgotPassword.Visible = false;
+
+            // Clear relevant fields
+            txtFPUsername.Clear();
+            txtFPEmail.Clear();
+            txtFPPassword.Clear();
+            txtFPConfirmPassword.Clear();
         }
+
 
         private void picHeader_MouseDown(object sender, MouseEventArgs e)
         {
