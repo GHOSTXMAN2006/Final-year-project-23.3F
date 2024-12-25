@@ -145,7 +145,7 @@ namespace Mufaddal_Traders
 
         private void tileStock_Click(object sender, EventArgs e)
         {
-            frmStorekeeperStock storekeeperStock = new frmStorekeeperStock();
+            frmStockBalance storekeeperStock = new frmStockBalance();
 
             storekeeperStock.Show();
 
@@ -199,7 +199,7 @@ namespace Mufaddal_Traders
 
         private void tileGRN_Click(object sender, EventArgs e)
         {
-            frmStorekeeperGRN storekeeperGRN = new frmStorekeeperGRN();
+            frmGRN storekeeperGRN = new frmGRN();
 
             storekeeperGRN.Show();
 

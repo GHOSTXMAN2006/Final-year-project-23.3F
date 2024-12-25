@@ -66,24 +66,24 @@ namespace Mufaddal_Traders
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbGRN_Type = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtGRN_ID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.rbPurchaseContract = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbPurchaseOrder = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.txtSupplierID = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.cmbPurchaseID = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +93,7 @@ namespace Mufaddal_Traders
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(203, 478);
+            this.label9.Location = new System.Drawing.Point(203, 497);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 24);
@@ -104,7 +104,7 @@ namespace Mufaddal_Traders
             // 
             this.textBox1.BackColor = System.Drawing.Color.BurlyWood;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(207, 503);
+            this.textBox1.Location = new System.Drawing.Point(207, 522);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(196, 33);
@@ -115,7 +115,7 @@ namespace Mufaddal_Traders
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(203, 402);
+            this.label8.Location = new System.Drawing.Point(203, 421);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(136, 24);
@@ -126,7 +126,7 @@ namespace Mufaddal_Traders
             // 
             this.textBox3.BackColor = System.Drawing.Color.BurlyWood;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(206, 431);
+            this.textBox3.Location = new System.Drawing.Point(206, 450);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(196, 33);
@@ -135,7 +135,7 @@ namespace Mufaddal_Traders
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(54, 571);
+            this.textBox2.Location = new System.Drawing.Point(54, 590);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(115, 33);
@@ -146,7 +146,7 @@ namespace Mufaddal_Traders
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(51, 546);
+            this.label6.Location = new System.Drawing.Point(51, 565);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 24);
@@ -158,7 +158,7 @@ namespace Mufaddal_Traders
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(51, 477);
+            this.label2.Location = new System.Drawing.Point(51, 496);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 24);
@@ -224,7 +224,7 @@ namespace Mufaddal_Traders
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(51, 402);
+            this.label4.Location = new System.Drawing.Point(51, 421);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 24);
@@ -244,22 +244,26 @@ namespace Mufaddal_Traders
             this.label1.TabIndex = 243;
             this.label1.Text = "Manage GRN";
             // 
-            // comboBox1
+            // cmbGRN_Type
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(55, 362);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(113, 33);
-            this.comboBox1.TabIndex = 260;
+            this.cmbGRN_Type.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGRN_Type.FormattingEnabled = true;
+            this.cmbGRN_Type.Items.AddRange(new object[] {
+            "Finished goods GRN ",
+            "Packaging materials GRN ",
+            "Other GRN"});
+            this.cmbGRN_Type.Location = new System.Drawing.Point(55, 381);
+            this.cmbGRN_Type.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbGRN_Type.Name = "cmbGRN_Type";
+            this.cmbGRN_Type.Size = new System.Drawing.Size(113, 33);
+            this.cmbGRN_Type.TabIndex = 260;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 332);
+            this.label3.Location = new System.Drawing.Point(51, 351);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 24);
@@ -278,23 +282,23 @@ namespace Mufaddal_Traders
             this.label5.TabIndex = 261;
             this.label5.Text = "GRN ID";
             // 
-            // textBox4
+            // txtGRN_ID
             // 
-            this.textBox4.BackColor = System.Drawing.Color.BurlyWood;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(54, 170);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(114, 28);
-            this.textBox4.TabIndex = 262;
+            this.txtGRN_ID.BackColor = System.Drawing.Color.BurlyWood;
+            this.txtGRN_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGRN_ID.Location = new System.Drawing.Point(54, 170);
+            this.txtGRN_ID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtGRN_ID.Name = "txtGRN_ID";
+            this.txtGRN_ID.ReadOnly = true;
+            this.txtGRN_ID.Size = new System.Drawing.Size(114, 28);
+            this.txtGRN_ID.TabIndex = 262;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(202, 616);
+            this.label7.Location = new System.Drawing.Point(202, 635);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 24);
@@ -304,7 +308,7 @@ namespace Mufaddal_Traders
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(207, 642);
+            this.textBox5.Location = new System.Drawing.Point(207, 661);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(196, 33);
@@ -315,7 +319,7 @@ namespace Mufaddal_Traders
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(50, 616);
+            this.label10.Location = new System.Drawing.Point(50, 635);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 24);
@@ -326,23 +330,11 @@ namespace Mufaddal_Traders
             // 
             this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(56, 642);
+            this.comboBox3.Location = new System.Drawing.Point(56, 661);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(113, 33);
             this.comboBox3.TabIndex = 263;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(52, 264);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 24);
-            this.label11.TabIndex = 267;
-            this.label11.Text = "Stock ID";
             // 
             // btnBack
             // 
@@ -379,7 +371,7 @@ namespace Mufaddal_Traders
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::Mufaddal_Traders.Properties.Resources.save_icon_2048x2048_iovw4qr4;
             this.btnSave.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnSave.Location = new System.Drawing.Point(450, 637);
+            this.btnSave.Location = new System.Drawing.Point(450, 572);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 38);
@@ -420,7 +412,7 @@ namespace Mufaddal_Traders
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::Mufaddal_Traders.Properties.Resources.Receipt_bro_1;
-            this.pictureBox1.Location = new System.Drawing.Point(450, 189);
+            this.pictureBox1.Location = new System.Drawing.Point(450, 153);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(391, 373);
@@ -428,97 +420,113 @@ namespace Mufaddal_Traders
             this.pictureBox1.TabIndex = 245;
             this.pictureBox1.TabStop = false;
             // 
-            // guna2RadioButton2
+            // rbPurchaseContract
             // 
-            this.guna2RadioButton2.AutoSize = true;
-            this.guna2RadioButton2.CheckedState.BorderColor = System.Drawing.Color.Black;
-            this.guna2RadioButton2.CheckedState.BorderThickness = 0;
-            this.guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.Black;
-            this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.guna2RadioButton2.CheckedState.InnerOffset = -9;
-            this.guna2RadioButton2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.guna2RadioButton2.ForeColor = System.Drawing.Color.Black;
-            this.guna2RadioButton2.Location = new System.Drawing.Point(245, 221);
-            this.guna2RadioButton2.Name = "guna2RadioButton2";
-            this.guna2RadioButton2.Size = new System.Drawing.Size(184, 29);
-            this.guna2RadioButton2.TabIndex = 286;
-            this.guna2RadioButton2.Text = "Purchase Contract";
-            this.guna2RadioButton2.UncheckedState.BorderColor = System.Drawing.Color.Black;
-            this.guna2RadioButton2.UncheckedState.BorderThickness = 2;
-            this.guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2RadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseContract.AutoSize = true;
+            this.rbPurchaseContract.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.CheckedState.BorderThickness = 0;
+            this.rbPurchaseContract.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.rbPurchaseContract.CheckedState.InnerOffset = -9;
+            this.rbPurchaseContract.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.rbPurchaseContract.ForeColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.Location = new System.Drawing.Point(245, 221);
+            this.rbPurchaseContract.Name = "rbPurchaseContract";
+            this.rbPurchaseContract.Size = new System.Drawing.Size(184, 29);
+            this.rbPurchaseContract.TabIndex = 286;
+            this.rbPurchaseContract.Text = "Purchase Contract";
+            this.rbPurchaseContract.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.UncheckedState.BorderThickness = 2;
+            this.rbPurchaseContract.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseContract.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // guna2RadioButton1
+            // rbPurchaseOrder
             // 
-            this.guna2RadioButton1.AutoSize = true;
-            this.guna2RadioButton1.Checked = true;
-            this.guna2RadioButton1.CheckedState.BorderColor = System.Drawing.Color.Black;
-            this.guna2RadioButton1.CheckedState.BorderThickness = 0;
-            this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.Black;
-            this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.guna2RadioButton1.CheckedState.InnerOffset = -9;
-            this.guna2RadioButton1.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.guna2RadioButton1.ForeColor = System.Drawing.Color.Black;
-            this.guna2RadioButton1.Location = new System.Drawing.Point(55, 221);
-            this.guna2RadioButton1.Name = "guna2RadioButton1";
-            this.guna2RadioButton1.Size = new System.Drawing.Size(161, 29);
-            this.guna2RadioButton1.TabIndex = 285;
-            this.guna2RadioButton1.TabStop = true;
-            this.guna2RadioButton1.Text = "Purchase Order";
-            this.guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.Black;
-            this.guna2RadioButton1.UncheckedState.BorderThickness = 2;
-            this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseOrder.AutoSize = true;
+            this.rbPurchaseOrder.Checked = true;
+            this.rbPurchaseOrder.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.CheckedState.BorderThickness = 0;
+            this.rbPurchaseOrder.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.rbPurchaseOrder.CheckedState.InnerOffset = -9;
+            this.rbPurchaseOrder.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.rbPurchaseOrder.ForeColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.Location = new System.Drawing.Point(55, 221);
+            this.rbPurchaseOrder.Name = "rbPurchaseOrder";
+            this.rbPurchaseOrder.Size = new System.Drawing.Size(161, 29);
+            this.rbPurchaseOrder.TabIndex = 285;
+            this.rbPurchaseOrder.TabStop = true;
+            this.rbPurchaseOrder.Text = "Purchase Order";
+            this.rbPurchaseOrder.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.UncheckedState.BorderThickness = 2;
+            this.rbPurchaseOrder.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseOrder.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
-            // textBox7
+            // txtSupplierID
             // 
-            this.textBox7.BackColor = System.Drawing.Color.BurlyWood;
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(56, 431);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(115, 33);
-            this.textBox7.TabIndex = 287;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(56, 290);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(113, 33);
-            this.comboBox4.TabIndex = 288;
+            this.txtSupplierID.BackColor = System.Drawing.Color.BurlyWood;
+            this.txtSupplierID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierID.Location = new System.Drawing.Point(56, 450);
+            this.txtSupplierID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSupplierID.Name = "txtSupplierID";
+            this.txtSupplierID.Size = new System.Drawing.Size(115, 33);
+            this.txtSupplierID.TabIndex = 287;
             // 
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.Color.BurlyWood;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(56, 503);
+            this.textBox6.Location = new System.Drawing.Point(56, 522);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(115, 33);
             this.textBox6.TabIndex = 289;
             // 
+            // cmbPurchaseID
+            // 
+            this.cmbPurchaseID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPurchaseID.FormattingEnabled = true;
+            this.cmbPurchaseID.Items.AddRange(new object[] {
+            "Finished goods GRN ",
+            "Packaging materials GRN ",
+            "Other GRN"});
+            this.cmbPurchaseID.Location = new System.Drawing.Point(55, 297);
+            this.cmbPurchaseID.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbPurchaseID.Name = "cmbPurchaseID";
+            this.cmbPurchaseID.Size = new System.Drawing.Size(113, 33);
+            this.cmbPurchaseID.TabIndex = 291;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(51, 267);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 24);
+            this.label11.TabIndex = 290;
+            this.label11.Text = "Purchase ID";
+            // 
             // frmAddUpdateGRN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 718);
+            this.ClientSize = new System.Drawing.Size(875, 717);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.guna2RadioButton2);
-            this.Controls.Add(this.guna2RadioButton1);
+            this.Controls.Add(this.cmbPurchaseID);
             this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtSupplierID);
+            this.Controls.Add(this.rbPurchaseContract);
+            this.Controls.Add(this.rbPurchaseOrder);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtGRN_ID);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbGRN_Type);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox1);
@@ -562,19 +570,19 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbGRN_Type;
         private System.Windows.Forms.Label label3;
         private Label label5;
-        private TextBox textBox4;
+        private TextBox txtGRN_ID;
         private Label label7;
         private TextBox textBox5;
         private Label label10;
         private ComboBox comboBox3;
-        private Label label11;
-        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
-        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
-        private TextBox textBox7;
-        private ComboBox comboBox4;
+        private Guna.UI2.WinForms.Guna2RadioButton rbPurchaseContract;
+        private Guna.UI2.WinForms.Guna2RadioButton rbPurchaseOrder;
+        private TextBox txtSupplierID;
         private TextBox textBox6;
+        private ComboBox cmbPurchaseID;
+        private Label label11;
     }
 }

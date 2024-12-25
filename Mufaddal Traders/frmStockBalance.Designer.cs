@@ -4,7 +4,7 @@ using System;
 
 namespace Mufaddal_Traders
 {
-    partial class frmStorekeeperStock
+    partial class frmStockBalance
     {
         /// <summary>
         /// Required designer variable.
@@ -54,17 +54,13 @@ namespace Mufaddal_Traders
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStorekeeperStock));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockBalance));
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
@@ -73,8 +69,8 @@ namespace Mufaddal_Traders
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.dgvDisplay = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnManage = new Guna.UI2.WinForms.Guna2Button();
+            this.dgvDisplay = new System.Windows.Forms.DataGridView();
+            this.btnReload = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
@@ -156,33 +152,34 @@ namespace Mufaddal_Traders
             this.btnBack.TabIndex = 161;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // guna2TextBox2
+            // txtSearch
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.AutoRoundedCorners = true;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.MediumAquamarine;
-            this.guna2TextBox2.BorderRadius = 18;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
-            this.guna2TextBox2.Location = new System.Drawing.Point(1121, 49);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.PlaceholderText = "     Search";
-            this.guna2TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(258, 38);
-            this.guna2TextBox2.TabIndex = 168;
+            this.txtSearch.Animated = true;
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.BorderColor = System.Drawing.Color.MediumAquamarine;
+            this.txtSearch.BorderRadius = 18;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FillColor = System.Drawing.Color.Gainsboro;
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
+            this.txtSearch.Location = new System.Drawing.Point(1121, 49);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.txtSearch.PlaceholderText = "     Search";
+            this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(258, 38);
+            this.txtSearch.TabIndex = 168;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // label2
             // 
@@ -192,30 +189,6 @@ namespace Mufaddal_Traders
             this.label2.Size = new System.Drawing.Size(1303, 13);
             this.label2.TabIndex = 167;
             this.label2.Text = resources.GetString("label2.Text");
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Animated = true;
-            this.btnDelete.AutoRoundedCorners = true;
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnDelete.BorderRadius = 18;
-            this.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDelete.FillColor = System.Drawing.Color.IndianRed;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::Mufaddal_Traders.Properties.Resources.delete;
-            this.btnDelete.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnDelete.Location = new System.Drawing.Point(1051, 113);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 38);
-            this.btnDelete.TabIndex = 165;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnHome
             // 
@@ -284,9 +257,9 @@ namespace Mufaddal_Traders
             this.label1.Location = new System.Drawing.Point(92, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 32);
+            this.label1.Size = new System.Drawing.Size(165, 32);
             this.label1.TabIndex = 164;
-            this.label1.Text = "Stock";
+            this.label1.Text = "Stock Balance";
             // 
             // panel1
             // 
@@ -359,99 +332,55 @@ namespace Mufaddal_Traders
             // 
             // dgvDisplay
             // 
-            this.dgvDisplay.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvDisplay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvDisplay.ColumnHeadersHeight = 4;
-            this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.Location = new System.Drawing.Point(99, 170);
+            this.dgvDisplay.AllowUserToAddRows = false;
+            this.dgvDisplay.AllowUserToDeleteRows = false;
+            this.dgvDisplay.AllowUserToResizeColumns = false;
+            this.dgvDisplay.AllowUserToResizeRows = false;
+            this.dgvDisplay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(222)))), ((int)(((byte)(211)))));
+            this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisplay.Location = new System.Drawing.Point(98, 166);
             this.dgvDisplay.Name = "dgvDisplay";
-            this.dgvDisplay.RowHeadersVisible = false;
-            this.dgvDisplay.Size = new System.Drawing.Size(1280, 660);
-            this.dgvDisplay.TabIndex = 170;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvDisplay.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvDisplay.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDisplay.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDisplay.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvDisplay.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvDisplay.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvDisplay.ThemeStyle.ReadOnly = false;
-            this.dgvDisplay.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDisplay.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDisplay.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvDisplay.ThemeStyle.RowsStyle.Height = 22;
-            this.dgvDisplay.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvDisplay.Size = new System.Drawing.Size(1281, 664);
+            this.dgvDisplay.TabIndex = 169;
             // 
-            // btnManage
+            // btnReload
             // 
-            this.btnManage.Animated = true;
-            this.btnManage.AutoRoundedCorners = true;
-            this.btnManage.BackColor = System.Drawing.Color.Transparent;
-            this.btnManage.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnManage.BorderRadius = 18;
-            this.btnManage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnManage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnManage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnManage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnManage.FillColor = System.Drawing.Color.MediumTurquoise;
-            this.btnManage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnManage.ForeColor = System.Drawing.Color.White;
-            this.btnManage.Image = global::Mufaddal_Traders.Properties.Resources._2661440;
-            this.btnManage.Location = new System.Drawing.Point(1200, 110);
-            this.btnManage.Margin = new System.Windows.Forms.Padding(2);
-            this.btnManage.Name = "btnManage";
-            this.btnManage.Size = new System.Drawing.Size(156, 38);
-            this.btnManage.TabIndex = 192;
-            this.btnManage.Text = "Manage";
-            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
+            this.btnReload.Animated = true;
+            this.btnReload.BorderRadius = 7;
+            this.btnReload.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReload.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReload.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReload.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReload.FillColor = System.Drawing.Color.Transparent;
+            this.btnReload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnReload.ForeColor = System.Drawing.Color.White;
+            this.btnReload.Image = global::Mufaddal_Traders.Properties.Resources.reload;
+            this.btnReload.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnReload.Location = new System.Drawing.Point(165, 114);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(38, 38);
+            this.btnReload.TabIndex = 173;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
-            // frmStorekeeperStock
+            // frmStockBalance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
             this.ControlBox = false;
-            this.Controls.Add(this.btnManage);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dgvDisplay);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.picHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmStorekeeperStock";
+            this.Name = "frmStockBalance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStorekeeperStock";
-            this.Load += new System.EventHandler(this.frmStorekeeperStock_Load);
+            this.Load += new System.EventHandler(this.frmStockBalance_Load);
             this.panel1.ResumeLayout(false);
             this.picHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
@@ -466,9 +395,8 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnDashboard;
@@ -476,8 +404,8 @@ namespace Mufaddal_Traders
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDisplay;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
-        private Guna.UI2.WinForms.Guna2Button btnManage;
+        private DataGridView dgvDisplay;
+        private Guna.UI2.WinForms.Guna2Button btnReload;
     }
 }

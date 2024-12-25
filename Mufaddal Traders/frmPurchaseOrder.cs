@@ -28,7 +28,7 @@ namespace Mufaddal_Traders
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
-
+            frmLogin.userType = "Storekeeper";
             // Check the userType and show/hide buttons accordingly
             if (frmLogin.userType != "Storekeeper")
             {
@@ -47,60 +47,160 @@ namespace Mufaddal_Traders
             LoadPurchaseOrders();
         }
 
-        // Load data into dgvDisplay
         private void LoadPurchaseOrders()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                string query = "SELECT PurchaseOrderID, ItemID, ItemName, ItemQty, SupplierID FROM Purchase_Orders";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = @"
+            SELECT 
+                PurchaseOrderID, 
+                ItemID, 
+                ItemName, 
+                ItemQty, 
+                SupplierID, 
+                Status
+            FROM Purchase_Orders";
 
-                dgvDisplay.DataSource = dt;
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                    DataTable purchaseOrdersTable = new DataTable();
+                    adapter.Fill(purchaseOrdersTable);
 
-                // Optionally, manually set column headers if needed
-                dgvDisplay.Columns["PurchaseOrderID"].HeaderText = "Purchase Order ID";
-                dgvDisplay.Columns["ItemID"].HeaderText = "Item ID";
-                dgvDisplay.Columns["ItemName"].HeaderText = "Item Name";
-                dgvDisplay.Columns["ItemQty"].HeaderText = "Item Quantity";
-                dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
+                    // Bind data to DataGridView
+                    dgvDisplay.DataSource = purchaseOrdersTable;
+
+                    // Set DataGridView dimensions
+                    dgvDisplay.Width = 1281;
+                    dgvDisplay.Height = 664;
+
+                    // Set row formatting
+                    dgvDisplay.RowTemplate.Height = 40;
+                    foreach (DataGridViewRow row in dgvDisplay.Rows)
+                    {
+                        row.Height = 40;
+                    }
+
+                    dgvDisplay.DefaultCellStyle.Font = new Font("Arial", 12);
+
+                    // Set column header style (matching frmStockBalance)
+                    dgvDisplay.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold);
+                    dgvDisplay.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSeaGreen; // Set header background color
+                    dgvDisplay.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvDisplay.EnableHeadersVisualStyles = false;
+
+                    // Adjust column widths proportionally
+                    dgvDisplay.Columns["PurchaseOrderID"].Width = (int)(1281 * 0.15); // ~15%
+                    dgvDisplay.Columns["ItemID"].Width = (int)(1281 * 0.1);          // ~10%
+                    dgvDisplay.Columns["ItemName"].Width = (int)(1281 * 0.3);       // ~30%
+                    dgvDisplay.Columns["ItemQty"].Width = (int)(1281 * 0.1);        // ~10%
+                    dgvDisplay.Columns["SupplierID"].Width = (int)(1281 * 0.15);    // ~15%
+                    dgvDisplay.Columns["Status"].Width = (int)(1281 * 0.2);         // ~20%
+
+                    // Conditional formatting for the Status column
+                    foreach (DataGridViewRow row in dgvDisplay.Rows)
+                    {
+                        if (row.Cells["Status"].Value != null)
+                        {
+                            string status = row.Cells["Status"].Value.ToString();
+                            if (status == "N")
+                            {
+                                row.Cells["Status"].Style.ForeColor = Color.Red;
+                            }
+                            else if (status == "Y")
+                            {
+                                row.Cells["Status"].Style.ForeColor = Color.Green;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading purchase orders: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchText = txtSearch.Text.Trim();
+
+                string query = @"
+                SELECT 
+                    PurchaseOrderID, 
+                    ItemID, 
+                    ItemName, 
+                    ItemQty, 
+                    SupplierID, 
+                    Status
+                FROM Purchase_Orders
+                WHERE 
+                    CAST(PurchaseOrderID AS NVARCHAR) = @Search OR
+                    ItemName LIKE '%' + @Search + '%' OR
+                    CAST(SupplierID AS NVARCHAR) = @Search";
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@Search", searchText);
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable searchResult = new DataTable();
+                        adapter.Fill(searchResult);
+
+                        dgvDisplay.DataSource = searchResult;
+
+                        // Apply consistent row formatting
+                        dgvDisplay.RowTemplate.Height = 40;
+                        foreach (DataGridViewRow row in dgvDisplay.Rows)
+                        {
+                            row.Height = 40;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred during search: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadPurchaseOrders();
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePurchaseOrders addForm = new frmAddUpdatePurchaseOrders();
-            addForm.OperationMode = "Add";
-            addForm.ShowDialog();
-
-            // Refresh DataGridView after adding
+            frmAddUpdatePurchaseOrders addPurchaseOrderForm = new frmAddUpdatePurchaseOrders
+            {
+                OperationMode = "Add"
+            };
+            addPurchaseOrderForm.ShowDialog();
             LoadPurchaseOrders();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvDisplay.SelectedRows.Count != 1)
+            if (dgvDisplay.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a single row to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a row to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DataGridViewRow selectedRow = dgvDisplay.SelectedRows[0];
-            frmAddUpdatePurchaseOrders updateForm = new frmAddUpdatePurchaseOrders
+            int selectedPurchaseOrderID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["PurchaseOrderID"].Value);
+
+            frmAddUpdatePurchaseOrders updatePurchaseOrderForm = new frmAddUpdatePurchaseOrders
             {
                 OperationMode = "Update",
-                PurchaseOrderID = Convert.ToInt32(selectedRow.Cells["PurchaseOrderID"].Value),
-                ItemID = Convert.ToInt32(selectedRow.Cells["ItemID"].Value),
-                ItemName = selectedRow.Cells["ItemName"].Value.ToString(),
-                ItemQty = Convert.ToInt32(selectedRow.Cells["ItemQty"].Value),
-                SupplierID = Convert.ToInt32(selectedRow.Cells["SupplierID"].Value)
+                PurchaseOrderID = selectedPurchaseOrderID
             };
-
-            updateForm.ShowDialog();
-
-            // Refresh DataGridView after updating
+            updatePurchaseOrderForm.ShowDialog();
             LoadPurchaseOrders();
         }
 
@@ -108,33 +208,33 @@ namespace Mufaddal_Traders
         {
             if (dgvDisplay.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select rows to delete.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a row to delete.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Are you sure you want to delete the selected rows?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            int selectedPurchaseOrderID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["PurchaseOrderID"].Value);
 
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete Purchase Order ID {selectedPurchaseOrderID}?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-
-                    foreach (DataGridViewRow row in dgvDisplay.SelectedRows)
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        int purchaseOrderID = Convert.ToInt32(row.Cells["PurchaseOrderID"].Value);
+                        conn.Open();
                         string query = "DELETE FROM Purchase_Orders WHERE PurchaseOrderID = @PurchaseOrderID";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@PurchaseOrderID", selectedPurchaseOrderID);
+                        cmd.ExecuteNonQuery();
 
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@PurchaseOrderID", purchaseOrderID);
-                            cmd.ExecuteNonQuery();
-                        }
+                        MessageBox.Show("Purchase order deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadPurchaseOrders();
                     }
                 }
-
-                // Refresh DataGridView after deletion
-                LoadPurchaseOrders();
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while deleting the purchase order: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
