@@ -259,31 +259,82 @@ namespace Mufaddal_Traders
             }
         }
 
-
         /// <summary>
-        /// Generates a new unique PurchaseOrderID without a transaction (for Load event).
+        /// Generates a new unique PurchaseOrderID (no transaction).
+        /// Finds the smallest missing ID starting from 1.
         /// </summary>
         private int GeneratePurchaseOrderID()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
-                string query = "SELECT ISNULL(MAX(PurchaseOrderID), 0) + 1 FROM Purchase_Orders";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                try
                 {
-                    return (int)cmd.ExecuteScalar();
+                    conn.Open();
+
+                    // Query to find the smallest available PurchaseOrderID starting from 1
+                    string query = @"
+                SELECT TOP 1 Number
+                FROM (
+                    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Number
+                    FROM master.dbo.spt_values
+                ) AS Numbers
+                WHERE Number NOT IN (SELECT PurchaseOrderID FROM Purchase_Orders)
+                ORDER BY Number;";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    object result = cmd.ExecuteScalar();
+
+                    // If there's a missing ID, return it; otherwise default to 1
+                    return (result != null && result != DBNull.Value)
+                        ? Convert.ToInt32(result)
+                        : 1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error generating PurchaseOrderID: " + ex.Message,
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 1; // fallback if something goes wrong
                 }
             }
         }
 
+
+        /// <summary>
+        /// Generates a new unique PurchaseOrderID using the same 
+        /// smallest-missing-ID logic, but within the provided SqlTransaction.
+        /// </summary>
         private int GeneratePurchaseOrderID(SqlConnection conn, SqlTransaction transaction)
         {
-            string query = "SELECT ISNULL(MAX(PurchaseOrderID), 0) + 1 FROM Purchase_Orders";
-            using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+            try
             {
-                return (int)cmd.ExecuteScalar();
+                // Same logic, but run in the context of the existing transaction
+                string query = @"
+            SELECT TOP 1 Number
+            FROM (
+                SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Number
+                FROM master.dbo.spt_values
+            ) AS Numbers
+            WHERE Number NOT IN (SELECT PurchaseOrderID FROM Purchase_Orders)
+            ORDER BY Number;";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                {
+                    object result = cmd.ExecuteScalar();
+
+                    // If there's a missing ID, return it; otherwise default to 1
+                    return (result != null && result != DBNull.Value)
+                        ? Convert.ToInt32(result)
+                        : 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating PurchaseOrderID (transaction): " + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1; // fallback if something goes wrong
             }
         }
+
 
 
 

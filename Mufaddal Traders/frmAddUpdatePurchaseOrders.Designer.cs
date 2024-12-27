@@ -198,10 +198,12 @@ namespace Mufaddal_Traders
             // 
             // txtSupplierName
             // 
+            this.txtSupplierName.BackColor = System.Drawing.Color.BurlyWood;
             this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplierName.Location = new System.Drawing.Point(177, 505);
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.ReadOnly = true;
             this.txtSupplierName.Size = new System.Drawing.Size(167, 33);
             this.txtSupplierName.TabIndex = 103;
             // 
@@ -323,10 +325,12 @@ namespace Mufaddal_Traders
             // 
             // txtPO_ID
             // 
+            this.txtPO_ID.BackColor = System.Drawing.Color.BurlyWood;
             this.txtPO_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPO_ID.Location = new System.Drawing.Point(17, 49);
             this.txtPO_ID.Margin = new System.Windows.Forms.Padding(2);
             this.txtPO_ID.Name = "txtPO_ID";
+            this.txtPO_ID.ReadOnly = true;
             this.txtPO_ID.Size = new System.Drawing.Size(108, 28);
             this.txtPO_ID.TabIndex = 217;
             // 
@@ -364,10 +368,12 @@ namespace Mufaddal_Traders
             // 
             // txtItemName3
             // 
+            this.txtItemName3.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemName3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName3.Location = new System.Drawing.Point(233, 132);
             this.txtItemName3.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName3.Name = "txtItemName3";
+            this.txtItemName3.ReadOnly = true;
             this.txtItemName3.Size = new System.Drawing.Size(167, 33);
             this.txtItemName3.TabIndex = 92;
             // 
@@ -384,10 +390,12 @@ namespace Mufaddal_Traders
             // 
             // txtItemName4
             // 
+            this.txtItemName4.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemName4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName4.Location = new System.Drawing.Point(233, 173);
             this.txtItemName4.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName4.Name = "txtItemName4";
+            this.txtItemName4.ReadOnly = true;
             this.txtItemName4.Size = new System.Drawing.Size(167, 33);
             this.txtItemName4.TabIndex = 95;
             // 
@@ -402,10 +410,12 @@ namespace Mufaddal_Traders
             // 
             // txtItemName1
             // 
+            this.txtItemName1.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemName1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName1.Location = new System.Drawing.Point(233, 49);
             this.txtItemName1.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName1.Name = "txtItemName1";
+            this.txtItemName1.ReadOnly = true;
             this.txtItemName1.Size = new System.Drawing.Size(167, 33);
             this.txtItemName1.TabIndex = 82;
             // 
@@ -466,10 +476,12 @@ namespace Mufaddal_Traders
             // 
             // txtItemName2
             // 
+            this.txtItemName2.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemName2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName2.Location = new System.Drawing.Point(233, 89);
             this.txtItemName2.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName2.Name = "txtItemName2";
+            this.txtItemName2.ReadOnly = true;
             this.txtItemName2.Size = new System.Drawing.Size(167, 33);
             this.txtItemName2.TabIndex = 89;
             // 
@@ -516,10 +528,12 @@ namespace Mufaddal_Traders
             // 
             // txtItemName5
             // 
+            this.txtItemName5.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemName5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName5.Location = new System.Drawing.Point(233, 215);
             this.txtItemName5.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName5.Name = "txtItemName5";
+            this.txtItemName5.ReadOnly = true;
             this.txtItemName5.Size = new System.Drawing.Size(167, 33);
             this.txtItemName5.TabIndex = 100;
             // 

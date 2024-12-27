@@ -61,6 +61,8 @@ namespace Mufaddal_Traders
             this.label3 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,8 +80,6 @@ namespace Mufaddal_Traders
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -144,10 +144,12 @@ namespace Mufaddal_Traders
             // 
             // txtSupplierName
             // 
+            this.txtSupplierName.BackColor = System.Drawing.Color.BurlyWood;
             this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplierName.Location = new System.Drawing.Point(219, 260);
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.ReadOnly = true;
             this.txtSupplierName.Size = new System.Drawing.Size(305, 33);
             this.txtSupplierName.TabIndex = 206;
             // 
@@ -164,6 +166,46 @@ namespace Mufaddal_Traders
             this.picHeader.Size = new System.Drawing.Size(1066, 38);
             this.picHeader.TabIndex = 214;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Animated = true;
+            this.btnMinimize.AutoRoundedCorners = true;
+            this.btnMinimize.BorderRadius = 12;
+            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
+            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnMinimize.Location = new System.Drawing.Point(41, 5);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
+            this.btnMinimize.TabIndex = 40;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Animated = true;
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BorderRadius = 12;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
+            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnClose.Location = new System.Drawing.Point(9, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 26);
+            this.btnClose.TabIndex = 24;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label6
             // 
@@ -267,10 +309,12 @@ namespace Mufaddal_Traders
             // 
             // txtItemName
             // 
+            this.txtItemName.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName.Location = new System.Drawing.Point(219, 464);
             this.txtItemName.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemName.Name = "txtItemName";
+            this.txtItemName.ReadOnly = true;
             this.txtItemName.Size = new System.Drawing.Size(305, 33);
             this.txtItemName.TabIndex = 225;
             // 
@@ -288,6 +332,7 @@ namespace Mufaddal_Traders
             // 
             // txtContractID
             // 
+            this.txtContractID.BackColor = System.Drawing.Color.BurlyWood;
             this.txtContractID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContractID.Location = new System.Drawing.Point(54, 196);
             this.txtContractID.Margin = new System.Windows.Forms.Padding(2);
@@ -428,52 +473,12 @@ namespace Mufaddal_Traders
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Animated = true;
-            this.btnMinimize.AutoRoundedCorners = true;
-            this.btnMinimize.BorderRadius = 12;
-            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
-            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnMinimize.Location = new System.Drawing.Point(41, 5);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
-            this.btnMinimize.TabIndex = 40;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Animated = true;
-            this.btnClose.AutoRoundedCorners = true;
-            this.btnClose.BorderRadius = 12;
-            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClose.FillColor = System.Drawing.Color.Transparent;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
-            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnClose.Location = new System.Drawing.Point(9, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 26);
-            this.btnClose.TabIndex = 24;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // frmAddUpdatePurchaseContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1076, 750);
+            this.ClientSize = new System.Drawing.Size(1076, 761);
             this.ControlBox = false;
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnUpdate);

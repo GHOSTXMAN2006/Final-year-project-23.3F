@@ -19,7 +19,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         // Connection string for SQL Server
-        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private string connectionString = DatabaseConfig.ConnectionString;
 
         public frmAddUpdatePurchaseContract()
         {
@@ -167,14 +167,15 @@ namespace Mufaddal_Traders
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT MAX(PurchaseContractID) FROM Purchase_Contract";
+                string query = "SELECT ISNULL(MAX(PurchaseContractID), 0) + 1 FROM Purchase_Contract";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
                 object result = cmd.ExecuteScalar();
-                int newContractID = (result != DBNull.Value) ? Convert.ToInt32(result) + 1 : 1;
+                int newContractID = (result != DBNull.Value) ? Convert.ToInt32(result) : 1;
                 txtContractID.Text = newContractID.ToString();
             }
         }
+
 
         // Search functionality - search by PurchaseContractID or Supplier Name
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -232,20 +233,15 @@ namespace Mufaddal_Traders
             }
         }
 
-
-        // Save functionality to save contract data
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            //do not remove this evennt. keep this as it is
-        }
-
         // Update functionality to update contract data
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (ValidateInputs() && int.TryParse(txtContractID.Text, out int contractID))
             {
                 SqlParameter[] parameters = GetSqlParameters();
-                parameters[0] = new SqlParameter("@PurchaseContractID", contractID); // Use PurchaseContractID for the update query
+                // Replace the last parameter in the array with the contract ID for the update
+                parameters[parameters.Length - 1] = new SqlParameter("@PurchaseContractID", contractID); // Use PurchaseContractID for the update query
+
                 ExecuteQuery("UPDATE Purchase_Contract SET SupplierID = @SupplierID, SupplierName = @SupplierName, StartDate = @StartDate, " +
                              "EndDate = @EndDate, ItemID = @ItemID, Item_Name = @Item_Name, Description = @Description WHERE PurchaseContractID = @PurchaseContractID", parameters);
             }
@@ -254,6 +250,8 @@ namespace Mufaddal_Traders
                 MessageBox.Show("Please ensure all fields are filled and a valid PurchaseContractID is entered.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
 
         // Clear the form
         private void btnClear_Click(object sender, EventArgs e)
@@ -284,9 +282,12 @@ namespace Mufaddal_Traders
                 return false;
             }
 
-            return !(string.IsNullOrWhiteSpace(txtStartDate.Text) || string.IsNullOrWhiteSpace(txtEndDate.Text) ||
-                     txtSupplierID.SelectedIndex == -1 || txtItemID.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtDescription.Text));
+            return !(string.IsNullOrWhiteSpace(txtStartDate.Text) ||
+                     string.IsNullOrWhiteSpace(txtEndDate.Text) ||
+                     txtItemID.SelectedIndex == -1 ||
+                     string.IsNullOrWhiteSpace(txtDescription.Text));
         }
+
 
         // Function to get SQL parameters from text fields
         private SqlParameter[] GetSqlParameters()
@@ -296,11 +297,15 @@ namespace Mufaddal_Traders
         new SqlParameter("@SupplierName", txtSupplierName.Text.Trim()),
         new SqlParameter("@StartDate", txtStartDate.Value),
         new SqlParameter("@EndDate", txtEndDate.Value),
-        new SqlParameter("@ItemID", txtItemID.SelectedItem), // Changed from SelectedValue to SelectedItem
+        new SqlParameter("@ItemID", txtItemID.SelectedItem), // Ensure correct parameter name
         new SqlParameter("@Item_Name", txtItemName.Text.Trim()),
-        new SqlParameter("@Description", txtDescription.Text.Trim())
+        new SqlParameter("@Description", txtDescription.Text.Trim()),
+        // Placeholder for PurchaseContractID to be set in btnUpdate_Click
+        new SqlParameter("@PurchaseContractID", DBNull.Value)
     };
         }
+
+
 
 
         // do not remove ti=his event.. keep this as it is
@@ -312,13 +317,21 @@ namespace Mufaddal_Traders
         // do not remove ti=his event.. keep this as it is
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            if (ValidateInputs())
+            if (!ValidateInputs())
+                return;
+
+            // Check if the record already exists
+            if (!string.IsNullOrEmpty(txtContractID.Text) && int.TryParse(txtContractID.Text, out int contractID))
             {
-                SqlParameter[] parameters = GetSqlParameters();
-                ExecuteQuery("INSERT INTO Purchase_Contract (SupplierID, SupplierName, StartDate, EndDate, ItemID, Item_Name, Description) " +
-                             "VALUES (@SupplierID, @SupplierName, @StartDate, @EndDate, @ItemID, @Item_Name, @Description)", parameters);
+                MessageBox.Show("This record already exists. Please use the Update button to modify it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            SqlParameter[] parameters = GetSqlParameters();
+            ExecuteQuery("INSERT INTO Purchase_Contract (SupplierID, SupplierName, StartDate, EndDate, ItemID, Item_Name, Description) " +
+                         "VALUES (@SupplierID, @SupplierName, @StartDate, @EndDate, @ItemID, @Item_Name, @Description)", parameters);
         }
+
 
 
         // Execute the query (Insert/Update)

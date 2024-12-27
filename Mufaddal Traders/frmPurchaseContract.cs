@@ -24,7 +24,7 @@ namespace Mufaddal_Traders
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private string connectionString = DatabaseConfig.ConnectionString;
 
 
         public frmPurchaseContract()
@@ -102,24 +102,53 @@ namespace Mufaddal_Traders
             this.Hide();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvDisplay.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Retrieve the selected PurchaseContractID
+            int selectedContractID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["PurchaseContractID"].Value);
+
+            // Ask for confirmation
+            DialogResult confirmation = MessageBox.Show($"Are you sure you want to delete Purchase Contract ID {selectedContractID}?",
+                                                         "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirmation == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string deleteQuery = "DELETE FROM Purchase_Contract WHERE PurchaseContractID = @PurchaseContractID";
+                        SqlCommand cmd = new SqlCommand(deleteQuery, conn);
+                        cmd.Parameters.AddWithValue("@PurchaseContractID", selectedContractID);
+
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Purchase contract deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadPurchaseContracts(); // Refresh the DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to delete the purchase contract. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting the purchase contract: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
 
-            addUpdatePurchaseContract.Show();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnManage_Click(object sender, EventArgs e)
         {
             frmAddUpdatePurchaseContract addUpdatePurchaseContract = new frmAddUpdatePurchaseContract();
 
@@ -158,7 +187,7 @@ namespace Mufaddal_Traders
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"SELECT PurchaseContractID, SupplierID, SupplierName, StartDate, EndDate, ItemID, Item_Name, Description 
-                                 FROM Purchase_Contract";
+                         FROM Purchase_Contract";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable table = new DataTable();
@@ -169,17 +198,8 @@ namespace Mufaddal_Traders
                     adapter.Fill(table);
                     dgvDisplay.DataSource = table;
 
-                    // Format the DataGridView columns
-                    dgvDisplay.Columns["PurchaseContractID"].HeaderText = "Contract ID";
-                    dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
-                    dgvDisplay.Columns["SupplierName"].HeaderText = "Supplier Name";
-                    dgvDisplay.Columns["StartDate"].HeaderText = "Start Date";
-                    dgvDisplay.Columns["EndDate"].HeaderText = "End Date";
-                    dgvDisplay.Columns["ItemID"].HeaderText = "Item ID";
-                    dgvDisplay.Columns["Item_Name"].HeaderText = "Item Name";
-                    dgvDisplay.Columns["Description"].HeaderText = "Description";
-
-                    dgvDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    // Apply consistent DataGridView formatting
+                    ApplyDataGridViewFormatting();
                 }
                 catch (Exception ex)
                 {
@@ -188,24 +208,107 @@ namespace Mufaddal_Traders
             }
         }
 
+
+        private void ApplyDataGridViewFormatting()
+        {
+            // Set column headers
+            dgvDisplay.Columns["PurchaseContractID"].HeaderText = "Contract ID";
+            dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
+            dgvDisplay.Columns["SupplierName"].HeaderText = "Supplier Name";
+            dgvDisplay.Columns["StartDate"].HeaderText = "Start Date";
+            dgvDisplay.Columns["EndDate"].HeaderText = "End Date";
+            dgvDisplay.Columns["ItemID"].HeaderText = "Item ID";
+            dgvDisplay.Columns["Item_Name"].HeaderText = "Item Name";
+            dgvDisplay.Columns["Description"].HeaderText = "Description";
+
+            // Adjust column widths proportionally
+            dgvDisplay.Columns["PurchaseContractID"].Width = (int)(1281 * 0.10); // ~15%
+            dgvDisplay.Columns["SupplierID"].Width = (int)(1281 * 0.10);        // ~15%
+            dgvDisplay.Columns["SupplierName"].Width = (int)(1281 * 0.15);       // ~20%
+            dgvDisplay.Columns["StartDate"].Width = (int)(1281 * 0.15);         // ~15%
+            dgvDisplay.Columns["EndDate"].Width = (int)(1281 * 0.15);           // ~15%
+            dgvDisplay.Columns["ItemID"].Width = (int)(1281 * 0.1);             // ~10%
+            dgvDisplay.Columns["Item_Name"].Width = (int)(1281 * 0.15);          // ~20%
+            dgvDisplay.Columns["Description"].Width = (int)(1281 * 0.25);        // ~30%
+
+            // Set row formatting
+            dgvDisplay.RowTemplate.Height = 40;
+            foreach (DataGridViewRow row in dgvDisplay.Rows)
+            {
+                row.Height = 40;
+            }
+
+            // Set font styles
+            dgvDisplay.DefaultCellStyle.Font = new Font("Arial", 12);
+            dgvDisplay.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold);
+            dgvDisplay.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSeaGreen;
+            dgvDisplay.EnableHeadersVisualStyles = false;
+        }
+
+
+
         private void frmPurchaseContract_Load(object sender, EventArgs e)
         {
+            frmLogin.userType = "Storekeeper";
             // Check the userType and show/hide buttons accordingly
             if (frmLogin.userType != "Storekeeper")
             {
-                btnAdd.Visible = false;
-                btnUpdate.Visible = false;
+                btnManage.Visible = false;
                 btnDelete.Visible = false;
             }
             else
             {
-                btnAdd.Visible = true;
-                btnUpdate.Visible = true;
+                btnManage.Visible = true;
                 btnDelete.Visible = true;
             }
 
 
             LoadPurchaseContracts();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchText = txtSearch.Text.Trim();
+
+                // Ensure the search text is numeric for PurchaseContractID
+                if (!int.TryParse(searchText, out int contractID))
+                {
+                    MessageBox.Show("Please enter a valid numeric Purchase Contract ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string query = @"
+            SELECT PurchaseContractID, SupplierID, SupplierName, StartDate, EndDate, ItemID, Item_Name, Description 
+            FROM Purchase_Contract
+            WHERE PurchaseContractID = @PurchaseContractID";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@PurchaseContractID", contractID);
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable searchResult = new DataTable();
+
+                        conn.Open();
+                        adapter.Fill(searchResult);
+
+                        // Bind the search results to the DataGridView
+                        dgvDisplay.DataSource = searchResult;
+
+                        // Apply consistent formatting
+                        ApplyDataGridViewFormatting();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error during search: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
