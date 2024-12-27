@@ -9,7 +9,7 @@ namespace Mufaddal_Traders
 {
     public partial class frmPurchaseOrder : Form
     {
-        private readonly string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private readonly string connectionString = DatabaseConfig.ConnectionString;
 
         // DLL imports for dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -32,14 +32,12 @@ namespace Mufaddal_Traders
             // Check the userType and show/hide buttons accordingly
             if (frmLogin.userType != "Storekeeper")
             {
-                btnAdd.Visible = false;
-                btnUpdate.Visible = false;
+                btnManage.Visible = false;
                 btnDelete.Visible = false;
             }
             else
             {
-                btnAdd.Visible = true;
-                btnUpdate.Visible = true;
+                btnManage.Visible = true;
                 btnDelete.Visible = true;
             }
 
@@ -128,39 +126,40 @@ namespace Mufaddal_Traders
             {
                 string searchText = txtSearch.Text.Trim();
 
+                // Ensure search text is numeric to match only PurchaseOrderID
+                if (!int.TryParse(searchText, out int purchaseOrderID))
+                {
+                    MessageBox.Show("Please enter a valid numeric Purchase Order ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string query = @"
-                SELECT 
-                    PurchaseOrderID, 
-                    ItemID, 
-                    ItemName, 
-                    ItemQty, 
-                    SupplierID, 
-                    Status
-                FROM Purchase_Orders
-                WHERE 
-                    CAST(PurchaseOrderID AS NVARCHAR) = @Search OR
-                    ItemName LIKE '%' + @Search + '%' OR
-                    CAST(SupplierID AS NVARCHAR) = @Search";
+        SELECT 
+            PurchaseOrderID, 
+            ItemID, 
+            ItemName, 
+            ItemQty, 
+            SupplierID, 
+            Status
+        FROM Purchase_Orders
+        WHERE PurchaseOrderID = @PurchaseOrderID";
 
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@Search", searchText);
+                        cmd.Parameters.AddWithValue("@PurchaseOrderID", purchaseOrderID);
 
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                         DataTable searchResult = new DataTable();
                         adapter.Fill(searchResult);
 
+                        // Bind search results to the DataGridView
                         dgvDisplay.DataSource = searchResult;
 
-                        // Apply consistent row formatting
-                        dgvDisplay.RowTemplate.Height = 40;
-                        foreach (DataGridViewRow row in dgvDisplay.Rows)
-                        {
-                            row.Height = 40;
-                        }
+                        // Maintain consistent DataGridView formatting
+                        ApplyDataGridViewFormatting();
                     }
                 }
                 catch (Exception ex)
@@ -170,39 +169,64 @@ namespace Mufaddal_Traders
             }
         }
 
+        private void ApplyDataGridViewFormatting()
+        {
+            // Set row height
+            dgvDisplay.RowTemplate.Height = 40;
+            foreach (DataGridViewRow row in dgvDisplay.Rows)
+            {
+                row.Height = 40;
+            }
+
+            // Set font styles
+            dgvDisplay.DefaultCellStyle.Font = new Font("Arial", 12);
+
+            // Header styles
+            dgvDisplay.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold);
+            dgvDisplay.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSeaGreen;
+            dgvDisplay.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvDisplay.EnableHeadersVisualStyles = false;
+
+            // Adjust column widths
+            dgvDisplay.Columns["PurchaseOrderID"].Width = (int)(1281 * 0.15); // ~15%
+            dgvDisplay.Columns["ItemID"].Width = (int)(1281 * 0.1);          // ~10%
+            dgvDisplay.Columns["ItemName"].Width = (int)(1281 * 0.3);       // ~30%
+            dgvDisplay.Columns["ItemQty"].Width = (int)(1281 * 0.1);        // ~10%
+            dgvDisplay.Columns["SupplierID"].Width = (int)(1281 * 0.15);    // ~15%
+            dgvDisplay.Columns["Status"].Width = (int)(1281 * 0.2);         // ~20%
+
+            // Apply conditional formatting to Status column
+            foreach (DataGridViewRow row in dgvDisplay.Rows)
+            {
+                if (row.Cells["Status"].Value != null)
+                {
+                    string status = row.Cells["Status"].Value.ToString();
+                    if (status == "N")
+                    {
+                        row.Cells["Status"].Style.ForeColor = Color.Red;
+                    }
+                    else if (status == "Y")
+                    {
+                        row.Cells["Status"].Style.ForeColor = Color.Green;
+                    }
+                }
+            }
+        }
+
+
         private void btnReload_Click(object sender, EventArgs e)
         {
             LoadPurchaseOrders();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnManage_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePurchaseOrders addPurchaseOrderForm = new frmAddUpdatePurchaseOrders
-            {
-                OperationMode = "Add"
-            };
-            addPurchaseOrderForm.ShowDialog();
+            frmAddUpdatePurchaseOrders managePurchaseOrderForm = new frmAddUpdatePurchaseOrders();
+            managePurchaseOrderForm.ShowDialog();
             LoadPurchaseOrders();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (dgvDisplay.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a row to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            int selectedPurchaseOrderID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["PurchaseOrderID"].Value);
-
-            frmAddUpdatePurchaseOrders updatePurchaseOrderForm = new frmAddUpdatePurchaseOrders
-            {
-                OperationMode = "Update",
-                PurchaseOrderID = selectedPurchaseOrderID
-            };
-            updatePurchaseOrderForm.ShowDialog();
-            LoadPurchaseOrders();
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

@@ -271,9 +271,6 @@
   <data name="WhatsApp Image 2024-12-05 at 13.53.17_7db47e1d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp Image 2024-12-05 at 13.53.17_7db47e1d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Login-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Login-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="2795283" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2795283.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -343,6 +340,9 @@
   <data name="wallpaperflare.com_wallpaper (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wallpaperflare.com_wallpaper (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Arrow_Left-512-ezgif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Receipt-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Receipt-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -367,8 +367,8 @@
   <data name="cropped-Logo-2048x1100 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cropped-Logo-2048x1100 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="noImageDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\noImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Login-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Login-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="31148151" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\31148151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -414,6 +414,9 @@
   </data>
   <data name="303640-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\303640-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Create_make_pencil_draw_new_add_edit_update-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Create_make_pencil_draw_new_add_edit_update-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wallpaperflare.com_wallpaper__5_-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wallpaperflare.com_wallpaper__5_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -508,6 +511,9 @@
   <data name="cropped-Logo-2048x1100 (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cropped-Logo-2048x1100 (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="noImageDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="red-circle-round-3d-button-3 (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red-circle-round-3d-button-3 (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -574,7 +580,7 @@
   <data name="Checking boxes-cuate 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checking boxes-cuate 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Arrow_Left-512-ezgif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="254686" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\254686.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

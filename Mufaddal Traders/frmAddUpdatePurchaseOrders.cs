@@ -10,7 +10,7 @@ namespace Mufaddal_Traders
 {
     public partial class frmAddUpdatePurchaseOrders : Form
     {
-        private readonly string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private readonly string connectionString = DatabaseConfig.ConnectionString;
 
         public string OperationMode { get; set; }
         public int PurchaseOrderID { get; set; }
@@ -36,18 +36,33 @@ namespace Mufaddal_Traders
 
         private void frmAddUpdatePurchaseOrders_Load(object sender, EventArgs e)
         {
-            if (OperationMode == "Add")
-            {
-                PurchaseOrderID = GeneratePurchaseOrderID();
-                txtPO_ID.Text = PurchaseOrderID.ToString(); // Display the generated ID in the form
-            }
+            ClearForm();
 
-            // Load suppliers and items on form load
+            // Always operate in Add mode
+            PurchaseOrderID = GeneratePurchaseOrderID();
+            txtPO_ID.Text = PurchaseOrderID.ToString();
+
             LoadSuppliers();
             LoadItems();
         }
 
+        private void ClearForm()
+        {
+            txtPO_ID.Clear();
+            cmbSupplierID.SelectedIndex = -1;
+            txtSupplierName.Clear();
 
+            for (int i = 1; i <= 5; i++) // Assuming max 5 items
+            {
+                ComboBox cmbItemID = (ComboBox)this.Controls.Find($"cmbItemID{i}", true).FirstOrDefault();
+                TextBox txtItemName = (TextBox)this.Controls.Find($"txtItemName{i}", true).FirstOrDefault();
+                TextBox txtQty = (TextBox)this.Controls.Find($"txtQty{i}", true).FirstOrDefault();
+
+                if (cmbItemID != null) cmbItemID.SelectedIndex = -1;
+                if (txtItemName != null) txtItemName.Clear();
+                if (txtQty != null) txtQty.Clear();
+            }
+        }
 
         private void LoadSuppliers()
         {
@@ -174,24 +189,46 @@ namespace Mufaddal_Traders
 
                 try
                 {
-                    // Generate a unique PurchaseOrderID
-                    int purchaseOrderID = GeneratePurchaseOrderID(conn, transaction);
-
-                    // Get all the items from the form
+                    int purchaseOrderID = int.TryParse(txtPO_ID.Text, out int id) ? id : 0;
                     var items = GetItems();
+
                     if (items.Count == 0)
                     {
                         MessageBox.Show("No items to save. Please add at least one item.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // Insert each item under the same PurchaseOrderID
+                    // Check if the PurchaseOrderID exists in the database
+                    string checkQuery = "SELECT COUNT(1) FROM Purchase_Orders WHERE PurchaseOrderID = @PurchaseOrderID";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn, transaction))
+                    {
+                        checkCmd.Parameters.AddWithValue("@PurchaseOrderID", purchaseOrderID);
+                        bool isUpdate = (int)checkCmd.ExecuteScalar() > 0;
+
+                        if (isUpdate)
+                        {
+                            // Update existing purchase order
+                            string deleteQuery = "DELETE FROM Purchase_Orders WHERE PurchaseOrderID = @PurchaseOrderID";
+                            using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn, transaction))
+                            {
+                                deleteCmd.Parameters.AddWithValue("@PurchaseOrderID", purchaseOrderID);
+                                deleteCmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // Generate a new PurchaseOrderID if it doesn't exist
+                            purchaseOrderID = GeneratePurchaseOrderID(conn, transaction);
+                        }
+                    }
+
+                    // Insert updated or new purchase order details
                     foreach (var item in items)
                     {
-                        string queryInsertItem = "INSERT INTO Purchase_Orders (PurchaseOrderID, ItemID, ItemName, ItemQty, SupplierID, Status) " +
-                                                 "VALUES (@PurchaseOrderID, @ItemID, @ItemName, @ItemQty, @SupplierID, @Status);";
+                        string insertQuery = "INSERT INTO Purchase_Orders (PurchaseOrderID, ItemID, ItemName, ItemQty, SupplierID, Status) " +
+                                             "VALUES (@PurchaseOrderID, @ItemID, @ItemName, @ItemQty, @SupplierID, @Status)";
 
-                        using (SqlCommand cmd = new SqlCommand(queryInsertItem, conn, transaction))
+                        using (SqlCommand cmd = new SqlCommand(insertQuery, conn, transaction))
                         {
                             cmd.Parameters.AddWithValue("@PurchaseOrderID", purchaseOrderID);
                             cmd.Parameters.AddWithValue("@ItemID", item.ItemID);
@@ -221,6 +258,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
         /// <summary>
         /// Generates a new unique PurchaseOrderID without a transaction (for Load event).
@@ -316,5 +354,117 @@ namespace Mufaddal_Traders
         {
             this.Close();
         }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Execute when Enter key is pressed
+            {
+                if (int.TryParse(txtSearch.Text.Trim(), out int purchaseOrderID))
+                {
+                    LoadPurchaseOrderData(purchaseOrderID);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid Purchase Order ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void LoadPurchaseOrderData(int purchaseOrderID)
+        {
+            ClearForm(); // Clear the form before loading new data
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = @"
+            SELECT 
+                PurchaseOrderID, 
+                SupplierID, 
+                ItemID, 
+                ItemName, 
+                ItemQty
+            FROM Purchase_Orders
+            WHERE PurchaseOrderID = @PurchaseOrderID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PurchaseOrderID", purchaseOrderID);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        int rowIndex = 1; // Start with the first item row
+                        while (reader.Read())
+                        {
+                            // Populate Supplier details (only once)
+                            if (rowIndex == 1)
+                            {
+                                txtPO_ID.Text = reader["PurchaseOrderID"].ToString();
+                                cmbSupplierID.SelectedValue = reader["SupplierID"];
+                                txtSupplierName.Text = GetSupplierName(Convert.ToInt32(reader["SupplierID"]));
+                            }
+
+                            // Populate item-specific details
+                            ComboBox cmbItemID = (ComboBox)this.Controls.Find($"cmbItemID{rowIndex}", true).FirstOrDefault();
+                            TextBox txtItemName = (TextBox)this.Controls.Find($"txtItemName{rowIndex}", true).FirstOrDefault();
+                            TextBox txtQty = (TextBox)this.Controls.Find($"txtQty{rowIndex}", true).FirstOrDefault();
+
+                            if (cmbItemID != null && txtItemName != null && txtQty != null)
+                            {
+                                cmbItemID.SelectedValue = reader["ItemID"];
+                                txtItemName.Text = reader["ItemName"].ToString();
+                                txtQty.Text = reader["ItemQty"].ToString();
+                            }
+
+                            rowIndex++; // Move to the next item row
+                        }
+                    }
+                }
+            }
+        }
+
+        private string GetSupplierName(int supplierID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT Name FROM tblManageSuppliers WHERE SupplierID = @SupplierID";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                    return cmd.ExecuteScalar()?.ToString() ?? string.Empty;
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Clear Purchase Order ID
+            txtPO_ID.Clear();
+
+            // Reset Supplier details
+            cmbSupplierID.SelectedIndex = -1; // Deselect supplier
+            txtSupplierName.Clear();
+
+            // Reset Items
+            for (int i = 1; i <= 5; i++) // Assuming max 5 items
+            {
+                ComboBox cmbItemID = (ComboBox)this.Controls.Find($"cmbItemID{i}", true).FirstOrDefault();
+                TextBox txtItemName = (TextBox)this.Controls.Find($"txtItemName{i}", true).FirstOrDefault();
+                TextBox txtQty = (TextBox)this.Controls.Find($"txtQty{i}", true).FirstOrDefault();
+
+                if (cmbItemID != null) cmbItemID.SelectedIndex = -1; // Deselect item
+                if (txtItemName != null) txtItemName.Clear();        // Clear item name
+                if (txtQty != null) txtQty.Clear();                 // Clear quantity
+            }
+
+            // Reset the search field (if applicable)
+            txtSearch.Clear();
+
+            // Optionally reinitialize the form to default state
+            PurchaseOrderID = GeneratePurchaseOrderID();
+            txtPO_ID.Text = PurchaseOrderID.ToString();
+        }
+
     }
 }

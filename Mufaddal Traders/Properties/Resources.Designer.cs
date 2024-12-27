@@ -73,6 +73,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _254686 {
+            get {
+                object obj = ResourceManager.GetObject("254686", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2661440 {
             get {
                 object obj = ResourceManager.GetObject("2661440", resourceCulture);
@@ -507,6 +517,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap content_send_icon_1320087227200139227_1 {
             get {
                 object obj = ResourceManager.GetObject("content+send+icon-1320087227200139227 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Create_make_pencil_draw_new_add_edit_update_512 {
+            get {
+                object obj = ResourceManager.GetObject("Create_make_pencil_draw_new_add_edit_update-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

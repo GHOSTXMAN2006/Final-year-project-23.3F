@@ -1085,5 +1085,11 @@
   <ItemGroup>
     <None Include="Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create_make_pencil_draw_new_add_edit_update-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\254686.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
