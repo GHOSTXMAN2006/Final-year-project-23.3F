@@ -103,15 +103,81 @@ namespace Mufaddal_Traders
             this.Hide();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-
-        }
-        
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // Ensure at least one row is selected
+            if (dgvDisplay.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select one or more rows to delete.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            // Confirm deletion
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete the selected record(s)?",
+                "Delete Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+
+                        // Use a transaction so multiple deletions act atomically
+                        using (SqlTransaction transaction = conn.BeginTransaction())
+                        {
+                            try
+                            {
+                                foreach (DataGridViewRow row in dgvDisplay.SelectedRows)
+                                {
+                                    // Retrieve the SupplierID from the row
+                                    int supplierID = Convert.ToInt32(row.Cells["SupplierID"].Value);
+
+                                    // Prepare and execute the DELETE command
+                                    string deleteQuery = @"
+                                DELETE FROM tblManageSuppliers
+                                WHERE SupplierID = @SupplierID
+                            ";
+
+                                    using (SqlCommand cmd = new SqlCommand(deleteQuery, conn, transaction))
+                                    {
+                                        cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+
+                                // Commit the transaction if all deletions succeed
+                                transaction.Commit();
+                                MessageBox.Show("Record(s) deleted successfully!",
+                                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception ex)
+                            {
+                                // Roll back if anything fails
+                                transaction.Rollback();
+                                MessageBox.Show($"An error occurred while deleting: {ex.Message}",
+                                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
+                    // Finally, reload the updated table
+                    LoadSupplierData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An unexpected error occurred: {ex.Message}",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -154,6 +220,7 @@ namespace Mufaddal_Traders
 
             LoadSupplierData();
 
+            frmLogin.userType = "Storekeeper";
 
             // Check the userType and show/hide buttons accordingly
             if (frmLogin.userType != "Storekeeper")
@@ -171,36 +238,63 @@ namespace Mufaddal_Traders
 
         private void LoadSupplierData()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    // Define your query here to get the data (for example from the Suppliers table)
-                    string query = "SELECT SupplierID, Name AS SupplierName, Address AS SupplierAddress, Telephone AS SupplierContact FROM tblManageSuppliers";
+                    // Pull all fields from tblManageSuppliers
+                    string query = @"
+                SELECT 
+                    SupplierID,
+                    Name,
+                    Telephone,
+                    Email,
+                    Address,
+                    [Description]
+                FROM tblManageSuppliers
+            ";
 
-                    // Create a DataAdapter to fetch the data
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    adapter.Fill(dt);
 
-                    // Set the DataSource of the DataGridView to the DataTable
+                    // Bind to DataGridView
                     dgvDisplay.DataSource = dt;
 
-                    // Optionally, you can adjust the column headers if needed
-                    dgvDisplay.Columns["SupplierID"].HeaderText = "Supplier ID";
-                    dgvDisplay.Columns["SupplierName"].HeaderText = "Supplier Name";
-                    dgvDisplay.Columns["SupplierAddress"].HeaderText = "Supplier Address";
-                    dgvDisplay.Columns["SupplierContact"].HeaderText = "Supplier Contact";
+                    // -- Apply DataGridView formatting --
 
-                    // Resize columns to fit the data and make the grid more readable
-                    dgvDisplay.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading suppliers: " + ex.Message);
+                    // Row heights
+                    dgvDisplay.RowTemplate.Height = 40;
+                    foreach (DataGridViewRow row in dgvDisplay.Rows)
+                    {
+                        row.Height = 40;
+                    }
+
+                    // Basic font and styling
+                    dgvDisplay.DefaultCellStyle.Font = new Font("Arial", 12);
+
+                    // Header styling
+                    dgvDisplay.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold);
+                    dgvDisplay.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                    dgvDisplay.EnableHeadersVisualStyles = false;
+
+                    // Example column widths (adjust as you like)
+                    dgvDisplay.Columns["SupplierID"].Width = 115;
+                    dgvDisplay.Columns["Name"].Width = 160;
+                    dgvDisplay.Columns["Telephone"].Width = 125;
+                    dgvDisplay.Columns["Email"].Width = 200;
+                    dgvDisplay.Columns["Address"].Width = 300;
+                    dgvDisplay.Columns["Description"].Width = 336;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading suppliers: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private void btnReload_Click(object sender, EventArgs e)
         {
@@ -212,5 +306,89 @@ namespace Mufaddal_Traders
             frmAddUpdateSuppliers addUpdateSuppliers = new frmAddUpdateSuppliers();
             addUpdateSuppliers.Show();
         }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchText = txtSearch.Text.Trim();
+
+                // If search text is empty, reload all data
+                if (string.IsNullOrWhiteSpace(searchText))
+                {
+                    LoadSupplierData();
+                    return;
+                }
+
+                string query = @"
+            SELECT 
+                SupplierID,
+                Name,
+                Telephone,
+                Email,
+                Address,
+                [Description]
+            FROM tblManageSuppliers
+            WHERE 
+                SupplierID = @SupplierID OR 
+                Name LIKE '%' + @Name + '%'
+        ";
+
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        SqlCommand cmd = new SqlCommand(query, conn);
+
+                        // Determine whether to search by SupplierID or Name
+                        if (int.TryParse(searchText, out int supplierID))
+                        {
+                            // If numeric, search by SupplierID
+                            cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                            cmd.Parameters.AddWithValue("@Name", DBNull.Value);
+                        }
+                        else
+                        {
+                            // Otherwise, search by Name
+                            cmd.Parameters.AddWithValue("@SupplierID", DBNull.Value);
+                            cmd.Parameters.AddWithValue("@Name", searchText);
+                        }
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable searchResult = new DataTable();
+                        adapter.Fill(searchResult);
+
+                        // Bind results to DataGridView
+                        dgvDisplay.DataSource = searchResult;
+
+                        // Apply formatting to DataGridView
+                        dgvDisplay.RowTemplate.Height = 40;
+                        foreach (DataGridViewRow row in dgvDisplay.Rows)
+                        {
+                            row.Height = 40;
+                        }
+
+                        dgvDisplay.DefaultCellStyle.Font = new Font("Arial", 12);
+                        dgvDisplay.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 14, FontStyle.Bold);
+                        dgvDisplay.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSeaGreen;
+                        dgvDisplay.EnableHeadersVisualStyles = false;
+
+                        dgvDisplay.Columns["SupplierID"].Width = 115;
+                        dgvDisplay.Columns["Name"].Width = 160;
+                        dgvDisplay.Columns["Telephone"].Width = 125;
+                        dgvDisplay.Columns["Email"].Width = 200;
+                        dgvDisplay.Columns["Address"].Width = 300;
+                        dgvDisplay.Columns["Description"].Width = 336;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred during search: {ex.Message}",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
     }
 }

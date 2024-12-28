@@ -28,7 +28,6 @@ namespace Mufaddal_Traders
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
-            frmLogin.userType = "Storekeeper";
             // Check the userType and show/hide buttons accordingly
             if (frmLogin.userType != "Storekeeper")
             {

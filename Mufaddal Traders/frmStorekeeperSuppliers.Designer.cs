@@ -29,11 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStorekeeperSuppliers));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvDisplay = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
@@ -50,9 +46,10 @@
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnManage = new Guna.UI2.WinForms.Guna2Button();
             this.btnReload = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
+            this.dgvDisplay = new System.Windows.Forms.DataGridView();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -63,58 +60,6 @@
             this.label2.Size = new System.Drawing.Size(1303, 13);
             this.label2.TabIndex = 187;
             this.label2.Text = resources.GetString("label2.Text");
-            // 
-            // dgvDisplay
-            // 
-            this.dgvDisplay.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDisplay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDisplay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDisplay.ColumnHeadersHeight = 4;
-            this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDisplay.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvDisplay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.Location = new System.Drawing.Point(99, 170);
-            this.dgvDisplay.Name = "dgvDisplay";
-            this.dgvDisplay.RowHeadersVisible = false;
-            this.dgvDisplay.Size = new System.Drawing.Size(1280, 660);
-            this.dgvDisplay.TabIndex = 190;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvDisplay.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvDisplay.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvDisplay.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDisplay.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDisplay.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvDisplay.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvDisplay.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvDisplay.ThemeStyle.ReadOnly = false;
-            this.dgvDisplay.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDisplay.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDisplay.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDisplay.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvDisplay.ThemeStyle.RowsStyle.Height = 22;
-            this.dgvDisplay.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDisplay.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // label1
             // 
@@ -349,7 +294,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
-            this.txtSearch.Location = new System.Drawing.Point(1121, 48);
+            this.txtSearch.Location = new System.Drawing.Point(1121, 49);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -359,6 +304,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(258, 38);
             this.txtSearch.TabIndex = 188;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnDelete
             // 
@@ -376,7 +322,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = global::Mufaddal_Traders.Properties.Resources.delete;
             this.btnDelete.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnDelete.Location = new System.Drawing.Point(1051, 113);
+            this.btnDelete.Location = new System.Drawing.Point(1102, 113);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 38);
@@ -398,8 +344,8 @@
             this.btnManage.FillColor = System.Drawing.Color.MediumTurquoise;
             this.btnManage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnManage.ForeColor = System.Drawing.Color.White;
-            this.btnManage.Image = global::Mufaddal_Traders.Properties.Resources._2661440;
-            this.btnManage.Location = new System.Drawing.Point(1193, 113);
+            this.btnManage.Image = global::Mufaddal_Traders.Properties.Resources.Create_make_pencil_draw_new_add_edit_update_512;
+            this.btnManage.Location = new System.Drawing.Point(1223, 114);
             this.btnManage.Margin = new System.Windows.Forms.Padding(2);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(156, 38);
@@ -420,11 +366,24 @@
             this.btnReload.ForeColor = System.Drawing.Color.White;
             this.btnReload.Image = global::Mufaddal_Traders.Properties.Resources.reload_page_icon_vector;
             this.btnReload.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnReload.Location = new System.Drawing.Point(977, 113);
+            this.btnReload.Location = new System.Drawing.Point(159, 112);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(38, 38);
             this.btnReload.TabIndex = 192;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // dgvDisplay
+            // 
+            this.dgvDisplay.AllowUserToAddRows = false;
+            this.dgvDisplay.AllowUserToDeleteRows = false;
+            this.dgvDisplay.AllowUserToResizeColumns = false;
+            this.dgvDisplay.AllowUserToResizeRows = false;
+            this.dgvDisplay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(222)))), ((int)(((byte)(211)))));
+            this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisplay.Location = new System.Drawing.Point(98, 166);
+            this.dgvDisplay.Name = "dgvDisplay";
+            this.dgvDisplay.Size = new System.Drawing.Size(1281, 664);
+            this.dgvDisplay.TabIndex = 231;
             // 
             // frmStorekeeperSuppliers
             // 
@@ -432,10 +391,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
             this.ControlBox = false;
+            this.Controls.Add(this.dgvDisplay);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnManage);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvDisplay);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
@@ -447,9 +406,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStorekeeperSuppliers";
             this.Load += new System.EventHandler(this.frmStorekeeperSuppliers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
             this.picHeader.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,7 +423,6 @@
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private Guna.UI2.WinForms.Guna2Button btnClose;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDisplay;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.Label label1;
@@ -475,5 +433,6 @@
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private Guna.UI2.WinForms.Guna2Button btnManage;
         private Guna.UI2.WinForms.Guna2Button btnReload;
+        private System.Windows.Forms.DataGridView dgvDisplay;
     }
 }

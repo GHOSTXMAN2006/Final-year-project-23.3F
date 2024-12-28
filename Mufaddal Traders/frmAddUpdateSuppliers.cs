@@ -20,7 +20,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         // Connection string for SQL Server
-        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
+        private string connectionString = DatabaseConfig.ConnectionString;
 
         public frmAddUpdateSuppliers()
         {
@@ -70,6 +70,7 @@ namespace Mufaddal_Traders
         }
 
         // Save button functionality
+        // Save button functionality
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateInputs())
@@ -78,11 +79,33 @@ namespace Mufaddal_Traders
                 return;
             }
 
+            // Get the next available SupplierID
+            int supplierID = GetNextSupplierID();
+
+            // Add SupplierID to the parameters
             SqlParameter[] parameters = GetSqlParameters();
-            ExecuteQuery("INSERT INTO tblManageSuppliers (Name, Telephone, Email, Address, Description) " +
-                         "VALUES (@Name, @Telephone, @Email, @Address, @Description)",
-                         parameters);
+
+            // Resize the array and add SupplierID
+            SqlParameter[] updatedParameters = new SqlParameter[parameters.Length + 1];
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                updatedParameters[i] = parameters[i];
+            }
+            updatedParameters[parameters.Length] = new SqlParameter("@SupplierID", supplierID);
+
+            // Save to the database with IDENTITY_INSERT enabled
+            ExecuteQuery(
+                "INSERT INTO tblManageSuppliers (SupplierID, Name, Telephone, Email, Address, Description) " +
+                "VALUES (@SupplierID, @Name, @Telephone, @Email, @Address, @Description)",
+                updatedParameters,
+                true // Enable IDENTITY_INSERT
+            );
+
+            // Update the SupplierID textbox
+            txtID.Text = GetNextSupplierID().ToString();
         }
+
+
 
         // Update button functionality
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -93,16 +116,23 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            // Get the parameters for the SQL query
+            // Get SQL parameters
             SqlParameter[] parameters = GetSqlParameters();
 
-            // Add the SupplierID parameter for the update query
-            // The SupplierID must be the last parameter for the WHERE clause
-            Array.Resize(ref parameters, parameters.Length + 1);
-            parameters[parameters.Length - 1] = new SqlParameter("@SupplierID", supplierId);
+            // Resize the array and add SupplierID
+            SqlParameter[] updatedParameters = new SqlParameter[parameters.Length + 1];
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                updatedParameters[i] = parameters[i];
+            }
+            updatedParameters[parameters.Length] = new SqlParameter("@SupplierID", supplierId);
 
-            ExecuteQuery("UPDATE tblManageSuppliers SET Name = @Name, Telephone = @Telephone, Email = @Email, Address = @Address, Description = @Description WHERE SupplierID = @SupplierID", parameters);
+            // Update the database
+            ExecuteQuery("UPDATE tblManageSuppliers SET Name = @Name, Telephone = @Telephone, Email = @Email, Address = @Address, Description = @Description " +
+                         "WHERE SupplierID = @SupplierID",
+                         updatedParameters);
         }
+
 
 
         // Clear fields button functionality
@@ -145,14 +175,23 @@ namespace Mufaddal_Traders
         }
 
 
-    // Execute SQL query with provided parameters
-    private void ExecuteQuery(string query, SqlParameter[] parameters)
+        // Execute SQL query with provided parameters
+        private void ExecuteQuery(string query, SqlParameter[] parameters, bool enableIdentityInsert = false)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
+                    if (enableIdentityInsert)
+                    {
+                        // Enable IDENTITY_INSERT
+                        using (SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT tblManageSuppliers ON;", conn))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddRange(parameters);
@@ -162,11 +201,19 @@ namespace Mufaddal_Traders
                             MessageBox.Show("Operation successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearFields();
                             txtID.Text = GetNextSupplierID().ToString(); // Auto-generate SupplierID again
-
                         }
                         else
                         {
                             MessageBox.Show("Operation failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    if (enableIdentityInsert)
+                    {
+                        // Disable IDENTITY_INSERT
+                        using (SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT tblManageSuppliers OFF;", conn))
+                        {
+                            cmd.ExecuteNonQuery();
                         }
                     }
                 }
@@ -176,6 +223,8 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
+
 
         private void frmAddUpdateSuppliers_Load(object sender, EventArgs e)
         {
@@ -245,13 +294,19 @@ namespace Mufaddal_Traders
             int nextID = 1;  // Default starting point if there are no suppliers yet
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT MAX(SupplierID) FROM tblManageSuppliers";
+                string query = @"
+            SELECT TOP 1 Number
+            FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Number
+                  FROM master.dbo.spt_values) AS Numbers
+            WHERE Number NOT IN (SELECT SupplierID FROM tblManageSuppliers)
+            ORDER BY Number";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 try
                 {
                     conn.Open();
                     object result = cmd.ExecuteScalar();
-                    nextID = result != DBNull.Value ? Convert.ToInt32(result) + 1 : 1; // Increment the max ID by 1
+                    nextID = result != DBNull.Value ? Convert.ToInt32(result) : 1; // If no gaps, start at 1
                 }
                 catch (Exception ex)
                 {
