@@ -618,17 +618,85 @@ namespace Mufaddal_Traders
 
             try
             {
-                // Validate inputs
-                if (!ValidateInputs())
+                // Step 1: Validate GRN ID existence
+                Debug.WriteLine("Validating GRN ID...");
+                if (string.IsNullOrWhiteSpace(txtGRN_ID.Text))
                 {
-                    MessageBox.Show("Please ensure all fields are correctly filled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("GRN ID cannot be empty. Please search for a GRN to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                string newPurchaseType = rbPurchaseOrder.Checked ? "O" : "C";
-                string newPurchaseID = cmbPurchaseID.SelectedItem != null ? cmbPurchaseID.SelectedItem.ToString() : cmbPurchaseID.Text;
-                string newWarehouseID = cmbWarehouseID.SelectedItem.ToString();
+                // Check if GRN exists
+                bool grnExists;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string checkGRNQuery = "SELECT COUNT(1) FROM tblGRN WHERE GRN_ID = @GRN_ID";
+                    using (SqlCommand cmd = new SqlCommand(checkGRNQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
+                        grnExists = Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                        Debug.WriteLine($"GRN existence check: GRN_ID={txtGRN_ID.Text}, Exists={grnExists}");
+                    }
+                }
 
+                if (!grnExists)
+                {
+                    MessageBox.Show("GRN ID does not exist. Please create a new GRN instead.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Step 2: Fetch Form Values
+                Debug.WriteLine("Fetching form values...");
+                string newPurchaseType = rbPurchaseOrder.Checked ? "O" : "C";
+                string newPurchaseID = cmbPurchaseID.SelectedItem?.ToString() ?? cmbPurchaseID.Text;
+                string newWarehouseID = cmbWarehouseID.SelectedItem?.ToString();
+                string newGRNType = cmbGRN_Type.SelectedItem?.ToString();
+
+                // Validate Purchase ID and Warehouse ID
+                Debug.WriteLine($"Form values - PurchaseType: {newPurchaseType}, PurchaseID: {newPurchaseID}, WarehouseID: {newWarehouseID}, GRNType: {newGRNType}");
+                if (string.IsNullOrWhiteSpace(newPurchaseID))
+                {
+                    MessageBox.Show("Purchase ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(newWarehouseID))
+                {
+                    MessageBox.Show("Warehouse ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Step 3: Validate and Parse Item IDs and Quantities
+                Debug.WriteLine("Validating Item IDs and Quantities...");
+                string[] itemIDs = txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+                string[] itemQuantities = txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+
+                if (itemIDs.Length != itemQuantities.Length)
+                {
+                    MessageBox.Show("Mismatch between Item IDs and Quantities. Please check your inputs.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                List<int> parsedQuantities = new List<int>();
+                foreach (string qty in itemQuantities)
+                {
+                    if (int.TryParse(qty.Trim(), out int quantity))
+                    {
+                        parsedQuantities.Add(quantity);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Invalid quantity value: '{qty}'. Please enter valid numeric quantities.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Debug.WriteLine($"Invalid quantity detected: {qty}");
+                        return;
+                    }
+                }
+
+                Debug.WriteLine($"Parsed Item IDs: {string.Join(",", itemIDs)}");
+                Debug.WriteLine($"Parsed Quantities: {string.Join(",", parsedQuantities)}");
+
+                // Step 4: Update Database
+                Debug.WriteLine("Connecting to database for update...");
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
@@ -636,50 +704,8 @@ namespace Mufaddal_Traders
                     {
                         try
                         {
-                            // Fetch old GRN details (Item IDs, Quantities, and Warehouse)
-                            string fetchOldDetailsQuery = @"
-                        SELECT ItemID, ItemQuantity, WarehouseID
-                        FROM tblGRN
-                        WHERE GRN_ID = @GRN_ID";
-
-                            Dictionary<string, int> oldQuantities = new Dictionary<string, int>();
-                            string oldWarehouseID = "";
-
-                            using (SqlCommand fetchCmd = new SqlCommand(fetchOldDetailsQuery, conn, transaction))
-                            {
-                                fetchCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
-                                using (SqlDataReader reader = fetchCmd.ExecuteReader())
-                                {
-                                    while (reader.Read())
-                                    {
-                                        oldQuantities[reader["ItemID"].ToString()] = Convert.ToInt32(reader["ItemQuantity"]);
-                                        oldWarehouseID = reader["WarehouseID"].ToString();
-                                    }
-                                }
-                            }
-
-                            // Reverse stock quantities in the old warehouse
-                            foreach (var item in oldQuantities)
-                            {
-                                string reverseStockQuery = @"
-                            UPDATE tblStockBalance
-                            SET ItemQty = ItemQty - @Qty
-                            WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
-
-                                using (SqlCommand cmd = new SqlCommand(reverseStockQuery, conn, transaction))
-                                {
-                                    cmd.Parameters.AddWithValue("@ItemID", item.Key);
-                                    cmd.Parameters.AddWithValue("@WarehouseID", oldWarehouseID);
-                                    cmd.Parameters.AddWithValue("@Qty", item.Value);
-
-                                    cmd.ExecuteNonQuery();
-                                }
-                            }
-
-                            // Update GRN details
-                            string[] itemIDs = txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
-                            string[] itemQuantities = txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
-
+                            // Update GRN record
+                            Debug.WriteLine("Updating GRN record...");
                             string updateGRNQuery = @"
                         UPDATE tblGRN
                         SET PurchaseID = @PurchaseID,
@@ -699,51 +725,26 @@ namespace Mufaddal_Traders
                                 updateCmd.Parameters.AddWithValue("@PurchaseType", newPurchaseType);
                                 updateCmd.Parameters.AddWithValue("@SupplierID", txtSupplierID.Text);
                                 updateCmd.Parameters.AddWithValue("@ItemIDs", string.Join(",", itemIDs));
-                                updateCmd.Parameters.AddWithValue("@ItemQuantities", string.Join(",", itemQuantities));
+                                updateCmd.Parameters.AddWithValue("@ItemQuantities", string.Join(",", parsedQuantities));
                                 updateCmd.Parameters.AddWithValue("@WarehouseID", newWarehouseID);
-                                updateCmd.Parameters.AddWithValue("@GRN_Type", cmbGRN_Type.SelectedItem?.ToString() ?? string.Empty);
+                                updateCmd.Parameters.AddWithValue("@GRN_Type", newGRNType ?? string.Empty);
 
                                 updateCmd.ExecuteNonQuery();
-                            }
-
-                            // Add new stock quantities to the new warehouse
-                            for (int i = 0; i < itemIDs.Length; i++)
-                            {
-                                string adjustStockQuery = @"
-MERGE INTO tblStockBalance AS Target
-USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @Qty AS Qty, @ItemName AS ItemName) AS Source
-ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
-WHEN MATCHED THEN
-    UPDATE SET Target.ItemQty = Target.ItemQty + Source.Qty
-WHEN NOT MATCHED THEN
-    INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
-    VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
-            (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.Qty);";
-
-                                using (SqlCommand cmd = new SqlCommand(adjustStockQuery, conn, transaction))
-                                {
-                                    cmd.Parameters.AddWithValue("@ItemID", itemIDs[i]);
-                                    cmd.Parameters.AddWithValue("@ItemName", txtItemNames.Lines[i].Trim()); // Ensure no null ItemName
-                                    cmd.Parameters.AddWithValue("@WarehouseID", newWarehouseID);
-                                    cmd.Parameters.AddWithValue("@Qty", int.Parse(itemQuantities[i]));
-
-                                    cmd.ExecuteNonQuery();
-                                }
-
+                                Debug.WriteLine("GRN record updated successfully.");
                             }
 
                             // Commit transaction
                             transaction.Commit();
+                            MessageBox.Show("GRN updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Clear fields
                             ClearFields();
                             LoadNextGRNID();
-
-                            MessageBox.Show("GRN updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
                             transaction.Rollback();
+                            Debug.WriteLine($"Transaction rolled back due to error: {ex.Message}");
                             MessageBox.Show($"An error occurred during the update: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -751,9 +752,11 @@ WHEN NOT MATCHED THEN
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"Unexpected error: {ex.Message}");
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 
