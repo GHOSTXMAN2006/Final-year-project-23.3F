@@ -113,22 +113,41 @@ namespace Mufaddal_Traders
             // Retrieve the selected PurchaseContractID
             int selectedContractID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["PurchaseContractID"].Value);
 
-            // Ask for confirmation
-            DialogResult confirmation = MessageBox.Show($"Are you sure you want to delete Purchase Contract ID {selectedContractID}?",
-                                                         "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (confirmation == DialogResult.Yes)
+            try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    try
-                    {
-                        conn.Open();
-                        string deleteQuery = "DELETE FROM Purchase_Contract WHERE PurchaseContractID = @PurchaseContractID";
-                        SqlCommand cmd = new SqlCommand(deleteQuery, conn);
-                        cmd.Parameters.AddWithValue("@PurchaseContractID", selectedContractID);
+                    conn.Open();
 
-                        int result = cmd.ExecuteNonQuery();
+                    // Check if the Purchase Contract is related to a GRN
+                    string checkGRNQuery = @"
+                SELECT GRN_ID 
+                FROM tblGRN 
+                WHERE PurchaseID = @PurchaseContractID AND PurchaseType = 'C'";
+                    SqlCommand checkCmd = new SqlCommand(checkGRNQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@PurchaseContractID", selectedContractID);
+
+                    object grnID = checkCmd.ExecuteScalar();
+
+                    if (grnID != null)
+                    {
+                        // If related to a GRN, show a warning message
+                        MessageBox.Show($"This Purchase Contract is related to GRN ID {grnID} and cannot be deleted.",
+                                        "Deletion Restricted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Ask for confirmation
+                    DialogResult confirmation = MessageBox.Show($"Are you sure you want to delete Purchase Contract ID {selectedContractID}?",
+                                                                 "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (confirmation == DialogResult.Yes)
+                    {
+                        string deleteQuery = "DELETE FROM Purchase_Contract WHERE PurchaseContractID = @PurchaseContractID";
+                        SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                        deleteCmd.Parameters.AddWithValue("@PurchaseContractID", selectedContractID);
+
+                        int result = deleteCmd.ExecuteNonQuery();
                         if (result > 0)
                         {
                             MessageBox.Show("Purchase contract deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -139,13 +158,14 @@ namespace Mufaddal_Traders
                             MessageBox.Show("Failed to delete the purchase contract. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An error occurred while deleting the purchase contract: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while deleting the purchase contract: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
 
         private void btnManage_Click(object sender, EventArgs e)
