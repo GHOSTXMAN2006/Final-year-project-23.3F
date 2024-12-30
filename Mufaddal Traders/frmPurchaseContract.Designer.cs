@@ -1,4 +1,8 @@
-﻿namespace Mufaddal_Traders
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
+namespace Mufaddal_Traders
 {
     partial class frmPurchaseContract
     {
@@ -19,6 +23,28 @@
             }
             base.Dispose(disposing);
         }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            int borderThickness = 7;
+            Color borderColor = Color.DarkGray;
+
+            // Draw border
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            }
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            this.Invalidate(); // Forces the form to redraw the border on resize
+        }
+
+
 
         #region Windows Form Designer generated code
 

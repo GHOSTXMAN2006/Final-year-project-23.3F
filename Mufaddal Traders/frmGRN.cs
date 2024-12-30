@@ -118,6 +118,12 @@ namespace Mufaddal_Traders
             string selectedPurchaseType = dgvDisplay.SelectedRows[0].Cells["PurchaseType"].Value?.ToString();
             string selectedPurchaseID = dgvDisplay.SelectedRows[0].Cells["PurchaseID"].Value?.ToString();
 
+            // Also get the item(s) and warehouse info from the row
+            string itemIDsCsv = dgvDisplay.SelectedRows[0].Cells["ItemID"].Value?.ToString() ?? "";
+            string itemQtysCsv = dgvDisplay.SelectedRows[0].Cells["ItemQuantity"].Value?.ToString() ?? "";
+            string warehouseID = dgvDisplay.SelectedRows[0].Cells["WarehouseID"].Value?.ToString() ?? "";
+
+            // Ask for confirmation
             DialogResult result = MessageBox.Show(
                 $"Are you sure you want to delete GRN ID = {selectedGRNID}?",
                 "Delete Confirmation",
@@ -128,43 +134,93 @@ namespace Mufaddal_Traders
             {
                 try
                 {
+                    // We'll do both the GRN deletion and the stock revert in a transaction
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-
-                        // 1) Delete the GRN record
-                        string deleteQuery = "DELETE FROM tblGRN WHERE GRN_ID = @GRN_ID";
-                        using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
+                        using (SqlTransaction transaction = conn.BeginTransaction())
                         {
-                            cmd.Parameters.AddWithValue("@GRN_ID", selectedGRNID);
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
+                            try
                             {
-                                // 2) If it was a Purchase Order type, revert status to 'N'
-                                if (selectedPurchaseType == "O" && !string.IsNullOrEmpty(selectedPurchaseID))
+                                // 1) Delete the GRN record
+                                string deleteQuery = "DELETE FROM tblGRN WHERE GRN_ID = @GRN_ID";
+                                using (SqlCommand cmd = new SqlCommand(deleteQuery, conn, transaction))
                                 {
-                                    string revertStatusQuery = @"
-                                UPDATE Purchase_Orders
-                                SET Status = 'N'
-                                WHERE PurchaseOrderID = @PurchaseID";
+                                    cmd.Parameters.AddWithValue("@GRN_ID", selectedGRNID);
+                                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                                    using (SqlCommand revertCmd = new SqlCommand(revertStatusQuery, conn))
+                                    if (rowsAffected > 0)
                                     {
-                                        revertCmd.Parameters.AddWithValue("@PurchaseID", selectedPurchaseID);
-                                        revertCmd.ExecuteNonQuery();
+                                        // 2) If it was a Purchase Order type, revert status to 'N'
+                                        if (selectedPurchaseType == "O" && !string.IsNullOrEmpty(selectedPurchaseID))
+                                        {
+                                            string revertStatusQuery = @"
+                                        UPDATE Purchase_Orders
+                                        SET Status = 'N'
+                                        WHERE PurchaseOrderID = @PurchaseID";
+
+                                            using (SqlCommand revertCmd = new SqlCommand(revertStatusQuery, conn, transaction))
+                                            {
+                                                revertCmd.Parameters.AddWithValue("@PurchaseID", selectedPurchaseID);
+                                                revertCmd.ExecuteNonQuery();
+                                            }
+                                        }
+
+                                        // 3) Revert stock quantities
+                                        //    If multiple itemIDs/quantities are comma-separated, parse them
+                                        //    If only one item per GRN, it's still safe to parse with Split(',')
+
+                                        string[] itemIDArray = itemIDsCsv.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                                        string[] itemQtyArray = itemQtysCsv.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                                        // Ensure they match in length; if not, handle accordingly
+                                        if (itemIDArray.Length == itemQtyArray.Length && !string.IsNullOrEmpty(warehouseID))
+                                        {
+                                            // Subtract the quantity that was previously added by this GRN
+                                            for (int i = 0; i < itemIDArray.Length; i++)
+                                            {
+                                                // Convert to int for the quantity
+                                                int qtyToSubtract = int.Parse(itemQtyArray[i]);
+                                                string currentItemID = itemIDArray[i].Trim();
+
+                                                // If you want to handle negative stock, check or clamp here
+                                                string revertStockQuery = @"
+                                            UPDATE tblStockBalance
+                                            SET ItemQty = ItemQty - @Qty
+                                            WHERE ItemID = @ItemID
+                                              AND WarehouseID = @WarehouseID";
+
+                                                using (SqlCommand revertStockCmd = new SqlCommand(revertStockQuery, conn, transaction))
+                                                {
+                                                    revertStockCmd.Parameters.AddWithValue("@Qty", qtyToSubtract);
+                                                    revertStockCmd.Parameters.AddWithValue("@ItemID", currentItemID);
+                                                    revertStockCmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+                                                    revertStockCmd.ExecuteNonQuery();
+                                                }
+                                            }
+                                        }
+
+                                        // Everything succeeded, commit
+                                        transaction.Commit();
+
+                                        MessageBox.Show("Record deleted and stock reverted successfully!",
+                                                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        // Refresh the grid
+                                        LoadGRNData();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Deletion failed. No rows affected.",
+                                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
-
-                                MessageBox.Show("Record deleted successfully!",
-                                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                // Refresh the grid
-                                LoadGRNData();
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("Deletion failed. No rows affected.",
+                                // Rollback on any error
+                                transaction.Rollback();
+                                MessageBox.Show($"An error occurred while deleting: {ex.Message}",
                                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
@@ -178,29 +234,8 @@ namespace Mufaddal_Traders
             }
         }
 
+
         private void btnLogout_Click(object sender, EventArgs e)
-        {
-            // Clear the session or global variables
-            frmLogin.userType = string.Empty;
-            frmLogin.userName = string.Empty;
-            frmLogin.userPassword = string.Empty;
-            frmLogin.userEmail = string.Empty;
-            frmLogin.userTelephone = string.Empty;
-            frmLogin.userAddress = string.Empty;
-            frmLogin.userDescription = string.Empty;
-            frmLogin.profilePicture = null; // Clear profile picture if any
-
-            // Optionally, you can also clear other session variables if needed
-
-            // Close the current form (Dashboard)
-            this.Close();
-
-            // Show the login form again
-            frmLogin loginForm = new frmLogin();
-            loginForm.Show();
-        }
-
-        private void btnLogout_Click_1(object sender, EventArgs e)
         {
             // Clear the session or global variables
             frmLogin.userType = string.Empty;
@@ -274,9 +309,9 @@ namespace Mufaddal_Traders
                     dgvDisplay.Columns["PurchaseID"].Width = (int)(dgvDisplay.Width * 0.10);
                     dgvDisplay.Columns["PurchaseType"].Width = (int)(dgvDisplay.Width * 0.12);
                     dgvDisplay.Columns["SupplierID"].Width = (int)(dgvDisplay.Width * 0.10);
-                    dgvDisplay.Columns["ItemID"].Width = (int)(dgvDisplay.Width * 0.15);
-                    dgvDisplay.Columns["ItemQuantity"].Width = (int)(dgvDisplay.Width * 0.10);
-                    dgvDisplay.Columns["WarehouseID"].Width = (int)(dgvDisplay.Width * 0.10);
+                    dgvDisplay.Columns["ItemID"].Width = (int)(dgvDisplay.Width * 0.10);
+                    dgvDisplay.Columns["ItemQuantity"].Width = (int)(dgvDisplay.Width * 0.15);
+                    dgvDisplay.Columns["WarehouseID"].Width = (int)(dgvDisplay.Width * 0.17);
                     dgvDisplay.Columns["GRN_Date"].Width = (int)(dgvDisplay.Width * 0.15);
                     dgvDisplay.Columns["GRN_Type"].Width = (int)(dgvDisplay.Width * 0.10);
 
@@ -388,9 +423,9 @@ namespace Mufaddal_Traders
                         dgvDisplay.Columns["PurchaseID"].Width = (int)(dgvDisplay.Width * 0.10);
                         dgvDisplay.Columns["PurchaseType"].Width = (int)(dgvDisplay.Width * 0.12);
                         dgvDisplay.Columns["SupplierID"].Width = (int)(dgvDisplay.Width * 0.10);
-                        dgvDisplay.Columns["ItemID"].Width = (int)(dgvDisplay.Width * 0.15);
-                        dgvDisplay.Columns["ItemQuantity"].Width = (int)(dgvDisplay.Width * 0.10);
-                        dgvDisplay.Columns["WarehouseID"].Width = (int)(dgvDisplay.Width * 0.10);
+                        dgvDisplay.Columns["ItemID"].Width = (int)(dgvDisplay.Width * 0.10);
+                        dgvDisplay.Columns["ItemQuantity"].Width = (int)(dgvDisplay.Width * 0.15);
+                        dgvDisplay.Columns["WarehouseID"].Width = (int)(dgvDisplay.Width * 0.17);
                         dgvDisplay.Columns["GRN_Date"].Width = (int)(dgvDisplay.Width * 0.15);
                         dgvDisplay.Columns["GRN_Type"].Width = (int)(dgvDisplay.Width * 0.10);
 

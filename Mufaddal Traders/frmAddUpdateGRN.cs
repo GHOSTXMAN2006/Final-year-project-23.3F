@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics; // <-- For Debug.WriteLine
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -25,30 +26,32 @@ namespace Mufaddal_Traders
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-
         // Connection string for SQL Server
         private string connectionString = DatabaseConfig.ConnectionString;
         // somewhere at the class level:
         private bool isProgrammaticRadioChange = false;
 
-
         public frmAddUpdateGRN()
         {
+            Debug.WriteLine("frmAddUpdateGRN constructor called 🐞");
             InitializeComponent();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("btnClose_Click method called 🐞");
             this.Close();
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("btnMinimize_Click method called 🐞");
             this.WindowState = FormWindowState.Minimized;
         }
 
         private void picHeader_MouseDown(object sender, MouseEventArgs e)
         {
+            Debug.WriteLine("picHeader_MouseDown method called 🐞");
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
@@ -58,18 +61,20 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("btnBack_Click method called 🐞");
             this.Close();
         }
 
         private void frmAddUpdateGRN_Load(object sender, EventArgs e)
         {
+            Debug.WriteLine("frmAddUpdateGRN_Load method called 🐞");
             LoadNextGRNID();
             LoadWarehouseIDs(); // Load warehouse information
         }
 
-
         private void LoadNextGRNID()
         {
+            Debug.WriteLine("LoadNextGRNID method called 🐞");
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -95,43 +100,41 @@ namespace Mufaddal_Traders
             }
         }
 
-
-
         private void rbPurchaseOrder_CheckedChanged(object sender, EventArgs e)
         {
-            // only run if the user truly clicked, not if we changed the radio in code
+            Debug.WriteLine("rbPurchaseOrder_CheckedChanged method called 🐞");
             if (isProgrammaticRadioChange) return;
 
             if (rbPurchaseOrder.Checked)
             {
-                // Clear supplier and item information
                 ClearSupplierAndItemInformation();
-
-
                 txtItemQtys.ReadOnly = true;
-                txtItemQtys.BackColor = Color.BurlyWood; // Set the background color to Burlywood
+                txtItemQtys.BackColor = Color.BurlyWood; // Set background color
                 LoadPurchaseIDs("O"); // 'O' for Purchase Order
+                cmbPurchaseID.SelectedIndex = -1; // Ensure dropdown is reset
             }
         }
 
+
         private void rbPurchaseContract_CheckedChanged(object sender, EventArgs e)
         {
-            // only run if the user truly clicked, not if we changed the radio in code
+            Debug.WriteLine("rbPurchaseContract_CheckedChanged method called 🐞");
             if (isProgrammaticRadioChange) return;
 
             if (rbPurchaseContract.Checked)
             {
-                // Clear supplier and item information
                 ClearSupplierAndItemInformation();
-
                 txtItemQtys.ReadOnly = false;
-                txtItemQtys.BackColor = SystemColors.Control; // Default control background color
+                txtItemQtys.BackColor = SystemColors.Control; // Default background color
                 LoadPurchaseIDs("C"); // 'C' for Purchase Contract
+                cmbPurchaseID.SelectedIndex = -1; // Ensure dropdown is reset
             }
         }
 
+
         private void ClearSupplierAndItemInformation()
         {
+            Debug.WriteLine("ClearSupplierAndItemInformation method called 🐞");
             txtSupplierID.Clear();
             txtSupplierName.Clear();
             txtItemIDs.Clear();
@@ -143,6 +146,7 @@ namespace Mufaddal_Traders
 
         private void LoadPurchaseIDs(string purchaseType)
         {
+            Debug.WriteLine("LoadPurchaseIDs method called 🐞");
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -176,9 +180,9 @@ namespace Mufaddal_Traders
             }
         }
 
-
         private void cmbPurchaseID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Debug.WriteLine("cmbPurchaseID_SelectedIndexChanged method called 🐞");
             if (cmbPurchaseID.SelectedItem == null) return; // Prevent null reference exception
 
             if (rbPurchaseOrder.Checked)
@@ -191,9 +195,9 @@ namespace Mufaddal_Traders
             }
         }
 
-
         private void LoadPurchaseOrderDetails(string purchaseID)
         {
+            Debug.WriteLine("LoadPurchaseOrderDetails method called 🐞");
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -235,6 +239,7 @@ namespace Mufaddal_Traders
 
         private void LoadPurchaseContractDetails(string purchaseID)
         {
+            Debug.WriteLine("LoadPurchaseContractDetails method called 🐞");
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -257,7 +262,7 @@ namespace Mufaddal_Traders
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // We'll "temporarily" store what’s in txtItemQtys
+                        // We'll "temporarily" store what's in txtItemQtys
                         // because we only want to overwrite if the table actually
                         // has a quantity (which it does not).
                         string existingQtyText = txtItemQtys.Text;
@@ -279,8 +284,6 @@ namespace Mufaddal_Traders
 
                         // Because the Purchase_Contract table has no quantity column,
                         // we leave txtItemQtys as is (which presumably got loaded from the GRN record).
-                        // If you want to forcibly ensure the user must enter a quantity,
-                        // you can either do so on the form or in your code’s validation.
                     }
                 }
                 catch (Exception ex)
@@ -291,9 +294,9 @@ namespace Mufaddal_Traders
             }
         }
 
-
         private void LoadWarehouseIDs()
         {
+            Debug.WriteLine("LoadWarehouseIDs method called 🐞");
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
@@ -318,6 +321,7 @@ namespace Mufaddal_Traders
 
         private void cmbWarehouseID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Debug.WriteLine("cmbWarehouseID_SelectedIndexChanged method called 🐞");
             if (cmbWarehouseID.SelectedItem == null) return;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -340,6 +344,7 @@ namespace Mufaddal_Traders
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("btnSave_Click method called 🐞");
             try
             {
                 // Validate inputs
@@ -350,85 +355,107 @@ namespace Mufaddal_Traders
                     return;
                 }
 
-                // Add validation for monthly Purchase Contract GRN
+                // **Add monthly validation for Purchase Contracts here**
                 if (!ValidatePurchaseContractMonthly())
                 {
-                    // If validation fails, return early
-                    return;
-                }
-
-                if (rbPurchaseOrder.Checked)
-                {
-                    // Validate that cmbPurchaseID.SelectedItem (the order ID) exists in Purchase_Orders
-                    if (!DoesPurchaseOrderExist(cmbPurchaseID.SelectedItem.ToString()))
-                    {
-                        MessageBox.Show("This Purchase Order ID does not exist. Please select a valid one.",
-                                        "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-                else if (rbPurchaseContract.Checked)
-                {
-                    // Validate that the purchase ID exists in Purchase_Contract
-                    if (!DoesPurchaseContractExist(cmbPurchaseID.SelectedItem.ToString()))
-                    {
-                        MessageBox.Show("This Purchase Contract ID does not exist. Please select a valid one.",
-                                        "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    Debug.WriteLine("❗ Monthly validation for Purchase Contract failed. Aborting save operation.");
+                    return; // Exit if validation fails
                 }
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // Combine item information into comma-separated strings
-                    string itemIDs = string.Join(",", txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray());
-                    string itemQuantities = string.Join(",", txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray());
+                    // Combine item information into arrays
+                    string[] itemIDs = txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+                    string[] itemQuantities = txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
 
-                    // Insert GRN record
-                    string insertQuery = @"
-                INSERT INTO tblGRN (GRN_ID, PurchaseID, PurchaseType, SupplierID, ItemID, ItemQuantity, WarehouseID, GRN_Date, GRN_Type)
-                VALUES (@GRN_ID, @PurchaseID, @PurchaseType, @SupplierID, @ItemIDs, @ItemQuantities, @WarehouseID, GETDATE(), @GRN_Type)";
-
-                    using (SqlCommand insertCmd = new SqlCommand(insertQuery, conn))
+                    if (itemIDs.Length != itemQuantities.Length)
                     {
-                        insertCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
-                        insertCmd.Parameters.AddWithValue("@PurchaseID", cmbPurchaseID.SelectedItem.ToString());
-                        insertCmd.Parameters.AddWithValue("@PurchaseType", rbPurchaseOrder.Checked ? "O" : "C");
-                        insertCmd.Parameters.AddWithValue("@SupplierID", txtSupplierID.Text);
-                        insertCmd.Parameters.AddWithValue("@ItemIDs", itemIDs);
-                        insertCmd.Parameters.AddWithValue("@ItemQuantities", itemQuantities);
-                        insertCmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedItem.ToString());
-                        insertCmd.Parameters.AddWithValue("@GRN_Type", cmbGRN_Type.SelectedItem?.ToString() ?? string.Empty);
+                        MessageBox.Show("Mismatch between items and quantities.",
+                                        "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                        int rowsAffected = insertCmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
+                    // Start a transaction
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
                         {
-                            // **Update the Purchase Order status to 'Y'** if radio is Purchase Order
-                            if (rbPurchaseOrder.Checked)
-                            {
-                                string poUpdateQuery = @"
-                            UPDATE Purchase_Orders
-                            SET Status = 'Y'
-                            WHERE PurchaseOrderID = @POID";
+                            // Insert GRN record
+                            string insertGRNQuery = @"
+                    INSERT INTO tblGRN (GRN_ID, PurchaseID, PurchaseType, SupplierID, ItemID, ItemQuantity, WarehouseID, GRN_Date, GRN_Type)
+                    VALUES (@GRN_ID, @PurchaseID, @PurchaseType, @SupplierID, @ItemIDs, @ItemQuantities, @WarehouseID, GETDATE(), @GRN_Type)";
 
-                                using (SqlCommand poStatusCmd = new SqlCommand(poUpdateQuery, conn))
+                            using (SqlCommand cmd = new SqlCommand(insertGRNQuery, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
+                                cmd.Parameters.AddWithValue(
+                                    "@PurchaseID",
+                                    cmbPurchaseID.SelectedItem != null ? cmbPurchaseID.SelectedItem.ToString() : cmbPurchaseID.Text
+                                );
+                                cmd.Parameters.AddWithValue("@PurchaseType", rbPurchaseOrder.Checked ? "O" : "C");
+                                cmd.Parameters.AddWithValue("@SupplierID", txtSupplierID.Text);
+                                cmd.Parameters.AddWithValue("@ItemIDs", string.Join(",", itemIDs));
+                                cmd.Parameters.AddWithValue("@ItemQuantities", string.Join(",", itemQuantities));
+                                cmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedItem.ToString());
+                                cmd.Parameters.AddWithValue("@GRN_Type", cmbGRN_Type.SelectedItem?.ToString() ?? string.Empty);
+
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // Update stock balance for each item
+                            for (int i = 0; i < itemIDs.Length; i++)
+                            {
+                                string updateStockBalanceQuery = @"
+    MERGE INTO tblStockBalance AS Target
+    USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @ItemQty AS ItemQty, @ItemName AS ItemName) AS Source
+    ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
+    WHEN MATCHED THEN
+        UPDATE SET Target.ItemQty = Target.ItemQty + Source.ItemQty
+    WHEN NOT MATCHED THEN
+        INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
+        VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
+                (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.ItemQty);";
+
+                                using (SqlCommand cmd = new SqlCommand(updateStockBalanceQuery, conn, transaction))
                                 {
-                                    poStatusCmd.Parameters.AddWithValue("@POID", cmbPurchaseID.SelectedItem.ToString());
-                                    poStatusCmd.ExecuteNonQuery();
+                                    cmd.Parameters.AddWithValue("@ItemID", itemIDs[i]);
+                                    cmd.Parameters.AddWithValue("@ItemName", txtItemNames.Lines[i].Trim());
+                                    cmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedItem.ToString());
+                                    cmd.Parameters.AddWithValue("@ItemQty", int.Parse(itemQuantities[i]));
+
+                                    cmd.ExecuteNonQuery();
                                 }
                             }
 
-                            MessageBox.Show("GRN record saved successfully!",
-                                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // If this is a Purchase Order, update its status to 'Y'
+                            if (rbPurchaseOrder.Checked)
+                            {
+                                string updatePurchaseOrderStatusQuery = @"
+        UPDATE Purchase_Orders
+        SET Status = 'Y'
+        WHERE PurchaseOrderID = @PurchaseID";
+
+                                using (SqlCommand cmd = new SqlCommand(updatePurchaseOrderStatusQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@PurchaseID", cmbPurchaseID.SelectedItem.ToString());
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Commit transaction
+                            transaction.Commit();
+                            MessageBox.Show("GRN record saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearFields();
                             LoadNextGRNID();
+
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Failed to save GRN record.",
+                            // Rollback transaction in case of an error
+                            transaction.Rollback();
+                            MessageBox.Show("An error occurred: " + ex.Message,
                                             "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -441,96 +468,134 @@ namespace Mufaddal_Traders
             }
         }
 
-
-        private bool DoesPurchaseOrderExist(string purchaseOrderID)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM Purchase_Orders WHERE PurchaseOrderID = @POID";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@POID", purchaseOrderID);
-                    int count = (int)cmd.ExecuteScalar();
-                    return (count > 0);
-                }
-            }
-        }
-
-        private bool DoesPurchaseContractExist(string contractID)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM Purchase_Contract WHERE PurchaseContractID = @ContractID";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@ContractID", contractID);
-                    int count = (int)cmd.ExecuteScalar();
-                    return (count > 0);
-                }
-            }
-        }
-
         private bool ValidatePurchaseContractMonthly()
         {
+            Debug.WriteLine("ValidatePurchaseContractMonthly method called 🐞");
+
             if (rbPurchaseContract.Checked)
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+
                     string query = @"
                 SELECT COUNT(*) 
                 FROM tblGRN 
                 WHERE PurchaseType = 'C' AND PurchaseID = @PurchaseID 
                 AND MONTH(GRN_Date) = MONTH(GETDATE()) AND YEAR(GRN_Date) = YEAR(GETDATE())";
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@PurchaseID", cmbPurchaseID.SelectedItem.ToString());
-                    int count = (int)cmd.ExecuteScalar();
-
-                    if (count > 0)
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        MessageBox.Show("A GRN for this Purchase Contract has already been created this month.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return false;
+                        // Check for SelectedItem or use Text as fallback
+                        string purchaseID = cmbPurchaseID.SelectedItem != null
+                                            ? cmbPurchaseID.SelectedItem.ToString()
+                                            : cmbPurchaseID.Text;
+
+                        if (string.IsNullOrWhiteSpace(purchaseID))
+                        {
+                            MessageBox.Show("Purchase ID is required for Purchase Contract validation.",
+                                            "Validation Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                            return false;
+                        }
+
+                        cmd.Parameters.AddWithValue("@PurchaseID", purchaseID);
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("A GRN for this Purchase Contract has already been created this month.",
+                                            "Validation Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Warning);
+                            return false;
+                        }
                     }
                 }
             }
+
             return true;
         }
 
+
         private bool ValidateInputs()
         {
+            Debug.WriteLine("ValidateInputs method called 🐞");
+
             if (string.IsNullOrWhiteSpace(txtGRN_ID.Text))
             {
                 MessageBox.Show("GRN ID cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (cmbPurchaseID.SelectedIndex == -1)
+
+            // Check if Purchase ID is either selected or has valid text
+            if ((cmbPurchaseID.SelectedIndex == -1 && string.IsNullOrWhiteSpace(cmbPurchaseID.Text)) ||
+                (cmbPurchaseID.SelectedIndex == -1 && !IsPurchaseIDValid(cmbPurchaseID.Text)))
             {
-                MessageBox.Show("Please select a Purchase ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select or enter a valid Purchase ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             if (string.IsNullOrWhiteSpace(txtSupplierID.Text) || string.IsNullOrWhiteSpace(txtSupplierName.Text))
             {
                 MessageBox.Show("Supplier information is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             if (string.IsNullOrWhiteSpace(txtItemIDs.Text) || string.IsNullOrWhiteSpace(txtItemNames.Text))
             {
                 MessageBox.Show("Item information is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (cmbWarehouseID.SelectedIndex == -1)
+
+            if (cmbWarehouseID.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbWarehouseID.Text))
             {
-                MessageBox.Show("Please select a Warehouse ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a valid Warehouse ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             return true;
         }
 
+
+        private bool IsPurchaseIDValid(string purchaseID)
+        {
+            Debug.WriteLine($"Validating PurchaseID: {purchaseID}");
+            if (string.IsNullOrWhiteSpace(purchaseID)) return false;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT COUNT(1) 
+                FROM (
+                    SELECT PurchaseOrderID AS PurchaseID FROM Purchase_Orders
+                    UNION
+                    SELECT PurchaseContractID AS PurchaseID FROM Purchase_Contract
+                ) AS AllPurchases
+                WHERE PurchaseID = @PurchaseID";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@PurchaseID", purchaseID);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error validating Purchase ID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+
+
         private void ClearFields()
         {
+            Debug.WriteLine("ClearFields method called 🐞");
             txtGRN_ID.Clear();
             cmbPurchaseID.SelectedIndex = -1;
             txtSupplierID.Clear();
@@ -549,183 +614,150 @@ namespace Mufaddal_Traders
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("btnUpdate_Click method invoked 🕾");
+
             try
             {
-                // 1) Validate the form fields:
+                // Validate inputs
                 if (!ValidateInputs())
                 {
-                    MessageBox.Show("Please ensure all fields are correctly filled.",
-                                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please ensure all fields are correctly filled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // 2) Depending on the new radio button, confirm the PurchaseID really exists:
-                if (rbPurchaseOrder.Checked)
-                {
-                    if (!DoesPurchaseOrderExist(cmbPurchaseID.SelectedItem.ToString()))
-                    {
-                        MessageBox.Show("This Purchase Order ID does not exist. Please select a valid one.",
-                                        "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-                else // rbPurchaseContract.Checked
-                {
-                    if (!DoesPurchaseContractExist(cmbPurchaseID.SelectedItem.ToString()))
-                    {
-                        MessageBox.Show("This Purchase Contract ID does not exist. Please select a valid one.",
-                                        "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
+                string newPurchaseType = rbPurchaseOrder.Checked ? "O" : "C";
+                string newPurchaseID = cmbPurchaseID.SelectedItem != null ? cmbPurchaseID.SelectedItem.ToString() : cmbPurchaseID.Text;
+                string newWarehouseID = cmbWarehouseID.SelectedItem.ToString();
 
-                // 3) Perform the UPDATE inside a single SqlConnection:
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    //-------------------------------------------------------------
-                    // STEP A: Fetch the old PurchaseType & old PurchaseID 
-                    //         for the *existing* GRN record 
-                    //-------------------------------------------------------------
-                    string oldPurchaseType = "";
-                    string oldPurchaseID = "";
-
-                    string selectOld = @"
-                SELECT PurchaseType, PurchaseID 
-                FROM tblGRN 
-                WHERE GRN_ID = @GRN_ID;
-            ";
-                    using (SqlCommand oldCmd = new SqlCommand(selectOld, conn))
+                    using (SqlTransaction transaction = conn.BeginTransaction())
                     {
-                        oldCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
-                        using (SqlDataReader rdr = oldCmd.ExecuteReader())
+                        try
                         {
-                            if (rdr.Read())
+                            // Fetch old GRN details (Item IDs, Quantities, and Warehouse)
+                            string fetchOldDetailsQuery = @"
+                        SELECT ItemID, ItemQuantity, WarehouseID
+                        FROM tblGRN
+                        WHERE GRN_ID = @GRN_ID";
+
+                            Dictionary<string, int> oldQuantities = new Dictionary<string, int>();
+                            string oldWarehouseID = "";
+
+                            using (SqlCommand fetchCmd = new SqlCommand(fetchOldDetailsQuery, conn, transaction))
                             {
-                                oldPurchaseType = rdr["PurchaseType"].ToString();
-                                oldPurchaseID = rdr["PurchaseID"].ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Could not find an existing GRN with that ID.",
-                                                "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-                        }
-                    }
-
-                    // Determine what the *new* type and *new* purchase ID are:
-                    string newPurchaseType = rbPurchaseOrder.Checked ? "O" : "C";
-                    string newPurchaseID = cmbPurchaseID.SelectedItem.ToString();
-
-                    //-------------------------------------------------------------
-                    // STEP B: If the user is switching from O->C, revert old PO status to 'N'
-                    //         If the user is switching from C->O, set *new* PO status to 'Y'
-                    //-------------------------------------------------------------
-                    if (oldPurchaseType == "O" && newPurchaseType == "C")
-                    {
-                        // Revert the *old* PO's status to 'N':
-                        string revertOldPO =
-                            "UPDATE Purchase_Orders SET Status = 'N' WHERE PurchaseOrderID = @OldPOID";
-                        using (SqlCommand revertCmd = new SqlCommand(revertOldPO, conn))
-                        {
-                            revertCmd.Parameters.AddWithValue("@OldPOID", oldPurchaseID);
-                            revertCmd.ExecuteNonQuery();
-                        }
-                    }
-                    else if (oldPurchaseType == "C" && newPurchaseType == "O")
-                    {
-                        // Mark the *new* PO's status as 'Y':
-                        string setNewPO =
-                            "UPDATE Purchase_Orders SET Status = 'Y' WHERE PurchaseOrderID = @NewPOID";
-                        using (SqlCommand setPOCmd = new SqlCommand(setNewPO, conn))
-                        {
-                            setPOCmd.Parameters.AddWithValue("@NewPOID", newPurchaseID);
-                            setPOCmd.ExecuteNonQuery();
-                        }
-                    }
-                    // (Optionally, if you want to *always* set 'Y' if new type is 'O',
-                    // you could put that logic here as well.)
-
-                    //-------------------------------------------------------------
-                    // STEP C: Proceed with the normal GRN update
-                    //-------------------------------------------------------------
-                    // Combine item information into comma-separated strings
-                    string itemIDs = string.Join(",",
-                        txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray()
-                    );
-                    string itemQuantities = string.Join(",",
-                        txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray()
-                    );
-
-                    string updateQuery = @"
-                UPDATE tblGRN
-                SET PurchaseID   = @PurchaseID,
-                    PurchaseType = @PurchaseType,
-                    SupplierID   = @SupplierID,
-                    ItemID       = @ItemIDs,
-                    ItemQuantity = @ItemQuantities,
-                    WarehouseID  = @WarehouseID,
-                    GRN_Date     = GETDATE(),
-                    GRN_Type     = @GRN_Type
-                WHERE GRN_ID = @GRN_ID;
-            ";
-
-                    using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
-                    {
-                        updateCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
-                        updateCmd.Parameters.AddWithValue("@PurchaseID", newPurchaseID);
-                        updateCmd.Parameters.AddWithValue("@PurchaseType", newPurchaseType);
-                        updateCmd.Parameters.AddWithValue("@SupplierID", txtSupplierID.Text);
-                        updateCmd.Parameters.AddWithValue("@ItemIDs", itemIDs);
-                        updateCmd.Parameters.AddWithValue("@ItemQuantities", itemQuantities);
-                        updateCmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedItem.ToString());
-                        updateCmd.Parameters.AddWithValue("@GRN_Type", cmbGRN_Type.SelectedItem?.ToString() ?? "");
-
-                        int rowsAffected = updateCmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            // If the new type is 'O', also set that PO to 'Y' if needed:
-                            // e.g. in case old type was also O, but different PO ID
-                            if (newPurchaseType == "O")
-                            {
-                                string setPOtoY = @"
-                            UPDATE Purchase_Orders
-                            SET Status = 'Y'
-                            WHERE PurchaseOrderID = @POID
-                        ";
-                                using (SqlCommand poCmd = new SqlCommand(setPOtoY, conn))
+                                fetchCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
+                                using (SqlDataReader reader = fetchCmd.ExecuteReader())
                                 {
-                                    poCmd.Parameters.AddWithValue("@POID", newPurchaseID);
-                                    poCmd.ExecuteNonQuery();
+                                    while (reader.Read())
+                                    {
+                                        oldQuantities[reader["ItemID"].ToString()] = Convert.ToInt32(reader["ItemQuantity"]);
+                                        oldWarehouseID = reader["WarehouseID"].ToString();
+                                    }
                                 }
                             }
 
-                            MessageBox.Show("GRN record updated successfully!",
-                                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            ClearFields();
-                            LoadNextGRNID();
+                            // Reverse stock quantities in the old warehouse
+                            foreach (var item in oldQuantities)
+                            {
+                                string reverseStockQuery = @"
+                            UPDATE tblStockBalance
+                            SET ItemQty = ItemQty - @Qty
+                            WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
+
+                                using (SqlCommand cmd = new SqlCommand(reverseStockQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@ItemID", item.Key);
+                                    cmd.Parameters.AddWithValue("@WarehouseID", oldWarehouseID);
+                                    cmd.Parameters.AddWithValue("@Qty", item.Value);
+
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Update GRN details
+                            string[] itemIDs = txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+                            string[] itemQuantities = txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+
+                            string updateGRNQuery = @"
+                        UPDATE tblGRN
+                        SET PurchaseID = @PurchaseID,
+                            PurchaseType = @PurchaseType,
+                            SupplierID = @SupplierID,
+                            ItemID = @ItemIDs,
+                            ItemQuantity = @ItemQuantities,
+                            WarehouseID = @WarehouseID,
+                            GRN_Date = GETDATE(),
+                            GRN_Type = @GRN_Type
+                        WHERE GRN_ID = @GRN_ID";
+
+                            using (SqlCommand updateCmd = new SqlCommand(updateGRNQuery, conn, transaction))
+                            {
+                                updateCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
+                                updateCmd.Parameters.AddWithValue("@PurchaseID", newPurchaseID);
+                                updateCmd.Parameters.AddWithValue("@PurchaseType", newPurchaseType);
+                                updateCmd.Parameters.AddWithValue("@SupplierID", txtSupplierID.Text);
+                                updateCmd.Parameters.AddWithValue("@ItemIDs", string.Join(",", itemIDs));
+                                updateCmd.Parameters.AddWithValue("@ItemQuantities", string.Join(",", itemQuantities));
+                                updateCmd.Parameters.AddWithValue("@WarehouseID", newWarehouseID);
+                                updateCmd.Parameters.AddWithValue("@GRN_Type", cmbGRN_Type.SelectedItem?.ToString() ?? string.Empty);
+
+                                updateCmd.ExecuteNonQuery();
+                            }
+
+                            // Add new stock quantities to the new warehouse
+                            for (int i = 0; i < itemIDs.Length; i++)
+                            {
+                                string adjustStockQuery = @"
+MERGE INTO tblStockBalance AS Target
+USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @Qty AS Qty, @ItemName AS ItemName) AS Source
+ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
+WHEN MATCHED THEN
+    UPDATE SET Target.ItemQty = Target.ItemQty + Source.Qty
+WHEN NOT MATCHED THEN
+    INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
+    VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
+            (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.Qty);";
+
+                                using (SqlCommand cmd = new SqlCommand(adjustStockQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@ItemID", itemIDs[i]);
+                                    cmd.Parameters.AddWithValue("@ItemName", txtItemNames.Lines[i].Trim()); // Ensure no null ItemName
+                                    cmd.Parameters.AddWithValue("@WarehouseID", newWarehouseID);
+                                    cmd.Parameters.AddWithValue("@Qty", int.Parse(itemQuantities[i]));
+
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                            }
+
+                            // Commit transaction
+                            transaction.Commit();
+                            MessageBox.Show("GRN updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Failed to update GRN record. Please ensure the GRN ID exists.",
-                                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            transaction.Rollback();
+                            MessageBox.Show($"An error occurred during the update: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
+
+
+
+
         private void btnClear_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("btnClear_Click method called 🐞");
             // Call the ClearFields method to reset all fields and radio buttons
             ClearFields();
 
@@ -733,9 +765,9 @@ namespace Mufaddal_Traders
             LoadNextGRNID();
         }
 
-
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
+            Debug.WriteLine("txtSearch_KeyDown method called 🐞");
             if (e.KeyCode == Keys.Enter)
             {
                 if (string.IsNullOrWhiteSpace(txtSearch.Text))
@@ -776,10 +808,18 @@ namespace Mufaddal_Traders
                                 if (purchaseType == "O")
                                 {
                                     rbPurchaseOrder.Checked = true;
+
+                                    // Set Item Quantity as read-only and change background
+                                    txtItemQtys.ReadOnly = true;
+                                    txtItemQtys.BackColor = Color.BurlyWood;
                                 }
                                 else if (purchaseType == "C")
                                 {
                                     rbPurchaseContract.Checked = true;
+
+                                    // Set Item Quantity as editable and change background to default
+                                    txtItemQtys.ReadOnly = false;
+                                    txtItemQtys.BackColor = SystemColors.Control;
                                 }
                             }
                             finally
@@ -792,7 +832,6 @@ namespace Mufaddal_Traders
                             cmbPurchaseID.Text = purchaseId;
 
                             // Finally, call the relevant loading method to get SupplierName & ItemNames
-                            // so that item names and supplier names are re-loaded from the source tables
                             if (rbPurchaseOrder.Checked)
                             {
                                 LoadPurchaseOrderDetails(purchaseId);
@@ -814,5 +853,6 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
     }
 }

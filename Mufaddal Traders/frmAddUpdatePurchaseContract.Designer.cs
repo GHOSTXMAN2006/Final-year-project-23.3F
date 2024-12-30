@@ -409,7 +409,7 @@ namespace Mufaddal_Traders
             this.btnSave.Size = new System.Drawing.Size(113, 38);
             this.btnSave.TabIndex = 229;
             this.btnSave.Text = " Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pictureBox1
             // 
