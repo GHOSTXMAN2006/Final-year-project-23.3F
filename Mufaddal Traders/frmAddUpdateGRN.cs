@@ -734,6 +734,11 @@ WHEN NOT MATCHED THEN
 
                             // Commit transaction
                             transaction.Commit();
+
+                            // Clear fields
+                            ClearFields();
+                            LoadNextGRNID();
+
                             MessageBox.Show("GRN updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)

@@ -237,29 +237,51 @@ namespace Mufaddal_Traders
 
             int selectedPurchaseOrderID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["PurchaseOrderID"].Value);
 
-            DialogResult result = MessageBox.Show($"Are you sure you want to delete Purchase Order ID {selectedPurchaseOrderID}?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    conn.Open();
+
+                    // Check if the Purchase Order is related to a GRN
+                    string checkGRNQuery = @"
+                SELECT GRN_ID 
+                FROM tblGRN 
+                WHERE PurchaseID = @PurchaseOrderID AND PurchaseType = 'O'";
+                    SqlCommand checkCmd = new SqlCommand(checkGRNQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@PurchaseOrderID", selectedPurchaseOrderID);
+
+                    object grnID = checkCmd.ExecuteScalar();
+
+                    if (grnID != null)
                     {
-                        conn.Open();
-                        string query = "DELETE FROM Purchase_Orders WHERE PurchaseOrderID = @PurchaseOrderID";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@PurchaseOrderID", selectedPurchaseOrderID);
-                        cmd.ExecuteNonQuery();
+                        // If related to a GRN, show a warning message
+                        MessageBox.Show($"This Purchase Order is related to GRN ID {grnID} and cannot be deleted.",
+                                        "Deletion Restricted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Proceed with deletion if no related GRN exists
+                    DialogResult result = MessageBox.Show($"Are you sure you want to delete Purchase Order ID {selectedPurchaseOrderID}?",
+                                                          "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        string deleteQuery = "DELETE FROM Purchase_Orders WHERE PurchaseOrderID = @PurchaseOrderID";
+                        SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                        deleteCmd.Parameters.AddWithValue("@PurchaseOrderID", selectedPurchaseOrderID);
+                        deleteCmd.ExecuteNonQuery();
 
                         MessageBox.Show("Purchase order deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadPurchaseOrders();
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while deleting the purchase order: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while deleting the purchase order: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
