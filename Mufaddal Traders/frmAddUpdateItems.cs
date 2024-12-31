@@ -63,13 +63,22 @@ namespace Mufaddal_Traders
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT ISNULL(MAX(ItemID), 0) + 1 FROM Items"; // Get next ID
+                string query = @"
+        SELECT TOP 1 Number
+        FROM (
+            SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Number
+            FROM master.dbo.spt_values
+        ) AS Numbers
+        WHERE Number NOT IN (SELECT ItemID FROM Items)
+        ORDER BY Number";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 try
                 {
                     conn.Open();
-                    return (int)cmd.ExecuteScalar();
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 1; // Default to 1 if no IDs exist
                 }
                 catch (Exception ex)
                 {
@@ -78,6 +87,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
         private void LoadItemDetails(int id)
         {
@@ -131,22 +141,30 @@ namespace Mufaddal_Traders
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query;
+                string insertQuery = @"
+        SET IDENTITY_INSERT Items ON;
+        INSERT INTO Items (ItemID, Item_Name, Item_Description, Item_Price, Manufacture_Date, Expiry_Date, Item_Image)
+        VALUES (@ID, @Name, @Description, @Price, @MFDate, @EXPDate, @Image);
+        SET IDENTITY_INSERT Items OFF;";
+
+                string updateQuery = @"
+        UPDATE Items
+        SET Item_Name = @Name, Item_Description = @Description, Item_Price = @Price,
+            Manufacture_Date = @MFDate, Expiry_Date = @EXPDate, Item_Image = @Image
+        WHERE ItemID = @ID";
+
+                SqlCommand cmd;
 
                 if (itemId == -1) // Insert new item
                 {
-                    query = @"INSERT INTO Items (Item_Name, Item_Description, Item_Price, Manufacture_Date, Expiry_Date, Item_Image) 
-                      VALUES (@Name, @Description, @Price, @MFDate, @EXPDate, @Image)";
+                    cmd = new SqlCommand(insertQuery, conn);
+                    cmd.Parameters.AddWithValue("@ID", int.Parse(txtID.Text)); // Use the generated ID
                 }
                 else // Update existing item
                 {
-                    query = @"UPDATE Items 
-                      SET Item_Name = @Name, Item_Description = @Description, Item_Price = @Price, 
-                          Manufacture_Date = @MFDate, Expiry_Date = @EXPDate, Item_Image = @Image 
-                      WHERE ItemID = @ID";
+                    cmd = new SqlCommand(updateQuery, conn);
+                    cmd.Parameters.AddWithValue("@ID", itemId);
                 }
-
-                SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
                 cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
@@ -168,11 +186,6 @@ namespace Mufaddal_Traders
                     cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = DBNull.Value; // Handle null images
                 }
 
-                if (itemId != -1)
-                {
-                    cmd.Parameters.AddWithValue("@ID", itemId);
-                }
-
                 try
                 {
                     conn.Open();
@@ -189,6 +202,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
 
         private void btnUpload_Click(object sender, EventArgs e)

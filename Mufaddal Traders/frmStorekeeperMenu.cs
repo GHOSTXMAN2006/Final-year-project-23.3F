@@ -154,7 +154,7 @@ namespace Mufaddal_Traders
 
         private void tileWarehouse_Click(object sender, EventArgs e)
         {
-            frmStorekeeperWarehouse storekeeperWarehouse = new frmStorekeeperWarehouse();
+            frmWarehouse storekeeperWarehouse = new frmWarehouse();
 
             storekeeperWarehouse.Show();
 
@@ -163,7 +163,7 @@ namespace Mufaddal_Traders
 
         private void tileStockTransfer_Click(object sender, EventArgs e)
         {
-            frmStorekeeperStockTransfer storekeeperStockTransfer = new frmStorekeeperStockTransfer();
+            frmStockTransfer storekeeperStockTransfer = new frmStockTransfer();
 
             storekeeperStockTransfer.Show();
 
@@ -172,7 +172,7 @@ namespace Mufaddal_Traders
 
         private void tileSuppliers_Click(object sender, EventArgs e)
         {
-            frmStorekeeperSuppliers storekeeperSuppliers = new frmStorekeeperSuppliers();
+            frmSuppliers storekeeperSuppliers = new frmSuppliers();
 
             storekeeperSuppliers.Show();
 

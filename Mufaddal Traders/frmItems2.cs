@@ -48,7 +48,7 @@ namespace Mufaddal_Traders
                 // Ensure proper padding for flowItems
                 flowItems.Padding = new Padding(20, 20, 20, 40);
 
-
+                frmLogin.userType = "Storekeeper";
                 // Toggle button visibility based on userType
                 btnAdd.Visible = frmLogin.userType == "Storekeeper";
                 btnUpdate.Visible = frmLogin.userType == "Storekeeper";

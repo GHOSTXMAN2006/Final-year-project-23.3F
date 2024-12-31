@@ -4,7 +4,7 @@ using System;
 
 namespace Mufaddal_Traders
 {
-    partial class frmStorekeeperWarehouse
+    partial class frmWarehouse
     {
         /// <summary>
         /// Required designer variable.
@@ -54,25 +54,25 @@ namespace Mufaddal_Traders
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStorekeeperWarehouse));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWarehouse));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnManage = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
-            this.gridView = new System.Windows.Forms.DataGridView();
             this.btnReload = new Guna.UI2.WinForms.Guna2Button();
+            this.gridView = new System.Windows.Forms.DataGridView();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -86,7 +86,6 @@ namespace Mufaddal_Traders
             this.label2.Size = new System.Drawing.Size(1303, 13);
             this.label2.TabIndex = 177;
             this.label2.Text = resources.GetString("label2.Text");
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -100,7 +99,6 @@ namespace Mufaddal_Traders
             this.label1.Size = new System.Drawing.Size(136, 32);
             this.label1.TabIndex = 174;
             this.label1.Text = "Warehouse";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // picHeader
             // 
@@ -114,7 +112,6 @@ namespace Mufaddal_Traders
             this.picHeader.Name = "picHeader";
             this.picHeader.Size = new System.Drawing.Size(1396, 38);
             this.picHeader.TabIndex = 173;
-            this.picHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.picHeader_Paint);
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
             // btnMinimize
@@ -161,37 +158,36 @@ namespace Mufaddal_Traders
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.btnHistory);
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.btnAccount);
             this.panel1.Controls.Add(this.btnMenu);
             this.panel1.Location = new System.Drawing.Point(4, 41);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(74, 805);
             this.panel1.TabIndex = 172;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnSettings
+            // btnLogout
             // 
-            this.btnSettings.Animated = true;
-            this.btnSettings.BorderRadius = 3;
-            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Image = global::Mufaddal_Traders.Properties.Resources.Settings;
-            this.btnSettings.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnSettings.Location = new System.Drawing.Point(7, 733);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(60, 56);
-            this.btnSettings.TabIndex = 23;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            this.btnLogout.Animated = true;
+            this.btnLogout.BorderRadius = 3;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = global::Mufaddal_Traders.Properties.Resources.logout_icon_2048x1708_5s1s9mb0__1_;
+            this.btnLogout.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnLogout.Location = new System.Drawing.Point(7, 733);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(60, 56);
+            this.btnLogout.TabIndex = 28;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHome
             // 
@@ -307,28 +303,28 @@ namespace Mufaddal_Traders
             this.btnBack.TabIndex = 171;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnAdd
+            // btnManage
             // 
-            this.btnAdd.Animated = true;
-            this.btnAdd.AutoRoundedCorners = true;
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnAdd.BorderRadius = 18;
-            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd.FillColor = System.Drawing.Color.MediumTurquoise;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::Mufaddal_Traders.Properties.Resources._2661440;
-            this.btnAdd.Location = new System.Drawing.Point(1204, 116);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(156, 38);
-            this.btnAdd.TabIndex = 179;
-            this.btnAdd.Text = "Manage";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnManage.Animated = true;
+            this.btnManage.AutoRoundedCorners = true;
+            this.btnManage.BackColor = System.Drawing.Color.Transparent;
+            this.btnManage.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnManage.BorderRadius = 18;
+            this.btnManage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnManage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnManage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnManage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnManage.FillColor = System.Drawing.Color.MediumTurquoise;
+            this.btnManage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnManage.ForeColor = System.Drawing.Color.White;
+            this.btnManage.Image = global::Mufaddal_Traders.Properties.Resources._2661440;
+            this.btnManage.Location = new System.Drawing.Point(1204, 116);
+            this.btnManage.Margin = new System.Windows.Forms.Padding(2);
+            this.btnManage.Name = "btnManage";
+            this.btnManage.Size = new System.Drawing.Size(156, 38);
+            this.btnManage.TabIndex = 179;
+            this.btnManage.Text = "Manage";
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // txtSearch
             // 
@@ -357,7 +353,7 @@ namespace Mufaddal_Traders
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(258, 38);
             this.txtSearch.TabIndex = 178;
-            this.txtSearch.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // btnDelete
             // 
@@ -375,24 +371,13 @@ namespace Mufaddal_Traders
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = global::Mufaddal_Traders.Properties.Resources.delete;
             this.btnDelete.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnDelete.Location = new System.Drawing.Point(1074, 116);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Location = new System.Drawing.Point(1087, 116);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 38);
             this.btnDelete.TabIndex = 175;
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // gridView
-            // 
-            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridView.Location = new System.Drawing.Point(104, 185);
-            this.gridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gridView.Name = "gridView";
-            this.gridView.RowHeadersWidth = 51;
-            this.gridView.RowTemplate.Height = 24;
-            this.gridView.Size = new System.Drawing.Size(1275, 644);
-            this.gridView.TabIndex = 181;
             // 
             // btnReload
             // 
@@ -407,30 +392,43 @@ namespace Mufaddal_Traders
             this.btnReload.ForeColor = System.Drawing.Color.White;
             this.btnReload.Image = global::Mufaddal_Traders.Properties.Resources.reload_page_icon_vector;
             this.btnReload.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnReload.Location = new System.Drawing.Point(1021, 117);
+            this.btnReload.Location = new System.Drawing.Point(160, 114);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(38, 38);
             this.btnReload.TabIndex = 182;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
-            // frmStorekeeperWarehouse
+            // gridView
+            // 
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.AllowUserToResizeColumns = false;
+            this.gridView.AllowUserToResizeRows = false;
+            this.gridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(222)))), ((int)(((byte)(211)))));
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Location = new System.Drawing.Point(99, 166);
+            this.gridView.Name = "gridView";
+            this.gridView.Size = new System.Drawing.Size(1281, 664);
+            this.gridView.TabIndex = 232;
+            // 
+            // frmWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
             this.ControlBox = false;
-            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.gridView);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnManage);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picHeader);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmStorekeeperWarehouse";
+            this.Name = "frmWarehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStorekeeperWarehouse";
             this.Load += new System.EventHandler(this.frmStorekeeperWarehouse_Load);
@@ -449,7 +447,7 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnDashboard;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2Button btnManage;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Button btnMenu;
@@ -458,9 +456,9 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnMinimize;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel picHeader;
-        private Guna.UI2.WinForms.Guna2Button btnSettings;
         private System.Windows.Forms.Panel panel1;
-        private DataGridView gridView;
         private Guna.UI2.WinForms.Guna2Button btnReload;
+        private DataGridView gridView;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

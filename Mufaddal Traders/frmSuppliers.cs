@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmStorekeeperSuppliers : Form
+    public partial class frmSuppliers : Form
     {
 
         private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
@@ -28,7 +28,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
 
-        public frmStorekeeperSuppliers()
+        public frmSuppliers()
         {
             InitializeComponent();
         }
@@ -113,85 +113,110 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            // Confirm deletion
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to delete the selected record(s)?",
-                "Delete Confirmation",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (result == DialogResult.Yes)
+            try
             {
-                try
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    conn.Open();
+
+                    bool recordDeleted = false; // Flag to track if any record is deleted
+
+                    foreach (DataGridViewRow row in dgvDisplay.SelectedRows)
                     {
-                        conn.Open();
+                        int supplierID = Convert.ToInt32(row.Cells["SupplierID"].Value);
 
-                        // Use a transaction so multiple deletions act atomically
-                        using (SqlTransaction transaction = conn.BeginTransaction())
+                        // Check for associations with Purchase Orders
+                        string checkOrdersQuery = @"
+                SELECT DISTINCT PurchaseOrderID 
+                FROM Purchase_Orders
+                WHERE SupplierID = @SupplierID";
+
+                        SqlCommand checkOrdersCmd = new SqlCommand(checkOrdersQuery, conn);
+                        checkOrdersCmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                        SqlDataReader ordersReader = checkOrdersCmd.ExecuteReader();
+
+                        List<int> orderIDs = new List<int>();
+                        while (ordersReader.Read())
                         {
-                            try
+                            orderIDs.Add(ordersReader.GetInt32(0));
+                        }
+                        ordersReader.Close();
+
+                        // Check for associations with Purchase Contracts
+                        string checkContractsQuery = @"
+                SELECT DISTINCT PurchaseContractID 
+                FROM Purchase_Contract
+                WHERE SupplierID = @SupplierID";
+
+                        SqlCommand checkContractsCmd = new SqlCommand(checkContractsQuery, conn);
+                        checkContractsCmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                        SqlDataReader contractsReader = checkContractsCmd.ExecuteReader();
+
+                        List<int> contractIDs = new List<int>();
+                        while (contractsReader.Read())
+                        {
+                            contractIDs.Add(contractsReader.GetInt32(0));
+                        }
+                        contractsReader.Close();
+
+                        // If there are related Purchase Orders or Contracts, show the message and stop deletion
+                        if (orderIDs.Count > 0 || contractIDs.Count > 0)
+                        {
+                            string message = "This supplier is associated with the following records:\n\n";
+
+                            if (orderIDs.Count > 0)
                             {
-                                foreach (DataGridViewRow row in dgvDisplay.SelectedRows)
-                                {
-                                    // Retrieve the SupplierID from the row
-                                    int supplierID = Convert.ToInt32(row.Cells["SupplierID"].Value);
-
-                                    // Prepare and execute the DELETE command
-                                    string deleteQuery = @"
-                                DELETE FROM tblManageSuppliers
-                                WHERE SupplierID = @SupplierID
-                            ";
-
-                                    using (SqlCommand cmd = new SqlCommand(deleteQuery, conn, transaction))
-                                    {
-                                        cmd.Parameters.AddWithValue("@SupplierID", supplierID);
-                                        cmd.ExecuteNonQuery();
-                                    }
-                                }
-
-                                // Commit the transaction if all deletions succeed
-                                transaction.Commit();
-                                MessageBox.Show("Record(s) deleted successfully!",
-                                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                message += $"Purchase Orders: {string.Join(", ", orderIDs)}\n";
                             }
-                            catch (Exception ex)
+
+                            if (contractIDs.Count > 0)
                             {
-                                // Roll back if anything fails
-                                transaction.Rollback();
-                                MessageBox.Show($"An error occurred while deleting: {ex.Message}",
-                                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                message += $"Purchase Contracts: {string.Join(", ", contractIDs)}\n";
+                            }
+
+                            message += "\nPlease remove these associations before deleting the supplier.";
+
+                            MessageBox.Show(message, "Deletion Restricted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // If no associations, confirm deletion
+                        DialogResult result = MessageBox.Show(
+                            $"Are you sure you want to delete Supplier ID = {supplierID}?",
+                            "Delete Confirmation",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Proceed with deletion
+                            string deleteQuery = "DELETE FROM tblManageSuppliers WHERE SupplierID = @SupplierID";
+                            using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn))
+                            {
+                                deleteCmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                                deleteCmd.ExecuteNonQuery();
+                                recordDeleted = true; // Set the flag if deletion is successful
                             }
                         }
                     }
 
-                    // Finally, reload the updated table
-                    LoadSupplierData();
+                    if (recordDeleted)
+                    {
+                        MessageBox.Show("Record(s) deleted successfully!",
+                                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Reload the grid only if at least one record is deleted
+                        LoadSupplierData();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An unexpected error occurred: {ex.Message}",
-                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            frmAddUpdateSuppliers addUpdateSuppliers = new frmAddUpdateSuppliers();
-
-            addUpdateSuppliers.Show();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddUpdateSuppliers addUpdateSuppliers = new frmAddUpdateSuppliers();
-
-            addUpdateSuppliers.Show();
-        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

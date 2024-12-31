@@ -440,23 +440,23 @@
     <Compile Include="frmStorekeeperStockDamage.Designer.cs">
       <DependentUpon>frmStorekeeperStockDamage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperStockTransfer.cs">
+    <Compile Include="frmStockTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperStockTransfer.Designer.cs">
-      <DependentUpon>frmStorekeeperStockTransfer.cs</DependentUpon>
+    <Compile Include="frmStockTransfer.Designer.cs">
+      <DependentUpon>frmStockTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperSuppliers.cs">
+    <Compile Include="frmSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperSuppliers.Designer.cs">
-      <DependentUpon>frmStorekeeperSuppliers.cs</DependentUpon>
+    <Compile Include="frmSuppliers.Designer.cs">
+      <DependentUpon>frmSuppliers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperWarehouse.cs">
+    <Compile Include="frmWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperWarehouse.Designer.cs">
-      <DependentUpon>frmStorekeeperWarehouse.cs</DependentUpon>
+    <Compile Include="frmWarehouse.Designer.cs">
+      <DependentUpon>frmWarehouse.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemPanel.cs">
       <SubType>Component</SubType>
@@ -592,14 +592,14 @@
     <EmbeddedResource Include="frmStorekeeperStockDamage.resx">
       <DependentUpon>frmStorekeeperStockDamage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperStockTransfer.resx">
-      <DependentUpon>frmStorekeeperStockTransfer.cs</DependentUpon>
+    <EmbeddedResource Include="frmStockTransfer.resx">
+      <DependentUpon>frmStockTransfer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperSuppliers.resx">
-      <DependentUpon>frmStorekeeperSuppliers.cs</DependentUpon>
+    <EmbeddedResource Include="frmSuppliers.resx">
+      <DependentUpon>frmSuppliers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperWarehouse.resx">
-      <DependentUpon>frmStorekeeperWarehouse.cs</DependentUpon>
+    <EmbeddedResource Include="frmWarehouse.resx">
+      <DependentUpon>frmWarehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

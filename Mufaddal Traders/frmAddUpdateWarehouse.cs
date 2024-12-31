@@ -20,8 +20,7 @@ namespace Mufaddal_Traders
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         // Connection string for SQL Server
-        private string connectionString = @"Data source=DESKTOP-O0Q3714\SQLEXPRESS ; Initial Catalog=Mufaddal_Traders_db ; Integrated Security=True";
-
+        private string connectionString = DatabaseConfig.ConnectionString;
         public frmAddUpdateWarehouse()
         {
             InitializeComponent();
@@ -49,11 +48,6 @@ namespace Mufaddal_Traders
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            // Keep this event as it is..
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -125,13 +119,22 @@ namespace Mufaddal_Traders
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT ISNULL(MAX(StoreID), 0) + 1 FROM Warehouse"; // Get next StoreID
+                string query = @"
+        SELECT TOP 1 Number
+        FROM (
+            SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Number
+            FROM master.dbo.spt_values
+        ) AS Numbers
+        WHERE Number NOT IN (SELECT StoreID FROM Warehouse)
+        ORDER BY Number";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 try
                 {
                     conn.Open();
-                    return (int)cmd.ExecuteScalar();
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 1; // Default to 1 if no StoreID exists
                 }
                 catch (Exception ex)
                 {
@@ -141,11 +144,6 @@ namespace Mufaddal_Traders
             }
         }
 
-        // Save Button Click Event
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            // Keep this event as it is..
-        }
 
         // Update Button Click Event
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -219,28 +217,52 @@ namespace Mufaddal_Traders
                 return;
             }
 
+            int nextStoreID = GetNextStoreID();
+            if (nextStoreID == -1)
+            {
+                MessageBox.Show("Unable to generate the next StoreID. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    string query = "INSERT INTO Warehouse (Store_Name, Store_Location) VALUES (@Store_Name, @Store_Location)";
+
+                    // Enable IDENTITY_INSERT temporarily
+                    string enableIdentityInsertQuery = "SET IDENTITY_INSERT Warehouse ON";
+                    using (SqlCommand enableCmd = new SqlCommand(enableIdentityInsertQuery, con))
+                    {
+                        enableCmd.ExecuteNonQuery();
+                    }
+
+                    // Insert query with explicit StoreID
+                    string query = "INSERT INTO Warehouse (StoreID, Store_Name, Store_Location) VALUES (@StoreID, @Store_Name, @Store_Location)";
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        cmd.Parameters.AddWithValue("@StoreID", nextStoreID); // Use the generated StoreID
                         cmd.Parameters.AddWithValue("@Store_Name", txtName.Text.Trim());
                         cmd.Parameters.AddWithValue("@Store_Location", txtLocation.Text.Trim());
                         int result = cmd.ExecuteNonQuery();
+
                         if (result > 0)
                         {
                             MessageBox.Show("Record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearFields();
-                            int nextStoreID = GetNextStoreID();
-                            txtID.Text = nextStoreID.ToString();
+                            txtID.Text = GetNextStoreID().ToString(); // Load the next StoreID after saving
                         }
                         else
                         {
                             MessageBox.Show("Save failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                    }
+
+                    // Disable IDENTITY_INSERT after insertion
+                    string disableIdentityInsertQuery = "SET IDENTITY_INSERT Warehouse OFF";
+                    using (SqlCommand disableCmd = new SqlCommand(disableIdentityInsertQuery, con))
+                    {
+                        disableCmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
@@ -249,6 +271,7 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
 
 
         // Clear all fields except for the ID when clearing
