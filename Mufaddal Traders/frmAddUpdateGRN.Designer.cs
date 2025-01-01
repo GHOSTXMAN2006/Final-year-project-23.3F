@@ -57,6 +57,8 @@ namespace Mufaddal_Traders
             this.label8 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbGRN_Type = new System.Windows.Forms.ComboBox();
@@ -70,10 +72,8 @@ namespace Mufaddal_Traders
             this.rbPurchaseContract = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbPurchaseOrder = new Guna.UI2.WinForms.Guna2RadioButton();
             this.txtSupplierID = new System.Windows.Forms.TextBox();
-            this.cmbPurchaseID = new System.Windows.Forms.ComboBox();
+            this.cmbPurchaseOrGIN_ID = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -86,6 +86,7 @@ namespace Mufaddal_Traders
             this.label2 = new System.Windows.Forms.Label();
             this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
+            this.rbGIN = new Guna.UI2.WinForms.Guna2RadioButton();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -95,7 +96,7 @@ namespace Mufaddal_Traders
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(203, 421);
+            this.label8.Location = new System.Drawing.Point(203, 455);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(136, 24);
@@ -106,7 +107,7 @@ namespace Mufaddal_Traders
             // 
             this.txtSupplierName.BackColor = System.Drawing.Color.BurlyWood;
             this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierName.Location = new System.Drawing.Point(206, 450);
+            this.txtSupplierName.Location = new System.Drawing.Point(206, 484);
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.ReadOnly = true;
@@ -126,202 +127,6 @@ namespace Mufaddal_Traders
             this.picHeader.Size = new System.Drawing.Size(865, 38);
             this.picHeader.TabIndex = 247;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(51, 421);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 24);
-            this.label4.TabIndex = 244;
-            this.label4.Text = "Supplier ID";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(343, 52);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 36);
-            this.label1.TabIndex = 243;
-            this.label1.Text = "Manage GRN";
-            // 
-            // cmbGRN_Type
-            // 
-            this.cmbGRN_Type.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbGRN_Type.FormattingEnabled = true;
-            this.cmbGRN_Type.Items.AddRange(new object[] {
-            "Finished goods GRN ",
-            "Packaging materials GRN ",
-            "Other GRN"});
-            this.cmbGRN_Type.Location = new System.Drawing.Point(55, 246);
-            this.cmbGRN_Type.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbGRN_Type.Name = "cmbGRN_Type";
-            this.cmbGRN_Type.Size = new System.Drawing.Size(284, 33);
-            this.cmbGRN_Type.TabIndex = 260;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 216);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 24);
-            this.label3.TabIndex = 259;
-            this.label3.Text = "GRN Type";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 144);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 24);
-            this.label5.TabIndex = 261;
-            this.label5.Text = "GRN ID";
-            // 
-            // txtGRN_ID
-            // 
-            this.txtGRN_ID.BackColor = System.Drawing.Color.BurlyWood;
-            this.txtGRN_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGRN_ID.Location = new System.Drawing.Point(54, 170);
-            this.txtGRN_ID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtGRN_ID.Name = "txtGRN_ID";
-            this.txtGRN_ID.ReadOnly = true;
-            this.txtGRN_ID.Size = new System.Drawing.Size(114, 28);
-            this.txtGRN_ID.TabIndex = 262;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(203, 627);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 24);
-            this.label7.TabIndex = 266;
-            this.label7.Text = "Warehouse Name";
-            // 
-            // txtWarehouseName
-            // 
-            this.txtWarehouseName.BackColor = System.Drawing.Color.BurlyWood;
-            this.txtWarehouseName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWarehouseName.Location = new System.Drawing.Point(208, 653);
-            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtWarehouseName.Name = "txtWarehouseName";
-            this.txtWarehouseName.ReadOnly = true;
-            this.txtWarehouseName.Size = new System.Drawing.Size(196, 33);
-            this.txtWarehouseName.TabIndex = 265;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(51, 627);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 24);
-            this.label10.TabIndex = 264;
-            this.label10.Text = "Warehouse ID";
-            // 
-            // cmbWarehouseID
-            // 
-            this.cmbWarehouseID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbWarehouseID.FormattingEnabled = true;
-            this.cmbWarehouseID.Location = new System.Drawing.Point(57, 653);
-            this.cmbWarehouseID.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbWarehouseID.Name = "cmbWarehouseID";
-            this.cmbWarehouseID.Size = new System.Drawing.Size(113, 33);
-            this.cmbWarehouseID.TabIndex = 263;
-            this.cmbWarehouseID.SelectedIndexChanged += new System.EventHandler(this.cmbWarehouseID_SelectedIndexChanged);
-            // 
-            // rbPurchaseContract
-            // 
-            this.rbPurchaseContract.AutoSize = true;
-            this.rbPurchaseContract.CheckedState.BorderColor = System.Drawing.Color.Black;
-            this.rbPurchaseContract.CheckedState.BorderThickness = 0;
-            this.rbPurchaseContract.CheckedState.FillColor = System.Drawing.Color.Black;
-            this.rbPurchaseContract.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.rbPurchaseContract.CheckedState.InnerOffset = -9;
-            this.rbPurchaseContract.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.rbPurchaseContract.ForeColor = System.Drawing.Color.Black;
-            this.rbPurchaseContract.Location = new System.Drawing.Point(246, 298);
-            this.rbPurchaseContract.Name = "rbPurchaseContract";
-            this.rbPurchaseContract.Size = new System.Drawing.Size(184, 29);
-            this.rbPurchaseContract.TabIndex = 286;
-            this.rbPurchaseContract.Text = "Purchase Contract";
-            this.rbPurchaseContract.UncheckedState.BorderColor = System.Drawing.Color.Black;
-            this.rbPurchaseContract.UncheckedState.BorderThickness = 2;
-            this.rbPurchaseContract.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbPurchaseContract.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbPurchaseContract.CheckedChanged += new System.EventHandler(this.rbPurchaseContract_CheckedChanged);
-            // 
-            // rbPurchaseOrder
-            // 
-            this.rbPurchaseOrder.AutoSize = true;
-            this.rbPurchaseOrder.CheckedState.BorderColor = System.Drawing.Color.Black;
-            this.rbPurchaseOrder.CheckedState.BorderThickness = 0;
-            this.rbPurchaseOrder.CheckedState.FillColor = System.Drawing.Color.Black;
-            this.rbPurchaseOrder.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
-            this.rbPurchaseOrder.CheckedState.InnerOffset = -9;
-            this.rbPurchaseOrder.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.rbPurchaseOrder.ForeColor = System.Drawing.Color.Black;
-            this.rbPurchaseOrder.Location = new System.Drawing.Point(56, 298);
-            this.rbPurchaseOrder.Name = "rbPurchaseOrder";
-            this.rbPurchaseOrder.Size = new System.Drawing.Size(161, 29);
-            this.rbPurchaseOrder.TabIndex = 285;
-            this.rbPurchaseOrder.Text = "Purchase Order";
-            this.rbPurchaseOrder.UncheckedState.BorderColor = System.Drawing.Color.Black;
-            this.rbPurchaseOrder.UncheckedState.BorderThickness = 2;
-            this.rbPurchaseOrder.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbPurchaseOrder.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbPurchaseOrder.CheckedChanged += new System.EventHandler(this.rbPurchaseOrder_CheckedChanged);
-            // 
-            // txtSupplierID
-            // 
-            this.txtSupplierID.BackColor = System.Drawing.Color.BurlyWood;
-            this.txtSupplierID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierID.Location = new System.Drawing.Point(56, 450);
-            this.txtSupplierID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSupplierID.Name = "txtSupplierID";
-            this.txtSupplierID.ReadOnly = true;
-            this.txtSupplierID.Size = new System.Drawing.Size(115, 33);
-            this.txtSupplierID.TabIndex = 287;
-            // 
-            // cmbPurchaseID
-            // 
-            this.cmbPurchaseID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPurchaseID.FormattingEnabled = true;
-            this.cmbPurchaseID.Location = new System.Drawing.Point(56, 371);
-            this.cmbPurchaseID.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbPurchaseID.Name = "cmbPurchaseID";
-            this.cmbPurchaseID.Size = new System.Drawing.Size(113, 33);
-            this.cmbPurchaseID.TabIndex = 291;
-            this.cmbPurchaseID.SelectedIndexChanged += new System.EventHandler(this.cmbPurchaseID_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(52, 341);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 24);
-            this.label11.TabIndex = 290;
-            this.label11.Text = "Purchase ID";
             // 
             // btnMinimize
             // 
@@ -363,6 +168,206 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(51, 455);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 24);
+            this.label4.TabIndex = 244;
+            this.label4.Text = "Supplier ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(343, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(207, 36);
+            this.label1.TabIndex = 243;
+            this.label1.Text = "Manage GRN";
+            // 
+            // cmbGRN_Type
+            // 
+            this.cmbGRN_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGRN_Type.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGRN_Type.FormattingEnabled = true;
+            this.cmbGRN_Type.Items.AddRange(new object[] {
+            "Purchased goods",
+            "Finished goods GRN ",
+            "Packaging materials GRN ",
+            "Other GRN"});
+            this.cmbGRN_Type.Location = new System.Drawing.Point(55, 234);
+            this.cmbGRN_Type.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbGRN_Type.Name = "cmbGRN_Type";
+            this.cmbGRN_Type.Size = new System.Drawing.Size(284, 33);
+            this.cmbGRN_Type.TabIndex = 260;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(51, 204);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 24);
+            this.label3.TabIndex = 259;
+            this.label3.Text = "GRN Type";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(51, 132);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 24);
+            this.label5.TabIndex = 261;
+            this.label5.Text = "GRN ID";
+            // 
+            // txtGRN_ID
+            // 
+            this.txtGRN_ID.BackColor = System.Drawing.Color.BurlyWood;
+            this.txtGRN_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGRN_ID.Location = new System.Drawing.Point(54, 158);
+            this.txtGRN_ID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtGRN_ID.Name = "txtGRN_ID";
+            this.txtGRN_ID.ReadOnly = true;
+            this.txtGRN_ID.Size = new System.Drawing.Size(114, 28);
+            this.txtGRN_ID.TabIndex = 262;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(203, 661);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 24);
+            this.label7.TabIndex = 266;
+            this.label7.Text = "Warehouse Name";
+            // 
+            // txtWarehouseName
+            // 
+            this.txtWarehouseName.BackColor = System.Drawing.Color.BurlyWood;
+            this.txtWarehouseName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWarehouseName.Location = new System.Drawing.Point(208, 687);
+            this.txtWarehouseName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWarehouseName.Name = "txtWarehouseName";
+            this.txtWarehouseName.ReadOnly = true;
+            this.txtWarehouseName.Size = new System.Drawing.Size(196, 33);
+            this.txtWarehouseName.TabIndex = 265;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(51, 661);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 24);
+            this.label10.TabIndex = 264;
+            this.label10.Text = "Warehouse ID";
+            // 
+            // cmbWarehouseID
+            // 
+            this.cmbWarehouseID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWarehouseID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbWarehouseID.FormattingEnabled = true;
+            this.cmbWarehouseID.Location = new System.Drawing.Point(57, 687);
+            this.cmbWarehouseID.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbWarehouseID.Name = "cmbWarehouseID";
+            this.cmbWarehouseID.Size = new System.Drawing.Size(113, 33);
+            this.cmbWarehouseID.TabIndex = 263;
+            this.cmbWarehouseID.SelectedIndexChanged += new System.EventHandler(this.cmbWarehouseID_SelectedIndexChanged);
+            // 
+            // rbPurchaseContract
+            // 
+            this.rbPurchaseContract.AutoSize = true;
+            this.rbPurchaseContract.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.CheckedState.BorderThickness = 0;
+            this.rbPurchaseContract.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.rbPurchaseContract.CheckedState.InnerOffset = -9;
+            this.rbPurchaseContract.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.rbPurchaseContract.ForeColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.Location = new System.Drawing.Point(246, 286);
+            this.rbPurchaseContract.Name = "rbPurchaseContract";
+            this.rbPurchaseContract.Size = new System.Drawing.Size(184, 29);
+            this.rbPurchaseContract.TabIndex = 286;
+            this.rbPurchaseContract.Text = "Purchase Contract";
+            this.rbPurchaseContract.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseContract.UncheckedState.BorderThickness = 2;
+            this.rbPurchaseContract.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseContract.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseContract.CheckedChanged += new System.EventHandler(this.rbPurchaseContract_CheckedChanged);
+            // 
+            // rbPurchaseOrder
+            // 
+            this.rbPurchaseOrder.AutoSize = true;
+            this.rbPurchaseOrder.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.CheckedState.BorderThickness = 0;
+            this.rbPurchaseOrder.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.rbPurchaseOrder.CheckedState.InnerOffset = -9;
+            this.rbPurchaseOrder.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.rbPurchaseOrder.ForeColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.Location = new System.Drawing.Point(56, 286);
+            this.rbPurchaseOrder.Name = "rbPurchaseOrder";
+            this.rbPurchaseOrder.Size = new System.Drawing.Size(161, 29);
+            this.rbPurchaseOrder.TabIndex = 285;
+            this.rbPurchaseOrder.Text = "Purchase Order";
+            this.rbPurchaseOrder.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbPurchaseOrder.UncheckedState.BorderThickness = 2;
+            this.rbPurchaseOrder.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseOrder.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbPurchaseOrder.CheckedChanged += new System.EventHandler(this.rbPurchaseOrder_CheckedChanged);
+            // 
+            // txtSupplierID
+            // 
+            this.txtSupplierID.BackColor = System.Drawing.Color.BurlyWood;
+            this.txtSupplierID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierID.Location = new System.Drawing.Point(56, 484);
+            this.txtSupplierID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSupplierID.Name = "txtSupplierID";
+            this.txtSupplierID.ReadOnly = true;
+            this.txtSupplierID.Size = new System.Drawing.Size(115, 33);
+            this.txtSupplierID.TabIndex = 287;
+            // 
+            // cmbPurchaseOrGIN_ID
+            // 
+            this.cmbPurchaseOrGIN_ID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPurchaseOrGIN_ID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPurchaseOrGIN_ID.FormattingEnabled = true;
+            this.cmbPurchaseOrGIN_ID.Location = new System.Drawing.Point(56, 405);
+            this.cmbPurchaseOrGIN_ID.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbPurchaseOrGIN_ID.Name = "cmbPurchaseOrGIN_ID";
+            this.cmbPurchaseOrGIN_ID.Size = new System.Drawing.Size(113, 33);
+            this.cmbPurchaseOrGIN_ID.TabIndex = 291;
+            this.cmbPurchaseOrGIN_ID.SelectedIndexChanged += new System.EventHandler(this.cmbPurchaseOrGIN_ID_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(52, 375);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 24);
+            this.label11.TabIndex = 290;
+            this.label11.Text = "Purchase ID";
+            // 
             // btnBack
             // 
             this.btnBack.Animated = true;
@@ -376,7 +381,7 @@ namespace Mufaddal_Traders
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Image = global::Mufaddal_Traders.Properties.Resources.Arrow_Left_512_ezgif_com_webp_to_png_converter;
             this.btnBack.ImageSize = new System.Drawing.Size(40, 32);
-            this.btnBack.Location = new System.Drawing.Point(55, 65);
+            this.btnBack.Location = new System.Drawing.Point(55, 66);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(45, 45);
             this.btnBack.TabIndex = 250;
@@ -398,7 +403,7 @@ namespace Mufaddal_Traders
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::Mufaddal_Traders.Properties.Resources.save_icon_2048x2048_iovw4qr4;
             this.btnSave.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnSave.Location = new System.Drawing.Point(451, 648);
+            this.btnSave.Location = new System.Drawing.Point(452, 682);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 38);
@@ -452,7 +457,7 @@ namespace Mufaddal_Traders
             // 
             this.txtItemQtys.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemQtys.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemQtys.Location = new System.Drawing.Point(450, 522);
+            this.txtItemQtys.Location = new System.Drawing.Point(450, 556);
             this.txtItemQtys.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemQtys.Multiline = true;
             this.txtItemQtys.Name = "txtItemQtys";
@@ -466,7 +471,7 @@ namespace Mufaddal_Traders
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(447, 497);
+            this.label6.Location = new System.Drawing.Point(447, 531);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 24);
@@ -477,7 +482,7 @@ namespace Mufaddal_Traders
             // 
             this.txtItemIDs.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemIDs.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemIDs.Location = new System.Drawing.Point(56, 522);
+            this.txtItemIDs.Location = new System.Drawing.Point(56, 556);
             this.txtItemIDs.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemIDs.Multiline = true;
             this.txtItemIDs.Name = "txtItemIDs";
@@ -490,7 +495,7 @@ namespace Mufaddal_Traders
             // 
             this.txtItemNames.BackColor = System.Drawing.Color.BurlyWood;
             this.txtItemNames.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemNames.Location = new System.Drawing.Point(207, 522);
+            this.txtItemNames.Location = new System.Drawing.Point(207, 556);
             this.txtItemNames.Margin = new System.Windows.Forms.Padding(2);
             this.txtItemNames.Multiline = true;
             this.txtItemNames.Name = "txtItemNames";
@@ -504,7 +509,7 @@ namespace Mufaddal_Traders
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(203, 497);
+            this.label9.Location = new System.Drawing.Point(203, 531);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 24);
@@ -516,7 +521,7 @@ namespace Mufaddal_Traders
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(51, 496);
+            this.label2.Location = new System.Drawing.Point(51, 530);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 24);
@@ -538,7 +543,7 @@ namespace Mufaddal_Traders
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Mufaddal_Traders.Properties.Resources.Edit;
-            this.btnClear.Location = new System.Drawing.Point(695, 648);
+            this.btnClear.Location = new System.Drawing.Point(696, 682);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(99, 38);
@@ -561,7 +566,7 @@ namespace Mufaddal_Traders
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::Mufaddal_Traders.Properties.Resources.Edit;
-            this.btnUpdate.Location = new System.Drawing.Point(580, 648);
+            this.btnUpdate.Location = new System.Drawing.Point(581, 682);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 38);
@@ -569,15 +574,37 @@ namespace Mufaddal_Traders
             this.btnUpdate.Text = "Update";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // rbGIN
+            // 
+            this.rbGIN.AutoSize = true;
+            this.rbGIN.CheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbGIN.CheckedState.BorderThickness = 0;
+            this.rbGIN.CheckedState.FillColor = System.Drawing.Color.Black;
+            this.rbGIN.CheckedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(195)))), ((int)(((byte)(154)))));
+            this.rbGIN.CheckedState.InnerOffset = -9;
+            this.rbGIN.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.rbGIN.ForeColor = System.Drawing.Color.Black;
+            this.rbGIN.Location = new System.Drawing.Point(56, 330);
+            this.rbGIN.Name = "rbGIN";
+            this.rbGIN.Size = new System.Drawing.Size(62, 29);
+            this.rbGIN.TabIndex = 294;
+            this.rbGIN.Text = "GIN";
+            this.rbGIN.UncheckedState.BorderColor = System.Drawing.Color.Black;
+            this.rbGIN.UncheckedState.BorderThickness = 2;
+            this.rbGIN.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbGIN.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbGIN.CheckedChanged += new System.EventHandler(this.rbGIN_CheckedChanged);
+            // 
             // frmAddUpdateGRN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 731);
+            this.ClientSize = new System.Drawing.Size(875, 751);
             this.ControlBox = false;
+            this.Controls.Add(this.rbGIN);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.cmbPurchaseID);
+            this.Controls.Add(this.cmbPurchaseOrGIN_ID);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtItemIDs);
             this.Controls.Add(this.txtSupplierID);
@@ -640,7 +667,7 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2RadioButton rbPurchaseContract;
         private Guna.UI2.WinForms.Guna2RadioButton rbPurchaseOrder;
         private TextBox txtSupplierID;
-        private ComboBox cmbPurchaseID;
+        private ComboBox cmbPurchaseOrGIN_ID;
         private Label label11;
         private TextBox txtItemQtys;
         private Label label6;
@@ -650,5 +677,6 @@ namespace Mufaddal_Traders
         private Label label2;
         private Guna.UI2.WinForms.Guna2Button btnClear;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
+        private Guna.UI2.WinForms.Guna2RadioButton rbGIN;
     }
 }

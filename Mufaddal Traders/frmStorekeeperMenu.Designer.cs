@@ -63,7 +63,7 @@ namespace Mufaddal_Traders
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlChat = new RoundedPanel();
+            this.pnlChat = new Mufaddal_Traders.RoundedPanel();
             this.tilePaymentVouchers = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileWarehouse = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileDiscardedGoods = new Guna.UI2.WinForms.Guna2TileButton();
@@ -286,6 +286,7 @@ namespace Mufaddal_Traders
             this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.pnlChat.BorderColor = System.Drawing.Color.Empty;
             this.pnlChat.BorderRadius = 10;
+            this.pnlChat.BorderThickness = 3;
             this.pnlChat.Controls.Add(this.tilePaymentVouchers);
             this.pnlChat.Controls.Add(this.tileWarehouse);
             this.pnlChat.Controls.Add(this.tileDiscardedGoods);
@@ -407,7 +408,7 @@ namespace Mufaddal_Traders
             this.tileStock.Name = "tileStock";
             this.tileStock.Size = new System.Drawing.Size(151, 149);
             this.tileStock.TabIndex = 33;
-            this.tileStock.Text = "Stock";
+            this.tileStock.Text = "Stock Balance";
             this.tileStock.Click += new System.EventHandler(this.tileStock_Click);
             // 
             // tileStockTransfer

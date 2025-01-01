@@ -254,7 +254,7 @@ namespace Mufaddal_Traders
             this.txtStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.txtStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtStartDate.Name = "txtStartDate";
-            this.txtStartDate.Size = new System.Drawing.Size(280, 36);
+            this.txtStartDate.Size = new System.Drawing.Size(296, 36);
             this.txtStartDate.TabIndex = 0;
             this.txtStartDate.Value = new System.DateTime(2024, 12, 6, 17, 13, 38, 344);
             // 
@@ -280,7 +280,7 @@ namespace Mufaddal_Traders
             this.txtEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.txtEndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.txtEndDate.Name = "txtEndDate";
-            this.txtEndDate.Size = new System.Drawing.Size(280, 36);
+            this.txtEndDate.Size = new System.Drawing.Size(296, 36);
             this.txtEndDate.TabIndex = 223;
             this.txtEndDate.Value = new System.DateTime(2024, 12, 6, 17, 13, 38, 344);
             // 
