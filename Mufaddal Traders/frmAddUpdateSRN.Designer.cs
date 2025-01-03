@@ -59,6 +59,8 @@ namespace Mufaddal_Traders
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -66,8 +68,6 @@ namespace Mufaddal_Traders
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -135,6 +135,46 @@ namespace Mufaddal_Traders
             this.picHeader.TabIndex = 267;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Animated = true;
+            this.btnMinimize.AutoRoundedCorners = true;
+            this.btnMinimize.BorderRadius = 12;
+            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
+            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnMinimize.Location = new System.Drawing.Point(41, 5);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
+            this.btnMinimize.TabIndex = 40;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Animated = true;
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BorderRadius = 12;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
+            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnClose.Location = new System.Drawing.Point(9, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 26);
+            this.btnClose.TabIndex = 24;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -163,7 +203,6 @@ namespace Mufaddal_Traders
             // guna2RadioButton1
             // 
             this.guna2RadioButton1.AutoSize = true;
-            this.guna2RadioButton1.Checked = true;
             this.guna2RadioButton1.CheckedState.BorderColor = System.Drawing.Color.Black;
             this.guna2RadioButton1.CheckedState.BorderThickness = 0;
             this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.Black;
@@ -231,46 +270,6 @@ namespace Mufaddal_Traders
             this.label2.Size = new System.Drawing.Size(27, 24);
             this.label2.TabIndex = 286;
             this.label2.Text = "ID";
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Animated = true;
-            this.btnMinimize.AutoRoundedCorners = true;
-            this.btnMinimize.BorderRadius = 12;
-            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
-            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnMinimize.Location = new System.Drawing.Point(41, 5);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
-            this.btnMinimize.TabIndex = 40;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Animated = true;
-            this.btnClose.AutoRoundedCorners = true;
-            this.btnClose.BorderRadius = 12;
-            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClose.FillColor = System.Drawing.Color.Transparent;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
-            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnClose.Location = new System.Drawing.Point(9, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 26);
-            this.btnClose.TabIndex = 24;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnBack
             // 

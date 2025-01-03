@@ -273,34 +273,85 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            // Confirm before deleting
-            var confirmResult = MessageBox.Show("Are you sure you want to delete this item?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (confirmResult == DialogResult.Yes)
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                try
                 {
-                    try
-                    {
-                        conn.Open();
-                        string deleteQuery = "DELETE FROM Items WHERE ItemID = @itemId";
-                        SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
-                        deleteCmd.Parameters.AddWithValue("@itemId", selectedItemId);
+                    conn.Open();
+                    Dictionary<string, List<int>> referencingRecords = new Dictionary<string, List<int>>();
 
-                        int rowsAffected = deleteCmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Item deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadItems(); // Reload items to reflect the deletion
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to delete item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    catch (Exception ex)
+                    // Function to execute queries and add referenced records
+                    void CheckForReferences(string tableName, string query, string parameterName)
                     {
-                        MessageBox.Show("Error deleting item: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue(parameterName, selectedItemId);
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                List<int> recordIDs = new List<int>();
+                                while (reader.Read())
+                                {
+                                    recordIDs.Add(reader.GetInt32(0)); // Assuming first column is the primary key
+                                }
+                                if (recordIDs.Count > 0)
+                                {
+                                    referencingRecords.Add(tableName, recordIDs);
+                                }
+                            }
+                        }
                     }
+
+                    // Check each table for references
+                    CheckForReferences("Purchase_Orders", "SELECT PurchaseOrderID FROM Purchase_Orders WHERE ItemID = @ItemID", "@ItemID");
+                    CheckForReferences("Sales_Invoice", "SELECT Sales_ID FROM Sales_Invoice WHERE ItemID = @ItemID", "@ItemID");
+                    CheckForReferences("Stock_Transfer", "SELECT ST_ID FROM Stock_Transfer WHERE ItemID = @ItemID", "@ItemID");
+                    CheckForReferences("tblGIN", "SELECT GIN_ID FROM tblGIN WHERE ItemID = @ItemID", "@ItemID");
+                    CheckForReferences("tblGRN", "SELECT GRN_ID FROM tblGRN WHERE ItemID LIKE '%' + CAST(@ItemID AS NVARCHAR) + '%'", "@ItemID");
+                    CheckForReferences("tblStockBalance", "SELECT WarehouseID FROM tblStockBalance WHERE ItemID = @ItemID", "@ItemID");
+
+                    if (referencingRecords.Count > 0)
+                    {
+                        // Construct detailed restriction message
+                        StringBuilder messageBuilder = new StringBuilder();
+                        messageBuilder.AppendLine("Cannot delete item. It is referenced in the following records:");
+
+                        foreach (var tableEntry in referencingRecords)
+                        {
+                            string tableName = tableEntry.Key;
+                            List<int> recordIDs = tableEntry.Value;
+                            messageBuilder.AppendLine($"- {tableName}: Record IDs [{string.Join(", ", recordIDs)}]");
+                        }
+
+                        MessageBox.Show(messageBuilder.ToString(), "Deletion Restricted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // Exit without showing the confirmation dialog
+                    }
+
+                    // If there are no references, ask for confirmation before deleting
+                    var confirmResult = MessageBox.Show("Are you sure you want to delete this item?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (confirmResult != DialogResult.Yes)
+                    {
+                        return;
+                    }
+
+                    // Proceed with deletion
+                    string deleteQuery = "DELETE FROM Items WHERE ItemID = @ItemID";
+                    SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn);
+                    deleteCmd.Parameters.AddWithValue("@ItemID", selectedItemId);
+                    int rowsAffected = deleteCmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Item deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadItems(); // Reload items to reflect the deletion
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting item: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

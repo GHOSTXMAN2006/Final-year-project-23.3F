@@ -81,10 +81,12 @@ namespace Mufaddal_Traders
             // 
             // txtName
             // 
+            this.txtName.BackColor = System.Drawing.Color.BurlyWood;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(54, 317);
             this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(332, 28);
             this.txtName.TabIndex = 207;
             // 
@@ -192,6 +194,7 @@ namespace Mufaddal_Traders
             // 
             // cmbItemID
             // 
+            this.cmbItemID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItemID.FormattingEnabled = true;
             this.cmbItemID.Location = new System.Drawing.Point(55, 237);
@@ -235,6 +238,7 @@ namespace Mufaddal_Traders
             // 
             // cmbStartingLocation
             // 
+            this.cmbStartingLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStartingLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStartingLocation.FormattingEnabled = true;
             this.cmbStartingLocation.Location = new System.Drawing.Point(55, 465);
@@ -258,6 +262,7 @@ namespace Mufaddal_Traders
             // 
             // cmbEndingLocation
             // 
+            this.cmbEndingLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEndingLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEndingLocation.FormattingEnabled = true;
             this.cmbEndingLocation.Location = new System.Drawing.Point(419, 465);

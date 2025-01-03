@@ -107,6 +107,7 @@ namespace Mufaddal_Traders
             // 
             // cmbSupplierID
             // 
+            this.cmbSupplierID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplierID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSupplierID.FormattingEnabled = true;
             this.cmbSupplierID.Location = new System.Drawing.Point(48, 505);
@@ -357,6 +358,7 @@ namespace Mufaddal_Traders
             // 
             // cmbItemID3
             // 
+            this.cmbItemID3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItemID3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItemID3.FormattingEnabled = true;
             this.cmbItemID3.Location = new System.Drawing.Point(142, 132);
@@ -379,6 +381,7 @@ namespace Mufaddal_Traders
             // 
             // cmbItemID4
             // 
+            this.cmbItemID4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItemID4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItemID4.FormattingEnabled = true;
             this.cmbItemID4.Location = new System.Drawing.Point(142, 173);
@@ -430,6 +433,7 @@ namespace Mufaddal_Traders
             // 
             // cmbItemID2
             // 
+            this.cmbItemID2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItemID2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItemID2.FormattingEnabled = true;
             this.cmbItemID2.Location = new System.Drawing.Point(142, 89);
@@ -441,6 +445,7 @@ namespace Mufaddal_Traders
             // 
             // cmbItemID1
             // 
+            this.cmbItemID1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItemID1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItemID1.FormattingEnabled = true;
             this.cmbItemID1.Location = new System.Drawing.Point(142, 49);
@@ -517,6 +522,7 @@ namespace Mufaddal_Traders
             // 
             // cmbItemID5
             // 
+            this.cmbItemID5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItemID5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbItemID5.FormattingEnabled = true;
             this.cmbItemID5.Location = new System.Drawing.Point(142, 215);
