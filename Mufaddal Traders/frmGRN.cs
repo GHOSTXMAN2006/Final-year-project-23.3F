@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -289,17 +290,17 @@ namespace Mufaddal_Traders
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string query = @"
-                SELECT 
-                    GRN_ID,
-                    PurchaseID,
-                    PurchaseType,
-                    SupplierID,
-                    ItemID,
-                    ItemQuantity,
-                    WarehouseID,
-                    GRN_Date,
-                    GRN_Type
-                FROM tblGRN";
+            SELECT 
+                GRN_ID,
+                PurchaseID,
+                PurchaseType,
+                SupplierID,
+                ItemID,
+                ItemQuantity,
+                WarehouseID,
+                GRN_Date,
+                GRN_Type
+            FROM tblGRN";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                     DataTable grnTable = new DataTable();
@@ -347,14 +348,18 @@ namespace Mufaddal_Traders
                                 FontStyle.Bold
                             );
 
-                            // Optionally color-code
-                            if (pType == "C")
+                            // Apply color-code based on type
+                            if (pType == "C") // Contract
                             {
                                 row.Cells["PurchaseType"].Style.ForeColor = Color.CadetBlue;
                             }
-                            else if (pType == "O")
+                            else if (pType == "O") // Purchase Order
                             {
                                 row.Cells["PurchaseType"].Style.ForeColor = Color.YellowGreen;
+                            }
+                            else if (pType == "G") // GIN
+                            {
+                                row.Cells["PurchaseType"].Style.ForeColor = Color.DarkOrange;
                             }
                         }
                     }
@@ -365,8 +370,7 @@ namespace Mufaddal_Traders
                 MessageBox.Show(
                     $"An error occurred while loading GRN data: {ex.Message}",
                     "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
+                    MessageBoxButtons.OK, MessageBoxIcon.Error
                 );
             }
         }
@@ -389,21 +393,28 @@ namespace Mufaddal_Traders
             if (e.KeyCode == Keys.Enter)
             {
                 string searchText = txtSearch.Text.Trim();
-                // Example: Search by GRN_ID. 
-                // Adjust the WHERE clause if you want to search more columns.
+
+                // If the search text is empty, load all GRN data
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    Debug.WriteLine("Search text is empty. Calling LoadGRNData() to load all records.");
+                    LoadGRNData();
+                    return;
+                }
+
                 string query = @"
-            SELECT 
-                GRN_ID,
-                PurchaseID,
-                PurchaseType,
-                SupplierID,
-                ItemID,
-                ItemQuantity,
-                WarehouseID,
-                GRN_Date,
-                GRN_Type
-            FROM tblGRN
-            WHERE CAST(GRN_ID AS NVARCHAR) = @Search";
+        SELECT 
+            GRN_ID,
+            PurchaseID,
+            PurchaseType,
+            SupplierID,
+            ItemID,
+            ItemQuantity,
+            WarehouseID,
+            GRN_Date,
+            GRN_Type
+        FROM tblGRN
+        WHERE CAST(GRN_ID AS NVARCHAR) = @Search";
 
                 try
                 {
@@ -437,7 +448,7 @@ namespace Mufaddal_Traders
                         dgvDisplay.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkSeaGreen;
                         dgvDisplay.EnableHeadersVisualStyles = false;
 
-                        // 4. Adjust column widths proportionally (example)
+                        // 4. Adjust column widths proportionally
                         dgvDisplay.Columns["GRN_ID"].Width = (int)(dgvDisplay.Width * 0.10);
                         dgvDisplay.Columns["PurchaseID"].Width = (int)(dgvDisplay.Width * 0.10);
                         dgvDisplay.Columns["PurchaseType"].Width = (int)(dgvDisplay.Width * 0.12);
@@ -448,7 +459,7 @@ namespace Mufaddal_Traders
                         dgvDisplay.Columns["GRN_Date"].Width = (int)(dgvDisplay.Width * 0.15);
                         dgvDisplay.Columns["GRN_Type"].Width = (int)(dgvDisplay.Width * 0.10);
 
-                        // 5. Loop through rows to apply style for PurchaseType column
+                        // 5. Apply style for "PurchaseType" column
                         foreach (DataGridViewRow row in dgvDisplay.Rows)
                         {
                             if (row.Cells["PurchaseType"].Value != null)
@@ -461,14 +472,18 @@ namespace Mufaddal_Traders
                                     FontStyle.Bold
                                 );
 
-                                // Optionally color-code
-                                if (pType == "C")
+                                // Apply color-code based on type
+                                if (pType == "C") // Contract
                                 {
                                     row.Cells["PurchaseType"].Style.ForeColor = Color.CadetBlue;
                                 }
-                                else if (pType == "O")
+                                else if (pType == "O") // Purchase Order
                                 {
                                     row.Cells["PurchaseType"].Style.ForeColor = Color.YellowGreen;
+                                }
+                                else if (pType == "G") // GIN
+                                {
+                                    row.Cells["PurchaseType"].Style.ForeColor = Color.DarkOrange;
                                 }
                             }
                         }

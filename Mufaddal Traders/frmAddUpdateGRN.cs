@@ -309,7 +309,7 @@ namespace Mufaddal_Traders
             Debug.WriteLine("ClearSupplierAndItemInformation method completed 🐞");
         }
 
-        private void LoadPurchaseGIN_ID(string type)
+        private void LoadPurchaseGIN_ID(string type, string selectedID = null)
         {
             Debug.WriteLine($"LoadPurchaseGIN_ID method called 🐞 for type: '{type}'");
 
@@ -323,29 +323,38 @@ namespace Mufaddal_Traders
 
                     string query = string.Empty;
 
-                    // Determine the query based on the type
                     if (type == "O") // Purchase Orders
                     {
                         Debug.WriteLine("Preparing query for Purchase Orders...");
                         query = @"
-                SELECT DISTINCT PurchaseOrderID AS ID
-                FROM Purchase_Orders
-                WHERE Status = 'N'";
+SELECT DISTINCT PurchaseOrderID AS ID
+FROM Purchase_Orders
+WHERE Status = 'N'";
                     }
                     else if (type == "C") // Purchase Contracts
                     {
                         Debug.WriteLine("Preparing query for Purchase Contracts...");
                         query = @"
-                SELECT DISTINCT PurchaseContractID AS ID
-                FROM Purchase_Contract";
+SELECT DISTINCT PurchaseContractID AS ID
+FROM Purchase_Contract";
                     }
                     else if (type == "G") // GINs
                     {
                         Debug.WriteLine("Preparing query for GINs...");
                         query = @"
-                SELECT DISTINCT GIN_ID AS ID
-                FROM tblGIN
-                WHERE Status = 'N'";
+SELECT DISTINCT GIN_ID AS ID
+FROM tblGIN
+WHERE Status = 'N'
+OR GIN_ID IN (
+    SELECT PurchaseID
+    FROM tblGRN
+    WHERE PurchaseType = 'G' AND GRN_ID = @CurrentGRN_ID
+)";
+
+                        if (!string.IsNullOrEmpty(selectedID))
+                        {
+                            query += " OR GIN_ID = @SelectedID";
+                        }
                     }
                     else
                     {
@@ -356,6 +365,21 @@ namespace Mufaddal_Traders
                     Debug.WriteLine($"Query prepared: {query}");
 
                     SqlCommand cmd = new SqlCommand(query, conn);
+
+                    if (type == "G")
+                    {
+                        // Add Current GRN_ID for reference
+                        int currentGRN_ID = string.IsNullOrWhiteSpace(txtGRN_ID.Text) ? 0 : Convert.ToInt32(txtGRN_ID.Text);
+                        cmd.Parameters.AddWithValue("@CurrentGRN_ID", currentGRN_ID);
+                        Debug.WriteLine($"Parameter added: @CurrentGRN_ID = {currentGRN_ID}");
+
+                        if (!string.IsNullOrEmpty(selectedID))
+                        {
+                            cmd.Parameters.AddWithValue("@SelectedID", selectedID);
+                            Debug.WriteLine($"Parameter added: @SelectedID = {selectedID}");
+                        }
+                    }
+
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable data = new DataTable();
 
@@ -363,38 +387,29 @@ namespace Mufaddal_Traders
                     adapter.Fill(data);
                     Debug.WriteLine($"Query executed successfully ✅ Rows fetched: {data.Rows.Count}");
 
-                    if (data.Rows.Count > 0)
-                    {
-                        Debug.WriteLine("Fetched IDs:");
-                        foreach (DataRow row in data.Rows)
-                        {
-                            Debug.WriteLine($"- {row["ID"]}");
-                        }
-                    }
-                    else
-                    {
-                        Debug.WriteLine("No data found for the specified type.");
-                    }
-
-                    // Binding data to the ComboBox
-                    Debug.WriteLine("Clearing previous data source for cmbPurchaseOrGIN_ID...");
+                    // Update ComboBox with fetched data
                     cmbPurchaseOrGIN_ID.DataSource = null;
-
-                    Debug.WriteLine("Setting DisplayMember and ValueMember for cmbPurchaseOrGIN_ID...");
                     cmbPurchaseOrGIN_ID.DisplayMember = "ID";
                     cmbPurchaseOrGIN_ID.ValueMember = "ID";
-
-                    Debug.WriteLine("Binding new data source to cmbPurchaseOrGIN_ID...");
                     cmbPurchaseOrGIN_ID.DataSource = data;
 
-                    Debug.WriteLine("Resetting selected index for cmbPurchaseOrGIN_ID...");
                     cmbPurchaseOrGIN_ID.SelectedIndex = -1;
+                    if (!string.IsNullOrEmpty(selectedID))
+                    {
+                        cmbPurchaseOrGIN_ID.SelectedValue = selectedID;
+                        Debug.WriteLine($"cmbPurchaseOrGIN_ID selected value set to: {selectedID}");
+                    }
 
                     Debug.WriteLine("Data bound to cmbPurchaseOrGIN_ID successfully ✅");
                 }
+                catch (SqlException sqlEx)
+                {
+                    Debug.WriteLine($"SQL EXCEPTION: {sqlEx.Message}");
+                    MessageBox.Show($"Database error while loading GIN IDs: {sqlEx.Message}", "SQL Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"Error in LoadPurchaseGIN_ID: {ex.Message}");
+                    Debug.WriteLine($"EXCEPTION: {ex.Message}");
                     MessageBox.Show($"Error loading data for type '{type}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
@@ -685,21 +700,18 @@ namespace Mufaddal_Traders
                     conn.Open();
                     Debug.WriteLine("Database connection opened for loading Warehouse IDs ✅");
 
-                    string query = "SELECT StoreID FROM Warehouse";
+                    string query = "SELECT StoreID, Store_Name FROM Warehouse";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    cmbWarehouseID.Items.Clear();
-                    Debug.WriteLine("Cleared previous items in cmbWarehouseID");
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
 
-                    while (reader.Read())
-                    {
-                        string storeID = reader["StoreID"].ToString();
-                        cmbWarehouseID.Items.Add(storeID);
-                        Debug.WriteLine($"Loaded Warehouse ID: {storeID}");
-                    }
+                    cmbWarehouseID.DisplayMember = "StoreID"; // Show Warehouse IDs in the dropdown
+                    cmbWarehouseID.ValueMember = "StoreID";
+                    cmbWarehouseID.DataSource = dt;
 
-                    Debug.WriteLine("Finished loading Warehouse IDs into cmbWarehouseID.");
+                    Debug.WriteLine("Warehouse IDs loaded into cmbWarehouseID successfully ✅");
                 }
                 catch (Exception ex)
                 {
@@ -720,7 +732,7 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            string selectedWarehouseID = cmbWarehouseID.SelectedItem.ToString();
+            string selectedWarehouseID = cmbWarehouseID.SelectedValue?.ToString();
             Debug.WriteLine($"Selected WarehouseID: {selectedWarehouseID}");
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -748,7 +760,7 @@ namespace Mufaddal_Traders
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"Error in cmbWarehouseID_SelectedIndexChanged: {ex.Message}");
+                    Debug.WriteLine($"Error in cmbWarehouseID_SelectedIndexChanged: {ex.Message} ❌");
                     MessageBox.Show($"Error loading Warehouse Name: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -800,25 +812,25 @@ namespace Mufaddal_Traders
                     Debug.WriteLine($"Collected ItemQuantities: {string.Join(", ", itemQuantities)}");
 
                     // Step 4: Validate Selected Warehouse
-                    string warehouseID = cmbWarehouseID.SelectedItem?.ToString();
-                    if (string.IsNullOrWhiteSpace(warehouseID))
+                    if (cmbWarehouseID.SelectedValue == null || !(cmbWarehouseID.SelectedValue is int))
                     {
                         MessageBox.Show("Please select a valid Warehouse ID.",
                                         "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Debug.WriteLine("Warehouse ID is invalid or not selected 🚫. Exiting btnSave_Click.");
                         return;
                     }
+                    int warehouseID = (int)cmbWarehouseID.SelectedValue;
                     Debug.WriteLine($"Selected WarehouseID: {warehouseID}");
 
                     // Step 5: Validate Selected Purchase/GIN ID
-                    string purchaseOrGIN_ID = cmbPurchaseOrGIN_ID.SelectedValue?.ToString();
-                    if (string.IsNullOrWhiteSpace(purchaseOrGIN_ID))
+                    if (cmbPurchaseOrGIN_ID.SelectedValue == null)
                     {
                         MessageBox.Show("Please select a valid Purchase/GIN ID.",
                                         "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Debug.WriteLine("Purchase/GIN ID is invalid or not selected 🚫. Exiting btnSave_Click.");
                         return;
                     }
+                    string purchaseOrGIN_ID = cmbPurchaseOrGIN_ID.SelectedValue.ToString();
                     Debug.WriteLine($"Selected Purchase/GIN ID: {purchaseOrGIN_ID}");
 
                     // Step 6: Begin Transaction
@@ -831,8 +843,8 @@ namespace Mufaddal_Traders
                             // Step 7: Insert GRN Record
                             Debug.WriteLine("Inserting GRN record...");
                             string insertGRNQuery = @"
-                    INSERT INTO tblGRN (GRN_ID, PurchaseID, PurchaseType, SupplierID, ItemID, ItemQuantity, WarehouseID, GRN_Date, GRN_Type)
-                    VALUES (@GRN_ID, @PurchaseID, @PurchaseType, @SupplierID, @ItemIDs, @ItemQuantities, @WarehouseID, GETDATE(), @GRN_Type)";
+            INSERT INTO tblGRN (GRN_ID, PurchaseID, PurchaseType, SupplierID, ItemID, ItemQuantity, WarehouseID, GRN_Date, GRN_Type)
+            VALUES (@GRN_ID, @PurchaseID, @PurchaseType, @SupplierID, @ItemIDs, @ItemQuantities, @WarehouseID, GETDATE(), @GRN_Type)";
 
                             using (SqlCommand cmd = new SqlCommand(insertGRNQuery, conn, transaction))
                             {
@@ -854,16 +866,40 @@ namespace Mufaddal_Traders
                             Debug.WriteLine("Updating stock balance...");
                             for (int i = 0; i < itemIDs.Length; i++)
                             {
+                                // Log the old stock value before updating
+                                Debug.WriteLine($"Fetching old stock for ItemID: {itemIDs[i]} in Warehouse: {warehouseID}...");
+                                string fetchOldStockQuery = @"
+        SELECT ItemQty 
+        FROM tblStockBalance 
+        WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
+                                int oldStock = 0;
+                                using (SqlCommand fetchCmd = new SqlCommand(fetchOldStockQuery, conn, transaction))
+                                {
+                                    fetchCmd.Parameters.AddWithValue("@ItemID", itemIDs[i]);
+                                    fetchCmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+                                    object result = fetchCmd.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        oldStock = Convert.ToInt32(result);
+                                        Debug.WriteLine($"Old stock for ItemID {itemIDs[i]}: {oldStock}");
+                                    }
+                                    else
+                                    {
+                                        Debug.WriteLine($"No existing stock record found for ItemID {itemIDs[i]} in Warehouse {warehouseID}. Assuming 0.");
+                                    }
+                                }
+
+                                // Update stock balance
                                 string updateStockBalanceQuery = @"
-                        MERGE INTO tblStockBalance AS Target
-                        USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @ItemQty AS ItemQty, @ItemName AS ItemName) AS Source
-                        ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
-                        WHEN MATCHED THEN
-                            UPDATE SET Target.ItemQty = Target.ItemQty + Source.ItemQty
-                        WHEN NOT MATCHED THEN
-                            INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
-                            VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
-                                    (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.ItemQty);";
+        MERGE INTO tblStockBalance AS Target
+        USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @ItemQty AS ItemQty, @ItemName AS ItemName) AS Source
+        ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
+        WHEN MATCHED THEN
+            UPDATE SET Target.ItemQty = Target.ItemQty + Source.ItemQty
+        WHEN NOT MATCHED THEN
+            INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
+            VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
+                    (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.ItemQty);";
 
                                 using (SqlCommand cmd = new SqlCommand(updateStockBalanceQuery, conn, transaction))
                                 {
@@ -875,6 +911,24 @@ namespace Mufaddal_Traders
                                     Debug.WriteLine($"Executing stock balance update for ItemID: {itemIDs[i]}...");
                                     cmd.ExecuteNonQuery();
                                     Debug.WriteLine($"Stock balance updated for ItemID: {itemIDs[i]} ✅");
+                                }
+
+                                // Log the new stock value after updating
+                                Debug.WriteLine($"Fetching new stock for ItemID: {itemIDs[i]} in Warehouse: {warehouseID}...");
+                                using (SqlCommand verifyCmd = new SqlCommand(fetchOldStockQuery, conn, transaction))
+                                {
+                                    verifyCmd.Parameters.AddWithValue("@ItemID", itemIDs[i]);
+                                    verifyCmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+                                    object updatedResult = verifyCmd.ExecuteScalar();
+                                    if (updatedResult != null)
+                                    {
+                                        int newStock = Convert.ToInt32(updatedResult);
+                                        Debug.WriteLine($"New stock for ItemID {itemIDs[i]}: {newStock} (Old: {oldStock}, Added: {itemQuantities[i]})");
+                                    }
+                                    else
+                                    {
+                                        Debug.WriteLine($"Failed to fetch new stock for ItemID {itemIDs[i]} in Warehouse {warehouseID}. Possible issue.");
+                                    }
                                 }
                             }
 
@@ -1048,13 +1102,13 @@ namespace Mufaddal_Traders
             Debug.WriteLine($"Item information validated: IDs = {txtItemIDs.Text}, Names = {txtItemNames.Text}");
 
             // Validate Warehouse ID
-            if (cmbWarehouseID.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbWarehouseID.Text))
+            if (cmbWarehouseID.SelectedValue == null || !(cmbWarehouseID.SelectedValue is int))
             {
-                Debug.WriteLine("Validation failed: Warehouse ID is not selected or empty.");
+                Debug.WriteLine("Validation failed 🚫: Warehouse ID is missing or invalid.");
                 MessageBox.Show("Please select a valid Warehouse ID.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            Debug.WriteLine($"Warehouse ID validated: {cmbWarehouseID.Text}");
+            Debug.WriteLine($"Validation passed ✅: Warehouse ID = {cmbWarehouseID.SelectedValue}");
 
             Debug.WriteLine("All validations passed ✅");
             return true;
@@ -1136,173 +1190,644 @@ namespace Mufaddal_Traders
             Debug.WriteLine("All fields cleared successfully.");
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private bool ValidateUpdateInputs()
         {
-            Debug.WriteLine("btnUpdate_Click method invoked 🛠️");
+            Debug.WriteLine("DEBUG: ValidateUpdateInputs method invoked 🔍");
+
+            // Validate GRN ID
+            if (string.IsNullOrWhiteSpace(txtGRN_ID.Text))
+            {
+                MessageBox.Show("Error: GRN ID cannot be empty. Please search for a valid GRN.");
+                Debug.WriteLine("ERROR: GRN ID is empty.");
+                return false;
+            }
+
+            // Validate Purchase Type (Radio Buttons)
+            if (!rbPurchaseOrder.Checked && !rbPurchaseContract.Checked && !rbGIN.Checked)
+            {
+                MessageBox.Show("Error: Please select a Purchase Type (Purchase Order, Contract, or GIN).");
+                Debug.WriteLine("ERROR: No Purchase Type selected.");
+                return false;
+            }
+
+            // Validate Purchase/GIN ID
+            if (string.IsNullOrWhiteSpace(cmbPurchaseOrGIN_ID.Text))
+            {
+                MessageBox.Show("Error: Please select a valid Purchase Order/Contract/GIN ID.");
+                Debug.WriteLine("ERROR: Purchase Order/Contract/GIN ID is missing.");
+                return false;
+            }
+
+            // Validate Supplier ID and Supplier Name
+            if (string.IsNullOrWhiteSpace(txtSupplierID.Text) || string.IsNullOrWhiteSpace(txtSupplierName.Text))
+            {
+                MessageBox.Show("Error: Supplier information is incomplete.");
+                Debug.WriteLine("ERROR: Supplier ID or Name is empty.");
+                return false;
+            }
+
+            // Validate Item IDs and Quantities (multiline textboxes)
+            if (string.IsNullOrWhiteSpace(txtItemIDs.Text) || string.IsNullOrWhiteSpace(txtItemQtys.Text))
+            {
+                MessageBox.Show("Error: Item IDs and Quantities cannot be empty.");
+                Debug.WriteLine("ERROR: Item IDs or Quantities are empty.");
+                return false;
+            }
+
+            // Split Item IDs and Quantities by newline
+            string[] itemIDs = txtItemIDs.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] itemQuantities = txtItemQtys.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (itemIDs.Length != itemQuantities.Length)
+            {
+                MessageBox.Show("Error: The number of Item IDs and Quantities do not match.");
+                Debug.WriteLine("ERROR: Mismatch in Item IDs and Quantities count.");
+                return false;
+            }
+
+            // Validate individual quantities
+            for (int i = 0; i < itemQuantities.Length; i++)
+            {
+                string itemQty = itemQuantities[i].Trim();
+                if (!int.TryParse(itemQty, out int parsedQty) || parsedQty < 0)
+                {
+                    MessageBox.Show($"Error: Invalid quantity '{itemQty}' for Item ID '{itemIDs[i]}'. Please enter valid numeric values.");
+                    Debug.WriteLine($"ERROR: Invalid quantity value detected - '{itemQty}' for Item ID '{itemIDs[i]}'.");
+                    return false;
+                }
+            }
+
+            // Validate Warehouse ID
+            if (string.IsNullOrWhiteSpace(cmbWarehouseID.Text))
+            {
+                MessageBox.Show("Error: Please select a Warehouse.");
+                Debug.WriteLine("ERROR: Warehouse not selected.");
+                return false;
+            }
+
+            // Validate GRN Type
+            if (cmbGRN_Type.SelectedIndex == -1)
+            {
+                MessageBox.Show("Error: Please select a GRN Type.");
+                Debug.WriteLine("ERROR: GRN Type not selected.");
+                return false;
+            }
+
+            Debug.WriteLine("DEBUG: All validations passed ✅.");
+            return true;
+        }
+
+        private DataRow FetchExistingGRNData(int grnID)
+        {
+            Debug.WriteLine($"DEBUG: FetchExistingGRNData method invoked for GRN ID: {grnID} 🔍");
+
+            DataRow existingData = null;
+            string query = "SELECT * FROM tblGRN WHERE GRN_ID = @GRN_ID";
 
             try
             {
-                // Step 1: Validate GRN ID existence
-                Debug.WriteLine("Validating GRN ID...");
-                if (string.IsNullOrWhiteSpace(txtGRN_ID.Text))
-                {
-                    MessageBox.Show("GRN ID cannot be empty. Please search for a GRN to update.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Check if GRN exists
-                bool grnExists;
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string checkGRNQuery = "SELECT COUNT(1) FROM tblGRN WHERE GRN_ID = @GRN_ID";
-                    using (SqlCommand cmd = new SqlCommand(checkGRNQuery, conn))
+                    Debug.WriteLine("DEBUG: Database connection opened successfully.");
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
-                        grnExists = Convert.ToInt32(cmd.ExecuteScalar()) > 0;
-                        Debug.WriteLine($"GRN existence check: GRN_ID={txtGRN_ID.Text}, Exists={grnExists}");
-                    }
-                }
+                        cmd.Parameters.AddWithValue("@GRN_ID", grnID);
+                        Debug.WriteLine($"DEBUG: SQL query prepared with GRN ID: {grnID}");
 
-                if (!grnExists)
-                {
-                    MessageBox.Show("GRN ID does not exist. Please create a new GRN instead.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Step 2: Fetch Form Values
-                Debug.WriteLine("Fetching form values...");
-                string newPurchaseType = rbPurchaseOrder.Checked ? "O" : rbGIN.Checked ? "G" : "C";
-                string newPurchaseID = cmbPurchaseOrGIN_ID.SelectedValue?.ToString() ?? cmbPurchaseOrGIN_ID.Text;
-                string newWarehouseID = cmbWarehouseID.SelectedValue?.ToString() ?? cmbWarehouseID.Text;
-                string newGRNType = cmbGRN_Type.SelectedItem?.ToString();
-
-                if (string.IsNullOrWhiteSpace(newPurchaseID) || newPurchaseID == "System.Data.DataRowView")
-                {
-                    MessageBox.Show("Invalid or empty Purchase ID. Please select a valid option.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Debug.WriteLine("Invalid Purchase ID detected.");
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(newWarehouseID))
-                {
-                    MessageBox.Show("Warehouse ID is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Step 3: Validate and Parse Item IDs and Quantities
-                Debug.WriteLine("Validating Item IDs and Quantities...");
-                string[] itemIDs = txtItemIDs.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
-                string[] itemQuantities = txtItemQtys.Lines.Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
-
-                if (itemIDs.Length != itemQuantities.Length)
-                {
-                    MessageBox.Show("Mismatch between Item IDs and Quantities. Please check your inputs.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                List<int> parsedQuantities = new List<int>();
-                foreach (string qty in itemQuantities)
-                {
-                    if (int.TryParse(qty.Trim(), out int quantity))
-                    {
-                        parsedQuantities.Add(quantity);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Invalid quantity value: '{qty}'. Please enter valid numeric quantities.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Debug.WriteLine($"Invalid quantity detected: {qty}");
-                        return;
-                    }
-                }
-
-                Debug.WriteLine($"Parsed Item IDs: {string.Join(",", itemIDs)}");
-                Debug.WriteLine($"Parsed Quantities: {string.Join(",", parsedQuantities)}");
-
-                // Step 4: Update Database
-                Debug.WriteLine("Connecting to database for update...");
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    using (SqlTransaction transaction = conn.BeginTransaction())
-                    {
-                        try
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
-                            // Update GRN record
-                            Debug.WriteLine("Updating GRN record...");
-                            string updateGRNQuery = @"
-                    UPDATE tblGRN
-                    SET PurchaseID = @PurchaseID,
-                        PurchaseType = @PurchaseType,
-                        SupplierID = @SupplierID,
-                        ItemID = @ItemIDs,
-                        ItemQuantity = @ItemQuantities,
-                        WarehouseID = @WarehouseID,
-                        GRN_Date = GETDATE(),
-                        GRN_Type = @GRN_Type
-                    WHERE GRN_ID = @GRN_ID";
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            Debug.WriteLine($"DEBUG: SQL query executed. Rows returned: {dataTable.Rows.Count}");
 
-                            using (SqlCommand updateCmd = new SqlCommand(updateGRNQuery, conn, transaction))
+                            if (dataTable.Rows.Count > 0)
                             {
-                                updateCmd.Parameters.AddWithValue("@GRN_ID", txtGRN_ID.Text);
-                                updateCmd.Parameters.AddWithValue("@PurchaseID", newPurchaseID);
-                                updateCmd.Parameters.AddWithValue("@PurchaseType", newPurchaseType);
-                                updateCmd.Parameters.AddWithValue("@SupplierID", txtSupplierID.Text);
-                                updateCmd.Parameters.AddWithValue("@ItemIDs", string.Join(",", itemIDs));
-                                updateCmd.Parameters.AddWithValue("@ItemQuantities", string.Join(",", parsedQuantities));
-                                updateCmd.Parameters.AddWithValue("@WarehouseID", newWarehouseID);
-                                updateCmd.Parameters.AddWithValue("@GRN_Type", newGRNType ?? string.Empty);
-
-                                updateCmd.ExecuteNonQuery();
-                                Debug.WriteLine("GRN record updated successfully.");
-                            }
-
-                            // Update GIN Status if necessary
-                            Debug.WriteLine("Updating GIN status if applicable...");
-                            if (newPurchaseType == "G")
-                            {
-                                string updateGINStatusQuery = "UPDATE tblGIN SET Status = 'Y' WHERE GIN_ID = @GIN_ID";
-                                using (SqlCommand updateGINCmd = new SqlCommand(updateGINStatusQuery, conn, transaction))
-                                {
-                                    updateGINCmd.Parameters.AddWithValue("@GIN_ID", newPurchaseID);
-                                    updateGINCmd.ExecuteNonQuery();
-                                    Debug.WriteLine("GIN status updated to 'Y'.");
-                                }
+                                existingData = dataTable.Rows[0];
+                                Debug.WriteLine("DEBUG: Existing GRN data found.");
                             }
                             else
                             {
-                                string resetGINStatusQuery = "UPDATE tblGIN SET Status = 'N' WHERE GIN_ID = @GIN_ID";
-                                using (SqlCommand resetGINCmd = new SqlCommand(resetGINStatusQuery, conn, transaction))
-                                {
-                                    resetGINCmd.Parameters.AddWithValue("@GIN_ID", newPurchaseID);
-                                    resetGINCmd.ExecuteNonQuery();
-                                    Debug.WriteLine("GIN status reset to 'N'.");
-                                }
+                                Debug.WriteLine("WARNING: No GRN data found for the provided GRN ID.");
                             }
-
-                            // Commit transaction
-                            transaction.Commit();
-                            MessageBox.Show("GRN updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Clear fields and reload
-                            ClearFields();
-                            LoadNextGRNID();
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            Debug.WriteLine($"Transaction rolled back due to error: {ex.Message}");
-                            MessageBox.Show($"An error occurred during the update: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Database error while fetching GRN data: " + sqlEx.Message);
+                Debug.WriteLine("SQL EXCEPTION: " + sqlEx.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred while fetching GRN data: " + ex.Message);
+                Debug.WriteLine("EXCEPTION: " + ex.ToString());
+            }
+
+            return existingData;
+        }
+
+        private bool RollbackStockBalances(DataRow existingGRNData)
+        {
+            Debug.WriteLine("DEBUG: RollbackStockBalances method invoked 🔄");
+
+            string[] itemIDs = existingGRNData["ItemID"].ToString().Split(',');
+            string[] itemQuantities = existingGRNData["ItemQuantity"].ToString().Split(',');
+            int warehouseID = Convert.ToInt32(existingGRNData["WarehouseID"]);
+
+            if (itemIDs.Length != itemQuantities.Length)
+            {
+                Debug.WriteLine("ERROR: Mismatch in the number of Item IDs and Quantities in the existing GRN data.");
+                MessageBox.Show("Error: Mismatch in Item IDs and Quantities in the existing GRN data. Rollback failed.");
+                return false;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("DEBUG: Database connection opened successfully for rollback.");
+
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        for (int i = 0; i < itemIDs.Length; i++)
+                        {
+                            int itemID = Convert.ToInt32(itemIDs[i].Trim());
+                            int quantityToRevert = Convert.ToInt32(itemQuantities[i].Trim());
+
+                            int currentStockQty = GetCurrentStockQty(itemID, warehouseID, conn, transaction);
+                            int resultingStockQty = currentStockQty - quantityToRevert;
+
+                            // 🚨 Check for negative stock values BEFORE rollback
+                            if (resultingStockQty < 0)
+                            {
+                                string errorMessage = $"Error: Rollback would cause negative stock for Item ID '{itemID}' in Warehouse ID '{warehouseID}'.\n\n" +
+                                                      $"Current Stock: {currentStockQty}, Quantity to Revert: {quantityToRevert}, Resulting Stock: {resultingStockQty}.";
+                                MessageBox.Show(errorMessage);
+                                Debug.WriteLine($"ERROR: {errorMessage}");
+                                transaction.Rollback();  // Roll back the transaction immediately
+                                return false;
+                            }
+
+                            string rollbackQuery = @"
+                    UPDATE tblStockBalance
+                    SET ItemQty = ItemQty - @Quantity
+                    WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
+
+                            using (SqlCommand cmd = new SqlCommand(rollbackQuery, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("@Quantity", quantityToRevert);
+                                cmd.Parameters.AddWithValue("@ItemID", itemID);
+                                cmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                Debug.WriteLine($"DEBUG: Rollback for ItemID: {itemID}, Quantity to revert: {quantityToRevert}, Rows Affected: {rowsAffected}");
+
+                                if (rowsAffected == 0)
+                                {
+                                    Debug.WriteLine($"ERROR: Rollback failed for ItemID: {itemID}. No matching stock balance found.");
+                                    MessageBox.Show($"Error: Rollback failed for ItemID: {itemID}. No matching stock balance found.");
+                                    transaction.Rollback();
+                                    return false;
+                                }
+                            }
+                        }
+
+                        transaction.Commit();
+                        Debug.WriteLine("DEBUG: Stock balances rollback committed successfully.");
+                    }
+                }
+
+                return true;
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Database error during stock balance rollback: " + sqlEx.Message);
+                Debug.WriteLine("SQL EXCEPTION: " + sqlEx.ToString());
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred during stock balance rollback: " + ex.Message);
+                Debug.WriteLine("EXCEPTION: " + ex.ToString());
+                return false;
+            }
+        }
+
+        private bool UpdateGRNData()
+        {
+            Debug.WriteLine("DEBUG: UpdateGRNData method invoked ✏️");
+
+            int grnID = Convert.ToInt32(txtGRN_ID.Text.Trim());
+            string newPurchaseOrGINID = cmbPurchaseOrGIN_ID.Text.Trim();
+            string newPurchaseType = rbPurchaseOrder.Checked ? "O" : rbPurchaseContract.Checked ? "C" : "G";
+
+            DataRow existingGRNData = FetchExistingGRNData(grnID);
+            if (existingGRNData == null)
+            {
+                MessageBox.Show("Error: GRN not found in the database.");
+                return false;
+            }
+
+            string existingPurchaseType = existingGRNData["PurchaseType"].ToString().Trim();
+            string existingPurchaseOrGINID = existingGRNData["PurchaseID"].ToString().Trim();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("DEBUG: Database connection opened for updating GRN.");
+
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        // Update the GRN record
+                        string updateGRNQuery = @"
+                UPDATE tblGRN
+                SET PurchaseID = @PurchaseOrGINID,
+                    PurchaseType = @PurchaseType,
+                    SupplierID = @SupplierID,
+                    ItemID = @ItemIDs,
+                    ItemQuantity = @ItemQuantities,
+                    WarehouseID = @WarehouseID,
+                    GRN_Date = @GRNDate,
+                    GRN_Type = @GRNType
+                WHERE GRN_ID = @GRN_ID";
+
+                        using (SqlCommand cmd = new SqlCommand(updateGRNQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@PurchaseOrGINID", newPurchaseOrGINID);
+                            cmd.Parameters.AddWithValue("@PurchaseType", newPurchaseType);
+                            cmd.Parameters.AddWithValue("@SupplierID", Convert.ToInt32(txtSupplierID.Text.Trim()));
+                            cmd.Parameters.AddWithValue("@ItemIDs", string.Join(",", txtItemIDs.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)));
+                            cmd.Parameters.AddWithValue("@ItemQuantities", string.Join(",", txtItemQtys.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries)));
+                            cmd.Parameters.AddWithValue("@WarehouseID", Convert.ToInt32(cmbWarehouseID.Text.Trim()));
+                            cmd.Parameters.AddWithValue("@GRNDate", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@GRNType", cmbGRN_Type.Text.Trim());
+                            cmd.Parameters.AddWithValue("@GRN_ID", grnID);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected == 0)
+                            {
+                                Debug.WriteLine("ERROR: No rows updated.");
+                                transaction.Rollback();
+                                return false;
+                            }
+                        }
+
+                        // If the Purchase Type has changed, update the status in respective tables
+                        if (existingPurchaseType != newPurchaseType || existingPurchaseOrGINID != newPurchaseOrGINID)
+                        {
+                            // Handle change to/from Purchase Order
+                            if (existingPurchaseType == "O")
+                            {
+                                UpdatePurchaseOrderStatus(existingPurchaseOrGINID, "N", conn, transaction); // Reset old PO
+                            }
+                            if (newPurchaseType == "O")
+                            {
+                                UpdatePurchaseOrderStatus(newPurchaseOrGINID, "Y", conn, transaction); // Activate new PO
+                            }
+
+                            // Handle change to/from GIN
+                            if (existingPurchaseType == "G")
+                            {
+                                UpdateGINStatus(existingPurchaseOrGINID, "N", conn, transaction); // Reset old GIN
+                            }
+                            if (newPurchaseType == "G")
+                            {
+                                UpdateGINStatus(newPurchaseOrGINID, "Y", conn, transaction); // Activate new GIN
+                            }
+                        }
+
+                        transaction.Commit();
+                        Debug.WriteLine("DEBUG: GRN record and related statuses updated successfully ✅.");
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during GRN update: " + ex.Message);
+                Debug.WriteLine("EXCEPTION: " + ex.ToString());
+                return false;
+            }
+        }
+
+        private void UpdatePurchaseOrderStatus(string purchaseOrderID, string status, SqlConnection conn, SqlTransaction transaction)
+        {
+            if (!string.IsNullOrEmpty(purchaseOrderID))
+            {
+                string query = "UPDATE Purchase_Orders SET Status = @Status WHERE PurchaseOrderID = @PurchaseOrderID";
+                using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Status", status);
+                    cmd.Parameters.AddWithValue("@PurchaseOrderID", Convert.ToInt32(purchaseOrderID));
+                    cmd.ExecuteNonQuery();
+                    Debug.WriteLine($"DEBUG: Purchase Order status updated. ID: {purchaseOrderID}, Status: {status}");
+                }
+            }
+        }
+
+        private void UpdateGINStatus(string ginID, string status, SqlConnection conn, SqlTransaction transaction)
+        {
+            if (!string.IsNullOrEmpty(ginID))
+            {
+                string query = "UPDATE tblGIN SET Status = @Status WHERE GIN_ID = @GIN_ID";
+                using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@Status", status);
+                    cmd.Parameters.AddWithValue("@GIN_ID", Convert.ToInt32(ginID));
+                    cmd.ExecuteNonQuery();
+                    Debug.WriteLine($"DEBUG: GIN status updated. ID: {ginID}, Status: {status}");
+                }
+            }
+        }
+
+        private bool UpdateStockBalances()
+        {
+            Debug.WriteLine("DEBUG: UpdateStockBalances method invoked 🔄");
+
+            string[] itemIDs = txtItemIDs.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] itemQuantities = txtItemQtys.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            int warehouseID = Convert.ToInt32(cmbWarehouseID.Text.Trim());
+            string warehouseName = txtWarehouseName.Text.Trim();
+
+            if (itemIDs.Length != itemQuantities.Length)
+            {
+                Debug.WriteLine("ERROR: Mismatch in the number of Item IDs and Quantities entered.");
+                MessageBox.Show("Error: The number of Item IDs and Quantities do not match. Stock balance update failed.");
+                return false;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    Debug.WriteLine("DEBUG: Database connection opened successfully for stock balance update.");
+
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        for (int i = 0; i < itemIDs.Length; i++)
+                        {
+                            int itemID = Convert.ToInt32(itemIDs[i].Trim());
+                            int quantityToAdd = Convert.ToInt32(itemQuantities[i].Trim());
+
+                            // Check stock levels before inserting/updating
+                            int currentStockQty = GetCurrentStockQty(itemID, warehouseID, conn, transaction);
+                            int updatedStockQty = currentStockQty + quantityToAdd;
+
+                            if (updatedStockQty < 0)
+                            {
+                                string errorMessage = $"Error: Stock update would cause negative stock for Item ID '{itemID}' in Warehouse '{warehouseName}'.\n\n" +
+                                                      $"Current Stock: {currentStockQty}, Quantity to Add: {quantityToAdd}, Resulting Stock: {updatedStockQty}.";
+                                MessageBox.Show(errorMessage);
+                                Debug.WriteLine($"ERROR: {errorMessage}");
+                                transaction.Rollback();  // Prevent committing changes
+                                return false;
+                            }
+
+                            string updateQuery = @"
+                    MERGE INTO tblStockBalance AS target
+                    USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID) AS source
+                    ON target.ItemID = source.ItemID AND target.WarehouseID = source.WarehouseID
+                    WHEN MATCHED THEN
+                        UPDATE SET ItemQty = ItemQty + @Quantity
+                    WHEN NOT MATCHED THEN
+                        INSERT (ItemID, ItemName, ItemDescription, WarehouseID, WarehouseName, ItemQty)
+                        VALUES (@ItemID, @ItemName, '', @WarehouseID, @WarehouseName, @Quantity);";
+
+                            using (SqlCommand cmd = new SqlCommand(updateQuery, conn, transaction))
+                            {
+                                string itemName = GetItemName(itemID, conn, transaction);
+                                cmd.Parameters.AddWithValue("@ItemID", itemID);
+                                cmd.Parameters.AddWithValue("@Quantity", quantityToAdd);
+                                cmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+                                cmd.Parameters.AddWithValue("@WarehouseName", warehouseName);
+                                cmd.Parameters.AddWithValue("@ItemName", itemName);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+                                Debug.WriteLine($"DEBUG: Stock balance update for ItemID: {itemID}, Quantity: {quantityToAdd}. Rows Affected: {rowsAffected}");
+                            }
+                        }
+
+                        transaction.Commit();
+                        Debug.WriteLine("DEBUG: Stock balances updated and committed successfully ✅.");
+                    }
+                }
+
+                return true;
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Database error during stock balance update: " + sqlEx.Message);
+                Debug.WriteLine("SQL EXCEPTION: " + sqlEx.ToString());
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred during stock balance update: " + ex.Message);
+                Debug.WriteLine("EXCEPTION: " + ex.ToString());
+                return false;
+            }
+        }
+
+        private int GetCurrentStockQty(int itemID, int warehouseID, SqlConnection conn, SqlTransaction transaction)
+        {
+            try
+            {
+                string query = "SELECT ItemQty FROM tblStockBalance WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
+                using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@ItemID", itemID);
+                    cmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0; // Return 0 if no stock found
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Unexpected error: {ex.Message}");
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine($"ERROR: Failed to fetch current stock for ItemID {itemID}: {ex.Message}");
+                return 0; // Assume 0 if there's an issue
             }
         }
+        private string GetItemName(int itemID, SqlConnection conn, SqlTransaction transaction)
+        {
+            try
+            {
+                string query = "SELECT Item_Name FROM Items WHERE ItemID = @ItemID";
+                using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
+                {
+                    cmd.Parameters.AddWithValue("@ItemID", itemID);
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? result.ToString() : "Unknown Item";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ERROR: Failed to fetch item name for ItemID {itemID}: {ex.Message}");
+                return "Unknown Item";
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Debug.WriteLine("DEBUG: btnUpdate_Click method invoked 🕾");
+
+                // Step 1: Validate input fields
+                Debug.WriteLine("DEBUG: Starting validation...");
+                if (!ValidateUpdateInputs())
+                {
+                    Debug.WriteLine("DEBUG: Input validation failed. Returning from btnUpdate_Click.");
+                    return;
+                }
+                Debug.WriteLine("DEBUG: Input validation passed ✅.");
+
+                // Step 2: Fetch existing GRN data for comparison
+                Debug.WriteLine($"DEBUG: Fetching existing GRN data for GRN ID: {txtGRN_ID.Text}...");
+                DataRow existingGRNData = FetchExistingGRNData(Convert.ToInt32(txtGRN_ID.Text));
+                if (existingGRNData == null)
+                {
+                    MessageBox.Show("Error: GRN not found in the database. Please try again.");
+                    Debug.WriteLine($"ERROR: No GRN data found for GRN ID: {txtGRN_ID.Text}.");
+                    return;
+                }
+                Debug.WriteLine("DEBUG: Existing GRN data fetched successfully.");
+
+                // Step 3: Compare existing and new data (detect changes)
+                Debug.WriteLine("DEBUG: Comparing GRN data...");
+                if (!FetchGRNDetailsForComparison(existingGRNData))
+                {
+                    MessageBox.Show("No changes detected. No update required.");
+                    Debug.WriteLine("DEBUG: No changes detected in GRN data.");
+                    return;
+                }
+                Debug.WriteLine("DEBUG: Changes detected, proceeding with update...");
+
+                // Step 4: Rollback stock balances based on existing data
+                Debug.WriteLine("DEBUG: Rolling back stock balances for existing data...");
+                if (!RollbackStockBalances(existingGRNData))
+                {
+                    MessageBox.Show("Error: Failed to rollback stock balances. Please try again.");
+                    Debug.WriteLine("ERROR: Rollback of stock balances failed.");
+                    return;
+                }
+                Debug.WriteLine("DEBUG: Stock balances rolled back successfully.");
+
+                // Step 5: Update GRN record
+                Debug.WriteLine("DEBUG: Updating GRN record...");
+                if (!UpdateGRNData())
+                {
+                    MessageBox.Show("Error: Failed to update GRN record.");
+                    Debug.WriteLine("ERROR: GRN update failed.");
+                    return;
+                }
+                Debug.WriteLine("DEBUG: GRN record updated successfully.");
+
+                // Step 6: Update stock balances with new data
+                Debug.WriteLine("DEBUG: Updating stock balances with new data...");
+                if (!UpdateStockBalances())
+                {
+                    MessageBox.Show("Error: Failed to update stock balances.");
+                    Debug.WriteLine("ERROR: Update of stock balances failed.");
+                    return;
+                }
+                Debug.WriteLine("DEBUG: Stock balances updated successfully.");
+
+                // Final Message
+                MessageBox.Show("GRN updated successfully!");
+                Debug.WriteLine("INFO: GRN update process completed successfully ✅.");
+
+                // Clear the form after update
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message);
+                Debug.WriteLine("EXCEPTION: " + ex.ToString());
+            }
+        }
+
+        private bool FetchGRNDetailsForComparison(DataRow existingGRNData)
+        {
+            Debug.WriteLine("DEBUG: FetchGRNDetailsForComparison method invoked 🔍");
+
+            // Extract existing GRN data
+            string existingPurchaseOrGINID = existingGRNData["PurchaseID"].ToString().Trim();
+            string existingPurchaseType = existingGRNData["PurchaseType"].ToString().Trim();
+            string existingSupplierID = existingGRNData["SupplierID"].ToString().Trim();
+            string existingItemIDs = existingGRNData["ItemID"].ToString().Trim();
+            string existingItemQuantities = existingGRNData["ItemQuantity"].ToString().Trim();
+            string existingWarehouseID = existingGRNData["WarehouseID"].ToString().Trim();
+            string existingGRNType = existingGRNData["GRN_Type"].ToString().Trim();
+
+            // Extract current data from the form
+            string currentPurchaseOrGINID = cmbPurchaseOrGIN_ID.Text.Trim();
+            string currentPurchaseType = rbPurchaseOrder.Checked ? "O" : rbPurchaseContract.Checked ? "C" : "G";
+            string currentSupplierID = txtSupplierID.Text.Trim();
+            string currentItemIDs = string.Join(",", txtItemIDs.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries));
+            string currentItemQuantities = string.Join(",", txtItemQtys.Text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries));
+            string currentWarehouseID = cmbWarehouseID.Text.Trim();
+            string currentGRNType = cmbGRN_Type.Text.Trim();
+
+            // Compare values
+            if (existingPurchaseOrGINID != currentPurchaseOrGINID ||
+                existingPurchaseType != currentPurchaseType ||
+                existingSupplierID != currentSupplierID ||
+                existingItemIDs != currentItemIDs ||
+                existingItemQuantities != currentItemQuantities ||
+                existingWarehouseID != currentWarehouseID ||
+                existingGRNType != currentGRNType)
+            {
+                Debug.WriteLine("DEBUG: Changes detected in the GRN data. Update is required.");
+                return true;
+            }
+
+            Debug.WriteLine("DEBUG: No changes detected in the GRN data. No update needed.");
+            return false;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -1319,6 +1844,21 @@ namespace Mufaddal_Traders
             Debug.WriteLine("LoadNextGRNID executed successfully. GRN ID ready for new entry ✅");
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             Debug.WriteLine("txtSearch_KeyDown method called 🐞");
@@ -1327,132 +1867,305 @@ namespace Mufaddal_Traders
             {
                 Debug.WriteLine("Enter key pressed. Starting search operation...");
 
-                if (string.IsNullOrWhiteSpace(txtSearch.Text))
+                if (!ValidateSearchInput())
                 {
-                    MessageBox.Show("Please enter a GRN ID to search.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Debug.WriteLine("Search aborted: GRN ID is empty.");
+                    Debug.WriteLine("Search input validation failed 🚫. Exiting.");
                     return;
                 }
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                try
                 {
-                    try
+                    var grnData = FetchGRNData(txtSearch.Text.Trim());
+
+                    if (grnData != null)
                     {
-                        Debug.WriteLine("Opening database connection...");
-                        conn.Open();
-                        Debug.WriteLine("Database connection opened successfully ✅");
-
-                        string query = "SELECT * FROM tblGRN WHERE GRN_ID = @GRN_ID";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@GRN_ID", txtSearch.Text.Trim());
-
-                        Debug.WriteLine($"Executing query: {query} with GRN_ID = {txtSearch.Text.Trim()}");
-                        SqlDataReader reader = cmd.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            Debug.WriteLine("Record found. Populating fields...");
-
-                            // Populate fields from tblGRN
-                            txtGRN_ID.Text = reader["GRN_ID"].ToString();
-                            Debug.WriteLine($"GRN_ID loaded: {txtGRN_ID.Text}");
-
-                            string purchaseId = reader["PurchaseID"].ToString();
-                            txtSupplierID.Text = reader["SupplierID"].ToString();
-                            Debug.WriteLine($"PurchaseID loaded: {purchaseId}, SupplierID loaded: {txtSupplierID.Text}");
-
-                            // Convert comma-separated IDs/Qtys to newline-separated
-                            txtItemIDs.Text = reader["ItemID"].ToString().Replace(",", Environment.NewLine);
-                            txtItemQtys.Text = reader["ItemQuantity"].ToString().Replace(",", Environment.NewLine);
-                            Debug.WriteLine($"ItemIDs loaded: {txtItemIDs.Text.Replace(Environment.NewLine, ", ")}, Quantities loaded: {txtItemQtys.Text.Replace(Environment.NewLine, ", ")}");
-
-                            cmbWarehouseID.Text = reader["WarehouseID"].ToString();
-                            cmbGRN_Type.Text = reader["GRN_Type"].ToString();
-                            Debug.WriteLine($"WarehouseID loaded: {cmbWarehouseID.Text}, GRN_Type loaded: {cmbGRN_Type.Text}");
-
-                            // Temporarily mark that we're changing the radio in code
-                            isProgrammaticRadioChange = true;
-                            try
-                            {
-                                string purchaseType = reader["PurchaseType"].ToString();
-                                Debug.WriteLine($"PurchaseType loaded: {purchaseType}");
-
-                                if (purchaseType == "O")
-                                {
-                                    rbPurchaseOrder.Checked = true;
-                                    txtItemQtys.ReadOnly = true;
-                                    txtItemQtys.BackColor = Color.BurlyWood;
-                                    Debug.WriteLine("Purchase Type set to 'O' (Purchase Order). ItemQtys set to read-only with BurlyWood background.");
-                                }
-                                else if (purchaseType == "C")
-                                {
-                                    rbPurchaseContract.Checked = true;
-                                    txtItemQtys.ReadOnly = false;
-                                    txtItemQtys.BackColor = SystemColors.Control;
-                                    Debug.WriteLine("Purchase Type set to 'C' (Purchase Contract). ItemQtys set to editable with default background.");
-                                }
-                                else if (purchaseType == "G")
-                                {
-                                    rbGIN.Checked = true;
-                                    txtItemQtys.ReadOnly = true;
-                                    txtItemQtys.BackColor = Color.BurlyWood;
-                                    Debug.WriteLine("Purchase Type set to 'G' (GIN). ItemQtys set to read-only with BurlyWood background.");
-                                }
-                            }
-                            finally
-                            {
-                                // Revert this after setting the radio button
-                                isProgrammaticRadioChange = false;
-                                Debug.WriteLine("isProgrammaticRadioChange reverted to false.");
-                            }
-
-                            // Set the PurchaseID combo text
-                            cmbPurchaseOrGIN_ID.Text = purchaseId;
-                            Debug.WriteLine($"Purchase/GIN ID combo box updated with value: {cmbPurchaseOrGIN_ID.Text}");
-
-                            // Call the relevant loading method to get SupplierName & ItemNames
-                            if (rbPurchaseOrder.Checked)
-                            {
-                                Debug.WriteLine("Calling LoadPurchaseOrderDetails...");
-                                LoadPurchaseOrderDetails(purchaseId);
-                            }
-                            else if (rbPurchaseContract.Checked)
-                            {
-                                Debug.WriteLine("Calling LoadPurchaseContractDetails...");
-                                LoadPurchaseContractDetails(purchaseId);
-                            }
-                            else if (rbGIN.Checked)
-                            {
-                                Debug.WriteLine("Calling LoadSelectedGINDetails...");
-                                if (int.TryParse(purchaseId, out int ginID))
-                                {
-                                    LoadSelectedGINDetails(ginID);
-                                }
-                                else
-                                {
-                                    Debug.WriteLine($"GIN ID '{purchaseId}' is not a valid integer. Skipping GIN details load.");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Debug.WriteLine("No record found for the entered GRN ID.");
-                            MessageBox.Show("No record found for the entered GRN ID.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        PopulateGRNFields(grnData);
+                        Debug.WriteLine("GRN data populated successfully ✅");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Debug.WriteLine($"Error during search operation: {ex.Message}");
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No record found for the entered GRN ID.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Debug.WriteLine("No record found for the entered GRN ID.");
                     }
-                    finally
-                    {
-                        Debug.WriteLine("Closing database connection...");
-                        conn.Close();
-                        Debug.WriteLine("Database connection closed ✅");
-                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error during search operation: {ex.Message}");
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
+        private bool ValidateSearchInput()
+        {
+            Debug.WriteLine("ValidateSearchInput method called 🐞");
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                Debug.WriteLine("Validation failed: Search text is empty 🚫");
+                MessageBox.Show("Please enter a GRN ID to search.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            Debug.WriteLine($"Validation passed ✅: Search text = {txtSearch.Text.Trim()}");
+            return true;
+        }
+
+        private DataRow FetchGRNData(string grnId)
+        {
+            Debug.WriteLine($"FetchGRNData method called 🐞 with GRN_ID: {grnId}");
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    Debug.WriteLine("Attempting to open SQL connection...");
+                    conn.Open();
+                    Debug.WriteLine("SQL connection opened successfully ✅");
+
+                    string query = "SELECT * FROM tblGRN WHERE GRN_ID = @GRN_ID";
+                    Debug.WriteLine($"SQL Query: {query}");
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@GRN_ID", grnId);
+                        Debug.WriteLine($"Parameter added: @GRN_ID = {grnId}");
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            Debug.WriteLine("Initializing data adapter and data table...");
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            Debug.WriteLine($"Query executed. Rows fetched: {dt.Rows.Count}");
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                Debug.WriteLine("Data found ✅. Returning the first row.");
+                                return dt.Rows[0];
+                            }
+                            else
+                            {
+                                Debug.WriteLine("No data found for the given GRN_ID 🚫.");
+                                return null;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error during database operation: {ex.Message}");
+                    throw; // Re-throwing exception for handling at a higher level
+                }
+                finally
+                {
+                    Debug.WriteLine("Closing SQL connection...");
+                    conn.Close();
+                    Debug.WriteLine("SQL connection closed ✅");
+                }
+            }
+        }
+
+        private void PopulateGRNFields(DataRow grnData)
+        {
+            Debug.WriteLine("PopulateGRNFields method called 🐞");
+
+            try
+            {
+                // Populate GRN fields
+                txtGRN_ID.Text = grnData["GRN_ID"].ToString();
+                Debug.WriteLine($"txtGRN_ID populated: {txtGRN_ID.Text}");
+
+                txtSupplierID.Text = grnData["SupplierID"].ToString();
+                Debug.WriteLine($"txtSupplierID populated: {txtSupplierID.Text}");
+
+                txtItemIDs.Text = grnData["ItemID"].ToString().Replace(",", Environment.NewLine);
+                Debug.WriteLine($"txtItemIDs populated: {txtItemIDs.Text.Replace(Environment.NewLine, ", ")}");
+
+                txtItemQtys.Text = grnData["ItemQuantity"].ToString().Replace(",", Environment.NewLine);
+                Debug.WriteLine($"txtItemQtys populated: {txtItemQtys.Text.Replace(Environment.NewLine, ", ")}");
+
+                cmbWarehouseID.Text = grnData["WarehouseID"].ToString();
+                Debug.WriteLine($"cmbWarehouseID populated: {cmbWarehouseID.Text}");
+
+                cmbGRN_Type.Text = grnData["GRN_Type"].ToString();
+                Debug.WriteLine($"cmbGRN_Type populated: {cmbGRN_Type.Text}");
+
+                // Handle radio button selection
+                Debug.WriteLine("Setting purchase type based on PurchaseType value...");
+                SetPurchaseType(grnData["PurchaseType"].ToString());
+                Debug.WriteLine($"PurchaseType set successfully: {grnData["PurchaseType"]}");
+
+                // Dynamically load cmbPurchaseOrGIN_ID based on the related type
+                Debug.WriteLine("Loading cmbPurchaseOrGIN_ID...");
+                string purchaseType = grnData["PurchaseType"].ToString();
+                string relatedID = grnData["PurchaseID"].ToString();
+
+                if (!string.IsNullOrWhiteSpace(relatedID))
+                {
+                    Debug.WriteLine($"Related ID detected: {relatedID}. Loading IDs into cmbPurchaseOrGIN_ID.");
+                    LoadPurchaseGIN_ID(purchaseType);
+
+                    // After loading all IDs, set the selected value to the current GRN's ID
+                    cmbPurchaseOrGIN_ID.SelectedValue = relatedID;
+                    Debug.WriteLine($"cmbPurchaseOrGIN_ID populated and set to: {relatedID}");
+                }
+                else
+                {
+                    Debug.WriteLine("No related ID found. cmbPurchaseOrGIN_ID will remain empty.");
+                }
+
+                // Populate ComboBox and Text fields for SupplierName and ItemNames
+                Debug.WriteLine("Fetching and populating additional data...");
+                var supplierName = FetchSupplierName(txtSupplierID.Text);
+                txtSupplierName.Text = supplierName;
+                Debug.WriteLine($"txtSupplierName populated: {txtSupplierName.Text}");
+
+                var itemNames = FetchItemNames(txtItemIDs.Lines);
+                txtItemNames.Text = string.Join(Environment.NewLine, itemNames);
+                Debug.WriteLine($"txtItemNames populated: {string.Join(", ", itemNames)}");
+
+                Debug.WriteLine("Fields populated successfully ✅");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error while populating GRN fields: {ex.Message}");
+                throw; // Re-throwing exception for higher-level handling
+            }
+            finally
+            {
+                Debug.WriteLine("Exiting PopulateGRNFields method ✅");
+            }
+        }
+
+        private string FetchSupplierName(string supplierID)
+        {
+            Debug.WriteLine($"FetchSupplierName method called 🐞 with SupplierID: {supplierID}");
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT Name FROM tblManageSuppliers WHERE SupplierID = @SupplierID";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                    var result = cmd.ExecuteScalar();
+                    Debug.WriteLine(result != null
+                        ? $"SupplierName fetched: {result.ToString()}"
+                        : "No SupplierName found for the given SupplierID 🚫");
+                    return result?.ToString() ?? string.Empty;
+                }
+            }
+        }
+
+        private IEnumerable<string> FetchItemNames(string[] itemIDs)
+        {
+            Debug.WriteLine($"FetchItemNames method called 🐞 with ItemIDs: {string.Join(", ", itemIDs)}");
+
+            // Return empty if no item IDs provided
+            if (itemIDs == null || itemIDs.Length == 0)
+            {
+                Debug.WriteLine("No ItemIDs provided. Returning an empty list.");
+                return Enumerable.Empty<string>();
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    Debug.WriteLine("Attempting to open SQL connection...");
+                    conn.Open();
+                    Debug.WriteLine("SQL connection opened successfully ✅");
+
+                    // Create parameterized query for safety (avoiding string concatenation for SQL injection)
+                    string query = $"SELECT Item_Name FROM Items WHERE ItemID IN ({string.Join(", ", itemIDs.Select((id, index) => $"@ItemID{index}"))})";
+                    Debug.WriteLine($"SQL Query: {query}");
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Add parameters for each ItemID
+                        for (int i = 0; i < itemIDs.Length; i++)
+                        {
+                            cmd.Parameters.AddWithValue($"@ItemID{i}", itemIDs[i].Trim());
+                        }
+
+                        List<string> itemNames = new List<string>();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string itemName = reader["Item_Name"].ToString();
+                                Debug.WriteLine($"Item_Name fetched: {itemName}");
+                                itemNames.Add(itemName);
+                            }
+                        }
+                        Debug.WriteLine($"Total Item_Names fetched: {itemNames.Count}");
+                        return itemNames;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error during FetchItemNames: {ex.Message}");
+                    MessageBox.Show($"Error fetching item names: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return Enumerable.Empty<string>(); // Return an empty list to avoid breaking the application
+                }
+                finally
+                {
+                    Debug.WriteLine("Closing SQL connection...");
+                    conn.Close();
+                    Debug.WriteLine("SQL connection closed ✅");
+                }
+            }
+        }
+
+        private void SetPurchaseType(string purchaseType)
+        {
+            Debug.WriteLine("SetPurchaseType method called 🐞");
+            Debug.WriteLine($"Received PurchaseType: {purchaseType}");
+
+            isProgrammaticRadioChange = true;
+            try
+            {
+                switch (purchaseType)
+                {
+                    case "O":
+                        Debug.WriteLine("Setting PurchaseType to 'O' (Purchase Order)");
+                        rbPurchaseOrder.Checked = true;
+                        txtItemQtys.ReadOnly = true;
+                        txtItemQtys.BackColor = Color.BurlyWood;
+                        Debug.WriteLine("PurchaseOrder radio button checked. ItemQtys set to read-only with BurlyWood background.");
+                        break;
+
+                    case "C":
+                        Debug.WriteLine("Setting PurchaseType to 'C' (Purchase Contract)");
+                        rbPurchaseContract.Checked = true;
+                        txtItemQtys.ReadOnly = false;
+                        txtItemQtys.BackColor = SystemColors.Control;
+                        Debug.WriteLine("PurchaseContract radio button checked. ItemQtys set to editable with default background.");
+                        break;
+
+                    case "G":
+                        Debug.WriteLine("Setting PurchaseType to 'G' (GIN)");
+                        rbGIN.Checked = true;
+                        txtItemQtys.ReadOnly = true;
+                        txtItemQtys.BackColor = Color.BurlyWood;
+                        Debug.WriteLine("GIN radio button checked. ItemQtys set to read-only with BurlyWood background.");
+                        break;
+
+                    default:
+                        Debug.WriteLine($"Unknown PurchaseType: {purchaseType}. No action taken.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in SetPurchaseType: {ex.Message}");
+                throw; // Re-throw exception for higher-level handling
+            }
+            finally
+            {
+                isProgrammaticRadioChange = false;
+                Debug.WriteLine("isProgrammaticRadioChange reverted to false.");
+                Debug.WriteLine("Exiting SetPurchaseType method ✅");
+            }
+        }
+
     }
 }
