@@ -106,7 +106,7 @@ namespace Mufaddal_Traders
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Make sure a row is selected in dgvDisplay
+            // Ensure a row is selected in dgvDisplay
             if (dgvDisplay.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row to delete.",
@@ -114,7 +114,7 @@ namespace Mufaddal_Traders
                 return;
             }
 
-            // Retrieve the GRN_ID, PurchaseType, and PurchaseID from the selected row
+            // Retrieve GRN details from the selected row
             int selectedGRNID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["GRN_ID"].Value);
             string selectedPurchaseType = dgvDisplay.SelectedRows[0].Cells["PurchaseType"].Value?.ToString();
             string selectedPurchaseID = dgvDisplay.SelectedRows[0].Cells["PurchaseID"].Value?.ToString();
@@ -122,19 +122,15 @@ namespace Mufaddal_Traders
             string itemQtysCsv = dgvDisplay.SelectedRows[0].Cells["ItemQuantity"].Value?.ToString() ?? "";
             string warehouseID = dgvDisplay.SelectedRows[0].Cells["WarehouseID"].Value?.ToString() ?? "";
 
-            // Declare arrays outside the block to ensure their scope
-            string[] itemIDArray = new string[0];
-            string[] itemQtyArray = new string[0];
+            // Parse item IDs and quantities
+            string[] itemIDArray = itemIDsCsv.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] itemQtyArray = itemQtysCsv.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    // Parse item IDs and quantities
-                    itemIDArray = itemIDsCsv.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                    itemQtyArray = itemQtysCsv.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                     // Check for negative stock
                     if (itemIDArray.Length == itemQtyArray.Length && !string.IsNullOrEmpty(warehouseID))
@@ -166,20 +162,16 @@ namespace Mufaddal_Traders
                             }
                         }
                     }
-                }
 
-                // Ask for confirmation
-                DialogResult result = MessageBox.Show(
-                    $"Are you sure you want to delete GRN ID = {selectedGRNID}?",
-                    "Delete Confirmation",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
+                    // Ask for confirmation
+                    DialogResult result = MessageBox.Show(
+                        $"Are you sure you want to delete GRN ID = {selectedGRNID}?",
+                        "Delete Confirmation",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
 
-                if (result == DialogResult.Yes)
-                {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    if (result == DialogResult.Yes)
                     {
-                        conn.Open();
                         using (SqlTransaction transaction = conn.BeginTransaction())
                         {
                             try
@@ -212,7 +204,7 @@ namespace Mufaddal_Traders
                                     }
                                 }
 
-                                // 3) Revert purchase order status if applicable
+                                // 3) Update related records based on PurchaseType
                                 if (selectedPurchaseType == "O" && !string.IsNullOrEmpty(selectedPurchaseID))
                                 {
                                     string revertStatusQuery = @"
@@ -224,6 +216,19 @@ namespace Mufaddal_Traders
                                     {
                                         revertCmd.Parameters.AddWithValue("@PurchaseID", selectedPurchaseID);
                                         revertCmd.ExecuteNonQuery();
+                                    }
+                                }
+                                else if (selectedPurchaseType == "G" && !string.IsNullOrEmpty(selectedPurchaseID))
+                                {
+                                    string revertGINStatusQuery = @"
+                            UPDATE tblGIN
+                            SET Status = 'N'
+                            WHERE GIN_ID = @GIN_ID";
+
+                                    using (SqlCommand revertGINCmd = new SqlCommand(revertGINStatusQuery, conn, transaction))
+                                    {
+                                        revertGINCmd.Parameters.AddWithValue("@GIN_ID", selectedPurchaseID);
+                                        revertGINCmd.ExecuteNonQuery();
                                     }
                                 }
 
@@ -252,8 +257,6 @@ namespace Mufaddal_Traders
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
