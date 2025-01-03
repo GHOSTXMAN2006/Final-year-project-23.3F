@@ -843,8 +843,8 @@ OR GIN_ID IN (
                             // Step 7: Insert GRN Record
                             Debug.WriteLine("Inserting GRN record...");
                             string insertGRNQuery = @"
-            INSERT INTO tblGRN (GRN_ID, PurchaseID, PurchaseType, SupplierID, ItemID, ItemQuantity, WarehouseID, GRN_Date, GRN_Type)
-            VALUES (@GRN_ID, @PurchaseID, @PurchaseType, @SupplierID, @ItemIDs, @ItemQuantities, @WarehouseID, GETDATE(), @GRN_Type)";
+    INSERT INTO tblGRN (GRN_ID, PurchaseID, PurchaseType, SupplierID, ItemID, ItemQuantity, WarehouseID, GRN_Date, GRN_Type)
+    VALUES (@GRN_ID, @PurchaseID, @PurchaseType, @SupplierID, @ItemIDs, @ItemQuantities, @WarehouseID, GETDATE(), @GRN_Type)";
 
                             using (SqlCommand cmd = new SqlCommand(insertGRNQuery, conn, transaction))
                             {
@@ -866,12 +866,12 @@ OR GIN_ID IN (
                             Debug.WriteLine("Updating stock balance...");
                             for (int i = 0; i < itemIDs.Length; i++)
                             {
-                                // Log the old stock value before updating
                                 Debug.WriteLine($"Fetching old stock for ItemID: {itemIDs[i]} in Warehouse: {warehouseID}...");
                                 string fetchOldStockQuery = @"
-        SELECT ItemQty 
-        FROM tblStockBalance 
-        WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
+SELECT ItemQty 
+FROM tblStockBalance 
+WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
+
                                 int oldStock = 0;
                                 using (SqlCommand fetchCmd = new SqlCommand(fetchOldStockQuery, conn, transaction))
                                 {
@@ -889,17 +889,16 @@ OR GIN_ID IN (
                                     }
                                 }
 
-                                // Update stock balance
                                 string updateStockBalanceQuery = @"
-        MERGE INTO tblStockBalance AS Target
-        USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @ItemQty AS ItemQty, @ItemName AS ItemName) AS Source
-        ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
-        WHEN MATCHED THEN
-            UPDATE SET Target.ItemQty = Target.ItemQty + Source.ItemQty
-        WHEN NOT MATCHED THEN
-            INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
-            VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
-                    (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.ItemQty);";
+MERGE INTO tblStockBalance AS Target
+USING (SELECT @ItemID AS ItemID, @WarehouseID AS WarehouseID, @ItemQty AS ItemQty, @ItemName AS ItemName) AS Source
+ON Target.ItemID = Source.ItemID AND Target.WarehouseID = Source.WarehouseID
+WHEN MATCHED THEN
+    UPDATE SET Target.ItemQty = Target.ItemQty + Source.ItemQty
+WHEN NOT MATCHED THEN
+    INSERT (ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
+    VALUES (Source.ItemID, Source.ItemName, Source.WarehouseID, 
+            (SELECT Store_Name FROM Warehouse WHERE StoreID = Source.WarehouseID), Source.ItemQty);";
 
                                 using (SqlCommand cmd = new SqlCommand(updateStockBalanceQuery, conn, transaction))
                                 {
@@ -911,24 +910,6 @@ OR GIN_ID IN (
                                     Debug.WriteLine($"Executing stock balance update for ItemID: {itemIDs[i]}...");
                                     cmd.ExecuteNonQuery();
                                     Debug.WriteLine($"Stock balance updated for ItemID: {itemIDs[i]} ✅");
-                                }
-
-                                // Log the new stock value after updating
-                                Debug.WriteLine($"Fetching new stock for ItemID: {itemIDs[i]} in Warehouse: {warehouseID}...");
-                                using (SqlCommand verifyCmd = new SqlCommand(fetchOldStockQuery, conn, transaction))
-                                {
-                                    verifyCmd.Parameters.AddWithValue("@ItemID", itemIDs[i]);
-                                    verifyCmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
-                                    object updatedResult = verifyCmd.ExecuteScalar();
-                                    if (updatedResult != null)
-                                    {
-                                        int newStock = Convert.ToInt32(updatedResult);
-                                        Debug.WriteLine($"New stock for ItemID {itemIDs[i]}: {newStock} (Old: {oldStock}, Added: {itemQuantities[i]})");
-                                    }
-                                    else
-                                    {
-                                        Debug.WriteLine($"Failed to fetch new stock for ItemID {itemIDs[i]} in Warehouse {warehouseID}. Possible issue.");
-                                    }
                                 }
                             }
 
@@ -947,7 +928,22 @@ OR GIN_ID IN (
                                 }
                             }
 
-                            // Step 10: Commit Transaction
+                            // **Step 10: Update Purchase Order Status if Purchase Order Type**
+                            if (rbPurchaseOrder.Checked)
+                            {
+                                Debug.WriteLine("Updating purchase order status for Purchase Order Type...");
+                                string updatePOStatusQuery = "UPDATE Purchase_Orders SET Status = 'Y' WHERE PurchaseOrderID = @PurchaseID";
+
+                                using (SqlCommand cmd = new SqlCommand(updatePOStatusQuery, conn, transaction))
+                                {
+                                    cmd.Parameters.AddWithValue("@PurchaseID", purchaseOrGIN_ID);
+                                    Debug.WriteLine("Executing Purchase Order status update query...");
+                                    cmd.ExecuteNonQuery();
+                                    Debug.WriteLine("Purchase Order status updated to 'Y' ✅");
+                                }
+                            }
+
+                            // Step 11: Commit Transaction
                             Debug.WriteLine("Committing transaction...");
                             transaction.Commit();
                             Debug.WriteLine("Transaction committed successfully ✅");

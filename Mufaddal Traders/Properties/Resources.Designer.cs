@@ -63,6 +63,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _18442 {
+            get {
+                object obj = ResourceManager.GetObject("18442", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _219988_2 {
             get {
                 object obj = ResourceManager.GetObject("219988 2", resourceCulture);
@@ -76,6 +86,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap _254686 {
             get {
                 object obj = ResourceManager.GetObject("254686", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2546861 {
+            get {
+                object obj = ResourceManager.GetObject("2546861", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +246,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap _6528651 {
             get {
                 object obj = ResourceManager.GetObject("6528651", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _665939 {
+            get {
+                object obj = ResourceManager.GetObject("665939", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +436,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap black_checkmark_png_4 {
+            get {
+                object obj = ResourceManager.GetObject("black-checkmark-png-4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -697,6 +737,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap GRN_1 {
             get {
                 object obj = ResourceManager.GetObject("GRN 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hand_drawn_tick_78370_490 {
+            get {
+                object obj = ResourceManager.GetObject("hand-drawn-tick_78370-490", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

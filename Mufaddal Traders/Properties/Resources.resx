@@ -151,9 +151,6 @@
   <data name="wallpaperflare.com_wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wallpaperflare.com_wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="orange-circle-png-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orange-circle-png-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-transparent-product-return-privacy-policy-computer-icons-warehouse-chemist-trademark-logo-business-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,9 +175,6 @@
   <data name="update cutomer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\update cutomer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reload-page-icon-vector2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reload-page-icon-vector2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Menu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -192,6 +186,9 @@
   </data>
   <data name="style11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\style11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="665939" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\665939.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,11 +205,17 @@
   <data name="In no time-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\In no time-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="red-circle-emoji-512x512-8xv6a7vo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red-circle-emoji-512x512-8xv6a7vo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Delivery address-bro (1) 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delivery address-bro (1) 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="orange-circle-png-31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\orange-circle-png-31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="18442" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\18442.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="6915987" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6915987.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,17 +331,20 @@
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="254686" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\254686.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="style1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\style1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conifers-18365823" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conifers-18365823.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="content+send+icon-1320087227200139227 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\content+send+icon-1320087227200139227 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stock 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stock 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wallpaperflare.com_wallpaper (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpaperflare.com_wallpaper (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Arrow_Left-512-ezgif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arrow_Left-512-ezgif.com-webp-to-png-converter2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -366,6 +372,9 @@
   </data>
   <data name="cropped-Logo-2048x1100 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cropped-Logo-2048x1100 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2546861" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2546861.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Login-bro 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login-bro 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -396,6 +405,9 @@
   </data>
   <data name="wallpaperflare.com_wallpaper (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wallpaperflare.com_wallpaper (5).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Transfer files-bro (1) 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Transfer files-bro (1) 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Transfer files-bro (1) 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transfer files-bro (1) 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -463,6 +475,9 @@
   <data name="stock_balance-512-ezgif.com-webp-to-png-converter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stock_balance-512-ezgif.com-webp-to-png-converter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="black-checkmark-png-4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black-checkmark-png-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="return-icon-logo-illustration-order-delivery-and-reverse-logistics-symbol-template-for-graphic-and-web-design-collection-free-vector-modified(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\return-icon-logo-illustration-order-delivery-and-reverse-logistics-symbol-template-for-graphic-and-web-design-collection-free-vector-modified(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -496,8 +511,8 @@
   <data name="Discarded idea-amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Discarded idea-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="red-circle-emoji-512x512-8xv6a7vo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red-circle-emoji-512x512-8xv6a7vo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="orange-circle-png-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orange-circle-png-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -562,14 +577,14 @@
   <data name="GRN 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GRN 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Transfer files-bro (1) 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Transfer files-bro (1) 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reload-page-icon-vector2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reload-page-icon-vector2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warehouse-transfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warehouse-transfer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="conifers-18365823" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\conifers-18365823.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wallpaperflare.com_wallpaper (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpaperflare.com_wallpaper (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pc 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pc 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -580,7 +595,7 @@
   <data name="Checking boxes-cuate 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checking boxes-cuate 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="254686" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\254686.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hand-drawn-tick_78370-490" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hand-drawn-tick_78370-490.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

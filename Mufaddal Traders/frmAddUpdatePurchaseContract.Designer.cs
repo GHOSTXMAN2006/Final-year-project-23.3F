@@ -357,7 +357,7 @@ namespace Mufaddal_Traders
             this.btnClear.FillColor = System.Drawing.Color.Gray;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = global::Mufaddal_Traders.Properties.Resources.Edit;
+            this.btnClear.Image = global::Mufaddal_Traders.Properties.Resources._254686;
             this.btnClear.Location = new System.Drawing.Point(382, 697);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";

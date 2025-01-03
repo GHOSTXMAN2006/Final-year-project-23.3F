@@ -217,7 +217,7 @@ namespace Mufaddal_Traders
 
         private void tileStockDamage_Click(object sender, EventArgs e)
         {
-            frmStorekeeperStockDamage storekeeperStockDamage = new frmStorekeeperStockDamage();
+            frmDamagedGoods storekeeperStockDamage = new frmDamagedGoods();
 
             storekeeperStockDamage.Show();
 
@@ -226,9 +226,9 @@ namespace Mufaddal_Traders
 
         private void tileDiscardedGoods_Click(object sender, EventArgs e)
         {
-            frmStorekeeperDiscardedGoods storekeeperDiscardedGoods = new frmStorekeeperDiscardedGoods();
+            frmDiscardedGoods discardedGoods = new frmDiscardedGoods();
 
-            storekeeperDiscardedGoods.Show();
+            discardedGoods.Show();
 
             this.Hide();
         }

@@ -296,11 +296,11 @@
     <Compile Include="frmAddUpdateStock.Designer.cs">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddUpdateStockDamage.cs">
+    <Compile Include="frmAddUpdateDamagedGoods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddUpdateStockDamage.Designer.cs">
-      <DependentUpon>frmAddUpdateStockDamage.cs</DependentUpon>
+    <Compile Include="frmAddUpdateDamagedGoods.Designer.cs">
+      <DependentUpon>frmAddUpdateDamagedGoods.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUpdateSuppliers.cs">
       <SubType>Form</SubType>
@@ -380,11 +380,11 @@
     <Compile Include="frmShippingManagerMenu.Designer.cs">
       <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperDiscardedGoods.cs">
+    <Compile Include="frmDiscardedGoods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperDiscardedGoods.Designer.cs">
-      <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
+    <Compile Include="frmDiscardedGoods.Designer.cs">
+      <DependentUpon>frmDiscardedGoods.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGIN.cs">
       <SubType>Form</SubType>
@@ -434,11 +434,11 @@
     <Compile Include="frmStockBalance.Designer.cs">
       <DependentUpon>frmStockBalance.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStorekeeperStockDamage.cs">
+    <Compile Include="frmDamagedGoods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStorekeeperStockDamage.Designer.cs">
-      <DependentUpon>frmStorekeeperStockDamage.cs</DependentUpon>
+    <Compile Include="frmDamagedGoods.Designer.cs">
+      <DependentUpon>frmDamagedGoods.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStockTransfer.cs">
       <SubType>Form</SubType>
@@ -520,8 +520,8 @@
     <EmbeddedResource Include="frmAddUpdateStock.resx">
       <DependentUpon>frmAddUpdateStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddUpdateStockDamage.resx">
-      <DependentUpon>frmAddUpdateStockDamage.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddUpdateDamagedGoods.resx">
+      <DependentUpon>frmAddUpdateDamagedGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateSuppliers.resx">
       <DependentUpon>frmAddUpdateSuppliers.cs</DependentUpon>
@@ -562,8 +562,8 @@
     <EmbeddedResource Include="frmShippingManagerMenu.resx">
       <DependentUpon>frmShippingManagerMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperDiscardedGoods.resx">
-      <DependentUpon>frmStorekeeperDiscardedGoods.cs</DependentUpon>
+    <EmbeddedResource Include="frmDiscardedGoods.resx">
+      <DependentUpon>frmDiscardedGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGIN.resx">
       <DependentUpon>frmGIN.cs</DependentUpon>
@@ -589,8 +589,8 @@
     <EmbeddedResource Include="frmStockBalance.resx">
       <DependentUpon>frmStockBalance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStorekeeperStockDamage.resx">
-      <DependentUpon>frmStorekeeperStockDamage.cs</DependentUpon>
+    <EmbeddedResource Include="frmDamagedGoods.resx">
+      <DependentUpon>frmDamagedGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStockTransfer.resx">
       <DependentUpon>frmStockTransfer.cs</DependentUpon>
@@ -1090,6 +1090,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\254686.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2546861.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black-checkmark-png-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18442.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\665939.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand-drawn-tick_78370-490.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

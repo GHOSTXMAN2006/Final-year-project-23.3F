@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Mufaddal_Traders
 {
-    public partial class frmAddDiscardedGoods : Form
+    public partial class frmAddUpdateDamagedGoods : Form
     {
         // DLL imports to allow dragging
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -20,7 +20,7 @@ namespace Mufaddal_Traders
 
         private string connectionString = DatabaseConfig.ConnectionString;
 
-        public frmAddDiscardedGoods()
+        public frmAddUpdateDamagedGoods()
         {
             InitializeComponent();
         }
@@ -49,13 +49,13 @@ namespace Mufaddal_Traders
             this.Close();
         }
 
-        private void frmAddDiscardedGoods_Load(object sender, EventArgs e)
+        private void frmAddUpdateDamagedGoods_Load(object sender, EventArgs e)
         {
-            LoadNextDiscardedGoodsID();
+            LoadNextStockDamageID();
             LoadWarehouseIDs();
         }
 
-        private void LoadNextDiscardedGoodsID()
+        private void LoadNextStockDamageID()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -68,16 +68,16 @@ namespace Mufaddal_Traders
                         SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Number
                         FROM master.dbo.spt_values
                     ) AS Numbers
-                    WHERE Number NOT IN (SELECT DiscardedGoodsID FROM tblDiscardedGoods)
+                    WHERE Number NOT IN (SELECT StockDamageID FROM tblDamagedGoods)
                     ORDER BY Number";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     object result = cmd.ExecuteScalar();
-                    txtDiscardedGoodID.Text = result != null ? result.ToString() : "1";
+                    txtStockDamageID.Text = result != null ? result.ToString() : "1";
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error loading Discarded Goods ID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error loading Stock Damage ID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -212,51 +212,39 @@ namespace Mufaddal_Traders
                         transaction = conn.BeginTransaction();
 
                         // Turn on identity insert
-                        string identityInsertOn = "SET IDENTITY_INSERT tblDiscardedGoods ON;";
+                        string identityInsertOn = "SET IDENTITY_INSERT tblDamagedGoods ON;";
                         SqlCommand identityOnCmd = new SqlCommand(identityInsertOn, conn, transaction);
                         identityOnCmd.ExecuteNonQuery();
 
-                        // Insert the discarded goods record
+                        // Insert the damaged goods record
                         string insertQuery = @"
-                INSERT INTO tblDiscardedGoods (DiscardedGoodsID, WarehouseID, WarehouseName, ItemID, ItemName, ItemQty, Status)
-                VALUES (@DiscardedGoodsID, @WarehouseID, @WarehouseName, @ItemID, @ItemName, @ItemQty, '-')";
+                INSERT INTO tblDamagedGoods (StockDamageID, ItemID, ItemName, WarehouseID, WarehouseName, ItemQty)
+                VALUES (@StockDamageID, @ItemID, @ItemName, @WarehouseID, @WarehouseName, @ItemQty)";
 
                         SqlCommand cmd = new SqlCommand(insertQuery, conn, transaction);
-                        cmd.Parameters.AddWithValue("@DiscardedGoodsID", int.Parse(txtDiscardedGoodID.Text));
-                        cmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedValue);
-                        cmd.Parameters.AddWithValue("@WarehouseName", txtWarehouseName.Text);
+                        cmd.Parameters.AddWithValue("@StockDamageID", int.Parse(txtStockDamageID.Text));
                         cmd.Parameters.AddWithValue("@ItemID", cmbItemID.SelectedValue);
                         cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text);
+                        cmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedValue);
+                        cmd.Parameters.AddWithValue("@WarehouseName", txtWarehouseName.Text);
                         cmd.Parameters.AddWithValue("@ItemQty", int.Parse(txtItemQty.Text));
 
                         cmd.ExecuteNonQuery();
 
-                        // Update the stock balance
-                        string updateStockQuery = @"
-                UPDATE tblStockBalance 
-                SET ItemQty = ItemQty - @ItemQty 
-                WHERE ItemID = @ItemID AND WarehouseID = @WarehouseID";
-
-                        SqlCommand updateCmd = new SqlCommand(updateStockQuery, conn, transaction);
-                        updateCmd.Parameters.AddWithValue("@ItemQty", int.Parse(txtItemQty.Text));
-                        updateCmd.Parameters.AddWithValue("@ItemID", cmbItemID.SelectedValue);
-                        updateCmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedValue);
-                        updateCmd.ExecuteNonQuery();
-
                         // Turn off identity insert
-                        string identityInsertOff = "SET IDENTITY_INSERT tblDiscardedGoods OFF;";
+                        string identityInsertOff = "SET IDENTITY_INSERT tblDamagedGoods OFF;";
                         SqlCommand identityOffCmd = new SqlCommand(identityInsertOff, conn, transaction);
                         identityOffCmd.ExecuteNonQuery();
 
                         transaction.Commit();
 
-                        MessageBox.Show("Record saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClearFields(); // Clear the form after saving
+                        MessageBox.Show("Record saved successfully in tblDamagedGoods!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields(); // Clear form after saving
                     }
                     catch (Exception ex)
                     {
                         transaction?.Rollback();
-                        MessageBox.Show("Error saving discarded goods record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error saving damaged goods record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -264,9 +252,9 @@ namespace Mufaddal_Traders
 
         private bool ValidateInputs()
         {
-            if (string.IsNullOrWhiteSpace(txtDiscardedGoodID.Text))
+            if (string.IsNullOrWhiteSpace(txtStockDamageID.Text))
             {
-                MessageBox.Show("Discarded Goods ID cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Stock Damage ID cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -299,22 +287,131 @@ namespace Mufaddal_Traders
 
         private void ClearFields()
         {
-            // Reset Discarded Goods ID by reloading the next available ID
-            LoadNextDiscardedGoodsID();
+            // Reset Stock Damage ID by reloading the next available ID
+            LoadNextStockDamageID();
 
             // Clear text fields
             txtWarehouseName.Clear();
             txtItemName.Clear();
             txtItemQty.Clear();
-            txtSearch.Clear();
             QtyDisplay.Text = "000000"; // Reset to default display
 
             // Reset combo boxes
-            cmbWarehouseID.SelectedIndex = -1;  // Deselect the warehouse
-            cmbItemID.DataSource = null;  // Clear item dropdown
+            cmbWarehouseID.SelectedIndex = -1;
+            cmbItemID.DataSource = null;
 
             // Reset focus to the first field
             cmbWarehouseID.Focus();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateInputs())
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlTransaction transaction = null;
+
+                    try
+                    {
+                        conn.Open();
+                        transaction = conn.BeginTransaction();
+
+                        // Fetch the current record to compare with new data
+                        string fetchQuery = @"
+                SELECT ItemID, ItemName, WarehouseID, WarehouseName, ItemQty
+                FROM tblDamagedGoods
+                WHERE StockDamageID = @StockDamageID";
+
+                        SqlCommand fetchCmd = new SqlCommand(fetchQuery, conn, transaction);
+                        fetchCmd.Parameters.AddWithValue("@StockDamageID", int.Parse(txtStockDamageID.Text));
+
+                        SqlDataReader reader = fetchCmd.ExecuteReader();
+
+                        if (!reader.Read())
+                        {
+                            MessageBox.Show("No record found for the entered Stock Damage ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            reader.Close();
+                            return;
+                        }
+
+                        // Original record values
+                        int originalItemID = (int)reader["ItemID"];
+                        string originalItemName = reader["ItemName"].ToString();
+                        int originalWarehouseID = (int)reader["WarehouseID"];
+                        string originalWarehouseName = reader["WarehouseName"].ToString();
+                        int originalItemQty = (int)reader["ItemQty"];
+                        reader.Close();
+
+                        // Check if the new values are the same as the old values
+                        if (originalItemID == (int)cmbItemID.SelectedValue &&
+                            originalItemName == txtItemName.Text &&
+                            originalWarehouseID == (int)cmbWarehouseID.SelectedValue &&
+                            originalWarehouseName == txtWarehouseName.Text &&
+                            originalItemQty == int.Parse(txtItemQty.Text))
+                        {
+                            MessageBox.Show("No changes detected. The data is already up-to-date.", "No Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Update the record if changes exist
+                        string updateQuery = @"
+                UPDATE tblDamagedGoods
+                SET ItemID = @ItemID, 
+                    ItemName = @ItemName, 
+                    WarehouseID = @WarehouseID, 
+                    WarehouseName = @WarehouseName, 
+                    ItemQty = @ItemQty
+                WHERE StockDamageID = @StockDamageID";
+
+                        SqlCommand cmd = new SqlCommand(updateQuery, conn, transaction);
+                        cmd.Parameters.AddWithValue("@StockDamageID", int.Parse(txtStockDamageID.Text));
+                        cmd.Parameters.AddWithValue("@ItemID", cmbItemID.SelectedValue);
+                        cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text);
+                        cmd.Parameters.AddWithValue("@WarehouseID", cmbWarehouseID.SelectedValue);
+                        cmd.Parameters.AddWithValue("@WarehouseName", txtWarehouseName.Text);
+                        cmd.Parameters.AddWithValue("@ItemQty", int.Parse(txtItemQty.Text));
+
+                        cmd.ExecuteNonQuery();
+                        transaction.Commit();
+
+                        MessageBox.Show("Record updated successfully in tblDamagedGoods!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields(); // Clear form after updating
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction?.Rollback();
+                        MessageBox.Show("Error updating damaged goods record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Reset Stock Damage ID by reloading the next available ID
+                LoadNextStockDamageID();
+
+                // Clear text fields
+                txtWarehouseName.Clear();
+                txtItemName.Clear();
+                txtItemQty.Clear();
+                txtSearch.Clear();
+                QtyDisplay.Text = "000000"; // Reset to default display
+
+                // Reset combo boxes
+                cmbWarehouseID.SelectedIndex = -1;
+                cmbItemID.DataSource = null; // Clear item dropdown
+
+                // Reset focus to the first field
+                cmbWarehouseID.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while clearing the form: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -327,18 +424,18 @@ namespace Mufaddal_Traders
                     {
                         conn.Open();
                         string query = @"
-                SELECT DiscardedGoodsID, WarehouseID, WarehouseName, ItemID, ItemName, ItemQty
-                FROM tblDiscardedGoods
-                WHERE DiscardedGoodsID = @DiscardedGoodsID";
+                SELECT StockDamageID, ItemID, ItemName, WarehouseID, WarehouseName, ItemQty
+                FROM tblDamagedGoods
+                WHERE StockDamageID = @StockDamageID";
 
                         SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@DiscardedGoodsID", int.Parse(txtSearch.Text));
+                        cmd.Parameters.AddWithValue("@StockDamageID", int.Parse(txtSearch.Text));
 
                         SqlDataReader reader = cmd.ExecuteReader();
                         if (reader.Read())
                         {
                             // Load data into form fields
-                            txtDiscardedGoodID.Text = reader["DiscardedGoodsID"].ToString();
+                            txtStockDamageID.Text = reader["StockDamageID"].ToString();
                             cmbWarehouseID.SelectedValue = reader["WarehouseID"];
                             txtWarehouseName.Text = reader["WarehouseName"].ToString();
                             cmbItemID.SelectedValue = reader["ItemID"];
@@ -353,13 +450,13 @@ namespace Mufaddal_Traders
                         }
                         else
                         {
-                            MessageBox.Show("No record found for the entered Discarded Goods ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            LoadNextDiscardedGoodsID(); // Reset if not found
+                            MessageBox.Show("No record found for the entered Stock Damage ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            ClearFields();
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error loading discarded goods record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error loading Stock Damage record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -388,33 +485,6 @@ namespace Mufaddal_Traders
                 {
                     MessageBox.Show("Error loading quantity: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Reset Discarded Goods ID by reloading the next available ID
-                LoadNextDiscardedGoodsID();
-
-                // Clear text fields
-                txtWarehouseName.Clear();
-                txtItemName.Clear();
-                txtItemQty.Clear();
-                txtSearch.Clear();
-                QtyDisplay.Text = "000000"; // Reset to default display
-
-                // Reset combo boxes
-                cmbWarehouseID.SelectedIndex = -1;  // Deselect the warehouse
-                cmbItemID.DataSource = null;  // Clear item dropdown
-
-                // Reset focus to the first field
-                cmbWarehouseID.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while clearing the form: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
