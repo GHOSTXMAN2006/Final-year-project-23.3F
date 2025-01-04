@@ -235,7 +235,7 @@ namespace Mufaddal_Traders
 
         private void tilePaymentVouchers_Click(object sender, EventArgs e)
         {
-            frmStorekeeperPaymentVouchers storekeeperPaymentVouchers = new frmStorekeeperPaymentVouchers();
+            frmPaymentVouchers storekeeperPaymentVouchers = new frmPaymentVouchers();
 
             storekeeperPaymentVouchers.Show();
 
