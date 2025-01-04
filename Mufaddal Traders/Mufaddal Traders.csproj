@@ -236,11 +236,17 @@
     <Compile Include="frmAddUpdateCustomerOrder.Designer.cs">
       <DependentUpon>frmAddUpdateCustomerOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddUpdateDeliveryOrder.cs">
+    <Compile Include="frmAddUpdateCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddUpdateDeliveryOrder.Designer.cs">
-      <DependentUpon>frmAddUpdateDeliveryOrder.cs</DependentUpon>
+    <Compile Include="frmAddUpdateCustomers.Designer.cs">
+      <DependentUpon>frmAddUpdateCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddDeliveryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDeliveryOrder.Designer.cs">
+      <DependentUpon>frmAddDeliveryOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUpdateGIN.cs">
       <SubType>Form</SubType>
@@ -325,6 +331,12 @@
     </Compile>
     <Compile Include="frmCustomerOrders.Designer.cs">
       <DependentUpon>frmCustomerOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomers.Designer.cs">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
@@ -490,8 +502,11 @@
     <EmbeddedResource Include="frmAddUpdateCustomerOrder.resx">
       <DependentUpon>frmAddUpdateCustomerOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddUpdateDeliveryOrder.resx">
-      <DependentUpon>frmAddUpdateDeliveryOrder.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddUpdateCustomers.resx">
+      <DependentUpon>frmAddUpdateCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddDeliveryOrder.resx">
+      <DependentUpon>frmAddDeliveryOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateGIN.resx">
       <DependentUpon>frmAddUpdateGIN.cs</DependentUpon>
@@ -534,6 +549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerOrders.resx">
       <DependentUpon>frmCustomerOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomers.resx">
+      <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
