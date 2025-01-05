@@ -399,6 +399,7 @@
             this.Name = "frmUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUsers";
+            this.Load += new System.EventHandler(this.frmUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
             this.panel1.ResumeLayout(false);
             this.picHeader.ResumeLayout(false);

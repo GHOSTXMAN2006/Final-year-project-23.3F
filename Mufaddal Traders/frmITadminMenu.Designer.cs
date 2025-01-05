@@ -554,6 +554,7 @@
             this.Name = "frmITadminMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmITadminMenu";
+            this.Load += new System.EventHandler(this.frmITadminMenu_Load);
             this.panel1.ResumeLayout(false);
             this.picHeader.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
