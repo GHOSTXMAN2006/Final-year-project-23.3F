@@ -1174,5 +1174,14 @@
   <ItemGroup>
     <None Include="Resources\bar-chart-on-page-denoting-icon-of-business-report-marketing-analysis-vector.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_6-1-2025_1151_www.mufaddaltraders.com.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

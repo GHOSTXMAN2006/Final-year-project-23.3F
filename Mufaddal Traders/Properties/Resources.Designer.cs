@@ -1045,6 +1045,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap next_button {
+            get {
+                object obj = ResourceManager.GetObject("next-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap noImageDefault {
             get {
                 object obj = ResourceManager.GetObject("noImageDefault", resourceCulture);
@@ -1201,6 +1211,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap po_2 {
             get {
                 object obj = ResourceManager.GetObject("po 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap previous {
+            get {
+                object obj = ResourceManager.GetObject("previous", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1383,6 +1403,16 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap save_icon_2048x2048_iovw4qr4 {
             get {
                 object obj = ResourceManager.GetObject("save-icon-2048x2048-iovw4qr4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_6_1_2025_1151_www_mufaddaltraders_com {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_6-1-2025_1151_www.mufaddaltraders.com", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
