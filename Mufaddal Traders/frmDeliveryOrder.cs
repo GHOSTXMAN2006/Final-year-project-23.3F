@@ -412,5 +412,32 @@ namespace Mufaddal_Traders
             frmAddDeliveryOrder addDeliveryOrder = new frmAddDeliveryOrder();
             addDeliveryOrder.Show();
         }
+
+        private void btnViewReport_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dgvDisplay.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to view the report.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get the selected Delivery Order ID
+            int selectedDeliveryOrderID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["DeliveryOrderID"].Value);
+
+            try
+            {
+                // Open the Delivery Order report form and pass the selected DeliveryOrderID
+                rptDeliveryOrder reportForm = new rptDeliveryOrder(selectedDeliveryOrderID);
+                reportForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while opening the report: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

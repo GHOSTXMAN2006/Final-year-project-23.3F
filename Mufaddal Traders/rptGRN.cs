@@ -35,5 +35,10 @@ namespace Mufaddal_Traders
                 MessageBox.Show("An error occurred while loading the report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void rptGRN_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

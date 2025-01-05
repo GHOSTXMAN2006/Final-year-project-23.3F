@@ -73,6 +73,7 @@ namespace Mufaddal_Traders
             this.dgvDisplay = new System.Windows.Forms.DataGridView();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnViewReport = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
@@ -411,12 +412,32 @@ namespace Mufaddal_Traders
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnViewReport
+            // 
+            this.btnViewReport.Animated = true;
+            this.btnViewReport.BorderRadius = 7;
+            this.btnViewReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewReport.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewReport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnViewReport.ForeColor = System.Drawing.Color.White;
+            this.btnViewReport.Image = global::Mufaddal_Traders.Properties.Resources.bar_chart_on_page_denoting_icon_of_business_report_marketing_analysis_vector;
+            this.btnViewReport.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnViewReport.Location = new System.Drawing.Point(216, 114);
+            this.btnViewReport.Name = "btnViewReport";
+            this.btnViewReport.Size = new System.Drawing.Size(38, 38);
+            this.btnViewReport.TabIndex = 237;
+            this.btnViewReport.Click += new System.EventHandler(this.btnViewReport_Click);
+            // 
             // frmDeliveryOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
             this.ControlBox = false;
+            this.Controls.Add(this.btnViewReport);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dgvDisplay);
@@ -459,5 +480,6 @@ namespace Mufaddal_Traders
         private DataGridView dgvDisplay;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2Button btnViewReport;
     }
 }

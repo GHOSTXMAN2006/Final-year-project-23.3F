@@ -16,7 +16,7 @@ namespace Mufaddal_Traders
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAccountantsMenu());
+            Application.Run(new frmDeliveryOrder());
         }
     }
 }

@@ -50,7 +50,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "rptGRN";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "rptGRN";
+            this.Load += new System.EventHandler(this.rptGRN_Load_1);
             this.ResumeLayout(false);
 
         }

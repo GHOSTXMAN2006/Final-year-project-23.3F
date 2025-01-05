@@ -405,5 +405,20 @@ namespace Mufaddal_Traders
                 MessageBox.Show("Please select a record to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnViewReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Open the GIN report form
+                rptGIN reportForm = new rptGIN();  // No need to pass GIN_ID
+                reportForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while opening the report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
