@@ -499,5 +499,32 @@ namespace Mufaddal_Traders
                 }
             }
         }
+
+        private void btnViewReport_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (dgvDisplay.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to view the report.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get the selected GRN ID
+            int selectedGRN_ID = Convert.ToInt32(dgvDisplay.SelectedRows[0].Cells["GRN_ID"].Value);
+
+            try
+            {
+                // Open the GRN report form and pass the selected GRN_ID
+                rptGRN reportForm = new rptGRN(selectedGRN_ID);
+                reportForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while opening the report: {ex.Message}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
