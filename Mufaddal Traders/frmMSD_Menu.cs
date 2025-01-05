@@ -75,11 +75,6 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmShippingManagerMenu shippingManagerMenu = new frmShippingManagerMenu();
-
-            shippingManagerMenu.Show();
-
-            this.Hide();
 
         }
 
@@ -126,6 +121,27 @@ namespace Mufaddal_Traders
             // Show the login form again
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
+        }
+
+        private void tileCustomers_Click(object sender, EventArgs e)
+        {
+            frmCustomers customers = new frmCustomers();
+            customers.Show();
+            this.Hide();
+        }
+
+        private void tileCustomerOrders_Click(object sender, EventArgs e)
+        {
+            frmCustomerOrders customerOrders = new frmCustomerOrders();
+            customerOrders.Show();
+            this.Hide();
+        }
+
+        private void tileStock_Click(object sender, EventArgs e)
+        {
+            frmStockBalance stockBalance = new frmStockBalance();
+            stockBalance.Show();
+            this.Hide();
         }
     }
 }

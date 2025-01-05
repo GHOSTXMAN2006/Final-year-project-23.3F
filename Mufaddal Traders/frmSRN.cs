@@ -54,10 +54,27 @@ namespace Mufaddal_Traders
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+            // Check the userType to open the corresponding menu form
+            switch (frmLogin.userType)  // Accessing userType from frmLogin
+            {
+                case "Storekeeper":
+                    new frmStorekeeperMenu().Show();
+                    break;
+                case "Shipping Manager":
+                    new frmShippingManagerMenu().Show();
+                    break;
+                case "Accountant":
+                    new frmAccountantsMenu().Show();
+                    break;
+                case "Marketing and Sales Department":
+                    new frmMSD_Menu().Show();
+                    break;
+                default:
+                    MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
 
-            menuForm.Show();
-
+            // Hide the current dashboard form (optional, to switch to the menu form)
             this.Hide();
         }
 
@@ -86,14 +103,29 @@ namespace Mufaddal_Traders
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmStorekeeperMenu menuForm = new frmStorekeeperMenu();
+            // Check the userType to open the corresponding menu form
+            switch (frmLogin.userType)  // Accessing userType from frmLogin
+            {
+                case "Storekeeper":
+                    new frmStorekeeperMenu().Show();
+                    break;
+                case "Shipping Manager":
+                    new frmShippingManagerMenu().Show();
+                    break;
+                case "Accountant":
+                    new frmAccountantsMenu().Show();
+                    break;
+                case "Marketing and Sales Department":
+                    new frmMSD_Menu().Show();
+                    break;
+                default:
+                    MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
 
-            menuForm.Show();
-
+            // Hide the current dashboard form (optional, to switch to the menu form)
             this.Hide();
-
         }
-
         private void btnHome_Click(object sender, EventArgs e)
         {
             frmHome homeForm = new frmHome();
@@ -276,6 +308,18 @@ namespace Mufaddal_Traders
 
         private void frmSRN_Load(object sender, EventArgs e)
         {
+            // Check the userType and show/hide buttons accordingly
+            if (frmLogin.userType != "Storekeeper")
+            {
+                btnManage.Visible = false;
+                btnDelete.Visible = false;
+            }
+            else
+            {
+                btnManage.Visible = true;
+                btnDelete.Visible = true;
+            }
+
             LoadSRNData();
         }
 

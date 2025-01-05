@@ -56,21 +56,21 @@ namespace Mufaddal_Traders
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.pnlChat = new Mufaddal_Traders.RoundedPanel();
+            this.tileItems = new Guna.UI2.WinForms.Guna2TileButton();
+            this.tilePaymentVouchers = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileGIN = new Guna.UI2.WinForms.Guna2TileButton();
             this.tilePC = new Guna.UI2.WinForms.Guna2TileButton();
             this.tilePO = new Guna.UI2.WinForms.Guna2TileButton();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.tilePaymentVouchers = new Guna.UI2.WinForms.Guna2TileButton();
-            this.tileItems = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.pnlChat.SuspendLayout();
             this.picHeader.SuspendLayout();
@@ -93,7 +93,7 @@ namespace Mufaddal_Traders
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.BackColor = System.Drawing.Color.SeaGreen;
-            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.btnMenu);
             this.panel1.Controls.Add(this.btnHistory);
@@ -104,25 +104,6 @@ namespace Mufaddal_Traders
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(74, 805);
             this.panel1.TabIndex = 45;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Animated = true;
-            this.btnSettings.BorderRadius = 3;
-            this.btnSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Image = global::Mufaddal_Traders.Properties.Resources.Settings;
-            this.btnSettings.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnSettings.Location = new System.Drawing.Point(7, 733);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(60, 56);
-            this.btnSettings.TabIndex = 23;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnHome
             // 
@@ -236,6 +217,48 @@ namespace Mufaddal_Traders
             this.pnlChat.Size = new System.Drawing.Size(1257, 716);
             this.pnlChat.TabIndex = 47;
             // 
+            // tileItems
+            // 
+            this.tileItems.Animated = true;
+            this.tileItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileItems.BorderRadius = 5;
+            this.tileItems.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tileItems.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tileItems.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tileItems.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tileItems.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileItems.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tileItems.ForeColor = System.Drawing.Color.DimGray;
+            this.tileItems.Image = global::Mufaddal_Traders.Properties.Resources._3486568;
+            this.tileItems.ImageSize = new System.Drawing.Size(80, 70);
+            this.tileItems.Location = new System.Drawing.Point(853, 42);
+            this.tileItems.Name = "tileItems";
+            this.tileItems.Size = new System.Drawing.Size(151, 149);
+            this.tileItems.TabIndex = 39;
+            this.tileItems.Text = "Items";
+            this.tileItems.Click += new System.EventHandler(this.tileItems_Click);
+            // 
+            // tilePaymentVouchers
+            // 
+            this.tilePaymentVouchers.Animated = true;
+            this.tilePaymentVouchers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tilePaymentVouchers.BorderRadius = 5;
+            this.tilePaymentVouchers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tilePaymentVouchers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tilePaymentVouchers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tilePaymentVouchers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tilePaymentVouchers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tilePaymentVouchers.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tilePaymentVouchers.ForeColor = System.Drawing.Color.DimGray;
+            this.tilePaymentVouchers.Image = global::Mufaddal_Traders.Properties.Resources.Money_order_512;
+            this.tilePaymentVouchers.ImageSize = new System.Drawing.Size(80, 75);
+            this.tilePaymentVouchers.Location = new System.Drawing.Point(453, 42);
+            this.tilePaymentVouchers.Name = "tilePaymentVouchers";
+            this.tilePaymentVouchers.Size = new System.Drawing.Size(151, 149);
+            this.tilePaymentVouchers.TabIndex = 38;
+            this.tilePaymentVouchers.Text = "Payment Vouchers";
+            this.tilePaymentVouchers.Click += new System.EventHandler(this.tilePaymentVouchers_Click);
+            // 
             // tileGIN
             // 
             this.tileGIN.Animated = true;
@@ -255,6 +278,7 @@ namespace Mufaddal_Traders
             this.tileGIN.Size = new System.Drawing.Size(151, 149);
             this.tileGIN.TabIndex = 29;
             this.tileGIN.Text = "Stock Balance";
+            this.tileGIN.Click += new System.EventHandler(this.tileGIN_Click);
             // 
             // tilePC
             // 
@@ -352,45 +376,24 @@ namespace Mufaddal_Traders
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tilePaymentVouchers
+            // btnLogout
             // 
-            this.tilePaymentVouchers.Animated = true;
-            this.tilePaymentVouchers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tilePaymentVouchers.BorderRadius = 5;
-            this.tilePaymentVouchers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.tilePaymentVouchers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.tilePaymentVouchers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.tilePaymentVouchers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.tilePaymentVouchers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tilePaymentVouchers.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tilePaymentVouchers.ForeColor = System.Drawing.Color.DimGray;
-            this.tilePaymentVouchers.Image = global::Mufaddal_Traders.Properties.Resources.Money_order_512;
-            this.tilePaymentVouchers.ImageSize = new System.Drawing.Size(80, 75);
-            this.tilePaymentVouchers.Location = new System.Drawing.Point(453, 42);
-            this.tilePaymentVouchers.Name = "tilePaymentVouchers";
-            this.tilePaymentVouchers.Size = new System.Drawing.Size(151, 149);
-            this.tilePaymentVouchers.TabIndex = 38;
-            this.tilePaymentVouchers.Text = "Payment Vouchers";
-            // 
-            // tileItems
-            // 
-            this.tileItems.Animated = true;
-            this.tileItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileItems.BorderRadius = 5;
-            this.tileItems.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.tileItems.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.tileItems.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.tileItems.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.tileItems.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileItems.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tileItems.ForeColor = System.Drawing.Color.DimGray;
-            this.tileItems.Image = global::Mufaddal_Traders.Properties.Resources._3486568;
-            this.tileItems.ImageSize = new System.Drawing.Size(80, 70);
-            this.tileItems.Location = new System.Drawing.Point(853, 42);
-            this.tileItems.Name = "tileItems";
-            this.tileItems.Size = new System.Drawing.Size(151, 149);
-            this.tileItems.TabIndex = 39;
-            this.tileItems.Text = "Items";
+            this.btnLogout.Animated = true;
+            this.btnLogout.BorderRadius = 3;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = global::Mufaddal_Traders.Properties.Resources.logout_icon_2048x1708_5s1s9mb0__1_;
+            this.btnLogout.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnLogout.Location = new System.Drawing.Point(7, 733);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(60, 56);
+            this.btnLogout.TabIndex = 28;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // frmAccountantsMenu
             // 
@@ -419,7 +422,6 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2TileButton tilePC;
         private Guna.UI2.WinForms.Guna2TileButton tilePO;
         private Label label1;
-        private Guna.UI2.WinForms.Guna2Button btnSettings;
         private Guna.UI2.WinForms.Guna2Button btnHome;
         private Guna.UI2.WinForms.Guna2Button btnMenu;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
@@ -432,5 +434,6 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Panel picHeader;
         private Guna.UI2.WinForms.Guna2TileButton tilePaymentVouchers;
         private Guna.UI2.WinForms.Guna2TileButton tileItems;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

@@ -63,13 +63,13 @@ namespace Mufaddal_Traders
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.pnlChat = new Mufaddal_Traders.RoundedPanel();
+            this.tileStock = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileCustomerOrders = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileCustomers = new Guna.UI2.WinForms.Guna2TileButton();
             this.tileItems = new Guna.UI2.WinForms.Guna2TileButton();
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.tileStock = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel1.SuspendLayout();
             this.pnlChat.SuspendLayout();
             this.picHeader.SuspendLayout();
@@ -117,7 +117,7 @@ namespace Mufaddal_Traders
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = global::Mufaddal_Traders.Properties.Resources.logout_icon_2048x1708_5s1s9mb0__1_;
             this.btnLogout.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnLogout.Location = new System.Drawing.Point(7, 720);
+            this.btnLogout.Location = new System.Drawing.Point(7, 730);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(60, 56);
             this.btnLogout.TabIndex = 27;
@@ -233,6 +233,27 @@ namespace Mufaddal_Traders
             this.pnlChat.Size = new System.Drawing.Size(1257, 716);
             this.pnlChat.TabIndex = 47;
             // 
+            // tileStock
+            // 
+            this.tileStock.Animated = true;
+            this.tileStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileStock.BorderRadius = 5;
+            this.tileStock.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tileStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tileStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tileStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tileStock.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileStock.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileStock.ForeColor = System.Drawing.Color.DimGray;
+            this.tileStock.Image = global::Mufaddal_Traders.Properties.Resources.stock_balance_512_ezgif_com_webp_to_png_converter;
+            this.tileStock.ImageSize = new System.Drawing.Size(80, 75);
+            this.tileStock.Location = new System.Drawing.Point(660, 40);
+            this.tileStock.Name = "tileStock";
+            this.tileStock.Size = new System.Drawing.Size(151, 149);
+            this.tileStock.TabIndex = 37;
+            this.tileStock.Text = "Stock Balance";
+            this.tileStock.Click += new System.EventHandler(this.tileStock_Click);
+            // 
             // tileCustomerOrders
             // 
             this.tileCustomerOrders.Animated = true;
@@ -252,6 +273,7 @@ namespace Mufaddal_Traders
             this.tileCustomerOrders.Size = new System.Drawing.Size(165, 149);
             this.tileCustomerOrders.TabIndex = 36;
             this.tileCustomerOrders.Text = "Customer Orders";
+            this.tileCustomerOrders.Click += new System.EventHandler(this.tileCustomerOrders_Click);
             // 
             // tileCustomers
             // 
@@ -272,6 +294,7 @@ namespace Mufaddal_Traders
             this.tileCustomers.Size = new System.Drawing.Size(151, 149);
             this.tileCustomers.TabIndex = 33;
             this.tileCustomers.Text = "Customers";
+            this.tileCustomers.Click += new System.EventHandler(this.tileCustomers_Click);
             // 
             // tileItems
             // 
@@ -347,26 +370,6 @@ namespace Mufaddal_Traders
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 24;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // tileStock
-            // 
-            this.tileStock.Animated = true;
-            this.tileStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileStock.BorderRadius = 5;
-            this.tileStock.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.tileStock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.tileStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.tileStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.tileStock.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileStock.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileStock.ForeColor = System.Drawing.Color.DimGray;
-            this.tileStock.Image = global::Mufaddal_Traders.Properties.Resources.stock_balance_512_ezgif_com_webp_to_png_converter;
-            this.tileStock.ImageSize = new System.Drawing.Size(80, 75);
-            this.tileStock.Location = new System.Drawing.Point(660, 40);
-            this.tileStock.Name = "tileStock";
-            this.tileStock.Size = new System.Drawing.Size(151, 149);
-            this.tileStock.TabIndex = 37;
-            this.tileStock.Text = "Stock Balance";
             // 
             // frmMSD_Menu
             // 
