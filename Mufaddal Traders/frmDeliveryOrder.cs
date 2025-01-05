@@ -407,7 +407,7 @@ namespace Mufaddal_Traders
             }
         }
 
-        private void btnManage_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAddDeliveryOrder addDeliveryOrder = new frmAddDeliveryOrder();
             addDeliveryOrder.Show();

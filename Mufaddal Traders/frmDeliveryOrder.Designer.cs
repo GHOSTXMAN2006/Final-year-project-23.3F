@@ -69,10 +69,10 @@ namespace Mufaddal_Traders
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.btnManage = new Guna.UI2.WinForms.Guna2Button();
             this.btnReload = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDisplay = new System.Windows.Forms.DataGridView();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
@@ -332,29 +332,6 @@ namespace Mufaddal_Traders
             this.btnBack.TabIndex = 201;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnManage
-            // 
-            this.btnManage.Animated = true;
-            this.btnManage.AutoRoundedCorners = true;
-            this.btnManage.BackColor = System.Drawing.Color.Transparent;
-            this.btnManage.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnManage.BorderRadius = 18;
-            this.btnManage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnManage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnManage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnManage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnManage.FillColor = System.Drawing.Color.MediumTurquoise;
-            this.btnManage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnManage.ForeColor = System.Drawing.Color.White;
-            this.btnManage.Image = global::Mufaddal_Traders.Properties.Resources.Create_make_pencil_draw_new_add_edit_update_512;
-            this.btnManage.Location = new System.Drawing.Point(1223, 114);
-            this.btnManage.Margin = new System.Windows.Forms.Padding(2);
-            this.btnManage.Name = "btnManage";
-            this.btnManage.Size = new System.Drawing.Size(156, 38);
-            this.btnManage.TabIndex = 212;
-            this.btnManage.Text = "Manage";
-            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
-            // 
             // btnReload
             // 
             this.btnReload.Animated = true;
@@ -403,7 +380,7 @@ namespace Mufaddal_Traders
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = global::Mufaddal_Traders.Properties.Resources.delete;
             this.btnDelete.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnDelete.Location = new System.Drawing.Point(1106, 114);
+            this.btnDelete.Location = new System.Drawing.Point(1166, 114);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 38);
@@ -411,13 +388,36 @@ namespace Mufaddal_Traders
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Animated = true;
+            this.btnAdd.AutoRoundedCorners = true;
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAdd.BorderRadius = 18;
+            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd.FillColor = System.Drawing.Color.MediumTurquoise;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::Mufaddal_Traders.Properties.Resources._2661440;
+            this.btnAdd.Location = new System.Drawing.Point(1280, 114);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(99, 38);
+            this.btnAdd.TabIndex = 212;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // frmDeliveryOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
             this.ControlBox = false;
-            this.Controls.Add(this.btnManage);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.dgvDisplay);
             this.Controls.Add(this.btnDelete);
@@ -455,9 +455,9 @@ namespace Mufaddal_Traders
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
-        private Guna.UI2.WinForms.Guna2Button btnManage;
         private Guna.UI2.WinForms.Guna2Button btnReload;
         private DataGridView dgvDisplay;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
+        private Guna.UI2.WinForms.Guna2Button btnAdd;
     }
 }

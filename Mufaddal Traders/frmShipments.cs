@@ -101,30 +101,6 @@ namespace Mufaddal_Traders
             this.Hide();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            frmAddUpdateShipments addUpdateShipments = new frmAddUpdateShipments();
-
-            addUpdateShipments.Show();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddUpdateShipments addUpdateShipments = new frmAddUpdateShipments();
-
-            addUpdateShipments.Show();
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             // Clear the session or global variables
@@ -145,6 +121,33 @@ namespace Mufaddal_Traders
             // Show the login form again
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
+        }
+
+        private void frmShipments_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddShipments addUpdateShipments = new frmAddShipments();
+
+            addUpdateShipments.Show();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

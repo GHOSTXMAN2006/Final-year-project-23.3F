@@ -284,11 +284,11 @@
     <Compile Include="frmAddUpdatePurchaseOrders.Designer.cs">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddUpdateShipments.cs">
+    <Compile Include="frmAddShipments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddUpdateShipments.Designer.cs">
-      <DependentUpon>frmAddUpdateShipments.cs</DependentUpon>
+    <Compile Include="frmAddShipments.Designer.cs">
+      <DependentUpon>frmAddShipments.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUpdateSRN.cs">
       <SubType>Form</SubType>
@@ -526,8 +526,8 @@
     <EmbeddedResource Include="frmAddUpdatePurchaseOrders.resx">
       <DependentUpon>frmAddUpdatePurchaseOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddUpdateShipments.resx">
-      <DependentUpon>frmAddUpdateShipments.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddShipments.resx">
+      <DependentUpon>frmAddShipments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUpdateSRN.resx">
       <DependentUpon>frmAddUpdateSRN.cs</DependentUpon>
