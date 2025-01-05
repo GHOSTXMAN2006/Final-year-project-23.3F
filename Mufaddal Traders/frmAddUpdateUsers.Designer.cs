@@ -115,6 +115,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(268, 28);
             this.txtPassword.TabIndex = 321;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtConfPass
             // 
@@ -124,6 +125,7 @@
             this.txtConfPass.Name = "txtConfPass";
             this.txtConfPass.Size = new System.Drawing.Size(268, 28);
             this.txtConfPass.TabIndex = 323;
+            this.txtConfPass.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -158,6 +160,7 @@
             this.btnClear.Size = new System.Drawing.Size(99, 38);
             this.btnClear.TabIndex = 320;
             this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 

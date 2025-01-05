@@ -86,7 +86,7 @@ namespace Mufaddal_Traders
                     SqlCommand cmd = new SqlCommand(insertQuery, conn, transaction);
 
                     cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@PasswordHash", hashedPassword);
+                    cmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -145,6 +145,18 @@ namespace Mufaddal_Traders
                     conn.Open();
                     transaction = conn.BeginTransaction();
 
+                    string checkUserQuery = "SELECT COUNT(*) FROM Users WHERE Username = @Username";
+                    SqlCommand checkUserCmd = new SqlCommand(checkUserQuery, conn, transaction);
+                    checkUserCmd.Parameters.AddWithValue("@Username", username);
+
+                    int userCount = (int)checkUserCmd.ExecuteScalar();
+                    if (userCount == 0)
+                    {
+                        MessageBox.Show("User does not exist. Cannot update password.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        transaction.Rollback();
+                        return;
+                    }
+
                     string insertQuery = @"
                         UPDATE Users 
                         SET PasswordHash = @PasswordHash 
@@ -177,6 +189,14 @@ namespace Mufaddal_Traders
                     MessageBox.Show("ERROR: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtUserName.Clear();
+            txtPassword.Clear();
+            txtConfPass.Clear();
+
         }
     }
 }

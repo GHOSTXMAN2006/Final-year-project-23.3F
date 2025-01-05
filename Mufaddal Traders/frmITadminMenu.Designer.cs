@@ -35,7 +35,6 @@
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnlChat = new Mufaddal_Traders.RoundedPanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -43,8 +42,6 @@
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.tileprofile = new Guna.UI2.WinForms.Guna2TileButton();
-            this.tileadminUser = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
@@ -55,11 +52,14 @@
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlChat = new Mufaddal_Traders.RoundedPanel();
+            this.tileprofile = new Guna.UI2.WinForms.Guna2TileButton();
+            this.tileadminUser = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel1.SuspendLayout();
             this.picHeader.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.pnlChat.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            this.pnlChat.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -170,19 +170,6 @@
             this.label2.Size = new System.Drawing.Size(77, 32);
             this.label2.TabIndex = 57;
             this.label2.Text = "Menu";
-            // 
-            // pnlChat
-            // 
-            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pnlChat.BorderColor = System.Drawing.Color.Empty;
-            this.pnlChat.BorderRadius = 10;
-            this.pnlChat.BorderThickness = 3;
-            this.pnlChat.Controls.Add(this.tileprofile);
-            this.pnlChat.Controls.Add(this.tileadminUser);
-            this.pnlChat.Location = new System.Drawing.Point(98, 114);
-            this.pnlChat.Name = "pnlChat";
-            this.pnlChat.Size = new System.Drawing.Size(1257, 716);
-            this.pnlChat.TabIndex = 56;
             // 
             // guna2Panel1
             // 
@@ -309,46 +296,6 @@
             this.guna2Button6.Size = new System.Drawing.Size(60, 56);
             this.guna2Button6.TabIndex = 18;
             this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
-            // 
-            // tileprofile
-            // 
-            this.tileprofile.Animated = true;
-            this.tileprofile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileprofile.BorderRadius = 5;
-            this.tileprofile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.tileprofile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.tileprofile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.tileprofile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.tileprofile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileprofile.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileprofile.ForeColor = System.Drawing.Color.DimGray;
-            this.tileprofile.Image = global::Mufaddal_Traders.Properties.Resources.user_profile_IT_admin_;
-            this.tileprofile.ImageSize = new System.Drawing.Size(80, 75);
-            this.tileprofile.Location = new System.Drawing.Point(240, 40);
-            this.tileprofile.Name = "tileprofile";
-            this.tileprofile.Size = new System.Drawing.Size(151, 149);
-            this.tileprofile.TabIndex = 33;
-            this.tileprofile.Text = "User Profiles";
-            // 
-            // tileadminUser
-            // 
-            this.tileadminUser.Animated = true;
-            this.tileadminUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileadminUser.BorderRadius = 5;
-            this.tileadminUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.tileadminUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.tileadminUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.tileadminUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.tileadminUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
-            this.tileadminUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tileadminUser.ForeColor = System.Drawing.Color.DimGray;
-            this.tileadminUser.Image = global::Mufaddal_Traders.Properties.Resources.users_IT_admin_;
-            this.tileadminUser.ImageSize = new System.Drawing.Size(80, 70);
-            this.tileadminUser.Location = new System.Drawing.Point(37, 40);
-            this.tileadminUser.Name = "tileadminUser";
-            this.tileadminUser.Size = new System.Drawing.Size(151, 149);
-            this.tileadminUser.TabIndex = 25;
-            this.tileadminUser.Text = "Users";
             // 
             // guna2Button7
             // 
@@ -536,6 +483,60 @@
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 24;
             // 
+            // pnlChat
+            // 
+            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pnlChat.BorderColor = System.Drawing.Color.Empty;
+            this.pnlChat.BorderRadius = 10;
+            this.pnlChat.BorderThickness = 3;
+            this.pnlChat.Controls.Add(this.tileprofile);
+            this.pnlChat.Controls.Add(this.tileadminUser);
+            this.pnlChat.Location = new System.Drawing.Point(98, 114);
+            this.pnlChat.Name = "pnlChat";
+            this.pnlChat.Size = new System.Drawing.Size(1257, 716);
+            this.pnlChat.TabIndex = 56;
+            // 
+            // tileprofile
+            // 
+            this.tileprofile.Animated = true;
+            this.tileprofile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileprofile.BorderRadius = 5;
+            this.tileprofile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tileprofile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tileprofile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tileprofile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tileprofile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileprofile.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileprofile.ForeColor = System.Drawing.Color.DimGray;
+            this.tileprofile.Image = global::Mufaddal_Traders.Properties.Resources.user_profile_IT_admin_;
+            this.tileprofile.ImageSize = new System.Drawing.Size(80, 75);
+            this.tileprofile.Location = new System.Drawing.Point(240, 40);
+            this.tileprofile.Name = "tileprofile";
+            this.tileprofile.Size = new System.Drawing.Size(151, 149);
+            this.tileprofile.TabIndex = 33;
+            this.tileprofile.Text = "User Profiles";
+            // 
+            // tileadminUser
+            // 
+            this.tileadminUser.Animated = true;
+            this.tileadminUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileadminUser.BorderRadius = 5;
+            this.tileadminUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tileadminUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tileadminUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tileadminUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tileadminUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
+            this.tileadminUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tileadminUser.ForeColor = System.Drawing.Color.DimGray;
+            this.tileadminUser.Image = global::Mufaddal_Traders.Properties.Resources.users_IT_admin_;
+            this.tileadminUser.ImageSize = new System.Drawing.Size(80, 70);
+            this.tileadminUser.Location = new System.Drawing.Point(37, 40);
+            this.tileadminUser.Name = "tileadminUser";
+            this.tileadminUser.Size = new System.Drawing.Size(151, 149);
+            this.tileadminUser.TabIndex = 25;
+            this.tileadminUser.Text = "Users";
+            this.tileadminUser.Click += new System.EventHandler(this.tileadminUser_Click);
+            // 
             // frmITadminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,8 +559,8 @@
             this.panel1.ResumeLayout(false);
             this.picHeader.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.pnlChat.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
+            this.pnlChat.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

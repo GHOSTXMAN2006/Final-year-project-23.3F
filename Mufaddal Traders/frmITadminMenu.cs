@@ -81,5 +81,12 @@ namespace Mufaddal_Traders
         {
 
         }
+
+        private void tileadminUser_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUsers AddUpdateUsers = new frmAddUpdateUsers();
+            AddUpdateUsers.Show();
+            this.Hide();
+        }
     }
 }
