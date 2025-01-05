@@ -1590,9 +1590,29 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user_profile_IT_admin_ {
+            get {
+                object obj = ResourceManager.GetObject("user profile(IT admin)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap User1 {
             get {
                 object obj = ResourceManager.GetObject("User1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_IT_admin_ {
+            get {
+                object obj = ResourceManager.GetObject("users(IT admin)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

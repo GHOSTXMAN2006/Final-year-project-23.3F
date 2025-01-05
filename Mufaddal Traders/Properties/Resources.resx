@@ -166,9 +166,6 @@
   <data name="wallpaperflare1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wallpaperflare.com_wallpaper__5_-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cropped-Logo-2048x1100 (1) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cropped-Logo-2048x1100 (1) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="f" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,6 +210,9 @@
   </data>
   <data name="6915987" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6915987.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Agreement-bro 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Agreement-bro 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon61" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -315,6 +315,9 @@
   </data>
   <data name="Phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="users(IT admin)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users(IT admin).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bar-chart-on-page-denoting-icon-of-business-report-marketing-analysis-vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bar-chart-on-page-denoting-icon-of-business-report-marketing-analysis-vector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -445,6 +448,9 @@
   <data name="recent 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\recent 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Screenshot_6-1-2025_1151_www.mufaddaltraders.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot_6-1-2025_1151_www.mufaddaltraders.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="avez1anz5 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avez1anz5 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -472,8 +478,8 @@
   <data name="conifers-1836582" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conifers-1836582.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Agreement-bro 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Agreement-bro 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cropped-Logo-2048x1100 (1) (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cropped-Logo-2048x1100 (1) (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="avez1anz5 13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avez1anz5 13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -607,7 +613,7 @@
   <data name="Checking boxes-cuate 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checking boxes-cuate 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Screenshot_6-1-2025_1151_www.mufaddaltraders.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot_6-1-2025_1151_www.mufaddaltraders.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user profile(IT admin)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user profile(IT admin).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -368,6 +368,12 @@
     <Compile Include="frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmITadminMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmITadminMenu.Designer.cs">
+      <DependentUpon>frmITadminMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmItemDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -599,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmITadminMenu.resx">
+      <DependentUpon>frmITadminMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmItemDetails.resx">
       <DependentUpon>frmItemDetails.cs</DependentUpon>
@@ -1182,6 +1191,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Screenshot_6-1-2025_1151_www.mufaddaltraders.com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users%28IT admin%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user profile%28IT admin%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
