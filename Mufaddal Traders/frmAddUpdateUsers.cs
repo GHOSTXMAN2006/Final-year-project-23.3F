@@ -198,5 +198,15 @@ namespace Mufaddal_Traders
             txtConfPass.Clear();
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAddUpdateUsers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
