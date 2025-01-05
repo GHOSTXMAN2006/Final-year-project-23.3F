@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -102,6 +103,59 @@ namespace Mufaddal_Traders
         {
             LoadUserIDs();
         }
+
+        private void cmbUserID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedUserID = cmbUserID.SelectedItem.ToString();
+
+            string query = "SELECT UserName, UserEmail, UserAddress, UserTelephone, Password, Description, ProfilePicture FROM Users WHERE UserID = @UserID";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@UserID", selectedUserID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        // Populate the text fields with user data
+                        txtUsername.Text = reader["UserName"].ToString();
+                        txtEmail.Text = reader["UserEmail"].ToString();
+                        txtAddress.Text = reader["UserAddress"].ToString();
+                        txtTelephone.Text = reader["UserTelephone"].ToString();
+                        txtPassword.Text = reader["Password"].ToString();
+                        txtBio.Text = reader["Description"].ToString();
+
+                        // Handle profile picture
+                        if (reader["ProfilePicture"] != DBNull.Value)
+                        {
+                            // Assuming ProfilePicture is stored as VARBINARY
+                            byte[] imageBytes = (byte[])reader["ProfilePicture"];
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                btnProfilePic.Image = Image.FromStream(ms);
+                            }
+                        }
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("User data not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+        }
+
     }
-    
 }
