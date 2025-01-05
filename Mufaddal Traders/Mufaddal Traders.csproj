@@ -200,6 +200,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="customLabel.cs">
       <SubType>Component</SubType>
@@ -1131,6 +1132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hand-drawn-tick_78370-490.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bar-chart-on-page-denoting-icon-of-business-report-marketing-analysis-vector.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

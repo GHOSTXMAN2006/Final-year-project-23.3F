@@ -443,6 +443,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bar_chart_on_page_denoting_icon_of_business_report_marketing_analysis_vector {
+            get {
+                object obj = ResourceManager.GetObject("bar-chart-on-page-denoting-icon-of-business-report-marketing-analysis-vector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_checkmark_png_4 {
             get {
                 object obj = ResourceManager.GetObject("black-checkmark-png-4", resourceCulture);
