@@ -402,5 +402,10 @@ namespace Mufaddal_Traders
             frmLogin loginForm = new frmLogin();
             loginForm.Show();
         }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

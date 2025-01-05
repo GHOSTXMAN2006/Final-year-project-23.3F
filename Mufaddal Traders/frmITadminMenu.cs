@@ -88,5 +88,12 @@ namespace Mufaddal_Traders
             AddUpdateUsers.Show();
             this.Hide();
         }
+
+        private void tileprofile_Click(object sender, EventArgs e)
+        {
+            frmUserProfile Profile = new frmUserProfile();
+            Profile.Show();
+            this.Hide();
+        }
     }
 }

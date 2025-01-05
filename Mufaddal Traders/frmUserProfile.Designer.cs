@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblWelcomeName = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnReset = new Guna.UI2.WinForms.Guna2Button();
             this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
@@ -55,49 +52,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbUserID = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(100, 111);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 20);
-            this.label6.TabIndex = 151;
-            this.label6.Text = "11/26/2024";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblWelcomeName
-            // 
-            this.lblWelcomeName.AutoSize = true;
-            this.lblWelcomeName.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeName.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblWelcomeName.Location = new System.Drawing.Point(212, 74);
-            this.lblWelcomeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblWelcomeName.Name = "lblWelcomeName";
-            this.lblWelcomeName.Size = new System.Drawing.Size(73, 32);
-            this.lblWelcomeName.TabIndex = 150;
-            this.lblWelcomeName.Text = "John!";
-            this.lblWelcomeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(94, 74);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 32);
-            this.label3.TabIndex = 149;
-            this.label3.Text = "Welcome,";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnReset
             // 
@@ -184,6 +144,7 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(60, 56);
             this.btnDashboard.TabIndex = 19;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnAccount
             // 
@@ -202,6 +163,7 @@
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(60, 56);
             this.btnAccount.TabIndex = 18;
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // btnSave
             // 
@@ -242,10 +204,10 @@
             this.guna2Panel1.Controls.Add(this.txtPassword);
             this.guna2Panel1.Controls.Add(this.lblEmail);
             this.guna2Panel1.Controls.Add(this.lblUsername);
-            this.guna2Panel1.Location = new System.Drawing.Point(98, 154);
+            this.guna2Panel1.Location = new System.Drawing.Point(91, 108);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1286, 665);
+            this.guna2Panel1.Size = new System.Drawing.Size(1293, 711);
             this.guna2Panel1.TabIndex = 152;
             // 
             // btnProfilePic
@@ -499,6 +461,7 @@
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(26, 26);
             this.btnMinimize.TabIndex = 40;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnClose
             // 
@@ -518,6 +481,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(26, 26);
             this.btnClose.TabIndex = 24;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnMenu
             // 
@@ -536,6 +500,7 @@
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(60, 56);
             this.btnMenu.TabIndex = 21;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // panel1
             // 
@@ -588,21 +553,44 @@
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(60, 56);
             this.btnHome.TabIndex = 22;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // cmbUserID
+            // 
+            this.cmbUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUserID.FormattingEnabled = true;
+            this.cmbUserID.Location = new System.Drawing.Point(1137, 77);
+            this.cmbUserID.Name = "cmbUserID";
+            this.cmbUserID.Size = new System.Drawing.Size(205, 26);
+            this.cmbUserID.TabIndex = 153;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label1.Location = new System.Drawing.Point(1159, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 25);
+            this.label1.TabIndex = 165;
+            this.label1.Text = "Select User ID";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 851);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblWelcomeName);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbUserID);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.picHeader);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserProfile";
             this.Text = "frmUserProfile";
+            this.Load += new System.EventHandler(this.frmUserProfile_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.picHeader.ResumeLayout(false);
@@ -613,10 +601,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblWelcomeName;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button btnReset;
         private Guna.UI2.WinForms.Guna2TextBox txtAddress;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
@@ -641,5 +625,7 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
         private Guna.UI2.WinForms.Guna2Button btnHome;
+        private System.Windows.Forms.ComboBox cmbUserID;
+        private System.Windows.Forms.Label label1;
     }
 }

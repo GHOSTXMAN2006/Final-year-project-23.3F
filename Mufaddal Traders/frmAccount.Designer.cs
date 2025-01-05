@@ -55,32 +55,32 @@ namespace Mufaddal_Traders
         private void InitializeComponent()
         {
             this.picHeader = new Guna.UI2.WinForms.Guna2Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtBio = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblWelcomeName = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnReset = new Guna.UI2.WinForms.Guna2Button();
-            this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.btnProfilePic = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
-            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtTelephone = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnMenu = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnReset = new Guna.UI2.WinForms.Guna2Button();
+            this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnProfilePic = new Guna.UI2.WinForms.Guna2Button();
+            this.txtBio = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtTelephone = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblWelcomeName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.picHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -100,6 +100,46 @@ namespace Mufaddal_Traders
             this.picHeader.TabIndex = 40;
             this.picHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picHeader_MouseDown);
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Animated = true;
+            this.btnMinimize.AutoRoundedCorners = true;
+            this.btnMinimize.BorderRadius = 12;
+            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
+            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnMinimize.Location = new System.Drawing.Point(41, 5);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
+            this.btnMinimize.TabIndex = 40;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Animated = true;
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BorderRadius = 12;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
+            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnClose.Location = new System.Drawing.Point(9, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(26, 26);
+            this.btnClose.TabIndex = 24;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -115,6 +155,119 @@ namespace Mufaddal_Traders
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(74, 805);
             this.panel1.TabIndex = 39;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Animated = true;
+            this.btnLogout.BorderRadius = 3;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = global::Mufaddal_Traders.Properties.Resources.logout_icon_2048x1708_5s1s9mb0__1_;
+            this.btnLogout.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnLogout.Location = new System.Drawing.Point(7, 733);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(60, 56);
+            this.btnLogout.TabIndex = 23;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Animated = true;
+            this.btnHome.BorderRadius = 3;
+            this.btnHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHome.FillColor = System.Drawing.Color.Transparent;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Image = global::Mufaddal_Traders.Properties.Resources.Home;
+            this.btnHome.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnHome.Location = new System.Drawing.Point(7, 658);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(60, 56);
+            this.btnHome.TabIndex = 22;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Animated = true;
+            this.btnMenu.BorderRadius = 3;
+            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMenu.ForeColor = System.Drawing.Color.White;
+            this.btnMenu.Image = global::Mufaddal_Traders.Properties.Resources.images__1__5;
+            this.btnMenu.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnMenu.Location = new System.Drawing.Point(7, 237);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(60, 56);
+            this.btnMenu.TabIndex = 21;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.Animated = true;
+            this.btnHistory.BorderRadius = 3;
+            this.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHistory.FillColor = System.Drawing.Color.Transparent;
+            this.btnHistory.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Image = global::Mufaddal_Traders.Properties.Resources.recent_3;
+            this.btnHistory.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnHistory.Location = new System.Drawing.Point(7, 155);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(60, 56);
+            this.btnHistory.TabIndex = 20;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Animated = true;
+            this.btnDashboard.BorderRadius = 3;
+            this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDashboard.FillColor = System.Drawing.Color.Transparent;
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Image = global::Mufaddal_Traders.Properties.Resources.Menu;
+            this.btnDashboard.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnDashboard.Location = new System.Drawing.Point(7, 87);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(60, 56);
+            this.btnDashboard.TabIndex = 19;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.Animated = true;
+            this.btnAccount.BorderRadius = 3;
+            this.btnAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAccount.FillColor = System.Drawing.Color.Transparent;
+            this.btnAccount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAccount.ForeColor = System.Drawing.Color.White;
+            this.btnAccount.Image = global::Mufaddal_Traders.Properties.Resources.User;
+            this.btnAccount.ImageSize = new System.Drawing.Size(44, 44);
+            this.btnAccount.Location = new System.Drawing.Point(7, 14);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(60, 56);
+            this.btnAccount.TabIndex = 18;
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // guna2Panel1
             // 
@@ -137,111 +290,6 @@ namespace Mufaddal_Traders
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1286, 665);
             this.guna2Panel1.TabIndex = 146;
-            // 
-            // txtBio
-            // 
-            this.txtBio.Animated = true;
-            this.txtBio.BackColor = System.Drawing.Color.Transparent;
-            this.txtBio.BorderColor = System.Drawing.Color.MediumAquamarine;
-            this.txtBio.BorderRadius = 22;
-            this.txtBio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBio.DefaultText = "Your story...";
-            this.txtBio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBio.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txtBio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBio.Location = new System.Drawing.Point(41, 481);
-            this.txtBio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBio.Multiline = true;
-            this.txtBio.Name = "txtBio";
-            this.txtBio.PasswordChar = '\0';
-            this.txtBio.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBio.PlaceholderText = "";
-            this.txtBio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBio.SelectedText = "";
-            this.txtBio.Size = new System.Drawing.Size(401, 162);
-            this.txtBio.TabIndex = 158;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label7.Location = new System.Drawing.Point(38, 446);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 21);
-            this.label7.TabIndex = 157;
-            this.label7.Text = "About You...";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblEmail.Location = new System.Drawing.Point(160, 97);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(189, 18);
-            this.lblEmail.TabIndex = 142;
-            this.lblEmail.Text = "johndoe200@gmail.com";
-            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblUsername.Location = new System.Drawing.Point(157, 71);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(105, 25);
-            this.lblUsername.TabIndex = 142;
-            this.lblUsername.Text = "John Doe";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(101, 111);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 20);
-            this.label6.TabIndex = 145;
-            this.label6.Text = "11/26/2024";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblWelcomeName
-            // 
-            this.lblWelcomeName.AutoSize = true;
-            this.lblWelcomeName.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcomeName.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblWelcomeName.Location = new System.Drawing.Point(213, 74);
-            this.lblWelcomeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblWelcomeName.Name = "lblWelcomeName";
-            this.lblWelcomeName.Size = new System.Drawing.Size(73, 32);
-            this.lblWelcomeName.TabIndex = 144;
-            this.lblWelcomeName.Text = "John!";
-            this.lblWelcomeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(95, 74);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 32);
-            this.label3.TabIndex = 143;
-            this.label3.Text = "Welcome,";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnReset
             // 
@@ -337,6 +385,46 @@ namespace Mufaddal_Traders
             this.btnProfilePic.Size = new System.Drawing.Size(118, 118);
             this.btnProfilePic.TabIndex = 24;
             this.btnProfilePic.Click += new System.EventHandler(this.btnProfilePic_Click);
+            // 
+            // txtBio
+            // 
+            this.txtBio.Animated = true;
+            this.txtBio.BackColor = System.Drawing.Color.Transparent;
+            this.txtBio.BorderColor = System.Drawing.Color.MediumAquamarine;
+            this.txtBio.BorderRadius = 22;
+            this.txtBio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBio.DefaultText = "Your story...";
+            this.txtBio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBio.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtBio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBio.Location = new System.Drawing.Point(41, 481);
+            this.txtBio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBio.Multiline = true;
+            this.txtBio.Name = "txtBio";
+            this.txtBio.PasswordChar = '\0';
+            this.txtBio.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBio.PlaceholderText = "";
+            this.txtBio.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBio.SelectedText = "";
+            this.txtBio.Size = new System.Drawing.Size(401, 162);
+            this.txtBio.TabIndex = 158;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label7.Location = new System.Drawing.Point(38, 446);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 21);
+            this.label7.TabIndex = 157;
+            this.label7.Text = "About You...";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnEdit
             // 
@@ -474,157 +562,70 @@ namespace Mufaddal_Traders
             this.txtPassword.TabIndex = 145;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // btnMinimize
+            // lblEmail
             // 
-            this.btnMinimize.Animated = true;
-            this.btnMinimize.AutoRoundedCorners = true;
-            this.btnMinimize.BorderRadius = 12;
-            this.btnMinimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMinimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMinimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMinimize.FillColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::Mufaddal_Traders.Properties.Resources.orange_circle_png_3;
-            this.btnMinimize.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnMinimize.Location = new System.Drawing.Point(41, 5);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(26, 26);
-            this.btnMinimize.TabIndex = 40;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblEmail.Location = new System.Drawing.Point(160, 97);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(189, 18);
+            this.lblEmail.TabIndex = 142;
+            this.lblEmail.Text = "johndoe200@gmail.com";
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnClose
+            // lblUsername
             // 
-            this.btnClose.Animated = true;
-            this.btnClose.AutoRoundedCorners = true;
-            this.btnClose.BorderRadius = 12;
-            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClose.FillColor = System.Drawing.Color.Transparent;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Mufaddal_Traders.Properties.Resources.red_circle_round_3d_button_3__1_;
-            this.btnClose.ImageSize = new System.Drawing.Size(23, 23);
-            this.btnClose.Location = new System.Drawing.Point(9, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(26, 26);
-            this.btnClose.TabIndex = 24;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblUsername.Location = new System.Drawing.Point(157, 71);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(105, 25);
+            this.lblUsername.TabIndex = 142;
+            this.lblUsername.Text = "John Doe";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnLogout
+            // label6
             // 
-            this.btnLogout.Animated = true;
-            this.btnLogout.BorderRadius = 3;
-            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogout.FillColor = System.Drawing.Color.Transparent;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Image = global::Mufaddal_Traders.Properties.Resources.logout_icon_2048x1708_5s1s9mb0__1_;
-            this.btnLogout.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnLogout.Location = new System.Drawing.Point(7, 733);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(60, 56);
-            this.btnLogout.TabIndex = 23;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(101, 111);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 20);
+            this.label6.TabIndex = 145;
+            this.label6.Text = "11/26/2024";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnHome
+            // lblWelcomeName
             // 
-            this.btnHome.Animated = true;
-            this.btnHome.BorderRadius = 3;
-            this.btnHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHome.FillColor = System.Drawing.Color.Transparent;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Image = global::Mufaddal_Traders.Properties.Resources.Home;
-            this.btnHome.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnHome.Location = new System.Drawing.Point(7, 658);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(60, 56);
-            this.btnHome.TabIndex = 22;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.lblWelcomeName.AutoSize = true;
+            this.lblWelcomeName.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeName.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblWelcomeName.Location = new System.Drawing.Point(213, 74);
+            this.lblWelcomeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWelcomeName.Name = "lblWelcomeName";
+            this.lblWelcomeName.Size = new System.Drawing.Size(73, 32);
+            this.lblWelcomeName.TabIndex = 144;
+            this.lblWelcomeName.Text = "John!";
+            this.lblWelcomeName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnMenu
+            // label3
             // 
-            this.btnMenu.Animated = true;
-            this.btnMenu.BorderRadius = 3;
-            this.btnMenu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMenu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMenu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
-            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMenu.ForeColor = System.Drawing.Color.White;
-            this.btnMenu.Image = global::Mufaddal_Traders.Properties.Resources.images__1__5;
-            this.btnMenu.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnMenu.Location = new System.Drawing.Point(7, 237);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(60, 56);
-            this.btnMenu.TabIndex = 21;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Animated = true;
-            this.btnHistory.BorderRadius = 3;
-            this.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHistory.FillColor = System.Drawing.Color.Transparent;
-            this.btnHistory.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHistory.ForeColor = System.Drawing.Color.White;
-            this.btnHistory.Image = global::Mufaddal_Traders.Properties.Resources.recent_3;
-            this.btnHistory.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnHistory.Location = new System.Drawing.Point(7, 155);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(60, 56);
-            this.btnHistory.TabIndex = 20;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Animated = true;
-            this.btnDashboard.BorderRadius = 3;
-            this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDashboard.FillColor = System.Drawing.Color.Transparent;
-            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Image = global::Mufaddal_Traders.Properties.Resources.Menu;
-            this.btnDashboard.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnDashboard.Location = new System.Drawing.Point(7, 87);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(60, 56);
-            this.btnDashboard.TabIndex = 19;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.Animated = true;
-            this.btnAccount.BorderRadius = 3;
-            this.btnAccount.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAccount.FillColor = System.Drawing.Color.Transparent;
-            this.btnAccount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAccount.ForeColor = System.Drawing.Color.White;
-            this.btnAccount.Image = global::Mufaddal_Traders.Properties.Resources.User;
-            this.btnAccount.ImageSize = new System.Drawing.Size(44, 44);
-            this.btnAccount.Location = new System.Drawing.Point(7, 14);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(60, 56);
-            this.btnAccount.TabIndex = 18;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label3.Location = new System.Drawing.Point(95, 74);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 32);
+            this.label3.TabIndex = 143;
+            this.label3.Text = "Welcome,";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAccount
             // 
