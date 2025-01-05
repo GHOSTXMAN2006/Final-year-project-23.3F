@@ -26,9 +26,9 @@ namespace Mufaddal_Traders
         private int itemId;
         private Image placeholderImage;
 
-        private frmItems2 parentForm;
+        private frmItems parentForm;
 
-        public frmAddUpdateItems(frmItems2 parent, int id = -1)
+        public frmAddUpdateItems(frmItems parent, int id = -1)
         {
             InitializeComponent();
             itemId = id; // Store the item ID passed to the form

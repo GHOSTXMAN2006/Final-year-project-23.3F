@@ -65,11 +65,19 @@ namespace Mufaddal_Traders
             int warehouseID = Convert.ToInt32(cmbWarehouseID.SelectedValue);
             int availableQty = Convert.ToInt32(QtyDisplay.Text);
             int orderQty = selectedItemQuantity;
+            int selectedItemID = GetSelectedItemID();  // Retrieve the ItemID for this order
 
-            // Debug: Show selected values
+            // Debug information
             Console.WriteLine($"DEBUG: Selected WarehouseID: {warehouseID}");
             Console.WriteLine($"DEBUG: Available Quantity in Warehouse: {availableQty}");
             Console.WriteLine($"DEBUG: Quantity required for order: {orderQty}");
+            Console.WriteLine($"DEBUG: Selected ItemID: {selectedItemID}");
+
+            if (selectedItemID == 0)
+            {
+                MessageBox.Show("Invalid ItemID. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (orderQty <= 0)
             {
@@ -117,12 +125,13 @@ namespace Mufaddal_Traders
                         Console.WriteLine($"DEBUG: Rows affected by delivery order insert: {rowsAffected}");
 
                         // Update stock balance
-                        string updateStockQuery = "UPDATE tblStockBalance SET ItemQty = ItemQty - @Quantity WHERE WarehouseID = @WarehouseID";
+                        string updateStockQuery = "UPDATE tblStockBalance SET ItemQty = ItemQty - @Quantity WHERE WarehouseID = @WarehouseID AND ItemID = @ItemID";
                         SqlCommand updateStockCmd = new SqlCommand(updateStockQuery, conn, transaction);
                         updateStockCmd.Parameters.AddWithValue("@Quantity", orderQty);
                         updateStockCmd.Parameters.AddWithValue("@WarehouseID", warehouseID);
+                        updateStockCmd.Parameters.AddWithValue("@ItemID", selectedItemID);
 
-                        Console.WriteLine($"DEBUG: Updating stock balance: Reducing quantity by {orderQty} for WarehouseID: {warehouseID}");
+                        Console.WriteLine($"DEBUG: Updating stock balance: Reducing quantity by {orderQty} for ItemID: {selectedItemID} in WarehouseID: {warehouseID}");
                         rowsAffected = updateStockCmd.ExecuteNonQuery();
                         Console.WriteLine($"DEBUG: Rows affected by stock update: {rowsAffected}");
 
@@ -161,6 +170,28 @@ namespace Mufaddal_Traders
             {
                 Console.WriteLine($"DEBUG ERROR: Database connection error: {ex.Message}");
                 MessageBox.Show($"Database connection error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int GetSelectedItemID()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT ItemID FROM tblCustomerOrders WHERE CustomerOrderID = @CustomerOrderID";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@CustomerOrderID", Convert.ToInt32(cmbCustomerOrderID.SelectedValue));
+                    conn.Open();
+                    object result = cmd.ExecuteScalar(); // Get the first column of the first row
+                    return result != null ? Convert.ToInt32(result) : 0;  // Return ItemID if found, otherwise 0
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"DEBUG ERROR: Failed to retrieve ItemID: {ex.Message}");
+                MessageBox.Show($"Error retrieving ItemID: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;  // Return 0 if an error occurs
             }
         }
 
@@ -294,10 +325,9 @@ namespace Mufaddal_Traders
                         string itemName = reader["Item_Name"].ToString();
                         int quantity = Convert.ToInt32(reader["ItemQty"]);
                         decimal price = Convert.ToDecimal(reader["Item_Price"]);
-                        baseItemTotal = Convert.ToDecimal(reader["TotalPrice"]); // Save base total price
+                        baseItemTotal = Convert.ToDecimal(reader["TotalPrice"]);
 
-                        selectedItemQuantity = quantity;  // Set selectedItemQuantity for later use
-
+                        selectedItemQuantity = quantity;  // Store the order quantity
                         txtDetails.Text = $"Item: {itemName}\r\nQuantity: {quantity}\r\nPrice: Rs. {price:F2}";
                         txtTotalAmount.Text = $"Rs. {baseItemTotal:F2}";
                     }

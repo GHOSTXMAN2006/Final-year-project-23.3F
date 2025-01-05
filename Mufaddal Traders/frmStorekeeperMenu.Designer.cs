@@ -402,7 +402,7 @@ namespace Mufaddal_Traders
             this.tileStock.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
             this.tileStock.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileStock.ForeColor = System.Drawing.Color.DimGray;
-            this.tileStock.Image = global::Mufaddal_Traders.Properties.Resources.stock_1;
+            this.tileStock.Image = global::Mufaddal_Traders.Properties.Resources.stock_balance_512_ezgif_com_webp_to_png_converter;
             this.tileStock.ImageSize = new System.Drawing.Size(80, 75);
             this.tileStock.Location = new System.Drawing.Point(240, 40);
             this.tileStock.Name = "tileStock";
