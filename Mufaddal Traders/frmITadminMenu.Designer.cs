@@ -232,6 +232,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(60, 56);
             this.guna2Button2.TabIndex = 22;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button3
             // 
@@ -250,6 +251,7 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(60, 56);
             this.guna2Button3.TabIndex = 21;
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button4
             // 
@@ -268,6 +270,7 @@
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(60, 56);
             this.guna2Button4.TabIndex = 20;
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // guna2Button5
             // 
@@ -286,6 +289,7 @@
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(60, 56);
             this.guna2Button5.TabIndex = 19;
+            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
             // guna2Button6
             // 
@@ -304,6 +308,7 @@
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.Size = new System.Drawing.Size(60, 56);
             this.guna2Button6.TabIndex = 18;
+            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
             // tileprofile
             // 
@@ -363,6 +368,7 @@
             this.guna2Button7.Name = "guna2Button7";
             this.guna2Button7.Size = new System.Drawing.Size(26, 26);
             this.guna2Button7.TabIndex = 40;
+            this.guna2Button7.Click += new System.EventHandler(this.guna2Button7_Click);
             // 
             // guna2Button8
             // 
@@ -382,6 +388,7 @@
             this.guna2Button8.Name = "guna2Button8";
             this.guna2Button8.Size = new System.Drawing.Size(26, 26);
             this.guna2Button8.TabIndex = 24;
+            this.guna2Button8.Click += new System.EventHandler(this.guna2Button8_Click);
             // 
             // btnLogout
             // 

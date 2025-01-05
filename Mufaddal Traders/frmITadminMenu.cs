@@ -16,5 +16,52 @@ namespace Mufaddal_Traders
         {
             InitializeComponent();
         }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            frmAccount accountForm = new frmAccount();
+
+            accountForm.Show();
+
+            this.Hide();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            frmDashboard dashboardForm = new frmDashboard();
+
+            dashboardForm.Show();
+
+            this.Hide();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            frmHome homeForm = new frmHome();
+
+            homeForm.Show();
+
+            this.Hide();
+        }
     }
 }
