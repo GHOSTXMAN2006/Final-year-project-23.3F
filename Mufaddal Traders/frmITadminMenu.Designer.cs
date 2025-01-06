@@ -1,4 +1,8 @@
-﻿namespace Mufaddal_Traders
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
+namespace Mufaddal_Traders
 {
     partial class frmITadminMenu
     {
@@ -19,6 +23,28 @@
             }
             base.Dispose(disposing);
         }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            int borderThickness = 7;
+            Color borderColor = Color.DarkGray;
+
+            // Draw border
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            }
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            this.Invalidate(); // Forces the form to redraw the border on resize
+        }
+
+
 
         #region Windows Form Designer generated code
 
@@ -321,6 +347,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(60, 56);
             this.guna2Button1.TabIndex = 23;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2Button2
             // 
@@ -495,6 +522,7 @@
             this.pnlChat.Name = "pnlChat";
             this.pnlChat.Size = new System.Drawing.Size(1257, 716);
             this.pnlChat.TabIndex = 56;
+            this.pnlChat.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChat_Paint);
             // 
             // tileprofile
             // 
@@ -508,8 +536,8 @@
             this.tileprofile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(210)))), ((int)(((byte)(148)))));
             this.tileprofile.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileprofile.ForeColor = System.Drawing.Color.DimGray;
-            this.tileprofile.Image = global::Mufaddal_Traders.Properties.Resources.user_profile_IT_admin_;
-            this.tileprofile.ImageSize = new System.Drawing.Size(80, 75);
+            this.tileprofile.Image = global::Mufaddal_Traders.Properties.Resources.png_clipart_computer_icons_user_profile_avatar_face_heroes__1_;
+            this.tileprofile.ImageSize = new System.Drawing.Size(120, 70);
             this.tileprofile.Location = new System.Drawing.Point(240, 40);
             this.tileprofile.Name = "tileprofile";
             this.tileprofile.Size = new System.Drawing.Size(151, 149);

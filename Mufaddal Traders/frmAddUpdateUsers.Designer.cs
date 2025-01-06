@@ -1,4 +1,8 @@
-﻿namespace Mufaddal_Traders
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System;
+
+namespace Mufaddal_Traders
 {
     partial class frmAddUpdateUsers
     {
@@ -19,6 +23,28 @@
             }
             base.Dispose(disposing);
         }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            int borderThickness = 7;
+            Color borderColor = Color.DarkGray;
+
+            // Draw border
+            using (Pen pen = new Pen(borderColor, borderThickness))
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
+            }
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            this.Invalidate(); // Forces the form to redraw the border on resize
+        }
+
+
 
         #region Windows Form Designer generated code
 
@@ -44,6 +70,8 @@
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbUserType = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.picHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -176,9 +204,9 @@
             this.label2.Location = new System.Drawing.Point(43, 359);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 24);
+            this.label2.Size = new System.Drawing.Size(162, 24);
             this.label2.TabIndex = 322;
-            this.label2.Text = "Conform Password";
+            this.label2.Text = "Confirm Password";
             // 
             // btnClear
             // 
@@ -195,7 +223,7 @@
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Mufaddal_Traders.Properties.Resources._2546861;
-            this.btnClear.Location = new System.Drawing.Point(378, 483);
+            this.btnClear.Location = new System.Drawing.Point(378, 563);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(99, 38);
@@ -218,7 +246,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::Mufaddal_Traders.Properties.Resources.Edit;
-            this.btnUpdate.Location = new System.Drawing.Point(263, 483);
+            this.btnUpdate.Location = new System.Drawing.Point(263, 563);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(99, 38);
@@ -242,7 +270,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::Mufaddal_Traders.Properties.Resources.save_icon_2048x2048_iovw4qr4;
             this.btnSave.ImageSize = new System.Drawing.Size(17, 17);
-            this.btnSave.Location = new System.Drawing.Point(134, 483);
+            this.btnSave.Location = new System.Drawing.Point(134, 563);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 38);
@@ -267,7 +295,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.IconLeft = global::Mufaddal_Traders.Properties.Resources.Search;
-            this.txtSearch.Location = new System.Drawing.Point(168, 112);
+            this.txtSearch.Location = new System.Drawing.Point(259, 121);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
@@ -277,6 +305,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(218, 38);
             this.txtSearch.TabIndex = 308;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // pictureBox1
             // 
@@ -310,11 +339,41 @@
             this.btnBack.TabIndex = 309;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // cmbUserType
+            // 
+            this.cmbUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUserType.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUserType.FormattingEnabled = true;
+            this.cmbUserType.Items.AddRange(new object[] {
+            "Storekeeper",
+            "Shipping Manager",
+            "Accountants",
+            "Marketing and Sales Department"});
+            this.cmbUserType.Location = new System.Drawing.Point(47, 482);
+            this.cmbUserType.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbUserType.Name = "cmbUserType";
+            this.cmbUserType.Size = new System.Drawing.Size(339, 33);
+            this.cmbUserType.TabIndex = 325;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(43, 452);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 24);
+            this.label11.TabIndex = 324;
+            this.label11.Text = "User Type";
+            // 
             // frmAddUpdateUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 552);
+            this.ClientSize = new System.Drawing.Size(958, 627);
+            this.Controls.Add(this.cmbUserType);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtConfPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
@@ -331,6 +390,7 @@
             this.Controls.Add(this.picHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddUpdateUsers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateUsers";
             this.Load += new System.EventHandler(this.frmAddUpdateUsers_Load);
             this.picHeader.ResumeLayout(false);
@@ -358,5 +418,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtConfPass;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbUserType;
+        private System.Windows.Forms.Label label11;
     }
 }

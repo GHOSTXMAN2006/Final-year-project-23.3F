@@ -1135,6 +1135,16 @@ namespace Mufaddal_Traders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_computer_icons_user_profile_avatar_face_heroes__1_ {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-computer-icons-user-profile-avatar-face-heroes (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_transparent_black_computer_data_analysis_chart_computer_icons_analytics_seo_analysis_icon_miscellaneous_text_logo_thumbnail_removebg_preview_ {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-black-computer-data-analysis-chart-computer-icons-analytics-seo-a" +
@@ -1149,6 +1159,17 @@ namespace Mufaddal_Traders.Properties {
         internal static System.Drawing.Bitmap png_transparent_computer_icons_icon_design_back_miscellaneous_angle_text {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-computer-icons-icon-design-back-miscellaneous-angle-text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_computer_icons_user_profile_circle_abstract_miscellaneous_rim_account__1_ {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-computer-icons-user-profile-circle-abstract-miscellaneous-rim-acc" +
+                        "ount (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

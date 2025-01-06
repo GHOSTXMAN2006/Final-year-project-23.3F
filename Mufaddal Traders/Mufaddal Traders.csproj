@@ -1228,5 +1228,11 @@
   <ItemGroup>
     <None Include="Resources\User research-bro.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-computer-icons-user-profile-circle-abstract-miscellaneous-rim-account %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-computer-icons-user-profile-avatar-face-heroes %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

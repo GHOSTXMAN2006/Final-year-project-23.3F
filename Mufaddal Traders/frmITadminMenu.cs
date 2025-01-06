@@ -63,11 +63,6 @@ namespace Mufaddal_Traders
 
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             frmHome homeForm = new frmHome();
@@ -84,8 +79,8 @@ namespace Mufaddal_Traders
 
         private void tileadminUser_Click(object sender, EventArgs e)
         {
-            frmAddUpdateUsers AddUpdateUsers = new frmAddUpdateUsers();
-            AddUpdateUsers.Show();
+            frmUsers users = new frmUsers();
+            users.Show();
             this.Hide();
         }
 
@@ -94,6 +89,59 @@ namespace Mufaddal_Traders
             frmUserProfile Profile = new frmUserProfile();
             Profile.Show();
             this.Hide();
+        }
+
+        private void pnlChat_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            // Check the userType to open the corresponding menu form
+            switch (frmLogin.userType)  // Accessing userType from frmLogin
+            {
+                case "Storekeeper":
+                    new frmStorekeeperMenu().Show();
+                    break;
+                case "Shipping Manager":
+                    new frmShippingManagerMenu().Show();
+                    break;
+                case "Accountant":
+                    new frmAccountantsMenu().Show();
+                    break;
+                case "Marketing and Sales Department":
+                    new frmMSD_Menu().Show();
+                    break;
+                default:
+                    MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+
+            // Hide the current dashboard form (optional, to switch to the menu form)
+            this.Hide();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            // Clear the session or global variables
+            frmLogin.userType = string.Empty;
+            frmLogin.userName = string.Empty;
+            frmLogin.userPassword = string.Empty;
+            frmLogin.userEmail = string.Empty;
+            frmLogin.userTelephone = string.Empty;
+            frmLogin.userAddress = string.Empty;
+            frmLogin.userDescription = string.Empty;
+            frmLogin.profilePicture = null; // Clear profile picture if any
+
+            // Optionally, you can also clear other session variables if needed
+
+            // Close the current form (Dashboard)
+            this.Close();
+
+            // Show the login form again
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
         }
     }
 }

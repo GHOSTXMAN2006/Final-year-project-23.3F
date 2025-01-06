@@ -360,6 +360,9 @@ namespace Mufaddal_Traders
                 case "Marketing and Sales Department":
                     new frmMSD_Menu().Show();
                     break;
+                case "Admin":
+                    new frmITadminMenu().Show();
+                    break;
                 default:
                     MessageBox.Show("Invalid User Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
